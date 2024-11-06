@@ -1,0 +1,18 @@
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the preamble
+\else
+% Individual file compilation
+\documentclass[11pt]{article}
+\input{../Preamble.tex}  % Include the main preamble
+\begin{document}
+\fi
+
+\section{Introduction}\label{sec:Introduction}
+This is the introduction content
+
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the end
+\else
+\printbibliography
+\end{document}
+\fi

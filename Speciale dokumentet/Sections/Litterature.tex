@@ -1,0 +1,63 @@
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the preamble
+\else
+% Individual file compilation
+\documentclass[11pt]{article}
+\input{../Preamble.tex}  % Include the main preamble
+\begin{document}
+\fi
+
+
+\section{Literature review}\label{sec: literature}
+The purpose of this section is to review relevant literature to help understand the contributions made in this thesis. 
+This review covers \ac{MPT}, from its foundations and into the 21st century. \\
+Modern theory on portfolio choice can be traced back to the mean-variance framework of Harry Markowitz, who
+constructed and solved the now well established, static and single period, portfolio optimization problem, \textcite{Markowitz1952}. 
+This covers the mean-variance framework which is the foundation of \ac{MPT}, suggesting investors should allocate wealth in order to maximize expected return, while minimizing exposure to risk.
+Following this, the mean-variance framework has since been extended to a continious time setting,
+most notably by Robert Merton, who introduced a solution to the intertemporal portfolio choice problem in frictionless markets, \textcite{Merton1969}, 
+and later adding consumption rules aswell \textcite{Merton1971}. This solution is known as the Merton point in the asset allocation space, or the Merton portfolio.
+Mertons closed form solution suggests optimal asset allocations based on the asset return dynamics (mean-variance), and the risk aversion of the investor (preferences). 
+Hence in a continious time setting, the optimal allocation changes if the asset dynamics change.\\
+Multiple extensions have been made to the classical dynamic portfolio choice problem, such as the introduction of transaction costs,
+adding realistic constraints to the problem, since trading assets incurs costs in the real world, and markets are not frictionless.
+\textcite{Zabel1973} adresses transaction costs with CRRA preferences, but is limited to a discrete time setting, a single risky asset and a small horizon.\\
+\textcite{Constantinides1976,Constantinides1986} returns to the continious time setting, and find that for multiple preference types,
+under proportional transaction costs. The investors decision then depends on the the remaining life span, wealth and current allocation.
+Trading costs create a \ac{NTR}, where the optimal reallocation decision for portfolios inside this, is do to nothing, and for portfolios outside this region,
+the optimal decision is to trade towards the boundary of the \ac{NTR}. This is a shift from Mertons framework, where constant trading toward the Merton allocation,
+which is the optimal allocation in the absence of transaction costs, is optimal. Hence transaction costs restrain
+investors from acting optimally in the classical sense.\\
+Numerical examples only cover the case of one risky asset, with restrictions on the decision space, and results remain qualitative or approximate.
+Notably \textcite{DavisNorman1990} derive explicit solutions for the case of a single risky asset.
+They similarly find that proportional transaction costs lead to a \ac{NTR} around the Merton point, and provide a solution algorithm for the stochastic control problem.
+This has later been made more rigorous such as 
+\textcite{Aikan1996} who use a Hamilton-Jacobi-Bellman equation in the N-dimensional asset space, and provide further insight to the properties of the \ac{NTR}, however the problem is only solved for the case of $k=2$ risky assets with one risk free asset.
+Further analysis of this has been conducted extensively, e.g see \textcite{ShreveSoner1994}, \textcite{Oksendal2002}, \textcite{JanecekShreve2004}, however 
+the asset space is still constrained or solutions remain asymptotic. 
+\textcite{Muthuraman2006,Muthuraman2008} tackle a $D=3$ risky asset space, and provide a numerical solution to the problem, using a finites differences.\\
+The seminal paper by \textcite{CaiJuddXu2013} consider a more general setting, with multiple risky assets and a risk-free asset,
+and provides a solution algorithm, based on dynamic programming, numerical integration and polynomial approximation,
+to solve the dynamic problem for up to $k=6$ risky assets and thus $D=7$ assets in total,
+and later introduce and solve the problem with novelties, such as stochastic asset parameters
+or an option on an underlying asset in the portfolio \textcite{CaiJuddXu2020}.
+The curse of dimensionality, which haunts the prior methods applied, is somewhat tackled by the use
+of adaptive sparse grid methods, and sparse quadratuture rules by \textcite{Schober2022}.\\
+\textcite{Scheidegger2023} furthrt reduces the computational burden by using a Gaussian process regression
+to approximate value functions, and a problem specific point sampling strategy to reduce the number of points in the state space
+needed to characterize the \ac{NTR}.
+Increasing the dimensions of the asset space does still increase the dimensionality of the problem, and the computational burden,
+however this is at a much lower extent than previous methods.\\
+Beyond the analysis conducted by the authors above, several related avenues of reseatch have been conducted on the dynamic portfolio choice problemn.
+\textcite{Garleanu2013} remains an influential paper, which aims to derive optimal closed form portfolio policy, when returns are driven by signals with mean reversion.
+This provides an insightful analysis of how to trade towards the optimal portfolio, given quadratic transaction costs, within a set scope of serially correlated assets.
+\textcite{Dybvig2020} provides a comprehensive overview on the usage of different transaction cost functions, hedging with futures and security specific costs.
+Dybvig find that by changing the transaction cost function, the properties of the NTR is altered.\footnote{\textcite{Scheidegger2023}, also note that their framework is applicable to different transaction cost functions.}
+
+
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the end
+\else
+\printbibliography
+\end{document}
+\fi

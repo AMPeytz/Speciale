@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+\input{../Preamble.tex}
+\usepackage{pdfpages}  % For inserting the KU_FrontPage PDF
+% \input{preamble}
+% Define this macro so subfiles know they're part of the main file
+\def\COMPILINGMAIN{}
+
+\newpage
+
+\author{Masters Thesis\\
+	Alexander Michael Peytz\footnote{Department of Economics, University of Copenhagen. E-mail: kqw203@alumni.ku.dk.}}
+
+\title{Dynamic Portfolio Choice Under Various Transaction Costs and Asset Structures\footnote{I thank my supervisor Bertel Schjerning for...}}
+\date{\today}
+
+\begin{document}
+% \includepdf[pages=1,fitpaper]{Forside}
+\includepdf[pages=1]{forside.pdf}
+
+\clearpage
+\setcounter{page}{1}
+
+\maketitle
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\begin{abstract}
+\noindent This thesis 
+\end{abstract}
+%{\centering \paragraph{Characters incl. spaces:} xx (xx pages) \par}
+
+\newpage
+% to a group so all this is only black in the ToC and not in the document
+\begingroup 
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+  \newpage
+  %\addcontentsline{lof}{section}{Appendices} % Add "Appendices" title to the list of figures
+  \addtocontents{lot}{\protect\setcounter{tocdepth}{1}}
+  \addtocontents{lof}{\protect\setcounter{tocdepth}{1}}
+  \listoffigures
+  \listoftables
+  \printacronyms[sort=true, template=tabular, display=used]  
+\endgroup
+\newpage
+
+\clearpage
+\numberwithin{figure}{section}
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+\section{What has been the contributions in this paper for now (Not in final paper)}\label{sec:contributions}
+\begin{itemize}
+  \item Bridging \textcite{CaiJuddXu2020} and \textcite{Scheidegger2023}. By adding the following to the framework of \textcite{Scheidegger2023}:
+    \begin{itemize}
+      \item By adding time period spacing $\Delta t$. Adds dimensions from behavioural finance, and continous finance theory.
+      \item Adding $\theta_t$ \textbf{maybe} (Not coded!)
+      \item By adding option pricing (Not coded!). Adds dimensions from derivatives pricing. Complex asset dynamics.
+    \end{itemize} 
+    \item By adding other transaction cost types. Such as:
+    \begin{itemize}
+      \item Fixed transaction costs (Not coded!)
+      \item Asset specific transaction costs (Not coded!)
+    \end{itemize}
+    \item Computationally:
+    \begin{itemize}
+      \item Using LOVE approximation for the GP (Faster Variance estimation)
+      \item Using Kernel interpolation for the GP (Speeding up Kernel Matrix Computations)
+    \end{itemize}
+\end{itemize}
+
+\section{To-Do}\label{sec:To-Do}
+\begin{itemize}
+  \item Introduction
+  \item Economic theory
+      \begin{itemize}
+        \item NTR Theoy (Dybvig etc)
+        \item Option Price theory (Black-Scholes). 
+        \item Transaction cost theory (Fixed, asset specific (Just formulations))
+        \item Price impact theory \textbf{maybe} (See Garlenau etc).
+      \end{itemize}
+  \item Portfolio choice models
+      \begin{itemize}
+        \item Model with options (After option theory)
+        \item Model with other transaction costs
+      \end{itemize}
+  \item Skrive implementation details
+      \begin{itemize}
+        \item No trade region approximation (sample etc.)
+        \item Final Algorithms 
+      \end{itemize}
+  \item Kode:
+    \begin{itemize}
+      \item Option pricing, new: Exotic options.
+      \item Implement other transaction cost types
+      \item Implement $\theta_t$ (Maybe not. not that interesting)
+    \end{itemize}  
+\end{itemize}
+
+
+\input{../Sections/Introduction.tex}
+\input{../Sections/Litterature.tex}
+\input{../Sections/EconomicTheory.tex}
+\input{../Sections/Portfolio_Choice.tex}
+\input{../Sections/Implementation Details.tex}
+
+\newpage
+
+\begingroup 
+  \hypersetup{linkcolor=black}
+
+  \hypersetup{
+    colorlinks=true,
+    citecolor=black,
+    linkcolor=black,
+    filecolor=black, 
+    urlcolor=black}
+  \printbibliography
+\endgroup
+
+\newpage
+
+\input{../Sections/Appendicies.tex}
+
+\end{document}

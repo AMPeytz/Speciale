@@ -1,0 +1,306 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global/global}
+  \entry{Aikan1996}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=AM}{%
+         family={Akian},
+         familyi={A\bibinitperiod},
+         given={Marianne},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MJL}{%
+         family={Menaldi},
+         familyi={M\bibinitperiod},
+         given={Jos\'{e}\bibnamedelima Luis},
+         giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Sulem},
+         familyi={S\bibinitperiod},
+         given={Agn\`{e}s},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AMMJLSA1}
+    \strng{fullhash}{AMMJLSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1996}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.1137/S0363012993247159
+    \endverb
+    \field{number}{1}
+    \field{pages}{329\bibrangedash 364}
+    \field{title}{On an Investment-Consumption Model with Transaction Costs}
+    \field{volume}{34}
+    \field{journaltitle}{SIAM Journal on Control and Optimization}
+    \field{year}{1996}
+  \endentry
+
+  \entry{Bjork}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=BT}{%
+         family={Björk},
+         familyi={B\bibinitperiod},
+         given={{Tomas}},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford Univ. Press}%
+    }
+    \strng{namehash}{BT1}
+    \strng{fullhash}{BT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{edition}{4. ed.}
+    \field{isbn}{9780198851615}
+    \field{title}{Arbitrage theory in continuous time}
+    \verb{url}
+    \verb http://gso.gbv.de/DB=2.1/CMD?ACT=SRCHA&SRT=YOP&IKT=1016&TRM=ppn+50589
+    \verb 3878&sourceid=fbw_bibsonomy
+    \endverb
+    \field{year}{2019}
+  \endentry
+
+  \entry{CaiJuddXu2013}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=CY}{%
+         family={Cai},
+         familyi={C\bibinitperiod},
+         given={Yongyang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=JKL}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={Kenneth\bibnamedelima L.},
+         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=XR}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Rong},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CYJKLXR1}
+    \strng{fullhash}{CYJKLXR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    We apply numerical dynamic programming to multi-asset dynamic portfolio optimization problems with proportional transaction costs. Examples include problems with one safe asset plus two to six risky stocks, and seven to 360 trading periods in a finite horizon problem. These examples show that it is now tractable to solve such problems.%
+    }
+    \verb{doi}
+    \verb 10.3386/w18709
+    \endverb
+    \field{number}{18709}
+    \field{series}{Working Paper Series}
+    \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
+    \list{institution}{1}{%
+      {National Bureau of Economic Research}%
+    }
+    \field{type}{Working Paper}
+    \field{year}{2013}
+  \endentry
+
+  \entry{CaiJuddXu2020}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=CY}{%
+         family={Cai},
+         familyi={C\bibinitperiod},
+         given={Yongyang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=JKL}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={Kenneth\bibnamedelima L.},
+         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=XR}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Rong},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CYJKLXR1}
+    \strng{fullhash}{CYJKLXR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{eprint}
+    \verb 2003.01809
+    \endverb
+    \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
+    \verb{url}
+    \verb https://arxiv.org/abs/2003.01809
+    \endverb
+    \field{type}{techreport}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{q-fin.PM}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Dybvig2020}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=DPH}{%
+         family={Dybvig},
+         familyi={D\bibinitperiod},
+         given={Philip\bibnamedelima H},
+         giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=PL}{%
+         family={Pezzo},
+         familyi={P\bibinitperiod},
+         given={Luca},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DPHPL1}
+    \strng{fullhash}{DPHPL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Mean-variance portfolio rebalancing with transaction costs}
+    \field{journaltitle}{Available at SSRN 3373329}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Scheidegger2023}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=GL}{%
+         family={Gaegauf},
+         familyi={G\bibinitperiod},
+         given={Luca},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Scheidegger},
+         familyi={S\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TF}{%
+         family={Trojani},
+         familyi={T\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \keyw{Machine learning, computational finance, Gaussian process regression, dynamic portfolio optimization, transaction costs, liquidity premia}
+    \strng{namehash}{GLSSTF1}
+    \strng{fullhash}{GLSSTF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{abstract}{%
+    We introduce a comprehensive computational framework for solving dynamic portfolio choice problems with many risky assets, transaction costs, and borrowing and short-selling constraints. Our approach leverages the synergy between Gaussian process regression and Bayesian active learning to efficiently approximate value and policy functions. This combination allows us to study dynamic portfolio choice problems with more risky assets than was previously possible.%
+    }
+    \field{number}{23-114}
+    \field{pages}{70}
+    \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
+    \verb{url}
+    \verb https://ssrn.com/abstract=4543794
+    \endverb
+    \list{institution}{1}{%
+      {Swiss Finance Institute}%
+    }
+    \field{type}{techreport}
+    \field{journaltitle}{Swiss Finance Institute Research Paper}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Merton1969}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=MRC}{%
+         family={Merton},
+         familyi={M\bibinitperiod},
+         given={Robert\bibnamedelima C.},
+         giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JSTOR}%
+    }
+    \strng{namehash}{MRC1}
+    \strng{fullhash}{MRC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1969}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{pages}{247\bibrangedash 257}
+    \field{title}{Lifetime Portfolio Selection under Uncertainty: The Continuous-Time Case}
+    \field{journaltitle}{The Review of Economics and Statistics}
+    \field{year}{1969}
+  \endentry
+
+  \entry{Merton1971}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=MRC}{%
+         family={Merton},
+         familyi={M\bibinitperiod},
+         given={Robert\bibnamedelima C.},
+         giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MRC1}
+    \strng{fullhash}{MRC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1971}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1016/0022-0531(71)90038-X
+    \endverb
+    \field{number}{4}
+    \field{pages}{373\bibrangedash 413}
+    \field{title}{Optimum Consumption and Portfolio Rules in a Continuous-Time Model}
+    \field{volume}{3}
+    \field{journaltitle}{Journal of Economic Theory}
+    \field{year}{1971}
+  \endentry
+\enddatalist
+\endinput

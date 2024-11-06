@@ -1,0 +1,12 @@
+2024-09-24 14:43:21,344 - INFO - Solving Bellman equation for xt: tensor([0., 0.])
+2024-09-24 14:43:21,386 - ERROR - No optimizer solution found for point tensor([[0., 0.]])!
+2024-09-24 14:43:21,386 - INFO - Solving Bellman equation for xt: tensor([0., 1.])
+2024-09-24 14:43:21,389 - ERROR - No optimizer solution found for point tensor([[0., 1.]])!
+2024-09-24 14:43:21,389 - INFO - Solving Bellman equation for xt: tensor([1., 0.])
+2024-09-24 14:43:21,396 - ERROR - No optimizer solution found for point tensor([[1., 0.]])!
+2024-09-24 14:43:21,396 - INFO - Solving Bellman equation for xt: tensor([0.5000, 0.5000])
+2024-09-24 14:43:21,400 - ERROR - No optimizer solution found for point tensor([[0.5000, 0.5000]])!
+2024-09-24 14:43:21,401 - INFO - Solving Bellman equation for xt: tensor([0.2500, 0.7500])
+2024-09-24 14:43:21,404 - ERROR - No optimizer solution found for point tensor([[0.2500, 0.7500]])!
+2024-09-24 14:43:21,404 - INFO - Solving Bellman equation for xt: tensor([0.7500, 0.2500])
+2024-09-24 14:43:21,408 - ERROR - No optimizer solution found for point tensor([[0.7500, 0.2500]])!

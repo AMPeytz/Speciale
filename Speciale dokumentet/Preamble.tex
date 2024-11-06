@@ -1,0 +1,116 @@
+% Geometry and page layout
+\usepackage{geometry}
+\geometry{verbose,tmargin=3.375cm,bmargin=2cm,lmargin=3.375cm,rmargin=3.375cm}
+
+% Input encoding and font settings
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts, amsmath, amsthm, bbm, setspace}
+\onehalfspacing
+
+% Theorem and math environments
+\newtheorem{assumption}{Assumption}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+% New math commands
+\newcommand{\npsym}{\mathrel{\ooalign{\raisebox{.6ex}{$>$}\cr\raisebox{-.6ex}{$<$}}}}
+
+% Table formatting
+\usepackage{booktabs, multirow, array, tabularx}
+\newcolumntype{N}{>{\centering\arraybackslash}m{.85in}}
+
+% Caption settings
+\usepackage{caption}
+\captionsetup{format=plain, font=footnotesize, labelfont=bf,width=3.5in}
+\setlength{\abovecaptionskip}{3pt plus 3pt minus 3pt}
+
+% Figures and floats setup
+\usepackage{graphicx, adjustbox}
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=top}
+\floatsetup[table]{capposition=top}
+\renewcommand\thefigure{\thesection.\arabic{figure}}
+% Path to figures
+\graphicspath{{../Figures/}}
+
+% URLs and references and colors
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    citecolor=[HTML]{901A1E}, %KU red
+    linkcolor=[HTML]{901A1E}, %KU red    
+    filecolor=blue, 
+    urlcolor=[HTML]{901A1E}, %KU red
+    hyperindex=true,
+    hyperfigures=true,
+    hyperfootnotes=true,
+}
+
+% Biblatex settings for references
+\usepackage[style=authoryear, dashed=false, backend=bibtex]{biblatex}
+\addbibresource{../Ref.bib}
+
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \setunit*{\addcomma\space}%
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}
+}
+\DeclareFieldFormat[article]{volume}{\bibstring{volume}~#1}
+\DeclareFieldFormat[article]{number}{\bibstring{number}~#1}
+\DefineBibliographyStrings{english}{volume = {Vol.}, number = {No.}}
+
+% Author name formatting
+\DeclareNameAlias{author}{last-first}
+\renewcommand*{\finalnamedelim}{\addspace and\space}
+\renewcommand*{\multinamedelim}{\addcomma\space}
+
+% Footnotes and appendix setup
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage[toc,page]{appendix}
+\renewcommand\appendixtocname{Appendices A-F}
+\renewcommand\appendixpagename{Appendices}
+
+% Title setup
+\usepackage{titlepic}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.1pt]}]
+
+% Abbreviations (acronym package)
+\usepackage{acro}
+\acsetup{list/name = Abbreviations}
+\DeclareAcronym{MPT}{short=MPT, long=modern portfolio theory}
+\DeclareAcronym{NTR}{short=NTR, long=no-trade-region}
+\DeclareAcronym{MC}{short=MC, long=Monte Carlo}
+\DeclareAcronym{QMC}{short=MPT, long=quasi-Monte Carlo}
+\DeclareAcronym{RQMC}{short=MPT, long=randomized quasi-Monte Carlo}
+\DeclareAcronym{LDS}{short = LDS, long = low-discrepancy sequences}
+\DeclareAcronym{LLN}{short = LLN, long = law of large numbers}
+\DeclareAcronym{GPR}{short = GPR, long = Gaussian process regression}
+\DeclareAcronym{GP}{short = GP, long = Gaussian process}
+\DeclareAcronym{ARD}{short = ARD, long = automatic relevance detection}
+\DeclareAcronym{LOVE}{short = LOVE, long = LanczOS Variance estimates}
+\DeclareAcronym{SKIP}{short = SKIP, long = Structured Kernel Interpolation for Products}
+\DeclareAcronym{SGD}{short = SGD, long = stochastic gradient descent}
+
+
+
+% Conditional macro for compiling individual files
+\ifdefined\COMPILINGMAIN
+% Define settings when compiling the main document
+\else
+% Define minimal preamble for individual file compilation
+\usepackage{geometry}
+\geometry{verbose,tmargin=3.375cm,bmargin=2cm,lmargin=3.375cm,rmargin=3.375cm}
+\fi
+
+\AtBeginDocument{%
+    \renewcommand{\contentsname}{Table of Contents}
+    \renewcommand{\abstractname}{Abstract}
+}
+
+% Define the macro for compiling the main file
+%\def\COMPILINGMAIN{}

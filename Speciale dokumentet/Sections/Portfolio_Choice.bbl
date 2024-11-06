@@ -1,0 +1,226 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global/global}
+  \entry{Bellman1958}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=BR}{%
+         family={Bellman},
+         familyi={B\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BR1}
+    \strng{fullhash}{BR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1958}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{abstract}{%
+    Consider a system S specified at any time t by a finite dimensional vector x(t) satisfying a vector differential equation dx/dt = g[x, r(t), f(t)], x(0) = c, where c is the initial state, r(t) is a random forcing term possessing a known distribution, and f(t) is a forcing term chosen, via a feedback process, so as to minimize the expected value of a functional J(x) = ƒ0T h(x − y, t) dG(t), where y(t) is a known function, or chosen so as to minimize the functional defined by the probability that max0 ≦ t ≦ T h(x − y, t) exceed a specified bound. It is shown how the functional equation technique of dynamic programming may be used to obtain a new computational and analytic approach to problems of this genre. The limited memory capacity of present-day digital computers limits the routine application of these techniques to first and second order systems at the moment, with limited application to higher order systems.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/S0019-9958(58)80003-0
+    \endverb
+    \field{issn}{0019-9958}
+    \field{number}{3}
+    \field{pages}{228\bibrangedash 239}
+    \field{title}{Dynamic programming and stochastic control processes}
+    \field{volume}{1}
+    \field{journaltitle}{Information and Control}
+    \field{year}{1958}
+  \endentry
+
+  \entry{CaiJuddXu2013}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=CY}{%
+         family={Cai},
+         familyi={C\bibinitperiod},
+         given={Yongyang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=JKL}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={Kenneth\bibnamedelima L.},
+         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=XR}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Rong},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CYJKLXR1}
+    \strng{fullhash}{CYJKLXR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    We apply numerical dynamic programming to multi-asset dynamic portfolio optimization problems with proportional transaction costs. Examples include problems with one safe asset plus two to six risky stocks, and seven to 360 trading periods in a finite horizon problem. These examples show that it is now tractable to solve such problems.%
+    }
+    \verb{doi}
+    \verb 10.3386/w18709
+    \endverb
+    \field{number}{18709}
+    \field{series}{Working Paper Series}
+    \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
+    \list{institution}{1}{%
+      {National Bureau of Economic Research}%
+    }
+    \field{type}{Working Paper}
+    \field{year}{2013}
+  \endentry
+
+  \entry{CaiJuddXu2020}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=CY}{%
+         family={Cai},
+         familyi={C\bibinitperiod},
+         given={Yongyang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=JKL}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={Kenneth\bibnamedelima L.},
+         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=XR}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Rong},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CYJKLXR1}
+    \strng{fullhash}{CYJKLXR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{eprint}
+    \verb 2003.01809
+    \endverb
+    \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
+    \verb{url}
+    \verb https://arxiv.org/abs/2003.01809
+    \endverb
+    \field{type}{techreport}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{q-fin.PM}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Scheidegger2023}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=GL}{%
+         family={Gaegauf},
+         familyi={G\bibinitperiod},
+         given={Luca},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Scheidegger},
+         familyi={S\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TF}{%
+         family={Trojani},
+         familyi={T\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \keyw{Machine learning, computational finance, Gaussian process regression, dynamic portfolio optimization, transaction costs, liquidity premia}
+    \strng{namehash}{GLSSTF1}
+    \strng{fullhash}{GLSSTF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{abstract}{%
+    We introduce a comprehensive computational framework for solving dynamic portfolio choice problems with many risky assets, transaction costs, and borrowing and short-selling constraints. Our approach leverages the synergy between Gaussian process regression and Bayesian active learning to efficiently approximate value and policy functions. This combination allows us to study dynamic portfolio choice problems with more risky assets than was previously possible.%
+    }
+    \field{number}{23-114}
+    \field{pages}{70}
+    \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
+    \verb{url}
+    \verb https://ssrn.com/abstract=4543794
+    \endverb
+    \list{institution}{1}{%
+      {Swiss Finance Institute}%
+    }
+    \field{type}{techreport}
+    \field{journaltitle}{Swiss Finance Institute Research Paper}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Schober2022}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=SP}{%
+         family={Schober},
+         familyi={S\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=VJ}{%
+         family={Valentin},
+         familyi={V\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Pflüger},
+         familyi={P\bibinitperiod},
+         given={Dirk},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SPVJPD1}
+    \strng{fullhash}{SPVJPD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1007/s10614-021-10118-9
+    \endverb
+    \field{number}{1}
+    \field{pages}{185\bibrangedash 224}
+    \field{title}{Solving High-Dimensional Dynamic Portfolio Choice Models with Hierarchical B-Splines on Sparse Grids}
+    \field{volume}{59}
+    \field{journaltitle}{Computational Economics}
+    \field{year}{2022}
+  \endentry
+\enddatalist
+\endinput

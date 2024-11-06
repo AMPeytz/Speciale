@@ -1,0 +1,19 @@
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the preamble
+\else
+% Individual file compilation
+\documentclass[11pt]{article}
+\input{preamble}  % Include the main preamble
+
+\begin{document}
+\fi
+
+\section{}\label{section:}
+
+
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the end
+\else
+\printbibliography
+\end{document}
+\fi

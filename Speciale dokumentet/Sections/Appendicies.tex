@@ -1,0 +1,43 @@
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the preamble
+\else
+% Individual file compilation
+\documentclass[11pt]{article}
+\input{../Preamble.tex}  % Include the main preamble
+\begin{document}
+\fi
+
+\begin{appendices}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+
+
+\section{}\label{section: Appendix A}
+\newpage
+\section{Other sampling strategies}\label{section: Appendix B}
+\begin{figure}[h!]
+  \begin{center}
+  \caption{Uniform grid sampling strategy} 
+  \label{fig: uniform_grid}
+  \includegraphics[scale=0.34]{uniform_grid.png}
+  \end{center}
+  \floatfoot{\textbf{Note:} Sample consists of $N=200$ points.}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \begin{center}
+    \caption{Naive random sampling strategy} 
+    \label{fig: random_sample}
+    \includegraphics[scale=0.34]{naive_sampling_strategy.png}
+    \end{center}
+    \floatfoot{\textbf{Note:} Sample consists of $N=200$ points.}
+    \end{figure}
+
+\end{appendices}
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the end
+\else
+% \printbibliography
+\end{document}
+\fi

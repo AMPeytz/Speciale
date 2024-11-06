@@ -1,0 +1,1022 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global/global}
+  \entry{Aikan1996}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=AM}{%
+         family={Akian},
+         familyi={A\bibinitperiod},
+         given={Marianne},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MJL}{%
+         family={Menaldi},
+         familyi={M\bibinitperiod},
+         given={Jos\'{e}\bibnamedelima Luis},
+         giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Sulem},
+         familyi={S\bibinitperiod},
+         given={Agn\`{e}s},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AMMJLSA1}
+    \strng{fullhash}{AMMJLSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1996}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.1137/S0363012993247159
+    \endverb
+    \field{number}{1}
+    \field{pages}{329\bibrangedash 364}
+    \field{title}{On an Investment-Consumption Model with Transaction Costs}
+    \field{volume}{34}
+    \field{journaltitle}{SIAM Journal on Control and Optimization}
+    \field{year}{1996}
+  \endentry
+
+  \entry{Bellman1958}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=BR}{%
+         family={Bellman},
+         familyi={B\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BR1}
+    \strng{fullhash}{BR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1958}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{abstract}{%
+    Consider a system S specified at any time t by a finite dimensional vector x(t) satisfying a vector differential equation dx/dt = g[x, r(t), f(t)], x(0) = c, where c is the initial state, r(t) is a random forcing term possessing a known distribution, and f(t) is a forcing term chosen, via a feedback process, so as to minimize the expected value of a functional J(x) = ƒ0T h(x − y, t) dG(t), where y(t) is a known function, or chosen so as to minimize the functional defined by the probability that max0 ≦ t ≦ T h(x − y, t) exceed a specified bound. It is shown how the functional equation technique of dynamic programming may be used to obtain a new computational and analytic approach to problems of this genre. The limited memory capacity of present-day digital computers limits the routine application of these techniques to first and second order systems at the moment, with limited application to higher order systems.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/S0019-9958(58)80003-0
+    \endverb
+    \field{issn}{0019-9958}
+    \field{number}{3}
+    \field{pages}{228\bibrangedash 239}
+    \field{title}{Dynamic programming and stochastic control processes}
+    \field{volume}{1}
+    \field{journaltitle}{Information and Control}
+    \field{year}{1958}
+  \endentry
+
+  \entry{Bjork}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=BT}{%
+         family={Björk},
+         familyi={B\bibinitperiod},
+         given={{Tomas}},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford Univ. Press}%
+    }
+    \strng{namehash}{BT1}
+    \strng{fullhash}{BT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{edition}{4. ed.}
+    \field{isbn}{9780198851615}
+    \field{title}{Arbitrage theory in continuous time}
+    \verb{url}
+    \verb http://gso.gbv.de/DB=2.1/CMD?ACT=SRCHA&SRT=YOP&IKT=1016&TRM=ppn+50589
+    \verb 3878&sourceid=fbw_bibsonomy
+    \endverb
+    \field{year}{2019}
+  \endentry
+
+  \entry{CaiJuddXu2013}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=CY}{%
+         family={Cai},
+         familyi={C\bibinitperiod},
+         given={Yongyang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=JKL}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={Kenneth\bibnamedelima L.},
+         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=XR}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Rong},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CYJKLXR1}
+    \strng{fullhash}{CYJKLXR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    We apply numerical dynamic programming to multi-asset dynamic portfolio optimization problems with proportional transaction costs. Examples include problems with one safe asset plus two to six risky stocks, and seven to 360 trading periods in a finite horizon problem. These examples show that it is now tractable to solve such problems.%
+    }
+    \verb{doi}
+    \verb 10.3386/w18709
+    \endverb
+    \field{number}{18709}
+    \field{series}{Working Paper Series}
+    \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
+    \list{institution}{1}{%
+      {National Bureau of Economic Research}%
+    }
+    \field{type}{Working Paper}
+    \field{year}{2013}
+  \endentry
+
+  \entry{CaiJuddXu2020}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=CY}{%
+         family={Cai},
+         familyi={C\bibinitperiod},
+         given={Yongyang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=JKL}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={Kenneth\bibnamedelima L.},
+         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=XR}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Rong},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CYJKLXR1}
+    \strng{fullhash}{CYJKLXR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{eprint}
+    \verb 2003.01809
+    \endverb
+    \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
+    \verb{url}
+    \verb https://arxiv.org/abs/2003.01809
+    \endverb
+    \field{type}{techreport}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{q-fin.PM}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Constantinides1976}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=CGM}{%
+         family={Constantinides},
+         familyi={C\bibinitperiod},
+         given={George\bibnamedelima M.},
+         giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {INFORMS}%
+    }
+    \strng{namehash}{CGM1}
+    \strng{fullhash}{CGM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1976}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{8}
+    \field{pages}{921\bibrangedash 923}
+    \field{title}{Note—Optimal Portfolio Revision with Proportional Transaction Costs: Extension to Hara Utility Functions and Exogenous Deterministic Income}
+    \field{volume}{22}
+    \field{journaltitle}{Management Science}
+    \field{year}{1976}
+  \endentry
+
+  \entry{Constantinides1986}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=CGM}{%
+         family={Constantinides},
+         familyi={C\bibinitperiod},
+         given={George\bibnamedelima M.},
+         giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {University of Chicago Press}%
+    }
+    \strng{namehash}{CGM1}
+    \strng{fullhash}{CGM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1986}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{issn}{00223808, 1537534X}
+    \field{number}{4}
+    \field{pages}{842\bibrangedash 862}
+    \field{title}{Capital Market Equilibrium with Transaction Costs}
+    \verb{url}
+    \verb http://www.jstor.org/stable/1833205
+    \endverb
+    \field{volume}{94}
+    \field{journaltitle}{Journal of Political Economy}
+    \field{year}{1986}
+  \endentry
+
+  \entry{DavisNorman1990}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=DMHA}{%
+         family={Davis},
+         familyi={D\bibinitperiod},
+         given={M.\bibnamedelima H.\bibnamedelima A.},
+         giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=NAR}{%
+         family={Norman},
+         familyi={N\bibinitperiod},
+         given={A.\bibnamedelima R.},
+         giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {INFORMS}%
+    }
+    \strng{namehash}{DMHANAR1}
+    \strng{fullhash}{DMHANAR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1990}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.1287/moor.15.4.676
+    \endverb
+    \field{number}{4}
+    \field{pages}{676\bibrangedash 713}
+    \field{title}{Portfolio Selection with Transaction Costs}
+    \field{volume}{15}
+    \field{journaltitle}{Mathematics of Operations Research}
+    \field{year}{1990}
+  \endentry
+
+  \entry{Dybvig2020}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=DPH}{%
+         family={Dybvig},
+         familyi={D\bibinitperiod},
+         given={Philip\bibnamedelima H},
+         giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=PL}{%
+         family={Pezzo},
+         familyi={P\bibinitperiod},
+         given={Luca},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DPHPL1}
+    \strng{fullhash}{DPHPL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Mean-variance portfolio rebalancing with transaction costs}
+    \field{journaltitle}{Available at SSRN 3373329}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Scheidegger2023}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=GL}{%
+         family={Gaegauf},
+         familyi={G\bibinitperiod},
+         given={Luca},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Scheidegger},
+         familyi={S\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TF}{%
+         family={Trojani},
+         familyi={T\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \keyw{Machine learning, computational finance, Gaussian process regression, dynamic portfolio optimization, transaction costs, liquidity premia}
+    \strng{namehash}{GLSSTF1}
+    \strng{fullhash}{GLSSTF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{abstract}{%
+    We introduce a comprehensive computational framework for solving dynamic portfolio choice problems with many risky assets, transaction costs, and borrowing and short-selling constraints. Our approach leverages the synergy between Gaussian process regression and Bayesian active learning to efficiently approximate value and policy functions. This combination allows us to study dynamic portfolio choice problems with more risky assets than was previously possible.%
+    }
+    \field{number}{23-114}
+    \field{pages}{70}
+    \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
+    \verb{url}
+    \verb https://ssrn.com/abstract=4543794
+    \endverb
+    \list{institution}{1}{%
+      {Swiss Finance Institute}%
+    }
+    \field{type}{techreport}
+    \field{journaltitle}{Swiss Finance Institute Research Paper}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Garleanu2013}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=GN}{%
+         family={Garleanu},
+         familyi={G\bibinitperiod},
+         given={Nicolae},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=PLH}{%
+         family={Pedersen},
+         familyi={P\bibinitperiod},
+         given={Lasse\bibnamedelima Heje},
+         giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley Online Library}%
+    }
+    \strng{namehash}{GNPLH1}
+    \strng{fullhash}{GNPLH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{6}
+    \field{pages}{2309\bibrangedash 2340}
+    \field{title}{Dynamic Trading with Predictable Returns and Transaction Costs}
+    \field{volume}{68}
+    \field{journaltitle}{The Journal of Finance}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Glasserman2004MC}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=GP}{%
+         family={Glasserman},
+         familyi={G\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{GP1}
+    \strng{fullhash}{GP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{isbn}{0387004513 9780387004518}
+    \field{title}{Monte Carlo methods in financial engineering}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2004}
+  \endentry
+
+  \entry{Gonzalvez2019}{report}{}{}
+    \name{author}{4}{}{%
+      {{hash=GJ}{%
+         family={Gonzalvez},
+         familyi={G\bibinitperiod},
+         given={Joan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LE}{%
+         family={Lezmi},
+         familyi={L\bibinitperiod},
+         given={Edmond},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=RT}{%
+         family={Roncalli},
+         familyi={R\bibinitperiod},
+         given={Thierry},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=XJ}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Jiali},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \keyw{Gaussian process, Bayesian optimization, machine learning, kernel function, hyperparameter selection, time-series prediction, asset allocation, portfolio optimization}
+    \strng{namehash}{GJ+1}
+    \strng{fullhash}{GJLERTXJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{note}{Document for the exclusive attention of professional clients, investment services providers and any other professional of the financial industry}
+    \field{number}{WP-80-2019}
+    \field{title}{Financial Applications of Gaussian Processes and Bayesian Optimization}
+    \list{institution}{1}{%
+      {Amundi Quantitative Research}%
+    }
+    \field{type}{Working Paper}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Scramble2023}{misc}{}{}
+    \name{author}{2}{}{%
+      {{hash=HJ}{%
+         family={Hok},
+         familyi={H\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Kucherenko},
+         familyi={K\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HJKS1}
+    \strng{fullhash}{HJKS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{eprint}
+    \verb 2210.16548
+    \endverb
+    \field{title}{The importance of being scrambled: supercharged Quasi Monte Carlo}
+    \verb{url}
+    \verb https://arxiv.org/abs/2210.16548
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{q-fin.CP}
+    \field{year}{2023}
+  \endentry
+
+  \entry{horneff2016efficient}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=HV}{%
+         family={Horneff},
+         familyi={H\bibinitperiod},
+         given={Vanya},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Maurer},
+         familyi={M\bibinitperiod},
+         given={Raimond},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Schober},
+         familyi={S\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HVMRSP1}
+    \strng{fullhash}{HVMRSP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Efficient parallel solution methods for dynamic portfolio choice models in discrete time}
+    \field{journaltitle}{Available at SSRN 2665031}
+    \field{year}{2016}
+  \endentry
+
+  \entry{JanecekShreve2004}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=JK}{%
+         family={Jane{\v c}ek},
+         familyi={J\bibinitperiod},
+         given={Karel},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=SSE}{%
+         family={Shreve},
+         familyi={S\bibinitperiod},
+         given={Steven\bibnamedelima E.},
+         giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JKSSE1}
+    \strng{fullhash}{JKSSE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{abstract}{%
+    We consider an agent who invests in a stock and a money market and consumes in order to maximize the utility of consumption over an infinite planning horizon in the presence of a proportional transaction cost {\$}{$\backslash$}lambda > 0{\$}. The utility function is of the form U(c) = c1-p/(1-p) for p > 0, {\$}p{$\backslash$}neq 1{\$}. We provide a heuristic and a rigorous derivation of the asymptotic expansion of the value function in powers of {\$}{$\backslash$}lambda\^{}{\{}1/3{\}}{\$}, and we also obtain asymptotic results on the boundary of the ``no-trade''region.%
+    }
+    \verb{doi}
+    \verb 10.1007/s00780-003-0113-4
+    \endverb
+    \field{isbn}{1432-1122}
+    \field{number}{2}
+    \field{pages}{181\bibrangedash 206}
+    \field{title}{Asymptotic analysis for optimal investment and consumption with transaction costs}
+    \field{volume}{8}
+    \field{journaltitle}{Finance and Stochastics}
+    \field{year}{2004}
+  \endentry
+
+  \entry{Judd1998Book}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=JKL}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={Kenneth\bibnamedelima L.},
+         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {The MIT Press}%
+    }
+    \keyw{numerical methods; computer technology; economic analysis}
+    \strng{namehash}{JKL1}
+    \strng{fullhash}{JKL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1998}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{abstract}{%
+    To harness the full power of computer technology, economists need to use a broad range of mathematical techniques. In this book, Kenneth Judd presents techniques from the numerical analysis and applied mathematics literatures and shows how to use them in economic analyses. The book is divided into five parts. Part I provides a general introduction. Part II presents basics from numerical analysis on R^n, including linear equations, iterative methods, optimization, nonlinear equations, approximation methods, numerical integration and differentiation, and Monte Carlo methods. Part III covers methods for dynamic problems, including finite difference methods, projection methods, and numerical dynamic programming. Part IV covers perturbation and asymptotic solution methods. Finally, Part V covers applications to dynamic equilibrium analysis, including solution methods for perfect foresight models and rational expectation models. A web site contains supplementary material including programs and answers to exercises.%
+    }
+    \field{isbn}{ARRAY(0x5a5be060)}
+    \field{number}{0262100711}
+    \field{series}{MIT Press Books}
+    \field{title}{{Numerical Methods in Economics}}
+    \verb{url}
+    \verb https://ideas.repec.org/b/mtp/titles/0262100711.html
+    \endverb
+    \field{volume}{1}
+    \field{year}{1998}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{judd2014smolyak}{article}{}{}
+    \name{author}{4}{}{%
+      {{hash=JKL}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={Kenneth\bibnamedelima L},
+         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=ML}{%
+         family={Maliar},
+         familyi={M\bibinitperiod},
+         given={Lilia},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Maliar},
+         familyi={M\bibinitperiod},
+         given={Serguei},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=VR}{%
+         family={Valero},
+         familyi={V\bibinitperiod},
+         given={Rafael},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{JKL+1}
+    \strng{fullhash}{JKLMLMSVR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{pages}{92\bibrangedash 123}
+    \field{title}{Smolyak method for solving dynamic economic models: Lagrange interpolation, anisotropic grid and adaptive domain}
+    \field{volume}{44}
+    \field{journaltitle}{Journal of Economic Dynamics and Control}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Markowitz1952}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=MH}{%
+         family={Markowitz},
+         familyi={M\bibinitperiod},
+         given={Harry},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Finance Association, Wiley}%
+    }
+    \strng{namehash}{MH1}
+    \strng{fullhash}{MH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1952}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{issn}{00221082, 15406261}
+    \field{number}{1}
+    \field{pages}{77\bibrangedash 91}
+    \field{title}{Portfolio Selection}
+    \verb{url}
+    \verb http://www.jstor.org/stable/2975974
+    \endverb
+    \field{volume}{7}
+    \field{journaltitle}{The Journal of Finance}
+    \field{year}{1952}
+  \endentry
+
+  \entry{Merton1969}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=MRC}{%
+         family={Merton},
+         familyi={M\bibinitperiod},
+         given={Robert\bibnamedelima C.},
+         giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JSTOR}%
+    }
+    \strng{namehash}{MRC1}
+    \strng{fullhash}{MRC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1969}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{pages}{247\bibrangedash 257}
+    \field{title}{Lifetime Portfolio Selection under Uncertainty: The Continuous-Time Case}
+    \field{journaltitle}{The Review of Economics and Statistics}
+    \field{year}{1969}
+  \endentry
+
+  \entry{Merton1971}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=MRC}{%
+         family={Merton},
+         familyi={M\bibinitperiod},
+         given={Robert\bibnamedelima C.},
+         giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MRC1}
+    \strng{fullhash}{MRC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1971}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1016/0022-0531(71)90038-X
+    \endverb
+    \field{number}{4}
+    \field{pages}{373\bibrangedash 413}
+    \field{title}{Optimum Consumption and Portfolio Rules in a Continuous-Time Model}
+    \field{volume}{3}
+    \field{journaltitle}{Journal of Economic Theory}
+    \field{year}{1971}
+  \endentry
+
+  \entry{MurphyBook2023}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=MKP}{%
+         family={Murphy},
+         familyi={M\bibinitperiod},
+         given={Kevin\bibnamedelima P.},
+         giveni={K\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MIT Press}%
+    }
+    \strng{namehash}{MKP1}
+    \strng{fullhash}{MKP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{Probabilistic Machine Learning: Advanced Topics}
+    \verb{url}
+    \verb http://probml.github.io/book2
+    \endverb
+    \field{year}{2023}
+  \endentry
+
+  \entry{Muthuraman2006}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=MK}{%
+         family={Muthuraman},
+         familyi={M\bibinitperiod},
+         given={Kumar},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={Sunil},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley Online Library}%
+    }
+    \strng{namehash}{MKKS1}
+    \strng{fullhash}{MKKS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2006}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{2}
+    \field{pages}{301\bibrangedash 335}
+    \field{title}{Multidimensional Portfolio Optimization with Proportional Transaction Costs}
+    \field{volume}{16}
+    \field{journaltitle}{Mathematical Finance: An International Journal of Mathematics, Statistics and Financial Economics}
+    \field{year}{2006}
+  \endentry
+
+  \entry{Muthuraman2008}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=MK}{%
+         family={Muthuraman},
+         familyi={M\bibinitperiod},
+         given={Kumar},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={Sunil},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MKKS1}
+    \strng{fullhash}{MKKS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1561/0900000006
+    \endverb
+    \field{number}{4}
+    \field{pages}{259\bibrangedash 341}
+    \field{title}{Solving Free-boundary Problems with Applications in Finance}
+    \field{volume}{1}
+    \field{journaltitle}{Foundations and Trends® in Stochastic Systems}
+    \field{year}{2008}
+  \endentry
+
+  \entry{Oksendal2002}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=OB}{%
+         family={Oksendal},
+         familyi={O\bibinitperiod},
+         given={Bernt},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Sulem},
+         familyi={S\bibinitperiod},
+         given={Agn\`{e}s},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OBSA1}
+    \strng{fullhash}{OBSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \verb{doi}
+    \verb 10.1137/S0363012900376013
+    \endverb
+    \field{number}{6}
+    \field{pages}{1765\bibrangedash 1790}
+    \field{title}{Optimal Consumption and Portfolio with Both Fixed and Proportional Transaction Costs}
+    \field{volume}{40}
+    \field{journaltitle}{SIAM Journal on Control and Optimization}
+    \field{year}{2002}
+  \endentry
+
+  \entry{Schober2022}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=SP}{%
+         family={Schober},
+         familyi={S\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=VJ}{%
+         family={Valentin},
+         familyi={V\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Pflüger},
+         familyi={P\bibinitperiod},
+         given={Dirk},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SPVJPD1}
+    \strng{fullhash}{SPVJPD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1007/s10614-021-10118-9
+    \endverb
+    \field{number}{1}
+    \field{pages}{185\bibrangedash 224}
+    \field{title}{Solving High-Dimensional Dynamic Portfolio Choice Models with Hierarchical B-Splines on Sparse Grids}
+    \field{volume}{59}
+    \field{journaltitle}{Computational Economics}
+    \field{year}{2022}
+  \endentry
+
+  \entry{ShreveSoner1994}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=SSE}{%
+         family={Shreve},
+         familyi={S\bibinitperiod},
+         given={S.\bibnamedelima E.},
+         giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=SHM}{%
+         family={Soner},
+         familyi={S\bibinitperiod},
+         given={H.\bibnamedelima M.},
+         giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SSESHM1}
+    \strng{fullhash}{SSESHM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1994}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1214/aoap/1177004966
+    \endverb
+    \field{number}{3}
+    \field{pages}{609\bibrangedash 692}
+    \field{title}{Optimal Investment and Consumption with Transaction Costs}
+    \field{volume}{4}
+    \field{journaltitle}{The Annals of Applied Probability}
+    \field{year}{1994}
+  \endentry
+
+  \entry{smolyak1963}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=SSA}{%
+         family={Smolyak},
+         familyi={S\bibinitperiod},
+         given={S.\bibnamedelima A.},
+         giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SSA1}
+    \strng{fullhash}{SSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1963}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{note}{English translation: \textit{Soviet Mathematics Doklady}, Vol. 4, pp. 240--243}
+    \field{pages}{1042\bibrangedash 1043}
+    \field{title}{Quadrature and Interpolation Formulas for Tensor Products of Certain Classes of Functions}
+    \field{volume}{148}
+    \field{journaltitle}{Doklady Akademii Nauk SSSR}
+    \field{year}{1963}
+  \endentry
+
+  \entry{Zabel1973}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=ZE}{%
+         family={Zabel},
+         familyi={Z\bibinitperiod},
+         given={Edward},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley, Econometric Society}%
+    }
+    \strng{namehash}{ZE1}
+    \strng{fullhash}{ZE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1973}
+    \field{labeldatesource}{}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{number}{2}
+    \field{pages}{321\bibrangedash 335}
+    \field{title}{Consumer Choice, Portfolio Decisions, and Transaction Costs}
+    \verb{url}
+    \verb http://www.jstor.org/stable/1913492
+    \endverb
+    \field{volume}{41}
+    \field{journaltitle}{Econometrica}
+    \field{year}{1973}
+  \endentry
+\enddatalist
+\endinput
