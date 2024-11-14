@@ -1,0 +1,17 @@
+Python Packages Necessary for computaion
+
+Numpy
+Torch
+Gpytorch
+Cyipopt #NOTE difficult to install. See package specifications
+Scipy
+Tasmanian #NOTE difficult to install. See package specifications
+Chaospy
+Matplotlib
+Logging
+Joblib
+Ss
+Multiprocessing
+Random
+Scienceplots
+Itertools
