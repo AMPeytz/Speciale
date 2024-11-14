@@ -5,6 +5,8 @@ This repo contains files for my masters thesis in economics,
 which focus on Dynamic Portfolio Choice Models, in the presence of transaction costs.
 These models are solved using dynamic programming methods. We use constrained non linear optimization, quadrature and monte carlo methods, gaussian process regression and a problem specific sampling scheme.
 This repo contains files regarding the thesis written in LaTeX, and my coding project, in Python.
+<br>
+This thesis, is greatly inspired by the work of Simon Scheidegger (2023); Peter Schober, Julian Valentin and Dirk Pflüger (2020); and Yongyang Cai, Kenneth Judd and Rong Xu (2013).
 
 ---
 
