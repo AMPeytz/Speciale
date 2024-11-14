@@ -21,6 +21,58 @@ Below is a breakdown of the main folders in the repository and their contents:
 
 ---
 
+## Brief model description
+
+We solve problems:
+
+$$
+v_{t} (\mathbf{x}_{t}, \theta_t) = \max_{c_t , \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} } \left\{ u(c_t) 
+\Delta t + \beta \mathbb{E}_{t} \left[ 
+\pi_{t+\Delta t}^{1-\gamma}
+v_{t+\Delta t} (\mathbf{x}_{t+\Delta t }, \theta_{t + \Delta t }  ) 
+\right] \right\} , \quad t < T 
+$$
+
+With Dynamics:
+
+$$
+b_{t} = 1 - \mathbf{1}^{\top} \cdot (\mathbf{x_t} - \boldsymbol{\delta}_t - \psi( \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t}  )) - c_t \Delta t
+$$
+
+$$
+\pi_{t+\Delta t} = b_t R_f (\theta_t)  + (\mathbf{x}_t + \boldsymbol{\delta}_t)^{\top} \cdot \mathbf{R}(\theta_t) 
+$$
+
+$$
+\mathbf{x}_{t+\Delta t} =  \frac{(\mathbf{x}_t + \boldsymbol{\delta}_t) \odot \mathbf{R}_t (\theta_t )}{ \pi_{t+\Delta t} }
+$$
+
+$$
+W_{t+\Delta t} = \pi_{t+\Delta t} W_t
+$$
+
+Terminal value function:
+
+$$
+v_T (\mathbf{x}_T , \theta_T ) = u ( (1 - \psi(\mathbf{x}_T)) \cdot (1-R_f (\theta_T)) )\cdot \Delta t \cdot (1-\beta)^{-1} 
+$$
+
+Subject to constraints:
+
+$$
+\boldsymbol{\delta}_t \geq - \mathbf{x}_t 
+$$
+
+$$
+b_t \geq 0 
+$$
+
+$$
+\mathbf{1}^{\top} \mathbf{x}_t \leq 1 
+$$
+
+---
+
 ## Computational Requirements
 
 To run the code effectively, consider the following requirements:
