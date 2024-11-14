@@ -5,8 +5,10 @@ This repository contains files for my masters thesis in economics,
 which focuses on Dynamic Portfolio Choice Models, in the presence of transaction costs.
 These models are solved using dynamic programming methods. We use constrained non linear optimization, quadrature and monte carlo methods, gaussian process regression and a problem specific sampling scheme.
 <br>
+<br>
 The thesis was written in LaTeX, and be compiled using the main.tex file.
 The computational scheme was written in python, using a stack of libraries noted below.
+<br>
 <br>
 This thesis is greatly inspired by the work of Simon Scheidegger (2023); Peter Schober, Julian Valentin and Dirk Pflüger (2020); and Yongyang Cai, Kenneth Judd and Rong Xu (2013). Further references and be found in the thesis document.
 
@@ -84,10 +86,9 @@ To run the code effectively, consider the following requirements:
   - Torch
   - Gpytorch
   - Cyipopt 
-    - **Note**: This package may be difficult to install. See package specifications.
   - Scipy
   - Tasmanian 
-    - **Note**: This package may be difficult to install. See package specifications.
+    - **Note**: Installation of this package is bothersome. See Tasmanian repository and installation guide.
   - Chaospy
   - Matplotlib
   - Logging
