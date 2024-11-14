@@ -23,20 +23,16 @@ Below is a breakdown of the main folders in the repository and their contents:
 
 ## Brief model description
 
-We solve problems:
+We solve problem(s):
 
 $$
-v_{t} (\mathbf{x}_{t}, \theta_t) = \max_{c_t , \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} } \left\{ u(c_t) 
-\Delta t + \beta \mathbb{E}_{t} \left[ 
-\pi_{t+\Delta t}^{1-\gamma}
-v_{t+\Delta t} (\mathbf{x}_{t+\Delta t }, \theta_{t + \Delta t }  ) 
-\right] \right\} , \quad t < T 
+v_{t} (\mathbf{x_t}, \theta_t) = \max_{c_t , \boldsymbol{\delta_{t}^{+}}, \boldsymbol{\delta_{t}^{-}} }{ u(c_t) \Delta t + \beta \mathbb{E}_{t} \Big[ \pi _{t+\Delta t} ^{1-\gamma} v _{t+\Delta t}  \mathbf{x} _{t+ \Delta t} \Big]}
 $$
 
 With Dynamics:
 
 $$
-b_{t} = 1 - \mathbf{1}^{\top} \cdot (\mathbf{x_t} - \boldsymbol{\delta}_t - \psi( \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t}  )) - c_t \Delta t
+b_t = 1 - \mathbf{1} \cdot \Big( \mathbf{x_t} - \boldsymbol{\delta_t} - \psi \Big( \boldsymbol{\delta_{t}^{+}}, \boldsymbol{\delta_{t}^{-}}  \Big) \Big) - c_t \Delta t
 $$
 
 $$
@@ -44,7 +40,7 @@ $$
 $$
 
 $$
-\mathbf{x}_{t+\Delta t} =  \frac{(\mathbf{x}_t + \boldsymbol{\delta}_t) \odot \mathbf{R}_t (\theta_t )}{ \pi_{t+\Delta t} }
+\mathbf{x_{t+\Delta t}} =  \frac{(\mathbf{x_t} + \boldsymbol{\delta_t}) \odot \mathbf{R_t} (\theta_t )}{ \pi_{t+\Delta t} }
 $$
 
 $$
