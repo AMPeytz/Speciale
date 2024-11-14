@@ -1,12 +1,14 @@
 # Dynamic Portfolio Choice Models with Transaction Costs - Masters Thesis in Economics.
 
 ### General Overview
-This repo contains files for my masters thesis in economics,
-which focus on Dynamic Portfolio Choice Models, in the presence of transaction costs.
+This repository contains files for my masters thesis in economics,
+which focuses on Dynamic Portfolio Choice Models, in the presence of transaction costs.
 These models are solved using dynamic programming methods. We use constrained non linear optimization, quadrature and monte carlo methods, gaussian process regression and a problem specific sampling scheme.
-This repo contains files regarding the thesis written in LaTeX, and my coding project, in Python.
 <br>
-This thesis, is greatly inspired by the work of Simon Scheidegger (2023); Peter Schober, Julian Valentin and Dirk Pflüger (2020); and Yongyang Cai, Kenneth Judd and Rong Xu (2013).
+The thesis was written in LaTeX, and be compiled using the main.tex file.
+The computational scheme was written in python, using a stack of libraries noted below.
+<br>
+This thesis is greatly inspired by the work of Simon Scheidegger (2023); Peter Schober, Julian Valentin and Dirk Pflüger (2020); and Yongyang Cai, Kenneth Judd and Rong Xu (2013). Further references and be found in the thesis document.
 
 ---
 
@@ -75,7 +77,7 @@ To run the code effectively, consider the following requirements:
 
 
 
-- **Hardware**: Code is writting for use on MacOS. Other systems might need some tweaks or other packages.
+- **Hardware**: Code is writting for use on MacOS. Other systems might need some tweaks or other packages. This project was run on a Macbook Pro 2023 laptop, with the Apple M3 chip.
 - **Software**: Code is written in Python 3.11.9.
 - **Dependencies**: In order to run the code, the following packages are required:
   - Numpy
