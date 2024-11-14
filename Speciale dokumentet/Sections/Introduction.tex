@@ -8,11 +8,39 @@
 \fi
 
 \section{Introduction}\label{sec:Introduction}
-\textbf{WHY}: portfolio choice... dimensionality and grid based methods... option pricing... \\
-\textit{Cliffhanger}.\\
-\textbf{WHAT}: I therefore... Or... In this paper...\\
-\textbf{HOW}: More specifics... Scheidegger... Schober... Cai Judd Xu...\\~\\
-Here my introduction actually starts.
+
+Dynamic portfolio choice problems consider the optimal portfolio construction over time.
+These have a general solution in the absence of market frictions.
+However, when frictions such as transaction costs are introduced, the problem becomes significantly more complex,
+as a tradeoff of increased realism. 
+In Dynamic Portfolio choice Dynamic programming schemes have been implemented to solve these problems numerically,
+but the computational complexity of these schemes suffer from the curse of dimensionality
+in a multitude of ways using multiple grid-based methods. In this regard the work of \textcite{Scheidegger2023} is of particular interest,
+as they develop a computational framework which reduces the need for grid-based methods.
+While much work has been put to developing a computational framework which reduces the need for grid-based methods,
+this has not been applied to a broader set of portfolio choice models, 
+and we therefore only have a limited idea of the scope of applicability of these methods.
+
+I therefore extend the framework of \textcite{Scheidegger2023}, to new asset types and new cost functions.
+I analyze the impact of schemes with fixed and proportional transaction costs and with asset specific transaction costs.
+I also extend the asset types to include vanilla options, and analyze the impact of these on the computational complexity of the problem,
+and optimal portfolio construction.
+This paper therefore aims to provide a broader understanding of the class of dynamic portfolio choice problems,
+utilizing the newest insights in computational methods seen in the litterature.
+
+Furthermore a novel extension to the computational framework is provided, which aims to
+reduce the computational burden in higher dimensions, by utilising structured kernel interpolation methods,
+which have been shown to increase the efficiency of the function approximator in high dimensions.
+
+I implement the computational framework of \textcite{Scheidegger2023}, which leverages
+\ac{GP} regression to approximate the value function of the dynamic portfolio choice problem,
+which has otherwise been prone to the curse of dimensionality in past implementations. 
+I likewise leverage their sampling scheme and quadrature methods to reduce the computational complexity of the problem.
+
+I implement this framework on problems seen in the litterature, and find similar results.
+Following this i extend the framework to include options, as seeen in \textcite{CaiJuddXu2020},
+and new cost functions, as seen in \textcite{Dybvig2020}.
+
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end
