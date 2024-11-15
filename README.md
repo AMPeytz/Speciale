@@ -19,7 +19,7 @@ This thesis is greatly inspired by the work of Simon Scheidegger (2023); Peter S
 Below is a breakdown of the main folders in the repository and their contents:
 
 - **`Python/`**: Contains the main source code for the project, including scripts and modules.
--- **`NTRs/`**: Contains files with the approximated No-trade-regions saved in pickle format. So can be loaded using the pickle package in python.
+  - **`NTRs/`**: Contains files with the approximated No-trade-regions saved in pickle format. So can be loaded using the pickle package in python.
 - **`Speciale dokumentet/`**: This folder contains the LaTeX project. Including local packages (KU-frontpage), and figures from the Python project end up here aswell
 - **`Notes from papers/`**: A small LaTeX project consisting of notes used. This is no longer comprehensive, see the thesis.
 - **`Gammel kode/`**: Contains old code.
