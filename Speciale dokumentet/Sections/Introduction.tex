@@ -11,9 +11,11 @@
 
 Dynamic portfolio choice problems consider the optimal portfolio construction over time.
 These have a general solution in the absence of market frictions.
-However, when frictions such as transaction costs are introduced, the problem becomes significantly more complex,
-as a tradeoff of increased realism. 
-In Dynamic Portfolio choice Dynamic programming schemes have been implemented to solve these problems numerically,
+When frictions are introduced, the problem becomes significantly more realistic, as 
+investors face costs when trading assets.
+However, this increased realism comes at a tradeoff of increased complexity in the problem,
+as the optimal portfolio construction is no longer trivial to find.
+In Dynamic Portfolio choice \ac{DP} schemes have been implemented to solve these problems numerically,
 but the computational complexity of these schemes suffer from the curse of dimensionality
 in a multitude of ways using multiple grid-based methods. In this regard the work of \textcite{Scheidegger2023} is of particular interest,
 as they develop a computational framework which reduces the need for grid-based methods.
@@ -21,23 +23,25 @@ While much work has been put to developing a computational framework which reduc
 this has not been applied to a broader set of portfolio choice models, 
 and we therefore only have a limited idea of the scope of applicability of these methods.
 
-I therefore extend the framework of \textcite{Scheidegger2023}, to new asset types and new cost functions.
-I analyze the impact of schemes with fixed and proportional transaction costs and with asset specific transaction costs.
-I also extend the asset types to include vanilla options, and analyze the impact of these on the computational complexity of the problem,
-and optimal portfolio construction.
+I therefore extend the framework of \textcite{Scheidegger2023}, to new asset types and new cost functions,
+to broaden the scope of models which can be solved using this framework, and to provide a broader understanding of the class of dynamic portfolio choice problems.
+I analyse the impact of introducing various transaction costs types, such as fixed costs, and asset specific costs,
+including the propotional transaction costs often seen in the litterature.
+Furthermore i broaden the investment universe to include multiple asset types, such as stocks, bonds and vanilla options.
 This paper therefore aims to provide a broader understanding of the class of dynamic portfolio choice problems,
 utilizing the newest insights in computational methods seen in the litterature.
 
 Furthermore a novel extension to the computational framework is provided, which aims to
-reduce the computational burden in higher dimensions, by utilising structured kernel interpolation methods,
-which have been shown to increase the efficiency of the function approximator in high dimensions.
+reduce the computational burden in higher dimensions.
+The framework suffers in higher dimensions, as the number of grid points increase, but also because the function approximation which leverages \ac{GP} becomes more complex.
+I introduce \ac{SKIP}, which has been shown to increase the efficiency of the \ac{GP} when dimensionality is increased.
 
-I implement the computational framework of \textcite{Scheidegger2023}, which leverages
-\ac{GP} regression to approximate the value function of the dynamic portfolio choice problem,
-which has otherwise been prone to the curse of dimensionality in past implementations. 
-I likewise leverage their sampling scheme and quadrature methods to reduce the computational complexity of the problem.
+% I implement the computational framework of \textcite{Scheidegger2023}, which leverages
+% \ac{GP} regression to approximate the value function of the dynamic portfolio choice problem,
+% which has otherwise been prone to the curse of dimensionality in past implementations. 
+% I likewise leverage their sampling scheme and quadrature methods to reduce the computational complexity of the problem.
 
-I implement this framework on problems seen in the litterature, and find similar results.
+I implement this framework on parametization analyzed earlier in the litterature, and compare the results to the existing literature.
 Following this i extend the framework to include options, as seeen in \textcite{CaiJuddXu2020},
 and new cost functions, as seen in \textcite{Dybvig2020}.
 
