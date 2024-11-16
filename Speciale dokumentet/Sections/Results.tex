@@ -10,9 +10,9 @@
 \section{Results} \label{Section: Results}
 For the following results we consider 3 types of parameterizations for the portfolio problem.
 The first is a simple case where the assets are identically distributed as seen in \autocite{CaiJuddXu2013},
-the second is a case where the parameters are chosen to match the parameters in \autocite{Schober2022},
+the second is a case where the parameters are chosen to match the parameters in \autocite{Schober2022} also seen in \autocite{Scheidegger2023},
 and the last is a modification of the first case where the correlation between the assets is larger (correlation coefficient of $0.75$).
-\begin{table}[h!]
+\begin{table}[!ht]
     \label{table: Parameters_Base_Models}
     \centering
     \caption{Parameters for Examples of Portfolio Problems}
@@ -20,24 +20,23 @@ and the last is a modification of the first case where the correlation between t
     \toprule
     & \textbf{i.i.d Assets} & \textbf{Schober Parameters} & \textbf{High Correlation} \\
     \midrule
+    $T$        & 6                & 6                & 6                \\
     $k$        & 3                & 5                & 3                \\
     $\gamma$   & 3.0              & 3.5              & 3.0              \\
     $\tau$     & 0.5\%            & 0.5\%            & 0.5\%            \\
     $\beta$    & 0.97             & 0.97             & 0.97             \\
     $r$        & $3$\% & $4$\%    &  $3$\% \\
-    $\mu^\top$ & (0.07, 0.07, 0.07) & $\mu_{\text{Shober}}$ & (0.07, 0.07, 0.07) \\
+    $\mu^\top$ & (0.07, 0.07) & $\mu_{\text{Shober}}$ & (0.07, 0.07) \\
     $\Sigma$   & 
     $\begin{bmatrix}
-    0.04 & 0.00 & 0.00 \\
-    0.00 & 0.04 & 0.00 \\
-    0.00 & 0.00 & 0.04 \\
+    0.04 & 0.00 \\
+    0.00 & 0.04
     \end{bmatrix}$
     & $\Sigma_{\text{Schober}}$ 
     & 
     $\begin{bmatrix}
-    0.04 & 0.03 & 0.03 \\
-    0.03 & 0.04 & 0.03 \\
-    0.03 & 0.03 & 0.04 \\
+    0.04 & 0.03\\
+    0.03 & 0.04
     \end{bmatrix}$ \\
     \bottomrule
     \end{tabular}
@@ -64,12 +63,14 @@ and the last is a modification of the first case where the correlation between t
 I first consider the base model with proportional transaction costs
 and no consumption. In the absence of consumption, the optimal portfolio is the merton points, which we plot in every figure.
 I plot the No-trade region at time point 0 (initial time point) for each of the parameterizations in \autoref{fig:comparison_NTR}.
+When using the Schober parameters we select the $d$ first elements of the mean vector, and truncate the covariance matrix to a $d \times d$ matrix,
+depending on the number of assets $d$ in the model.
 \begin{figure}[!ht]
     \centering
     % Top figure
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[scale=0.65]{NTR_Cai_Identical_d2_tau_0.005__no_consumption_t_0.png}
+        \includegraphics[scale=0.45]{NTR_Cai_Identical_d2_tau_0.005__no_consumption_t_0.png}
         \caption{No Trade Region for Independent Identically Distributed Assets.}
         \label{fig:NTR_2d_iid}
     \end{subfigure}
@@ -80,14 +81,14 @@ I plot the No-trade region at time point 0 (initial time point) for each of the 
     % Bottom figures side by side
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[scale=0.65]{NTR_Schober_Parameters_d2_tau_0.005__no_consumption_t_0.png}
+        \includegraphics[scale=0.45]{NTR_Schober_Parameters_d2_tau_0.005__no_consumption_t_0.png}
         \caption{No Trade Region for Schober Parameters.}
         \label{fig:NTR_2d_Schober}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[scale=0.65]{NTR_Cai_High_Correlation_d2_tau_0.005__no_consumption_t_0.png}
+        \includegraphics[scale=0.45]{NTR_Cai_High_Correlation_d2_tau_0.005__no_consumption_t_0.png}
         \caption{No Trade Region for High Correlation.}
         \label{fig:NTR_2d_High_Correlation}
     \end{subfigure}
@@ -96,6 +97,30 @@ I plot the No-trade region at time point 0 (initial time point) for each of the 
     \caption{Comparison of No Trade Regions.}
     \label{fig:comparison_NTR}
 \end{figure}
+
+\subsubsection{Investigating the No-Trade Region} \label{Subsubsection: InvestigatingNTR}
+We now look at the No-Trade region for the base model with proportional transaction costs and no consumption in more detail.
+Specifically we look at how the region behaves over the entire investment horizon $[0, T]$, and how the region changes with different transaction cost levels.
+We choose to look at the model with the Schober parameters, as this is a mixture of the other two parameterizations.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale = 0.45]{NTR_Schober_Parameters_d2_tau_0.005__no_consumptionOver_Time_t_5.png}
+    \caption{No Trade Region for Schober Parameters over Time.}
+    \label{fig:NTR_2d_iid_standalone}
+    \floatfoot{The No-Trade region is plotted for the Schober parameters over the entire investment horizon $[0, T]$
+    For time points $t\in [0,T-1]$ the \ac{NTR}s overlap.}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale = 0.45]{NTR_Cai_IdenticalDifferent_Tau_t_0.png}
+    \caption{No Trade Region for the iid Parameters with different values of $\tau$.}
+    \label{fig:NTR_2d_iid_tau_analysis}
+\end{figure}
+
+
+
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end
 \else

@@ -62,6 +62,53 @@
     \field{year}{2013}
   \endentry
 
+  \entry{Scheidegger2023}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=GL}{%
+         family={Gaegauf},
+         familyi={G\bibinitperiod},
+         given={Luca},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Scheidegger},
+         familyi={S\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TF}{%
+         family={Trojani},
+         familyi={T\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \keyw{Machine learning, computational finance, Gaussian process regression, dynamic portfolio optimization, transaction costs, liquidity premia}
+    \strng{namehash}{GLSSTF1}
+    \strng{fullhash}{GLSSTF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{abstract}{%
+    We introduce a comprehensive computational framework for solving dynamic portfolio choice problems with many risky assets, transaction costs, and borrowing and short-selling constraints. Our approach leverages the synergy between Gaussian process regression and Bayesian active learning to efficiently approximate value and policy functions. This combination allows us to study dynamic portfolio choice problems with more risky assets than was previously possible.%
+    }
+    \field{number}{23-114}
+    \field{pages}{70}
+    \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
+    \verb{url}
+    \verb https://ssrn.com/abstract=4543794
+    \endverb
+    \list{institution}{1}{%
+      {Swiss Finance Institute}%
+    }
+    \field{type}{techreport}
+    \field{journaltitle}{Swiss Finance Institute Research Paper}
+    \field{year}{2023}
+  \endentry
+
   \entry{Schober2022}{article}{}{}
     \name{author}{3}{}{%
       {{hash=SP}{%
