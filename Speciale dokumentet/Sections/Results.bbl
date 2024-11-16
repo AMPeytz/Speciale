@@ -1,0 +1,105 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global/global}
+  \entry{CaiJuddXu2013}{report}{}{}
+    \name{author}{3}{}{%
+      {{hash=CY}{%
+         family={Cai},
+         familyi={C\bibinitperiod},
+         given={Yongyang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=JKL}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={Kenneth\bibnamedelima L.},
+         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=XR}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Rong},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CYJKLXR1}
+    \strng{fullhash}{CYJKLXR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    We apply numerical dynamic programming to multi-asset dynamic portfolio optimization problems with proportional transaction costs. Examples include problems with one safe asset plus two to six risky stocks, and seven to 360 trading periods in a finite horizon problem. These examples show that it is now tractable to solve such problems.%
+    }
+    \verb{doi}
+    \verb 10.3386/w18709
+    \endverb
+    \field{number}{18709}
+    \field{series}{Working Paper Series}
+    \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
+    \list{institution}{1}{%
+      {National Bureau of Economic Research}%
+    }
+    \field{type}{Working Paper}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Schober2022}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=SP}{%
+         family={Schober},
+         familyi={S\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=VJ}{%
+         family={Valentin},
+         familyi={V\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Pflüger},
+         familyi={P\bibinitperiod},
+         given={Dirk},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SPVJPD1}
+    \strng{fullhash}{SPVJPD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1007/s10614-021-10118-9
+    \endverb
+    \field{number}{1}
+    \field{pages}{185\bibrangedash 224}
+    \field{title}{Solving High-Dimensional Dynamic Portfolio Choice Models with Hierarchical B-Splines on Sparse Grids}
+    \field{volume}{59}
+    \field{journaltitle}{Computational Economics}
+    \field{year}{2022}
+  \endentry
+\enddatalist
+\endinput

@@ -1,0 +1,104 @@
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the preamble
+\else
+% Individual file compilation
+\documentclass[11pt]{article}
+\input{../Preamble.tex}  % Include the main preamble
+\begin{document}
+\fi
+
+\section{Results} \label{Section: Results}
+For the following results we consider 3 types of parameterizations for the portfolio problem.
+The first is a simple case where the assets are identically distributed as seen in \autocite{CaiJuddXu2013},
+the second is a case where the parameters are chosen to match the parameters in \autocite{Schober2022},
+and the last is a modification of the first case where the correlation between the assets is larger (correlation coefficient of $0.75$).
+\begin{table}[h!]
+    \label{table: Parameters_Base_Models}
+    \centering
+    \caption{Parameters for Examples of Portfolio Problems}
+    \begin{tabular}{lccc}
+    \toprule
+    & \textbf{i.i.d Assets} & \textbf{Schober Parameters} & \textbf{High Correlation} \\
+    \midrule
+    $k$        & 3                & 5                & 3                \\
+    $\gamma$   & 3.0              & 3.5              & 3.0              \\
+    $\tau$     & 0.5\%            & 0.5\%            & 0.5\%            \\
+    $\beta$    & 0.97             & 0.97             & 0.97             \\
+    $r$        & $3$\% & $4$\%    &  $3$\% \\
+    $\mu^\top$ & (0.07, 0.07, 0.07) & $\mu_{\text{Shober}}$ & (0.07, 0.07, 0.07) \\
+    $\Sigma$   & 
+    $\begin{bmatrix}
+    0.04 & 0.00 & 0.00 \\
+    0.00 & 0.04 & 0.00 \\
+    0.00 & 0.00 & 0.04 \\
+    \end{bmatrix}$
+    & $\Sigma_{\text{Schober}}$ 
+    & 
+    $\begin{bmatrix}
+    0.04 & 0.03 & 0.03 \\
+    0.03 & 0.04 & 0.03 \\
+    0.03 & 0.03 & 0.04 \\
+    \end{bmatrix}$ \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\[
+\mu_{\text{Schober}}^\top = 
+\begin{bmatrix}
+0.0572 & 0.0638 & 0.07 & 0.0764 & 0.0828
+\end{bmatrix}
+\]
+% Define the Schober covariance matrix
+\[
+\Sigma_{\text{Schober}} = 
+\begin{bmatrix}
+0.0256 & 0.00576 & 0.00288 & 0.00176 & 0.00096 \\
+0.00576 & 0.0324 & 0.0090432 & 0.010692 & 0.01296 \\
+0.00288 & 0.0090432 & 0.04 & 0.0132 & 0.0168 \\
+0.00176 & 0.010692 & 0.0132 & 0.0484 & 0.02112 \\
+0.00096 & 0.01296 & 0.0168 & 0.02112 & 0.0576 \\
+\end{bmatrix}
+\]
+
+\subsection{Dynamic Portfolio Choice without consumption} \label{Subsection: NumericalIntegration}
+I first consider the base model with proportional transaction costs
+and no consumption. In the absence of consumption, the optimal portfolio is the merton points, which we plot in every figure.
+I plot the No-trade region at time point 0 (initial time point) for each of the parameterizations in \autoref{fig:comparison_NTR}.
+\begin{figure}[!ht]
+    \centering
+    % Top figure
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[scale=0.65]{NTR_Cai_Identical_d2_tau_0.005__no_consumption_t_0.png}
+        \caption{No Trade Region for Independent Identically Distributed Assets.}
+        \label{fig:NTR_2d_iid}
+    \end{subfigure}
+
+    % Space between the top and the bottom row
+    \vspace{1em}
+
+    % Bottom figures side by side
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale=0.65]{NTR_Schober_Parameters_d2_tau_0.005__no_consumption_t_0.png}
+        \caption{No Trade Region for Schober Parameters.}
+        \label{fig:NTR_2d_Schober}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale=0.65]{NTR_Cai_High_Correlation_d2_tau_0.005__no_consumption_t_0.png}
+        \caption{No Trade Region for High Correlation.}
+        \label{fig:NTR_2d_High_Correlation}
+    \end{subfigure}
+
+    % Overall caption
+    \caption{Comparison of No Trade Regions.}
+    \label{fig:comparison_NTR}
+\end{figure}
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the end
+\else
+% \printbibliography
+\end{document}
+\fi
