@@ -57,6 +57,38 @@
     \field{year}{1996}
   \endentry
 
+  \entry{Bellman1958}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=BR}{%
+         family={Bellman},
+         familyi={B\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BR1}
+    \strng{fullhash}{BR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1958}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{abstract}{%
+    Consider a system S specified at any time t by a finite dimensional vector x(t) satisfying a vector differential equation dx/dt = g[x, r(t), f(t)], x(0) = c, where c is the initial state, r(t) is a random forcing term possessing a known distribution, and f(t) is a forcing term chosen, via a feedback process, so as to minimize the expected value of a functional J(x) = ƒ0T h(x − y, t) dG(t), where y(t) is a known function, or chosen so as to minimize the functional defined by the probability that max0 ≦ t ≦ T h(x − y, t) exceed a specified bound. It is shown how the functional equation technique of dynamic programming may be used to obtain a new computational and analytic approach to problems of this genre. The limited memory capacity of present-day digital computers limits the routine application of these techniques to first and second order systems at the moment, with limited application to higher order systems.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/S0019-9958(58)80003-0
+    \endverb
+    \field{issn}{0019-9958}
+    \field{number}{3}
+    \field{pages}{228\bibrangedash 239}
+    \field{title}{Dynamic programming and stochastic control processes}
+    \field{volume}{1}
+    \field{journaltitle}{Information and Control}
+    \field{year}{1958}
+  \endentry
+
   \entry{Bjork}{book}{}{}
     \name{author}{1}{}{%
       {{hash=BT}{%
@@ -301,6 +333,46 @@
     \field{volume}{3}
     \field{journaltitle}{Journal of Economic Theory}
     \field{year}{1971}
+  \endentry
+
+  \entry{Schober2022}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=SP}{%
+         family={Schober},
+         familyi={S\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=VJ}{%
+         family={Valentin},
+         familyi={V\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Pflüger},
+         familyi={P\bibinitperiod},
+         given={Dirk},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SPVJPD1}
+    \strng{fullhash}{SPVJPD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1007/s10614-021-10118-9
+    \endverb
+    \field{number}{1}
+    \field{pages}{185\bibrangedash 224}
+    \field{title}{Solving High-Dimensional Dynamic Portfolio Choice Models with Hierarchical B-Splines on Sparse Grids}
+    \field{volume}{59}
+    \field{journaltitle}{Computational Economics}
+    \field{year}{2022}
   \endentry
 \enddatalist
 \endinput

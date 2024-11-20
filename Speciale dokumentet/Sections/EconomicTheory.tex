@@ -7,50 +7,10 @@
 \begin{document}
 \fi
 
-\section{Economic theory} \label{Section: Economic-theory}
+\section{The Dynamic Portfolio Choice Setting} \label{Section: Economic-theory}
 This section covers the basics of modern portfolio theory and components of the dynamic portfolio choice problem with transaction costs.
 This section leans heavily on \textcite{CaiJuddXu2020} and \textcite{Scheidegger2023},
 bridging the model from the former, with the framework of the latter.
-
-\subsection{Intertemporal portfolio choice without transaction costs} \label{Subsection: Intertemporal-Portfolio-Choice}
-We first consider the classic portfolio optimization problem without transaction costs, as formulated by \textcite{Merton1969, Merton1971}.
-For a more detailed treatment, see \textcite{Bjork}. 
- In this setting, an investor dynamically allocates wealth between \(k\) risky assets and a risk-free asset to maximize utility over a finite horizon \([0,T]\).
-
-The investor's wealth \(W_t\) can be allocated between a risk-free asset and \(k\) risky assets.
-Consumption is a non-durable good that can be purchased at each time point \(t\).
-\(r\) is the risk-free rate, \(\boldsymbol{\mu}\) is the vector of expected returns on the risky assets, and \(C_t\) represents consumption at time \(t\). The investor’s preferences follow a constant relative risk aversion (CRRA) utility function.\\
-Without transaction costs, the optimal portfolio allocation, known as the Merton point is:
-\begin{equation}
-    \mathbf{x}_t^* = \frac{1}{\gamma} \boldsymbol{\Sigma}^{-1} (\boldsymbol{\mu} - r ),
-\end{equation}
-where \(\gamma\) is the coefficient of relative risk aversion, and \(\boldsymbol{\Sigma}\) is the covariance matrix of the risky assets' returns. This provides a time-independent optimal allocation that serves as a benchmark for models incorporating frictions such as transaction costs.
-\subsection{Investor preferences and problem} \label{Subsection: Investor-Preferences}
-The investor operates over a finite horizon of \(T\) years, during which she aims to maximize her expected utility. 
-Following \textcite{CaiJuddXu2013}, the investment horizon is discretized into \(N\) equally spaced periods, 
-each with a duration of \(\Delta t = \frac{T}{N}\). 
-At each time point \(t_j\), for \(j = 0, 1, \dots, N\), where \(t_0 = 0\) and \(t_N = T\), 
-the investor has the opportunity to adjust her portfolio allocation right before \(t_j + \Delta t\). 
-Reallocation is costly, and the investor is subject to proportional transaction costs. 
-She may also choose to consume a non-durable good at each time point.
-
-For notational simplicity, we now use \(t\) to denote these time points unless specifically referring to \(t_j\). 
-The investor's preferences are modeled using a constant relative risk aversion (CRRA) utility function:
-\begin{equation}\label{eq:CRRA_Utility}
-    u(C_t) = \begin{cases}
-                \frac{C_t^{1-\gamma}}{1-\gamma} & \text{if } \gamma \neq 1, \\
-                \log(C_t) & \text{if } \gamma = 1,
-              \end{cases}
-\end{equation}
-where \(C_t\) is consumption and \(c_t\) is the fraction of wealth $W_t$ spent on consumption at time \(t\). Hence $c_t = C_t / W_t$,
-and lowercase notation is henceforth used to denote variables as fractions of wealth. 
-\(\gamma\) is the coefficient of relative risk aversion. 
-The objective is to maximize the expected utility of consumption and wealth over the investor's lifetime:
-\begin{equation}
-  \label{eq:Expected_Utility}
-  \max_{\mathbf{x}_t, b_t, c_t} \mathbb{E} \left[ \sum^{N-1}_{i=0} \beta^{i} u(C_i) \Delta t + \beta^N u(W_N) \right],
-\end{equation}
-where \(\beta\) is the discount factor, \(\mathbf{x}_t\) is the allocation to risky assets, \(b_t\) is the allocation to the risk-free asset, and \(W_t\) is the investor's wealth at time \(t\).
 
 \subsection{Asset and goods market} \label{Subsection: Market}
 We consider a financial market with \(k\) risky assets and one risk-free asset, making the asset space \(D = 1 + k\) dimensions. 
@@ -70,6 +30,23 @@ the fraction allocated to risky assets is \(\mathbf{x}_t = (x_{1,t}, x_{2,t}, \d
 and the fraction allocated to the risk-free asset is denoted \(b_t\). 
 Thus, \(\mathbf{x}_t \in \mathbb{R}^k\) and \(b_t \in \mathbb{R}\).
 
+\subsection{Asset dynamics} \label{Subsection: Asset-dynamics}
+I follow \textcite{CaiJuddXu2013} for the asset dynamics. The total composition of risky assets is assumed
+to follow a multivariate log-normal distribution:
+\begin{equation}\label{eq:Multivariate_Distribution}
+   \log (\mathbf{R}) \sim \mathcal{N} \left( \left( \mu - \frac{\sigma^{2}}{2} \right) \Delta t , \left( \boldsymbol{\Lambda \Sigma \Lambda } \right) \Delta t \right),
+\end{equation}
+where \(\mu\) is the drift vector, \(\sigma^{2}\) is a column vector of the variance $\sigma^{2}_{i}$, \(\boldsymbol{\Sigma}\) is
+the correlation matrix, and \(\boldsymbol{\Lambda} = \operatorname{diag}(\sigma_1 , \sigma_2 , \ldots , \sigma_k)\)
+is the diagonal matrix of volatilities. Following \textcite{CaiJuddXu2013} we utilize the Cholesky decomposition of the correlation matrix,
+\(\boldsymbol{\Sigma} = \mathbf{L} \mathbf{L}^\top\), where \(\mathbf{L} = (L_{i,j})_{k \times k}\) is a
+lower triangular matrix. Hence, for each risky asset \(i\), the log-return is:
+\begin{equation}\label{eq:Distribution_Single_Return}
+  \log (R_i) = \left( \mu_i - \frac{\sigma_i^2}{2} \right) \Delta t + \sigma_i \sqrt{\Delta t} \sum_{j=1}^i L_{i,j} z_j,
+\end{equation}
+where \(z_i\) are independent standard normal random variables.
+
+
 \subsection{Transaction costs and portfolio reallocation} \label{Subsection: Transaction-costs}
 Rebalancing incurs proportional transaction costs \(\tau \in [0,1]\), which are paid based on
 the amount bought or sold of each risky asset. 
@@ -83,7 +60,7 @@ Proportional transaction costs imply that the cost function associated with reba
   \label{eq:Prop_Transaction_Cost}
   \psi (\delta_{i,t} W_t ) = \tau \lvert \delta_{i,t} W_t \rvert 
 \end{equation}
-We decompose the decision variable \(\delta_{i,t}\), representing the fraction of wealth used to trade
+I decompose the decision variable \(\delta_{i,t}\), representing the fraction of wealth used to trade
 risky asset \(i\), into buying (\(\delta^+_{i,t}\)) and selling (\(\delta^-_{i,t}\)) components 
 to ensure tractability\footnote{\textcite{Scheidegger2023} note that this ensures differentiability.
 This approach is common and found in earlier work such as \textcite{Aikan1996}, 
@@ -103,32 +80,162 @@ with \( \boldsymbol{\delta}^+_{t} = (\delta^{+}_{1,t} ,  \delta^{+}_{2,t} , \ldo
 We have that \(\boldsymbol{\delta}_t \) is the \textit{net change} in the risky positions, and \(\boldsymbol{\delta}^+_{t} + \boldsymbol{\delta}^-_{t} \) is 
 the \textit{cumulative change} in the risky positions. 
 % This is is important when discussing costs and rebalancing later.
-\subsection{Asset dynamics} \label{Subsection: Asset-dynamics}
-We follow \textcite{CaiJuddXu2013} for the asset dynamics. The total composition of risky assets is assumed
-to follow a multivariate log-normal distribution:
-\begin{equation}\label{eq:Multivariate_Distribution}
-   \log (\mathbf{R}) \sim \mathcal{N} \left( \left( \mu - \frac{\sigma^{2}}{2} \right) \Delta t , \left( \boldsymbol{\Lambda \Sigma \Lambda } \right) \Delta t \right),
+
+\subsection{Investor preferences and problem} \label{Subsection: Investor-Preferences}
+The investor operates over a finite horizon of \(T\) years, during which the aim is to maximize expected utility. 
+Following \textcite{CaiJuddXu2013}, the investment horizon is discretized into \(N\) equally spaced periods, 
+each with a duration of \(\Delta t = \frac{T}{N}\). 
+At each time point \(t_j\), for \(j = 0, 1, \dots, N\), where \(t_0 = 0\) and \(t_N = T\), 
+the investor has the opportunity to adjust the portfolio allocations right before \(t_j + \Delta t\). 
+Reallocation is costly, and the investor is subject to proportional transaction costs. 
+If consumption is included the investor may also choose to consume a non-durable good at each time point.
+
+For notational simplicity, i now use \(t\) to denote these time points unless specifically referring to \(t_j\). 
+The investor's preferences are modeled using a constant relative risk aversion (CRRA) utility function:
+\begin{equation}\label{eq:CRRA_Utility}
+    u(C_t) = \begin{cases}
+                \frac{C_t^{1-\gamma}}{1-\gamma} & \text{if } \gamma \neq 1, \\
+                \log(C_t) & \text{if } \gamma = 1,
+              \end{cases}
 \end{equation}
-where \(\mu\) is the drift vector, \(\sigma^{2}\) is a column vector of the variance $\sigma^{2}_{i}$, \(\boldsymbol{\Sigma}\) is
-the correlation matrix, and \(\boldsymbol{\Lambda} = \operatorname{diag}(\sigma_1 , \sigma_2 , \ldots , \sigma_k)\)
-is the diagonal matrix of volatilities. Following \textcite{CaiJuddXu2013} we utilize the Cholesky decomposition of the correlation matrix,
-\(\boldsymbol{\Sigma} = \mathbf{L} \mathbf{L}^\top\), where \(\mathbf{L} = (L_{i,j})_{k \times k}\) is a
-lower triangular matrix. Hence, for each risky asset \(i\), the log-return is:
-\begin{equation}\label{eq:Distribution_Single_Return}
-  \log (R_i) = \left( \mu_i - \frac{\sigma_i^2}{2} \right) \Delta t + \sigma_i \sqrt{\Delta t} \sum_{j=1}^i L_{i,j} z_j,
+where \(C_t\) is consumption and \(c_t\) is the fraction of wealth $W_t$ spent on consumption at time \(t\). Hence $c_t = C_t / W_t$,
+and lowercase notation is henceforth used to denote variables as fractions of wealth. 
+\(\gamma\) is the coefficient of relative risk aversion. 
+The objective is to maximize the expected utility of consumption and wealth over the investor's lifetime:
+\begin{equation}
+  \label{eq:Expected_Utility}
+  \max_{\mathbf{x}_t, b_t, c_t} \mathbb{E} \left[ \sum^{N-1}_{i=0} \beta^{i} u(C_i) \Delta t + \beta^N u(W_N) \right],
 \end{equation}
-where \(z_i\) are independent standard normal random variables.
-\subsection{No Trade Region} \label{Subsection: No-trade-region}
-The \ac{NTR} is a region in the asset space (risky and risk-less) where
-it is sub-optimal to rebalance the portfolio.
-Given the parameters of the model the \ac{NTR} without consumption is defined as:
+where \(\beta\) is the discount factor, \(\mathbf{x}_t\) is the allocation to risky assets, \(b_t\) is the allocation to the risk-free asset, and \(W_t\) is the investor's wealth at time \(t\).
+
+
+\subsection{Intertemporal portfolio choice without transaction costs} \label{Subsection: Intertemporal-Portfolio-Choice}
+When there are no transaction costs (no market frictions) the investor can freely rebalance the portfolio.
+This reduces the problem to a classic portfolio optimization problem formulated by \textcite{Merton1969, Merton1971}.
+For a more detailed treatment, see \textcite{Bjork}. 
+In this setting, the investor dynamically allocates wealth between \(k\) risky assets and a risk-free asset to maximize utility over a finite horizon \([0,T]\).
+
+The investor's wealth \(W_t\) can be allocated between a risk-free asset and \(k\) risky assets.
+Consumption is a non-durable good that can be purchased at each time point \(t\).
+\(r\) is the risk-free rate, \(\boldsymbol{\mu}\) is the vector of expected returns on the risky assets, and \(C_t\) represents consumption at time \(t\). The investor’s preferences follow a constant relative risk aversion (CRRA) utility function.\\
+Without transaction costs, the optimal portfolio allocation, known as the Merton point is:
+\begin{equation}
+    \mathbf{x}_t^* = \frac{1}{\gamma} \boldsymbol{\Sigma}^{-1} (\boldsymbol{\mu} - r ),
+\end{equation}
+where \(\gamma\) is the coefficient of relative risk aversion, and \(\boldsymbol{\Sigma}\) is the covariance matrix of the risky assets' returns.
+This provides a time-independent optimal allocation that serves as a benchmark for models incorporating frictions such as transaction costs.
+
+
+\subsection{The general class of dynamic portfolio choice with transaction costs and intertemporal consumption} \label{Subsection: Dynamic-portfolio-choice}
+Now consider when transaction costs are present, and the investor can consume a non-durable good at each time point.
+The solution to the dynamic portfolio choice problem is no longer given by the closes form solution of the Merton point.
+Considering the components presented in this section,
+the class of dynamic portfolio optimization problems, given one risk free asset and $k$ risky assets, can be formulated 
+by the following Bellman equation, \textcite{Bellman1958}\footnote{This is consolidated model of the base model, and with consumption model, of \textcite{CaiJuddXu2020},
+however the cost function is generalized and correlation of returns is included.}:
+\begin{equation} \label{eq: class_bellman_non_normalized}
+  V_{t} (W_t , \mathbf{x}_{t}, \theta_t) = \max_{c_t , \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t}  } \{ u(c_t W_t ) 
+  \Delta t + \beta \mathbb{E}_{t} \left[ 
+    V_{t+\Delta t} (W_{t+\Delta t } \mathbf{x}_{t+\Delta t }, \theta_{t + \Delta t }  ) 
+    \right] \}, \quad t < T 
+\end{equation}
+Given some initial level of wealth $W_0$ and portfolio allocation $\mathbf{x}_0$. \( \theta_t \) is a vector of stochastic variables, which
+the gross one period risk free return, and risky return depends on, i.e \( \mathbf{R}(\theta_t) \) and \( R_f (\theta_t) \).
+These could cover the drift $\mu $, volatiliy $\sigma^{2}$, correlation of the risky assets $\Sigma$, and the risk free return $r$ or only some of these, dependent on the model.
+Notice that future wealth and allocations are stochastic, as they depend on the future realization of $\theta_t$.\\
+Notice that consumption and reallocation are decision variables, whereas bond holding are not (Explicitly).
+This is because bond holdings can be determined as the residual wealth, after consumption and reallocation decisions are made:
+\begin{equation}\label{eq: class_bond_holdings_non_normalized}
+  b_{t} W_t = \left( 1 - \mathbf{1}^{\top} \cdot \mathbf{x_t}  \right) W_t - \mathbf{1}^{\top} \cdot \boldsymbol{\delta}_t W_t 
+  - \psi (\boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_t , W_t)
+  - c_t W_t
+\end{equation}
+Where $\psi(\cdot )$ is the transaction cost function, and $\mathbf{1}$ is a vector of ones.\\
+The dynamics of the state variables follow \textcite{Schober2022} and are given by:
+\begin{align}
+  W_{t+\Delta t} &= b_t W_t R_f (\theta_t) +  ( [ \mathbf{x_t} + \boldsymbol{\delta}_t ] W_t )^{\top} \cdot \mathbf{R}(\theta_t) \\
+  \mathbf{x}_{t+\Delta t} &=  \frac{( (\mathbf{x}_t + \boldsymbol{\delta}_t ) W_t ) \odot \mathbf{R}_t (\theta_t )}{ W_{t+\Delta t} }
+\end{align}
+Where $\odot$ is the elementwise product (Hadamand product). The terminal value function is
+given by\footnote{Stemming from the infinite sum of discounted utility of interest payments.}:
+\begin{equation} \label{eq: class_terminal_value_non_normalized}
+  V_T (W_T , \mathbf{x}_T , \theta_T ) = u ( ( W_T - \psi ( \mathbf{x}_T W_T )) \cdot (1-R_f (\theta_T)) )\cdot \Delta t \cdot (1-\beta)^{-1}
+\end{equation}
+Which implies that the investor transfers all wealth to the bank account at the terminal period,
+and consumes out of the interest
+returns\footnote{This formulation stems from \textcite{CaiJuddXu2013} and assumes that the investor lives forever.
+\textcite{Scheidegger2023} assumes that the investor consumes everything at the terminal period.}.
+Finally we note that the optimization problem is subject to the following constraints:
+\begin{align}
+  \boldsymbol{\delta}_t W_t &\geq - \mathbf{x}_t W_t \\
+  b_t W_t &\geq 0 \\
+  \mathbf{1}^{\top} \mathbf{x}_t &\leq 1
+\end{align}
+The first constraint ensures that the investor does not short sell risky assets, 
+The second constraint is also a no shorting constraint
+and the third is a no-borrowing constraint. Hence This formulation does not consider leveraged investments.\\
+Furhtermore we can note that the rebalancing decision (in each direction), is only feasible in the space:
+\begin{align}
+  \delta^{+}_{i,t} &\in [0 , 1-x_{i,t}]  \label{eq: delta+_space} \\
+  \delta^{-}_{i,t} &\in [0 , x_{i,t}] \label{eq: delta-_space}
+\end{align}
+This is a direct formulation of the constraints, already captured in the equations above.\\
+The problem can be simplified by normalizing wrt. wealth, and removing wealth as a state variable, since
+wealth is seperable from the rest of the state space $\mathbf{x}_t , \theta_t$ as noted by \textcite{CaiJuddXu2013}.\\
+This is because portfolio optimality is independent of wealth for CRRA utility function. 
+The Bellman equation is then:
+\begin{equation} \label{eq: class_bellman}
+  v_{t} (\mathbf{x}_{t}, \theta_t) = \max_{c_t , \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} } \{ u(c_t) 
+  \Delta t + \beta \mathbb{E}_{t} \left[ 
+    \pi_{t+\Delta t}^{1-\gamma}
+    v_{t+\Delta t} (\mathbf{x}_{t+\Delta t }, \theta_{t + \Delta t }  ) 
+    \right] \} , \quad t < T 
+\end{equation}
+The normalized bond holdings are then:
+\begin{equation}\label{eq: class_bond_holdings}
+  b_{t} = 1 - \mathbf{1}^{\top} \cdot (\mathbf{x_t} - \boldsymbol{\delta}_t - \psi( \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t}  )) - c_t \Delta t
+\end{equation}
+We see that these are still the residual of the wealth after the rebalancing and consumption decision.
+Where we formulate the transaction cost function $\psi(\cdot)$ in terms of the buying and selling components,
+and using changes to allocations proportional to wealth, instead of the prior formulations, where wealth was a direct input.
+The dynamics are then:
+\begin{align}
+  \pi_{t+\Delta t} &= b_t R_f (\theta_t)  + (\mathbf{x}_t + \boldsymbol{\delta}_t)^{\top} \cdot \mathbf{R}(\theta_t) \\
+  \mathbf{x}_{t+\Delta t} &=  \frac{(\mathbf{x}_t + \boldsymbol{\delta}_t) \odot \mathbf{R}_t (\theta_t )}{ \pi_{t+\Delta t} } \\
+  W_{t+\Delta t} &= \pi_{t+\Delta t} W_t
+\end{align}
+Where we now formulate the problem with regard to the proportional wealth change $\pi_{t+\Delta t} = \frac{W_{t+\Delta t}}{W_t}$.
+The terminal value function is:
+\begin{equation} \label{eq: class_terminal_value}
+  v_T (\mathbf{x}_T , \theta_T ) = u ( (1 - \psi(\mathbf{x}_T)) \cdot (1-R_f (\theta_T)) )\cdot \Delta t \cdot (1-\beta)^{-1} 
+\end{equation}
+The constrains are likewise normalized:
+\begin{align}
+  \boldsymbol{\delta}_t &\geq - \mathbf{x}_t \label{eq: No_Short_risky} \\
+  b_t &\geq 0 \label{eq: No_Short_bonds}\\
+  \mathbf{1}^{\top} \mathbf{x}_t &\leq 1 \label{eq: No_Geared_Risky}
+\end{align}
+This class of dynamic portfolio choice problems covers any formulation of the problem,
+where the transaction cost specification is differentiable, and the utility function allows for seperability of wealth and remaining state variables.
+Later formulations will be based on this class structure, covering the necessary Bellman equaiton, state dynamics, preferences and transaction costs functions as well as the constraints
+and any extensions not yet presented.\\
+The non-normalized optimal choices can be obtained by multiplying the normalized choices with the wealth level $W_t$ at a given time point $t$.
+The \ac{NTR} is in this framework the set of asset allocations where it is sub-optimal to rebalance the portfolio, and is defined as:
 \begin{equation}
   \label{eq:No_Trade_Region}
-  \Omega_t = \{ \mathbf{x}_{t} : \boldsymbol{\delta}^{+}_t , \boldsymbol{\delta}^{-}_t = \mathbf{0} \}
+  \Omega_t = \{ \mathbf{x}_{t} : \boldsymbol{\delta}^{+,*}_t , \boldsymbol{\delta}^{-,*}_t = \mathbf{0} \}
 \end{equation}
-We note that the \ac{NTR} is independent of the wealth level, but only depends on the wealth allocations.
-The \ac{NTR} stems from the transaction costs, and is a connected set.
-When consumption is introduced in the model 
+Where $\boldsymbol{\delta}^{+,*}_t , \boldsymbol{\delta}^{-,*}_t$ are the optimal buying and selling policies at time $t$. 
+The next section will cover the \ac{NTR} in more detail.
+
+\subsection{No Trade Region} \label{Subsection: No-trade-region}
+The \ac{NTR} is a region in the asset space where
+it is sub-optimal to rebalance the portfolio.
+Given the parameters of the model the \ac{NTR} without consumption is defined as in equation \eqref{eq:No_Trade_Region}.
+If consumption is included, this definiton remains the same, but the consumption decision varies within the \ac{NTR}.
+Note that the \ac{NTR} is independent of the wealth level, but only depends on the wealth allocations.
+The \ac{NTR} stems from the introduction of transaction costs, and is a connected set.
+
 \textbf{SE ANGÅENDE CONVEX HULL}: 
 Kamin (1975), Constantinides (1976, 1979, 1986),
 Davis and Norman (1990), and Muthuraman and Kumar (2006). 
@@ -142,7 +249,42 @@ Figure \ref{fig: NTR_Example} illustrates an example of a \ac{NTR} with two risk
   % \floatfoot{\textbf{Note:}}
 \end{figure}
 The square shape of the \ac{NTR} occurs with proportional transaction costs
-and independent risky assets. However the NTR is not always a square, for more on this see \textcite{Dybvig2020}.
+and independent (i.i.d) risky assets. However the NTR is not always a perfect square, for more on this see \autocite{Dybvig2020}.
+
+
+\subsection{Base problem: Portfolio with proportional costs and consumption}\label{Subsection: Base_Problem}
+Considering the class of problems constructed in the prior section,
+we can now quickly introduce the basic problem formulation.
+We consider an investor with CRRA utility function. She can invest in one risk free asset and $k$ risky assets.
+Trading is subject to proportional transaction costs hence we have the following cost function (in cumulative terms):
+\begin{equation} \label{eq: base_model_transaction-cost}
+  \psi (\boldsymbol{\delta}^{+}_{i,t}, \boldsymbol{\delta}^{-}_{i,t} ) = \tau (\boldsymbol{\delta}^{+}_{i,t} + \boldsymbol{\delta}^{-}_{i,t}) 
+\end{equation}
+We do not assume that returns are dependent on stochastic parameters, but instead are drawn from a distribution with known parameters.
+Hence we assume \( \theta_{t} = \theta \) for all $t$. That is that we assume a constant return on the risk free asset, hence $R_{f}(\theta_t) = R_{f}$,
+and the risky assets follow a multivariate log-normal distribution, with some mean and covariance matrix.
+We can now formulate the entire problem giventhe class structure from section \ref{Subsection: Dynamic-portfolio-choice}.
+The terminal value function is given by equation \eqref{eq: class_terminal_value}. 
+The system is subject to the constraints of equations \eqref{eq: No_Short_risky}, \eqref{eq: No_Short_bonds} and \eqref{eq: No_Geared_Risky},
+as well as a simple constrain on consumption, $c_t \geq 0$.
+We assume that the position in bond holdings is the residual wealth, and they therefore follow the process
+in \eqref{eq: class_bond_holdings}. The Bellman equation is therefore:
+\[  
+  v_{t} (\mathbf{x}_{t}, \theta_t) = \max_{c_t , \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t}  },  \{ u(c_t) 
+  \Delta t + \beta \mathbb{E}_{t} \left[ 
+    \pi_{t+\Delta t}^{1-\gamma}
+    v_{t+\Delta t} (\mathbf{x}_{t+\Delta t }) 
+    \right] \} , \quad t < T 
+\]
+With same terminal condition as before, where wealth is transfered to the bond account at the terminal period, 
+and consumption is financed by the interest returns.
+\[
+  v_T (\mathbf{x}_T) = u ( (1 - \psi( \mathbf{0},\mathbf{x}_T)) \cdot (1-R_f) )\cdot \Delta t \cdot (1-\beta)^{-1} 
+\]
+
+\subsection{Portfolio with fixed and proportional costs}
+\subsection{Portfolio with asset specific costs}
+
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end

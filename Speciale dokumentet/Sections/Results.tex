@@ -10,8 +10,10 @@
 \section{Results} \label{Section: Results}
 For the following results we consider 3 types of parameterizations for the portfolio problem.
 The first is a simple case where the assets are identically distributed as seen in \autocite{CaiJuddXu2013},
-the second is a case where the parameters are chosen to match the parameters in \autocite{Schober2022} also seen in \autocite{Scheidegger2023},
-and the last is a modification of the first case where the correlation between the assets is larger (correlation coefficient of $0.75$).
+the second is a case where the parameters are chosen to match the parameters in \autocite{Schober2022} also seen in \autocite{Scheidegger2023}.
+This is in order to be able to draw correct comparisons between the results. Furthermore this case,
+displays assets with slight variation in the mean and a small correlation between the assets, and no asset is dominating the others.
+The last parameterization is a modification of the first case where the correlation between the assets is larger (correlation coefficient of $0.75$).
 \begin{table}[!ht]
     \label{table: Parameters_Base_Models}
     \centering
@@ -97,7 +99,10 @@ depending on the number of assets $d$ in the model.
     \caption{Comparison of No Trade Regions.}
     \label{fig:comparison_NTR}
 \end{figure}
-
+I note that for each of the parameterizations the No-Trade region is a rectangle or parallelogram.
+For the case of identical and independent assets, the No-Trade region is a perfect square, whereas for the Schober parameters and the high correlation case,
+the No-Trade region is a parallelogram. This is due to the correlation between the assets. When some correlation is present, the No-Trade region is skewed,
+since some allocations which would be optimal in the absence of correlation are no longer optimal. 
 \subsubsection{Investigating the No-Trade Region} \label{Subsubsection: InvestigatingNTR}
 We now look at the No-Trade region for the base model with proportional transaction costs and no consumption in more detail.
 Specifically we look at how the region behaves over the entire investment horizon $[0, T]$, and how the region changes with different transaction cost levels.
@@ -112,22 +117,53 @@ We choose to look at the model with the Schober parameters, as this is a mixture
     For time points $t\in [0,T-1]$ the \ac{NTR}s overlap.}
 \end{figure}
 
+I note that at the last time point $t = T$ the \ac{NTR} moves away from the merton point towards the origin, and the Merton point is is
+now the upper right corner of the \ac{NTR}. For all other time periods the \ac{NTR} is the same, and the Merton point is in the center.
+
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale = 0.45]{NTR_Cai_IdenticalDifferent_Tau_t_0.png}
+    \includegraphics[scale = 0.45]{NTR_Cai_IdenticalDifferent_Tau_t_3.png}
     \caption{No Trade Region for the iid Parameters with different values of $\tau$.}
     \label{fig:NTR_2d_iid_tau_analysis}
 \end{figure}
-Note that for larger values of $\tau$ the \ac{NTR} is larger, which is to be expected...
+I now investigate how the No-Trade region changes with different transaction cost levels.
+I do this for the i.i.d. parameters, and plot the \ac{NTR} for different values of $\tau$ in \autoref{fig:NTR_2d_iid_tau_analysis}.
+When the transaction costs are increased, the \ac{NTR} increases aswell and vice-versa. 
+I note that for low enough transaction costs, the \ac{NTR} shrinks towards the Merton point.
+However when transaction costs are low enough, the Merton point is not in the excact center, which might signify that at low enough values, some numerical instabilities from the
+minimizer, and function approximation using \ac{GPR} might be present.
 
 \subsubsection{Increasing the dimensionality of the model} \label{Subsubsection: IncreasingDimensionality}
-We now increase the dimensionality of the model to $d = 3$ and look at the No-Trade region for the Schober parameters.
+We now increase the dimensionality of the model to $d = 3$ and look at the No-Trade region for the Schober parameters and for the i.i.d parameters.
+
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale = 0.45]{NTR_Schober_Parameters_d3_tau_0.005__no_consumption_t_0.png}
-    \caption{No Trade Region for the Schober Parameters with $d = 3$.}
-    \label{fig:NTR_3d_Schober}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.45]{NTR_Schober_Parameters_d3_tau_0.005__no_consumption_t_0.png}
+        \caption{No Trade Region for Schober Parameters in 3 dimensions.}
+        \label{fig:NTR_3d_Schober}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.45]{NTR_Cai_Identical_d3_tau_0.005__no_consumption_t_3.png}
+        \caption{No Trade Region for i.i.d. Parameters in 3 dimensions}
+        \label{fig:NTR_3d_iid_Correlation}
+    \end{subfigure}
+
+    % Overall caption
+    \caption{Comparison of No Trade Regions.}
+    \label{fig:comparison_NTR_3d}
 \end{figure}
+Note that the i.i.d NTR looks like a skewed cube, whereas this was a perfect square in the 2 dimensional case.
+Looking that the points forming the convex hull that is the NTR, it is clear that the NTR is restricted by the no-trading and no-borrowing constraints,
+since one of the border points, which would otherwise form the perfect cube is outside the feasible space. Hence when the risky returns outweigh the risk-free return,
+to such a degree that the merton point moves towards the boundary of the feasible space, cube like shapes are no longer possible.
+This is clear when compared to the Schober parameters, where the merton point is in the center of the NTR, and the NTR is a skewed cube.
+The merton point in this case suggest lower portfolio allocations to the risky assets, and hence the NTR is not restricted by the no-trading and no-borrowing constraints.
+
+
 
 
 \ifdefined\COMPILINGMAIN
