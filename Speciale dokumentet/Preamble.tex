@@ -32,7 +32,7 @@
 \renewcommand\thefigure{\thesection.\arabic{figure}}
 % Path to figures
 \graphicspath{{../Figures/}}
-
+\usepackage{tikz} % TikZ for creating figures
 % URLs and references and colors
 \usepackage[dvipsnames]{xcolor}
 \usepackage[hyphens]{url}
@@ -74,6 +74,11 @@
 \renewcommand\appendixtocname{Appendices A-F}
 \renewcommand\appendixpagename{Appendices}
 
+%# Assumptions like theorems and corrolaries
+% {
+%   \theoremstyle{plain}
+%   \newtheorem{assumption}{Assumption}
+% }
 % Title setup
 \usepackage{titlepic}
 \usepackage{titlesec}

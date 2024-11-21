@@ -60,10 +60,9 @@ The last parameterization is a modification of the first case where the correlat
 0.00096 & 0.01296 & 0.0168 & 0.02112 & 0.0576 \\
 \end{bmatrix}
 \]
-
 \subsection{Dynamic Portfolio Choice without consumption} \label{Subsection: Results_NoConsumption}
 I first consider the base model with proportional transaction costs
-and no consumption. In the absence of consumption, the optimal portfolio is the merton points, which we plot in every figure.
+and no consumption. In the absence of consumption, the optimal portfolio is the merton point, which we plot in every figure.
 I plot the No-trade region at time point 0 (initial time point) for each of the parameterizations in \autoref{fig:comparison_NTR}.
 When using the Schober parameters we select the $d$ first elements of the mean vector, and truncate the covariance matrix to a $d \times d$ matrix,
 depending on the number of assets $d$ in the model.
@@ -113,11 +112,11 @@ We choose to look at the model with the Schober parameters, as this is a mixture
     \includegraphics[scale = 0.45]{NTR_Schober_Parameters_d2_tau_0.005__no_consumption_Over_Time_t_5.png}
     \caption{No Trade Region for Schober Parameters over Time.}
     \label{fig:NTR_2d_iid_standalone}
-    \floatfoot{The No-Trade region is plotted for the Schober parameters over the entire investment horizon $[0, T]$
-    For time points $t\in [0,T-1]$ the \ac{NTR}s overlap.}
+    \floatfoot{The No-Trade region is plotted for the Schober parameters over the entire investment horizon $[0, T-1]$
+    For time points $t\in [0,T-2]$ the \ac{NTR}s overlap.}
 \end{figure}
 
-I note that at the last time point $t = T$ the \ac{NTR} moves away from the merton point towards the origin, and the Merton point is is
+I note that at the last time point $t = T-1$ the \ac{NTR} moves away from the merton point towards the origin, and the Merton point is is
 now the upper right corner of the \ac{NTR}. For all other time periods the \ac{NTR} is the same, and the Merton point is in the center.
 
 \begin{figure}[!ht]
@@ -157,9 +156,12 @@ We now increase the dimensionality of the model to $d = 3$ and look at the No-Tr
     \label{fig:comparison_NTR_3d}
 \end{figure}
 Note that the i.i.d NTR looks like a skewed cube, whereas this was a perfect square in the 2 dimensional case.
-Looking that the points forming the convex hull that is the NTR, it is clear that the NTR is restricted by the no-trading and no-borrowing constraints,
-since one of the border points, which would otherwise form the perfect cube is outside the feasible space. Hence when the risky returns outweigh the risk-free return,
+Looking that the points forming the convex hull that is the NTR, it is clear that the NTR is restricted by the no-borrowing constraint,
+since one of the border points, which would otherwise form the perfect cube, would outside the feasible space if this was possible, and is then projected into the feasible space. 
+Hence when the risky returns outweigh the risk-free return,
 to such a degree that the merton point moves towards the boundary of the feasible space, cube like shapes are no longer possible.
+In the $2$ dimension case, this is akin to the \ac{NTR} being close to the budget line, and the \ac{NTR} would then form a triangle.
+
 This is clear when compared to the Schober parameters, where the merton point is in the center of the NTR, and the NTR is a skewed cube.
 The merton point in this case suggest lower portfolio allocations to the risky assets, and hence the NTR is not restricted by the no-trading and no-borrowing constraints.
 
@@ -171,7 +173,7 @@ The merton point in this case suggest lower portfolio allocations to the risky a
     \includegraphics[scale = 0.45]{NTR_Cai_Identical_d2_tau_0.005__with_consumption_Over_Time_t_5.png}
     \caption{No Trade Region for i.i.d Parameters over time with consumption.}
     \label{fig:NTR_2d_iid_with_consumption_over_time}
-    \floatfoot{The No-Trade region is plotted for the i.i.d parameters over the entire investment horizon $[0, T]$.}
+    \floatfoot{The No-Trade region is plotted for the i.i.d parameters over the entire investment horizon $[0, T-1]$.}
 \end{figure}
 Note that when consumption is included, the \ac{NTR} no longer encapulates the Merton point at any time point.
 Furthermore the \ac{NTR} now moves over time, towards the origin, as opposed to the case without consumption,
