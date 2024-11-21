@@ -61,7 +61,7 @@ The last parameterization is a modification of the first case where the correlat
 \end{bmatrix}
 \]
 
-\subsection{Dynamic Portfolio Choice without consumption} \label{Subsection: NumericalIntegration}
+\subsection{Dynamic Portfolio Choice without consumption} \label{Subsection: Results_NoConsumption}
 I first consider the base model with proportional transaction costs
 and no consumption. In the absence of consumption, the optimal portfolio is the merton points, which we plot in every figure.
 I plot the No-trade region at time point 0 (initial time point) for each of the parameterizations in \autoref{fig:comparison_NTR}.
@@ -110,7 +110,7 @@ We choose to look at the model with the Schober parameters, as this is a mixture
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale = 0.45]{NTR_Schober_Parameters_d2_tau_0.005__no_consumptionOver_Time_t_5.png}
+    \includegraphics[scale = 0.45]{NTR_Schober_Parameters_d2_tau_0.005__no_consumption_Over_Time_t_5.png}
     \caption{No Trade Region for Schober Parameters over Time.}
     \label{fig:NTR_2d_iid_standalone}
     \floatfoot{The No-Trade region is plotted for the Schober parameters over the entire investment horizon $[0, T]$
@@ -163,8 +163,19 @@ to such a degree that the merton point moves towards the boundary of the feasibl
 This is clear when compared to the Schober parameters, where the merton point is in the center of the NTR, and the NTR is a skewed cube.
 The merton point in this case suggest lower portfolio allocations to the risky assets, and hence the NTR is not restricted by the no-trading and no-borrowing constraints.
 
+\subsection{Dynamic Portfolio Choice with consumption} \label{Subsection: Results_WithConsumption}
 
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale = 0.45]{NTR_Cai_Identical_d2_tau_0.005__with_consumption_Over_Time_t_5.png}
+    \caption{No Trade Region for i.i.d Parameters over time with consumption.}
+    \label{fig:NTR_2d_iid_with_consumption_over_time}
+    \floatfoot{The No-Trade region is plotted for the i.i.d parameters over the entire investment horizon $[0, T]$.}
+\end{figure}
+Note that when consumption is included, the \ac{NTR} no longer encapulates the Merton point at any time point.
+Furthermore the \ac{NTR} now moves over time, towards the origin, as opposed to the case without consumption,
+where the \ac{NTR} was static for all time points except the next to last period (last period with trading decisions).
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end
