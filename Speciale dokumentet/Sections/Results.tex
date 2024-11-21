@@ -167,14 +167,28 @@ The merton point in this case suggest lower portfolio allocations to the risky a
 
 \subsection{Dynamic Portfolio Choice with consumption} \label{Subsection: Results_WithConsumption}
 
-
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale = 0.45]{NTR_Cai_Identical_d2_tau_0.005__with_consumption_Over_Time_t_5.png}
-    \caption{No Trade Region for i.i.d Parameters over time with consumption.}
-    \label{fig:NTR_2d_iid_with_consumption_over_time}
-    \floatfoot{The No-Trade region is plotted for the i.i.d parameters over the entire investment horizon $[0, T-1]$.}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.45]{NTR_Cai_Identical_d2_tau_0.005__with_consumption_Over_Time_t_5.png}
+        \caption{No Trade Region for i.i.d parameters over time with consumption.}
+        \label{fig:NTR_2d_iid_with_consumption_over_time}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.45]{NTR_Cai_High_Correlation_d2_tau_0.005__with_consumption_Over_Time_t_5.png}
+        \caption{No Trade Region for high correlation parameters over time with consumption.}
+        \label{fig:NTR_2d_high_correlation_with_consumption_over_time}
+    \end{subfigure}
+
+    % Overall caption
+    \caption{Comparison of No Trade Regions over time with consumption.}
+    \floatfoot{The No-Trade regions are plotted over the entire investment horizon $[0, T-1]$.}
+
 \end{figure}
+
 Note that when consumption is included, the \ac{NTR} no longer encapulates the Merton point at any time point.
 Furthermore the \ac{NTR} now moves over time, towards the origin, as opposed to the case without consumption,
 where the \ac{NTR} was static for all time points except the next to last period (last period with trading decisions).
