@@ -6,6 +6,42 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts, amsmath, amsthm, bbm, setspace}
 \onehalfspacing
+\usepackage{algorithm2e}
+\usepackage{tcolorbox} % For the grey background
+% Create a tcolorbox style for the algorithm
+\tcbuselibrary{listingsutf8}
+\tcbset{
+    algobox/.style={
+        colback=gray!3, % Background color
+        colframe=black,  % Border color
+        sharp corners,   % Square corners
+        boxrule=0.5pt,   % Border thickness
+        before skip=10pt, % Vertical spacing before box
+        after skip=10pt,  % Vertical spacing after box
+        width=\textwidth, % Box width
+    }
+}
+
+
+% Adjust algorithm2e settings for a similar look
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Result}{Result}
+\SetKwFor{For}{for}{:}{end}
+
+% Adjust settings for algorithm2e
+\SetAlgoCaptionSeparator{.} % Separator for caption
+\SetAlgoNlRelativeSize{-2}  % Adjust line number font size
+\SetAlgoInsideSkip{2pt}    % Reduce space between lines
+\SetAlCapSkip{0pt}         % Remove extra space after the caption
+% Ensure captions are above algorithms
+\SetAlgoCaptionLayout{center} % Center caption
+% Adjust the style of the algorithm to remove bottom line
+\RestyleAlgo{ruled}
+\SetAlCapSkip{0.5em}       % Space after caption
+\SetAlgoVlined              % Ensures no horizontal lines at the end
+
+
+
 
 % Theorem and math environments
 \newtheorem{assumption}{Assumption}

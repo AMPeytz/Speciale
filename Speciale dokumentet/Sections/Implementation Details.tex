@@ -357,7 +357,7 @@ This is seen in the figure below:\\
   \caption{Illustration of the no-trade region (NTR) and the optimal policies outside this.}
   \label{fig:no_trade_region_schematic}
   % add float foot
-  \floatfoot{This is a schematic NTR. Blue regions are regions where optimal policy $\boldsymbol{\delta}$ is to buy in one asset and sell in another.
+  \floatfoot{This is a schematic NTR. Blue regions are regions where optimal policy $\boldsymbol{\delta}$ is to adjust both asset allocations.
   Green regions are regions where the optimal policy is to hold in one asset and adjust the other. This figure is a recreation of Figure 1. in \textcite{Scheidegger2023}.}
 \end{figure}
 If one considers the example in figure \ref{fig:no_trade_region_schematic}, i can effectively approximate the \ac{NTR},
@@ -398,7 +398,7 @@ I therefore instead follow the method of \autocite{Scheidegger2023}, and sample 
 This scheme consists of the three point types mentioned earlier, with a sampling method for each of these points.
 Having approximated the \ac{NTR}, i can effectivly sample point in this manner:
 \begin{enumerate}
-  \item Sample points outside the \ac{NTR} in the general state space. For this i can use a uniform grid, or a random grid. I then remove all points inside the \ac{NTR}, and resample until i have enough points.
+  \item Sample points outside the \ac{NTR} in the general state space using a uniform grid. I then remove all points inside the \ac{NTR}, and sample random grid points until i have enough points.
   \item Sample points inside the \ac{NTR}. For this i consider random draws, as the placement inside the NTR is not of high importance. I just need enough to approximate the value function.
   \item Sample points around the \ac{NTR} kinks. For this i consider each \ac{NTR} vertice. I then interpolate between adjacent vertices slightly, and extend these outward with random noise draws. 
 \end{enumerate}
@@ -452,15 +452,90 @@ This strategy effectively deals with the kinks of the \ac{NTR}, as this otherwis
 I construct one \ac{GP} for the points inside the \ac{NTR}, and one for the points outside the \ac{NTR}, and when i then evaluate the value function at a point $v_{t+1}(\mathbf{x}_{t+1})$,
 i select the appropriate \ac{GP} to evaluate the value function.
 
-This is done after having optimized over the $N$ points from the sampling strategy, i construct two datasets and two \ac{GPR}s:
+This is done after having optimized over the $N$ points from the sampling strategy, i construct two datasets:
 \begin{align}
   \mathbf{X}_{t,\text{inside}} &= \{ \mathbf{x}_{t,i} , \hat{v}_{t,i} \mid \mathbf{x}_{t,i} \in \hat{\boldsymbol{\Omega}}_{t} \}\\
   \mathbf{X}_{t,\text{outside}} &= \{ \mathbf{x}_{t,i} , \hat{v}_{t,i} \mid \mathbf{x}_{t,i} \notin \hat{\boldsymbol{\Omega}}_{t} \}
 \end{align}
-
+Then each \ac{GP} is fit over the dataset, which consists of asset allocations and the corresponding value function output.
+In the next period, $t-1$ (since we iterate backwards), i can then evalute the next period value functtion $v_{t+1}(\mathbf{x_{t+1}})$,
+by selecting the appropriate \ac{GP}, and using the predictive mean from \eqref{eq: GP-pred-mean}:
+\begin{equation} \label{eq: valuefunctin_gp_mean}
+  \tilde{\mu}(\mathbf{x}_{t+1}) = k(\mathbf{x}_{t+1}, \mathbf{X}_{t+1}) [k(\mathbf{X}_{t+1}, \mathbf{X}_{t+1}) + \sigma^{2}_{\varepsilon} \mathbf{I}]^{-1} \hat{\mathbf{v}}_{t+1},
+\end{equation}
 \subsection{Final solution algorithms} \label{Subsection: Algorithm}
+Now that each component regarding the solution algorithm has been covered, i can now presents the solution algorithms for the dynamic portfolio allocation problem, in pseudo code.
+Starting at the second to last period, which is the last period where the investment decision is not trivial, the algorithm is as follows:
+Sample $2^{D}$ points to approximate the \ac{NTR}. Then Approximate the \ac{NTR} by solving the optimization problem for these points.
+
+Sample $N$ points in a strategic manner, as described in \ref{Subsubsubsection: Sample}. For each $x_{i,t} \in X_{t}$ with $\{ X_t \}^{N}_{i=1}$, solve the optimization problem to find the optimal policy $\boldsymbol{\delta}_{i}$.
+
+Construct the datasets $\mathbf{X}_{t,\text{inside}}$ and $\mathbf{X}_{t,\text{outside}}$ and fit two \ac{GPR}s to the datasets $\mathbf{X}_{t,\text{inside}}$ and $\mathbf{X}_{t,\text{outside}}$.
+The code can be split into two parts, algorithim (A) and algorithm (B). Algorithm A covers approximatin the NTR and algorithm B covers the entire \ac{DP} scheme.
+These are drawn from the framework which has been covered, above, created by \autocite{Scheidegger2023}.
+
+\begin{tcolorbox}[algobox]
+\scriptsize{
+\RestyleAlgo{algoruled}
+\begin{algorithm}[H]
+  \caption{Approximate the $t$-th period NTR in the discrete-time finite-horizon portfolio choice model with proportional transaction costs.}
+  \Input{$t+1$ period's value function approximation $V_{t+1}$.}
+  \Result{Set of approximated NTR vertices: $\{\hat{\boldsymbol{\omega}}_{i,t}\}_{i=1}^N$; Approximated NTR: $\hat{\boldsymbol{\Omega}}_t$.}
+  Sample the set of $N = 2^D$ points $\tilde{\mathbf{X}}_t = \{\tilde{\mathbf{x}}_{t,i}\}_{i=1}^N$ using section strategy from Section \ref{Subsection: Approximating_NTR}.\\
+  \For{$\tilde{\mathbf{x}}_{i,t} \in \tilde{\mathbf{X}}_t$}{
+      Obtain policy $\hat{\boldsymbol{\delta}}_{i,t}$ for $\tilde{\mathbf{x}}_{i,t}$ by solving the optimization problem using $V_{t+1}$ as the next period's value function. (Terminal value function in $t=T-1$) \\
+      Compute the approximate NTR vertices $\hat{\boldsymbol{\omega}}_{i,t} = \tilde{\mathbf{x}}_{i,t} + \hat{\boldsymbol{\delta}}_{i,t}$. \\
+  }
+  Compute the NTR approximation: $\hat{\boldsymbol{\Omega}}_t = \{\lambda \hat{\boldsymbol{\omega}}_t \mid \lambda \in (0,1)^N, \, \sum_{i=1}^N \lambda_i = 1\}$.
+\end{algorithm}
+}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[algobox]
+\scriptsize{
+\RestyleAlgo{algoruled}
+\begin{algorithm}[H]
+  \caption{Complete Dynamic programming scheme with Gaussian process regressions and the NTR approximation.}
+  \Input{Terminal value function $v_T$; time horizon $T$; sample size $N$.}
+  \Result{Set of GP approximations of the value functions $\{v_{t-1}\}_{t=0}^{T-1}$; set of approximated NTRs $\{\hat{\boldsymbol{\Omega}}_t\}_{t=0}^{T-1}$, obtained policies $ \{ \{\boldsymbol{\delta}\}^{N+2^{d}}_{i=1} \}_{0}^{T-1}$.}
+  
+  \BlankLine
+  Set $\mathcal{V}_T = v_T$. \\
+  \For{$t \in [T, \dots, 1]$}{
+      Approximate NTR $\hat{\boldsymbol{\Omega}}_{t-1}$ (Alg.~1) using $\mathcal{V}_T$ as the next period's value function. \\
+      Sample $N$ points $\mathbf{X}_{t-1} = \{\mathbf{x}_{t-1,i}\}_{i=1}^N$ using the constructed sampling scheme. \\
+      \For{$\mathbf{x}_{i,t-1} \in \mathbf{X}_{t-1}$}{
+          Obtain value $\hat{v}_{i,t-1}$ and policy $\{\hat{\delta}_{i,t-1}, \hat{c}_{i,t-1}\}$ for $\mathbf{x}_{i,t-1}$ by solving the optimization problem using $\mathcal{V}_t$ as the next period’s value function. \\
+      }
+      Define the training sets:
+      \begin{align*}
+      \mathcal{D}_{\text{in},t-1} &= \{ (\mathbf{x}_{i,t-1}, \hat{v}_{i,t-1}) \mid \mathbf{x}_{i,t-1} \in \hat{\boldsymbol{\Omega}}_{t-1} \}, \\
+      \mathcal{D}_{\text{out},t-1} &= \{ (\mathbf{x}_{i,t-1}, \hat{v}_{i,t-1}) \mid \mathbf{x}_{i,t-1} \notin \hat{\boldsymbol{\Omega}}_{t-1} \}.
+      \end{align*}
+      Given $\mathcal{D}_{\text{in},t-1}$ and $\mathcal{D}_{\text{out},t-1}$, approximate $v_{t-1}$ for inside and outside of the NTR $\{G_{\text{in},t-1}, G_{\text{out},t-1}\}$ (using the respective datasets) with GPs. \\
+      Set $v_{t-1} = \{G_{\text{in},t-1}, G_{\text{out},t-1}\}$.
+  }
+  \end{algorithm}
+}
+\end{tcolorbox}
 
 \subsection{Computational stack and implementation} \label{Subsection: Computational_stack}
+The solution algorithm is implemented in Python, and takes advantage of a simple but powerfull computational stack. following \autocite{Scheidegger2023}.
+The economic identities and dynamic where written using the \texttt{PyTorch} package, which is a machine learning library implemented in Python.
+This package has an auto-differentiation feature, which allows for easily implmentable gradients for the constrainted optimization scheme.
+Furthermore this package is also directly linked with the \texttt{GPyTorch} package, which is a Gaussian process library implemented using PyTorch.
+The \ac{GPR}s were implemented using the \texttt{GPyTorch} package, which is a Gaussian process library implemented using PyTorch.
+This package has multiple speedups for \ac{GPR}s, such as the LancZos Variance Estimate (LOVE) and the SKIP method, which reduces the computational burden of the \ac{GPR}s.
+Furthermore the predictive mean can be computed using black-box matrix-matrix multiplication, which is a speedup for the predictive mean computation,
+skipping cholesky decompositions for large matrices.\\
+The constrained optimizer i use is the \texttt{Cyipopt} package, which is a Python wrapper for the \texttt{Ipopt} package, which is a non-linear optimization package.
+This package is used to solve the optimization problem for each point in the state space, and is used to find the optimal policy $\boldsymbol{\delta}$ for each point.\\
+The gaussian quadrature grid-points where implemented with the \texttt{Tasmanian} package, which is a sparse grid package.
+This was taken from \autocite{Schober2022}, who used this package to implement sparse adaptive grids.\\
+Finally i implemented parallelization at two points in the code. Whenever we run the optimization scheme for a point in the state space, we can run these in parallel,
+as they are independent operations, as long as i do this within the same timepoint $t$. 
+
 
 
 \ifdefined\COMPILINGMAIN

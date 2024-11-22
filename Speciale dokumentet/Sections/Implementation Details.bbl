@@ -473,6 +473,46 @@
     \field{year}{2023}
   \endentry
 
+  \entry{Schober2022}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=SP}{%
+         family={Schober},
+         familyi={S\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=VJ}{%
+         family={Valentin},
+         familyi={V\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Pflüger},
+         familyi={P\bibinitperiod},
+         given={Dirk},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SPVJPD1}
+    \strng{fullhash}{SPVJPD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1007/s10614-021-10118-9
+    \endverb
+    \field{number}{1}
+    \field{pages}{185\bibrangedash 224}
+    \field{title}{Solving High-Dimensional Dynamic Portfolio Choice Models with Hierarchical B-Splines on Sparse Grids}
+    \field{volume}{59}
+    \field{journaltitle}{Computational Economics}
+    \field{year}{2022}
+  \endentry
+
   \entry{smolyak1963}{article}{}{}
     \name{author}{1}{}{%
       {{hash=SSA}{%
