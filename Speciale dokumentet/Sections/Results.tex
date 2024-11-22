@@ -166,7 +166,8 @@ This is clear when compared to the Schober parameters, where the merton point is
 The merton point in this case suggest lower portfolio allocations to the risky assets, and hence the NTR is not restricted by the no-trading and no-borrowing constraints.
 
 \subsection{Dynamic Portfolio Choice with consumption} \label{Subsection: Results_WithConsumption}
-
+I now consider the base model with proportional transaction costs which now includes consumption of a non-durable good.
+This adds an extra decision variable which needs to be solved for, and consumption now adds immediate utility to the investor, in each period.
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[t]{0.48\textwidth}
@@ -182,11 +183,9 @@ The merton point in this case suggest lower portfolio allocations to the risky a
         \caption{No Trade Region for high correlation parameters over time with consumption.}
         \label{fig:NTR_2d_high_correlation_with_consumption_over_time}
     \end{subfigure}
-
     % Overall caption
     \caption{Comparison of No Trade Regions over time with consumption.}
     \floatfoot{The No-Trade regions are plotted over the entire investment horizon $[0, T-1]$.}
-
 \end{figure}
 
 Note that when consumption is included, the \ac{NTR} no longer encapulates the Merton point at any time point.

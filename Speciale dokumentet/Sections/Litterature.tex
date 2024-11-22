@@ -36,14 +36,14 @@ This has later been made more rigorous such as
 Further analysis of this has been conducted extensively, e.g see \textcite{ShreveSoner1994}, \textcite{Oksendal2002}, \textcite{JanecekShreve2004}, however 
 the asset space is still constrained or solutions remain asymptotic. 
 \textcite{Muthuraman2006,Muthuraman2008} tackle a $D=3$ risky asset space, and provide a numerical solution to the problem, using a finites differences.\\
-The seminal paper by \textcite{CaiJuddXu2013} consider a more general setting, with multiple risky assets and a risk-free asset,
+The paper by \textcite{CaiJuddXu2013}, which is central to this thesis, consider a more general setting, with multiple risky assets and a risk-free asset,
 and provides a solution algorithm, based on dynamic programming, numerical integration and polynomial approximation,
 to solve the dynamic problem for up to $k=6$ risky assets and thus $D=7$ assets in total,
 and later introduce and solve the problem with novelties, such as stochastic asset parameters
 or an option on an underlying asset in the portfolio \textcite{CaiJuddXu2020}.
 The curse of dimensionality, which haunts the prior methods applied, is somewhat tackled by the use
 of adaptive sparse grid methods, and sparse quadratuture rules by \textcite{Schober2022}.\\
-\textcite{Scheidegger2023} furthrt reduces the computational burden by using a Gaussian process regression
+\textcite{Scheidegger2023} further reduces the computational burden by using a Gaussian process regression
 to approximate value functions, and a problem specific point sampling strategy to reduce the number of points in the state space
 needed to characterize the \ac{NTR}.
 Increasing the dimensions of the asset space does still increase the dimensionality of the problem, and the computational burden,

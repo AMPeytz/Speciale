@@ -405,6 +405,8 @@ Having approximated the \ac{NTR}, i can effectivly sample point in this manner:
 The resulting points are plotted in figure \ref{fig: Designed_sampling_strategy}, and a zoom in on the \ac{NTR} kinks are shown in figure \ref{fig: Designed_sampling_strategy-zoom}.
 \autocite{Scheidegger2023} find that especially increased sampling around the kinks, leads to a better approximation of the value function,
 and $N>100$ points leads to sufficient approximations, as most of the approximation error is due to the kinks of the \ac{NTR}.
+This choice of sampling scheme furthermore reduces the strain by curse of dimensionality, as grid sampling schemes would increase the number of points exponentially with the number of dimensions.
+Note that while this scheme still increases the number of points needed with the dimensionality, the oversampling of grid points especially reduce the number of points needed in higher dimensions.
 
 \begin{figure}[!ht]
   \centering
@@ -442,11 +444,24 @@ I can therefore set bounds on the optimal policy $\boldsymbol{\delta}_{i}$ to $0
 
 This method of setting bounds on the optimal policy $\boldsymbol{\delta}$ is a way to reduce the computational burden of the optimization problem, and to ensure that the optimization problem is well defined.
 Furthermore, by knowing that the optimal policy reduces the euclidian distance to the \ac{NTR}, i can effectively remove policies which would suggest buying and selling the $i$th asset. 
-\subsubsection{Multiple \ac{GPR}s} \label{Subsubsection: NTR-GPR}
+\subsubsection{Multiple Gaussian Process Regressions} \label{Subsubsection: NTR-GPR}
+The final ingredient in the algorithm is the use of multiple \ac{GPR}s.
+Since i now can effectively sample points, and have information on their placement relative to the \ac{NTR},
+i can leverage this, and estimate two seperate value functions, one inside the \ac{NTR} and one outside the \ac{NTR}.
+This strategy effectively deals with the kinks of the \ac{NTR}, as this otherwise would pose a problem for any smooth function approximations.
+I construct one \ac{GP} for the points inside the \ac{NTR}, and one for the points outside the \ac{NTR}, and when i then evaluate the value function at a point $v_{t+1}(\mathbf{x}_{t+1})$,
+i select the appropriate \ac{GP} to evaluate the value function.
 
+This is done after having optimized over the $N$ points from the sampling strategy, i construct two datasets and two \ac{GPR}s:
+\begin{align}
+  \mathbf{X}_{t,\text{inside}} &= \{ \mathbf{x}_{t,i} , \hat{v}_{t,i} \mid \mathbf{x}_{t,i} \in \hat{\boldsymbol{\Omega}}_{t} \}\\
+  \mathbf{X}_{t,\text{outside}} &= \{ \mathbf{x}_{t,i} , \hat{v}_{t,i} \mid \mathbf{x}_{t,i} \notin \hat{\boldsymbol{\Omega}}_{t} \}
+\end{align}
 
-\subsection{Leveraging the no trade region} \label{Subsection: NTR-aproximation}
-\subsection{Final solution algorithm} \label{Subsection: Algorithm}
+\subsection{Final solution algorithms} \label{Subsection: Algorithm}
+
+\subsection{Computational stack and implementation} \label{Subsection: Computational_stack}
+
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end
