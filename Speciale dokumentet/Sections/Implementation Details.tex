@@ -325,19 +325,27 @@ Since i now have introduced methods to approximate the next-period value functio
 over known distributions, we can now approximate the \ac{NTR} using a \ac{DP} scheme. In order to do this some assummptions regarding the unknown NTR are formed,
 these are drawn directly from \autocite{Scheidegger2023}
 \begin{assumption}\label{assumption: NTR-convex}
-  The NTR is a $D$-dimensional convex polytope.\\
-  A polytope is a generalization of a polyhedron (polytope in 2D), which is a geometric object with flat sides and straight edges.
-  The convex polytope is a polytope which bounds a convex set, and can therefore be defined by a convex hull. Therefore any linear combination of points in the \ac{NTR} or on the boundary of the \ac{NTR} is also in the \ac{NTR}.
-  \textbf{Wikipedia reference her?}
+  The NTR is a $D$-dimensional convex polytope.
 \end{assumption}
+A polytope is a generalization of a polyhedron (polytope in 2D), which is a geometric object with flat sides and straight edges.
+  The convex polytope is a polytope which bounds a convex set, and can therefore be defined by a convex hull. Hence, any linear combination of points in the \ac{NTR} or on the boundary of the \ac{NTR} is also in the \ac{NTR}.
+  In other words, the \ac{NTR} is a closed convex set. \textbf{Wikipedia reference her?}.
 \begin{assumption}\label{assumption: NTR-vertices}
-  The NTR has $2^{D}$ vertices.\\
-  This assumption is regarding the shape of the \ac{NTR}. Note that if the actual \ac{NTR} has less than $2^{D}$ vertices, the approximation will be close to the actual shape, as the approximated vertices will be on top of each other.
-  However if the \ac{NTR} as more then $2^{D}$ vertices, then the approximation will be a simplification of the actual shape. 
+  The NTR has $2^{D}$ vertices.
 \end{assumption}
+This assumption is regarding the shape of the \ac{NTR}. Note that if the actual \ac{NTR} has less than $2^{D}$ vertices, the approximation will be close to the actual shape, as the approximated vertices will be on top of each other.
+However if the \ac{NTR} as more then $2^{D}$ vertices, then the approximation will be a simplification of the actual shape. 
+The existing litterature finds that the \ac{NTR} is a $D$-dimensional parallelogram, this is formally shown with uncorrelated assets by \autocite{liu2002}, and with correlated assets the same is found by \autocite{CaiJuddXu2013,Dybvig2020}.
+Hence i believe this sampling scheme to be sufficient, for the case of proportional transaction costs.
+
+\autocite{Dybvig2020} find that the \ac{NTR} is a circle or ellipse when there are only fixed costs, and when there are asset specifc costs the \ac{NTR} is a hexagon in the 2D case, as one vertice is added per asset.
+This would suggest other sampling schemes for these cases. For the circular case i would need to sample evenly around the circle (sphere / hypersphere), this problem is well known in mathematics and computer graphics and many methods for this exists,
+among others lattice point methods. For more on this see for example \autocite{UNSWsphere} or \autocite{delbono2024}.
+For the hexagon case, i could add more midpoints between the vertices of the existing sampling scheme. 
+
 With these two assumptions in place, a strategy for approximating the \ac{NTR} can be formed with few initial points.
 Given assumption \ref{assumption: NTR-vertices} we can approximate the \ac{NTR} by using $2^{D}$ points, which are the vertices of the \ac{NTR},
-and by assumption \ref{assumption: NTR-convex} we can approximate the \ac{NTR} by using the convex hull of these points, i.e connecting the vertices to form the outer hull.
+and by assumption \ref{assumption: NTR-convex} we can approximate the \ac{NTR} by using the convex hull of these points, i.e connecting the vertices by straight lines to form the outer hull.
 
 I can leverage the following intution from \autocite{Scheidegger2023}, and from \ref{fig: NTR_Example}: For any point outside the \ac{NTR},
 the optimal policy is to trade towards the boundary of the \ac{NTR}. Since each point on the boundary of the NTR is optimal, the optimal trading route minimizes the
@@ -355,42 +363,75 @@ This is seen in the figure below:\\
 If one considers the example in figure \ref{fig:no_trade_region_schematic}, i can effectively approximate the \ac{NTR},
 by sampling a point in each of the blue regions, and then solving the optimization problem to find the vertices.
 When the \ac{NTR} is unknown, sampling from the blue regions seem difficult at a first glance.
-However, i can sample bounds are the vertices of the simplex that cover the feasible space, and the midpoint between these.
-This sample scheme leads to the following points in the $2$-dimensional case:
+However, i can sample the vertices of each simplex that covers the feasible space, and the midpoints between these.
+This sampling scheme leads to the following points in the $2$-dimensional case:
 \[
   \begin{bmatrix}
     0 & 0 \\
     1 & 0 \\
     0 & 1 \\
-    0.5 & 0 \\
-    0 & 0.5
+    0.5 & 0.5 
   \end{bmatrix}
 \]
 Extensions of this sampling scheme to higher dimensions is trivial.
 This should effectively cover the feasible space, and allow for approximating the \ac{NTR}. Note that this sampling scheme only covers \ac{NTR}
 with no borrowing, and no short-selling as noted in \autocite{Scheidegger2023}. If borrowing and short-selling were introduced, we would have to set some bounds on the borrowing and short-selling,
-and then sample from these bounds. Effectively creating a square (cube / hypercube) around the feasible space, and then sample the vertices of this space.
+and then sample from these bounds. Effectively creating a square (cube / hypercube), around the feasible space, and then sample the vertices of this space.
 
-\subsubsection{Strategic point sampling} \label{Subsection: Sample}
+Having approximated the \ac{NTR}, we can now use this in the solution algorithm. There are two main ways which the \ac{NTR} approximation can be leveraged in order to
+lessen the computational burden of the solution algorithm. these will be covered below.
+\subsubsection{Strategic point sampling} \label{Subsubsubsection: Sample}
+After having approximated the \ac{NTR} i need to efficiently approximate the value function in the time step related to the \ac{NTR}. 
+This is done by sampling points over the entire feasible space, and then solving for the optimal trade route for each point.
+In order to ensure that the approximation of the value function is of high quality, and that this value function can effectively be used for any point in the state space,
+we need to ensure that the points are sampled in a strategic manner. This means i need points of a few different types:
+I need points inside the NTR, and around the \ac{NTR} in any direction, and various distances to the \ac{NTR}.
+This leads to three types of points i need to sample: \textit{Points inside the \ac{NTR}}, \textit{points near the kinks of the \ac{NTR}} and \textit{points in the general state space, outside the \ac{NTR}}.
+An easily implemntable solution is to use a naive grid sampling method, such as uniform draws over the feasible state space, or to use a grid-method which evenly covers the feasible state space. 
+However, a simple naive grid method for sampling points over the state-space has a few drawbacks which i need to tackle.
 
+First of all, a naive grid method, such as uniform draws, will not cover the \ac{NTR} efficiently, especially for small \ac{NTR}s.
+I would need a large amount of grid points to be sure that there are multiple points inside the NTR.
+A pure random grid would likewise need a large amount of points, in order to cover the \ac{NTR} efficiently, especially in each direction around the NTR.
+Both of these methods, and a schematic \ac{NTR} are shown in appendix \ref{section: Appendix-sample}.\\
+I therefore instead follow the method of \autocite{Scheidegger2023}, and sample points in a strategic manner.
+This scheme consists of the three point types mentioned earlier, with a sampling method for each of these points.
+Having approximated the \ac{NTR}, i can effectivly sample point in this manner:
+\begin{enumerate}
+  \item Sample points outside the \ac{NTR} in the general state space. For this i can use a uniform grid, or a random grid. I then remove all points inside the \ac{NTR}, and resample till i have enough points.
+  \item Sample points inside the \ac{NTR}. For this i consider random draws, as the placement inside the NTR is not of high importance. I just need enough to approximate the value function.
+  \item Sample points around the \ac{NTR} kinks. For this i consider each \ac{NTR} vertice. I then interpolate between adjacent vertices slightly, and extend these outward with random noise draws. 
+\end{enumerate}
+The resulting points are plotted in figure \ref{fig: Designed_sampling_strategy}, and a zoom in on the \ac{NTR} kinks are shown in figure \ref{fig: Designed_sampling_strategy-zoom}.
+\autocite{Scheidegger2023} find that especially increased sampling around the kinks, leads to a better approximation of the value function,
+and $N>100$ points leads to sufficient approximations, as most of the approximation error is due to the kinks of the \ac{NTR}.
 
-\begin{figure}[h!]
-  \begin{center}
-  \caption{A designed sampling strategy} 
-  \label{fig: Designed_sampling_strategy}
-  \includegraphics[scale=0.34]{designed_sampling_strategy.png}
-  \end{center}
-  \floatfoot{\textbf{Note:} Sample consists of $N=100$ points, with $51$ points in the general state space, $25$ points inside the NTR and $24$ points around the NTR kinks.}
-  \end{figure}
+\begin{figure}[!ht]
+  \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.3]{designed_sampling_strategy.png}
+        \caption{The sampling strategy for the 2-dimensional case}
+        \label{fig: Designed_sampling_strategy}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.3]{zoomed_designed_sampling_strategy.png}
+        \caption{A zoom in on the \ac{NTR} for the sampling strategy}
+        \label{fig: Designed_sampling_strategy-zoom}
+    \end{subfigure}
 
-\begin{figure}[h!]
-  \begin{center}
-  \caption{Zoom in on the NTR} 
-  \label{fig: Zoom_Designed_sampling_strategy}
-  \includegraphics[scale=0.34]{zoomed_designed_sampling_strategy.png}
-  \end{center}
-  \floatfoot{\textbf{Note:} Sample consists of $N=100$ points, with $51$ points in the general state space, $25$ points inside the NTR and $24$ points around the NTR kinks.}
-  \end{figure}
+% Overall caption
+\caption{The designed sampling strategy for state space coverage.}
+\floatfoot{\textbf{Note:} Sample consists of $N=200$ points, with $122$ points in the general state space ($55$\%), $40$ points inside the NTR ($20$\%) and $48$ points around the NTR kinks ($25$\%).}
+\end{figure}
+
+  
+\subsubsection{Utilising the \ac{NTR} approximation for $\boldsymbol{\delta}$ bounds} \label{Subsubsection: NTR-deltabounds}
+
+\subsubsection{Multiple \ac{GPR}s} \label{Subsubsection: NTR-GPR}
+
 
 \subsection{Leveraging the no trade region} \label{Subsection: NTR-aproximation}
 \subsection{Final solution algorithm} \label{Subsection: Algorithm}

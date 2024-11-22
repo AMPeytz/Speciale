@@ -17,6 +17,47 @@
 \endgroup
 
 \datalist[entry]{nyt/global//global/global/global}
+  \entry{delbono2024}{misc}{}{}
+    \name{author}{3}{}{%
+      {{hash=BLMD}{%
+         family={Bono},
+         familyi={B\bibinitperiod},
+         given={Luca Maria\bibnamedelima Del},
+         giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=NF}{%
+         family={Nicoletti},
+         familyi={N\bibinitperiod},
+         given={Flavio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RTF}{%
+         family={Ricci-Tersenghi},
+         familyi={R\bibinithyphendelim T\bibinitperiod},
+         given={Federico},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BLMDNFRTF1}
+    \strng{fullhash}{BLMDNFRTF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{eprint}
+    \verb 2407.01503
+    \endverb
+    \field{title}{The most uniform distribution of points on the sphere}
+    \verb{url}
+    \verb https://arxiv.org/abs/2407.01503
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cond-mat.stat-mech}
+    \field{year}{2024}
+  \endentry
+
   \entry{CaiJuddXu2013}{report}{}{}
     \name{author}{3}{}{%
       {{hash=CY}{%
@@ -60,6 +101,44 @@
     }
     \field{type}{Working Paper}
     \field{year}{2013}
+  \endentry
+
+  \entry{UNSWsphere}{misc}{}{}
+    \field{labeltitlesource}{title}
+    \field{labeldatesource}{nodate}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{howpublished}{\url{https://www.unsw.edu.au/science/our-schools/maths/our-school/spotlight-on-our-people/history-school/glimpses-mathematics-and-statistics/distributing-points-sphere}}
+    \field{note}{Accessed: 2024-11-22}
+    \field{title}{Distributing points on the sphere}
+  \endentry
+
+  \entry{Dybvig2020}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=DPH}{%
+         family={Dybvig},
+         familyi={D\bibinitperiod},
+         given={Philip\bibnamedelima H},
+         giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=PL}{%
+         family={Pezzo},
+         familyi={P\bibinitperiod},
+         given={Luca},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DPHPL1}
+    \strng{fullhash}{DPHPL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Mean-variance portfolio rebalancing with transaction costs}
+    \field{journaltitle}{Available at SSRN 3373329}
+    \field{year}{2020}
   \endentry
 
   \entry{Scheidegger2023}{report}{}{}
@@ -331,6 +410,40 @@
     \field{volume}{44}
     \field{journaltitle}{Journal of Economic Dynamics and Control}
     \field{year}{2014}
+  \endentry
+
+  \entry{liu2002}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=LH}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Hong},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Loewenstein},
+         familyi={L\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press}%
+    }
+    \strng{namehash}{LHLM1}
+    \strng{fullhash}{LHLM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{number}{3}
+    \field{pages}{805\bibrangedash 805}
+    \field{title}{Optimal Portfolio Selection with Transaction Costs and Finite Horizons}
+    \field{volume}{15}
+    \field{journaltitle}{Review of Financial Studies}
+    \field{year}{2002}
   \endentry
 
   \entry{MurphyBook2023}{book}{}{}
