@@ -398,7 +398,7 @@ I therefore instead follow the method of \autocite{Scheidegger2023}, and sample 
 This scheme consists of the three point types mentioned earlier, with a sampling method for each of these points.
 Having approximated the \ac{NTR}, i can effectivly sample point in this manner:
 \begin{enumerate}
-  \item Sample points outside the \ac{NTR} in the general state space. For this i can use a uniform grid, or a random grid. I then remove all points inside the \ac{NTR}, and resample till i have enough points.
+  \item Sample points outside the \ac{NTR} in the general state space. For this i can use a uniform grid, or a random grid. I then remove all points inside the \ac{NTR}, and resample until i have enough points.
   \item Sample points inside the \ac{NTR}. For this i consider random draws, as the placement inside the NTR is not of high importance. I just need enough to approximate the value function.
   \item Sample points around the \ac{NTR} kinks. For this i consider each \ac{NTR} vertice. I then interpolate between adjacent vertices slightly, and extend these outward with random noise draws. 
 \end{enumerate}
@@ -427,9 +427,21 @@ and $N>100$ points leads to sufficient approximations, as most of the approximat
 \floatfoot{\textbf{Note:} Sample consists of $N=200$ points, with $122$ points in the general state space ($55$\%), $40$ points inside the NTR ($20$\%) and $48$ points around the NTR kinks ($25$\%).}
 \end{figure}
 
-  
-\subsubsection{Utilising the \ac{NTR} approximation for $\boldsymbol{\delta}$ bounds} \label{Subsubsection: NTR-deltabounds}
+\subsubsection{Utilising the NTR approximation for $\boldsymbol{\delta}$ bounds} \label{Subsubsection: NTR-deltabounds}
+Having constructed an efficient sampling strategy, i can further leverage the \ac{NTR} approximation to find bounds on the optimal policy $\boldsymbol{\delta}$,
+for the optimization step for each of these points. For this consider the schematic \ac{NTR} in figure \ref{fig:no_trade_region_schematic}.
+At each point outside the NTR, the optimal policy is to trade towards the boundary of the NTR. This can either mean trading towards a vertice of the \ac{NTR} or one of the faces.
+For the blue regions, trading towards a vertice is optimal, and this means that the optimal policy is to reallocate in both risky assets.
 
+In this case, we can set bounds on the optimal policy $\boldsymbol{\delta}$, by considering the euclidian distance to the \ac{NTR}.
+Hence if i know beforehand, that for asset $1$ we need to sell (lower-right blue region), then i can set bounds on $\delta_{1}^{+}$ to $0$ and effectively remove this from the optimization problem.
+I can likewise do this the other way around for the asset $2$, which i need to buy more of, and set bounds on $\delta_{2}^{+}$ to $0$.
+
+For the green regions in the figure, the optimal policy is to trade towards a face of the \ac{NTR}, and this means that the optimal policy is to reallocate in one risky asset and hold the other.
+I can therefore set bounds on the optimal policy $\boldsymbol{\delta}_{i}$ to $0$ for the asset which is to be held, and only consider reallocation in the second asset.
+
+This method of setting bounds on the optimal policy $\boldsymbol{\delta}$ is a way to reduce the computational burden of the optimization problem, and to ensure that the optimization problem is well defined.
+Furthermore, by knowing that the optimal policy reduces the euclidian distance to the \ac{NTR}, i can effectively remove policies which would suggest buying and selling the $i$th asset. 
 \subsubsection{Multiple \ac{GPR}s} \label{Subsubsection: NTR-GPR}
 
 
