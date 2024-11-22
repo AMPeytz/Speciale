@@ -10,7 +10,7 @@ The thesis was written in LaTeX, and is compiled using the main.tex file.
 The computational scheme was written in python, using a stack of libraries noted below.
 <br>
 <br>
-This thesis is greatly inspired by the work of Simon Scheidegger (2023); Peter Schober, Julian Valentin and Dirk Pflüger (2020); Yongyang Cai, Kenneth Judd and Rong Xu (2013); And Dybvig and Pezzo (2020). Further references and be found in the thesis document.
+This thesis is greatly inspired by the work of Simon Scheidegger (2023); Peter Schober, Julian Valentin and Dirk Pflüger (2020); Yongyang Cai, Kenneth Judd and Rong Xu (2013); And Dybvig and Pezzo (2020). Further references can be found in the thesis document.
 
 ---
 
