@@ -1,16 +1,16 @@
 # Dynamic Portfolio Choice Models with Transaction Costs - Masters Thesis in Economics.
 
 ### General Overview
-This repository contains files for my masters thesis in economics,
+This repository contains files for my masters thesis in economics
 which focuses on Dynamic Portfolio Choice Models, in the presence of transaction costs.
-These models are solved using dynamic programming methods. We use constrained non linear optimization, quadrature and monte carlo methods, gaussian process regression and a problem specific sampling scheme.
+These models are solved using dynamic programming methods. I use constrained non linear optimization, quadrature, monte carlo methods, gaussian process regression and a problem specific sampling scheme.
 <br>
 <br>
-The thesis was written in LaTeX, and be compiled using the main.tex file.
+The thesis was written in LaTeX, and is compiled using the main.tex file.
 The computational scheme was written in python, using a stack of libraries noted below.
 <br>
 <br>
-This thesis is greatly inspired by the work of Simon Scheidegger (2023); Peter Schober, Julian Valentin and Dirk Pflüger (2020); and Yongyang Cai, Kenneth Judd and Rong Xu (2013). Further references and be found in the thesis document.
+This thesis is greatly inspired by the work of Simon Scheidegger (2023); Peter Schober, Julian Valentin and Dirk Pflüger (2020); Yongyang Cai, Kenneth Judd and Rong Xu (2013); And Dybvig and Pezzo (2020). Further references and be found in the thesis document.
 
 ---
 
@@ -19,16 +19,16 @@ This thesis is greatly inspired by the work of Simon Scheidegger (2023); Peter S
 Below is a breakdown of the main folders in the repository and their contents:
 
 - **`Python/`**: Contains the main source code for the project, including scripts and modules.
-  - **`NTRs/`**: Contains files with the approximated No-trade-regions saved in pickle format. So can be loaded using the pickle package in python.
+  - **`NTRs/`**: Contains files with the approximated No-trade-regions saved in pickle format. So they can be loaded using the pickle package in python.
 - **`Speciale dokumentet/`**: This folder contains the LaTeX project. Including local packages (KU-frontpage), and figures from the Python project end up here aswell
-- **`Notes from papers/`**: A small LaTeX project consisting of notes used. This is no longer comprehensive, see the thesis.
-- **`Gammel kode/`**: Contains old code.
+- **`Notes from papers/`**: A small LaTeX project consisting of notes used in the writing process. This is no longer comprehensive, see the thesis.
+- **`Gammel kode/`**: Contains old code, much of this is wrong or bad.
 
 ---
 
 ## Brief model description
 
-We solve problem(s):
+I solve problem(s):
 
 $$
 v_{t} (\mathbf{x_t}, \theta_t) = \max_{c_t , \boldsymbol{\delta_{t}^{+}}, \boldsymbol{\delta_{t}^{-}} }{ u(c_t) \Delta t + \beta \mathbb{E}_{t} \Big[ \pi _{t+\Delta t} ^{1-\gamma} v _{t+\Delta t}  \mathbf{x} _{t+ \Delta t} \Big]}
@@ -77,8 +77,6 @@ $$
 ## Computational Requirements
 
 To run the code effectively, consider the following requirements:
-
-
 
 - **Hardware**: Code is writting for use on MacOS. Other systems might need some tweaks or other packages. This project was run on a Macbook Pro 2023 laptop, with the Apple M3 chip.
 - **Software**: Code is written in Python 3.11.9.
