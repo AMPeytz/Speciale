@@ -534,7 +534,23 @@ This package is used to solve the optimization problem for each point in the sta
 The gaussian quadrature grid-points where implemented with the \texttt{Tasmanian} package, which is a sparse grid package.
 This was taken from \autocite{Schober2022}, who used this package to implement sparse adaptive grids.\\
 Finally i implemented parallelization at two points in the code. Whenever we run the optimization scheme for a point in the state space, we can run these in parallel,
-as they are independent operations, as long as i do this within the same timepoint $t$. 
+as they are independent operations, as long as i do this within the same timepoint $t$.
+
+\subsubsection{Optimization details} \label{Subsubsection: optimization_details}
+When solving the optimization problem, i use a tolerance of $10^{-7}$, and $1000$ iterations.
+When approximating the \ac{NTR}, i solve for each point $8$ times, and select the optimal solution among these.
+Furthermore i multiply the starting point with a decaying factor, in the number of starts,
+in order to add small variance at each iteration. This is because non-linear optimization problems can be
+sensitive to the initial starting points.
+
+The initial starting point is chosen within the feasible space at random, when there is no approximated \ac{NTR}.
+The random draws are chosen to be feasible given the constraints of the problem.
+When i later have approximated the \ac{NTR}, i use the shortest distance towards the \ac{NTR} as initial guess,
+and multiply with a decaying factor over the number of starts. For these points i solve the optimization problem $3$ times.
+This is because when i can leverage the knowledge of the \ac{NTR}, the optimization problem is easier.
+
+For points inside the \ac{NTR} i likewise guess no trading, knowing this to be optimal a-priori.
+Small jitter is added to this when using multiple solutions.
 
 
 

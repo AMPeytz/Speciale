@@ -1,0 +1,16 @@
+\acswitchoff 
+\setcounter {tocdepth}{1}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example No Trade Region with $k=2$ risky assets.}}{15}{figure.caption.1}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Comparison of sample generation for Monte Carlo and Quasi-Monte Carlo}}{21}{figure.caption.2}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Comparison of sample generation for Monte Carlo and Quasi-Monte Carlo with increased dimensionality}}{21}{figure.caption.3}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Illustration of the no-trade region (NTR) and the optimal policies outside this.}}{26}{figure.caption.4}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces The designed sampling strategy for state space coverage.}}{28}{figure.caption.5}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Comparison of No Trade Regions.}}{33}{figure.caption.7}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Verifying the assumptions of the NTR iin $2$ dimensions.}}{34}{figure.caption.8}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces No Trade Region for Schober Parameters over Time.}}{35}{figure.caption.9}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces No Trade Region for the iid Parameters with different values of $\tau $.}}{35}{figure.caption.10}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Comparison of No Trade Regions.}}{36}{figure.caption.11}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Comparison of No Trade Regions over time with consumption.}}{37}{figure.caption.12}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces No trade regions with consumption in multiple dimensions.}}{37}{figure.caption.13}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Uniform grid sampling strategy}}{42}{figure.caption.15}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Naive random sampling strategy}}{42}{figure.caption.16}%

@@ -109,7 +109,7 @@ the a-priori assumptions regarding the geometric shape of the NTR, i first want 
 NTR indeed has $4$ vertices for the 2d case and is a convex hull.\\
 In order to do this, i do a small modification to the solution algorithm proposed earlier.
 Instead of computing vertices using $2^{d}$ predetermined points, i will instead
-sample a larger set of points, ($128$) covering the boundaries of the feasible state space.
+sample a larger set of points, ($2^7 = 128$) covering the boundaries of the feasible state space.
 For each of these points i then solve the optimization problem,
 and plot the solution, from allocations $\mathbf{x}_{t}$ and their solutions to the problem $\hat{\boldsymbol{\omega}}_{t}$.
 I do this by using my original sample scheme, and adding mid-points between points,
@@ -131,7 +131,7 @@ The solutions are plotted below.
     \hfill
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[scale = 0.36]{Verify_NTRCai_Identical_t_4}
+        \includegraphics[scale = 0.36]{Verify_NTRCai_High_Correlation_t_4.png}
         \caption{Solutions to the high correlation case with 2 assets in period $T-2$.}
         \label{fig:NTR_verify_Correlation}
     \end{subfigure}
