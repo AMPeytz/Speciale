@@ -62,6 +62,34 @@
     \field{year}{2013}
   \endentry
 
+  \entry{Dybvig2020}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=DPH}{%
+         family={Dybvig},
+         familyi={D\bibinitperiod},
+         given={Philip\bibnamedelima H},
+         giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=PL}{%
+         family={Pezzo},
+         familyi={P\bibinitperiod},
+         given={Luca},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DPHPL1}
+    \strng{fullhash}{DPHPL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Mean-variance portfolio rebalancing with transaction costs}
+    \field{journaltitle}{Available at SSRN 3373329}
+    \field{year}{2020}
+  \endentry
+
   \entry{Scheidegger2023}{report}{}{}
     \name{author}{3}{}{%
       {{hash=GL}{%
