@@ -63,7 +63,7 @@ The last parameterization is a modification of the first case where the correlat
 \subsection{Dynamic Portfolio Choice without consumption} \label{Subsection: Results_NoConsumption}
 I first consider the base model with proportional transaction costs
 and no consumption. In the absence of consumption, the optimal portfolio is the merton point, which we plot in every figure.
-I plot the No-trade region at time point 0 (initial time point) for each of the parameterizations in \autoref{fig:comparison_NTR}.
+I plot the No-trade region at time point 0 (initial time point) for each of the parameterizations in \ref{fig:comparison_NTR}.
 When using the Schober parameters we select the $d$ first elements of the mean vector, and truncate the covariance matrix to a $d \times d$ matrix,
 depending on the number of assets $d$ in the model.
 \begin{figure}[!ht]
@@ -101,7 +101,51 @@ depending on the number of assets $d$ in the model.
 I note that for each of the parameterizations the No-Trade region is a rectangle or parallelogram.
 For the case of identical and independent assets, the No-Trade region is a perfect square, whereas for the Schober parameters and the high correlation case,
 the No-Trade region is a parallelogram. This is due to the correlation between the assets. When some correlation is present, the No-Trade region is skewed,
-since some allocations which would be optimal in the absence of correlation are no longer optimal. 
+since some allocations which would be optimal in the absence of correlation are no longer optimal.
+
+\subsubsection{Verifying the geometric shape of the No-trade Region}\label{Subsubsection: ConfirmShape}
+Since much of the procedure for solving this problem, and approximating the NTR, leverages
+the a-priori assumptions regarding the geometric shape of the NTR, i first want to verify that the
+NTR indeed has $4$ vertices for the 2d case and is a convex hull.\\
+In order to do this, i do a small modification to the solution algorithm proposed earlier.
+Instead of computing vertices using $2^{d}$ predetermined points, i will instead
+sample a larger set of points, ($128$) covering the boundaries of the feasible state space.
+For each of these points i then solve the optimization problem,
+and plot the solution, from allocations $\mathbf{x}_{t}$ and their solutions to the problem $\hat{\boldsymbol{\omega}}_{t}$.
+I do this by using my original sample scheme, and adding mid-points between points,
+which either sum to $1.0$ or have $0.0$ as allocation for one of the assets.
+I consider the i.i.d case and the high correlation case, with $tau = 1\%$. I have increased the costs slightly in order to increase the
+size of the NTR. This is to ensure that points also converge towards the faces and not only the verticies.
+This is akin the the green regions in Figure \ref{fig:no_trade_region_schematic}.
+Otherwise i would need more points. I plot the solutions for next to last period with investment decisions $T-2$.
+The solutions are plotted below.
+
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.36]{Verify_NTRCai_Identical_t_4.png}
+        \caption{Solutions to the i.i.d case with 2 assets in period $T-2$.}
+        \label{fig:NTR_verify_iid}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.36]{Verify_NTRCai_Identical_t_4}
+        \caption{Solutions to the high correlation case with 2 assets in period $T-2$.}
+        \label{fig:NTR_verify_Correlation}
+    \end{subfigure}
+
+    % Overall caption
+    \caption{Verifying the assumptions of the NTR iin $2$ dimensions.}
+    \label{fig:NTR_Verify}
+\end{figure}
+I find that the assumptions regarding the \ac{NTR} are indeed correct in the two dimensional examples i have constructed.
+Furthermore this verifies that the assumptions also hold for correlated asset, which was only postulated by \autocite{liu2002}.
+Furthermore these plots also nicely confirm that the optimization process as a whole works as intended.
+Further verification in higher dimensions are not considered. First of all \autocite{liu2002} confirms this formally in larger dimensions,
+for the case of uncorrelated assets, and the intuition regarding the \ac{NTR} does not change when dimensionality is increased.
+
 \subsubsection{Investigating the No-Trade Region} \label{Subsubsection: InvestigatingNTR}
 We now look at the No-Trade region for the base model with proportional transaction costs and no consumption in more detail.
 Specifically we look at how the region behaves over the entire investment horizon $[0, T]$, and how the region changes with different transaction cost levels.
@@ -191,6 +235,29 @@ This adds an extra decision variable which needs to be solved for, and consumpti
 Note that when consumption is included, the \ac{NTR} no longer encapulates the Merton point at any time point.
 Furthermore the \ac{NTR} now moves over time, towards the origin, as opposed to the case without consumption,
 where the \ac{NTR} was static for all time points except the next to last period (last period with trading decisions).
+
+This behaviour is consistent in higher dimensions. 
+
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.45]{NTR_Cai_Identical_d3_tau_0.005__with_consumption_t_2.png}
+        \caption{No Trade Region for i.i.d parameters with consumption in 3d.}
+        % \label{fig:NTR_2d_iid_with_consumption_over_time}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.45]{NTR_Schober_Parameters_d3_tau_0.005__with_consumption_t_2.png}
+        \caption{No Trade Region for Schober parameters with consumption in 3d.}
+        % \label{fig:NTR_2d_high_correlation_with_consumption_over_time}
+    \end{subfigure}
+    % Overall caption
+    \caption{No trade regions with consumption in multiple dimensions.}
+    \floatfoot{The No-Trade regions are plotted at time $t=2$.}
+\end{figure}
+
 
 \subsection{Dynamic Portfolio Choice with fixed costs} \label{Subsection: Results_WithConsumption}
 I now consider the base model with fixed transaction costs, and no consumption.
