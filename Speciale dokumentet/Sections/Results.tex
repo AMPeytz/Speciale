@@ -265,8 +265,36 @@ From \autocite{Dybvig2020} i know that the \ac{NTR} is no longer rectangular whe
 This poses a problem for my current sampling scheme, which leverages our predetermined knowledge of the geometric shape of the \ac{NTR}.
 As i noted in Section \ref{subsubsection: Sample}, in order to effectively sample points for the \ac{NTR} approximation, i now need to 
 sample points, such that when they hit the \ac{NTR} these points are evenly distributed on the sphere, in order to approximate the \ac{NTR} correctly.\\
-For the case without consumption this is feasible, but for the case with consumption, the \ac{NTR} moves over time, and locating its center a priori is not possible.
+The fixed costs pose further problems for the solution algorithm. In order to see this a little intuition is needed.
 
+Transaction costs no longer scale, but are treated as a \textit{sunk cost}, the moment the decision to trade is made. Hence if trading is optimal, the investor will trade to the optimal point,
+and if trading is sub-optimal then no trading will occur. The problem is therefore first of all a trading decision problem, and if trading is optimal, then the investor will trade to the merton point.
+
+This is in stark contrast to the proportional case, where the trading trajectory from outside the \ac{NTR} was to the border of the \ac{NTR}, and the \ac{NTR} approximation could be done by sampling points on the border of the feasible space.
+
+Now, any point sampled outside the \ac{NTR} trades to the merton point, and i need to construct a new strategy, in order to efficiently construct the \ac{NTR}.
+
+Furthermore, the transaction cost function is now an indicator function, depending on a threshhold, i.e $\sum^{k}_{i=1} \delta^{+}_{i,t} + \delta^{-}_{i,t}  > 0$.
+This is non-differentiable at the kink, $\sum^{k}_{i=1} \delta^{+}_{i,t} + \delta^{-}_{i,t} =0$ , which is a critical point, which i have to deal with, in order to solve the optimization problem.
+
+I therefore split the optimization process into two parts. I evaluate the objective function (value function), conditional on no trading ($\boldsymbol{\delta}_{t} = \mathbf{0}$), and conditional on trading ($\boldsymbol{\delta}_{t} \neq \mathbf{0}$).
+Since there is no consumption decision the no-trading decision is trivial, whereas i still optimize the trading decision in order to maximize expected utility. 
+By splitting the optimization process, i can avoid the the non-differentiable edge case, and the derivative with regard to fixed costs i trivial for the optimizer.
+I then evaluate the value function for the no-trading decision, and the trading decision, and choose the decision which maximizes the value function.
+
+I now consider the base model with fixed transaction costs, and no consumption. I use the simple i.i.d parameterization, with $2$ assets and solve the optimization problem for the next to last period $T-1$,
+over an evenly spaced grid of points. I do this in order to verify that the solution algorithm works as intended, and that the \ac{NTR} is circular as expected, conflicting with my prior assumptions for the proportional case.
+I set the fixed costs to $0.005\%$ of the investors total wealth, at any time point, and solve at a very fine grid of points, in order to approximate the \ac{NTR} correctly.
+I find that the \ac{NTR} is circular as expected, and the solution algorithm works as intended. I therefore proceed with generating a strategy for dealing with fixed costs, which can leverage my new found knowledge of the \ac{NTR}.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale = 0.44]{Verify_NTR_FixedCai_Identical_t_5.png}
+    \caption{Solution to the i.i.d case with fixed costs, 2 assets in period $T-1$.}
+    \label{fig:NTR_2d_high_correlation_with_consumption_over_time}
+    \floatfoot{The optimization scheme ran with $5044$ evenly spaced grid points. The points are plotted in the feasible space, and the \ac{NTR} is the convex hull of these points.}
+\end{figure}
+
+\subsubsection{Constructing a new sampling scheme for the fixed cost NTR} \label{Subsubsection: SampleFixed}
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end
