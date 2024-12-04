@@ -310,16 +310,12 @@ can be used to compute error bands on our predictions.
 As noted, training and predicting with a \ac{GP} is computationally expensive. I will therefore introduce
 the methods employed to reduce the computational burden of the \ac{GP}.
 
-We use automatic relevance detection (ARD) which is a modification to the Matern kernel to use
+I use automatic relevance detection (ARD) which is a modification to the Matern kernel to use
 a length scale for each dimension, $\ell_{i}$. Dimensions with low impact has a high length scale, and are effectively ignored.
 Note that this is not the same as Lasso, as these coefficients are not set to $0$.
-We use \ac{SKIP} to reduce the computational burden of computen the matrices in the joint distribution \eqref{eq: GP-distribution}.
+I use \ac{SKIP} to reduce the computational burden of computen the matrices in the joint distribution \eqref{eq: GP-distribution}.
 
-\textbf{Use LancZos Variance Estimate (Love) and SKIP to reduce computational burden.}\\
-Here is the documentation in my package 
-\url{https://docs.gpytorch.ai/en/stable/examples/02_Scalable_Exact_GPs/index.html} 
 
-And here is a paper on the subject \url{https://arxiv.org/pdf/1803.06058}.
 \subsection{Approximating the No trade region} \label{Subsection: Approximating_NTR}
 Since i now have introduced methods to approximate the next-period value function $v_{t+1}$, and methods for evaluating the expectation $\mathbb{E}[\cdot]$
 over known distributions, we can now approximate the \ac{NTR} using a \ac{DP} scheme. In order to do this some assummptions regarding the unknown NTR are formed,
@@ -339,9 +335,12 @@ The existing litterature finds that the \ac{NTR} is a $D$-dimensional parallelog
 Hence i believe this sampling scheme to be sufficient, for the case of proportional transaction costs.
 
 \autocite{Dybvig2020} find that the \ac{NTR} is a circle or ellipse when there are only fixed costs, and when there are asset specifc costs the \ac{NTR} is a hexagon in the 2D case, as one vertice is added per asset.
-This would suggest other sampling schemes for these cases. For the circular case i would need to sample evenly around the circle (sphere / hypersphere), this problem is well known in mathematics and computer graphics and many methods for this exists,
-among others lattice point methods. For more on this see for example \autocite{UNSWsphere} or \autocite{delbono2024}.
-For the hexagon case, i could add more midpoints between the vertices of the existing sampling scheme. 
+This would suggest other sampling schemes for these cases, leveraging the new geometric shapes.
+For the circular case i would need to sample evenly around the circle (sphere / hypersphere), this problem is well known in mathematics and computer graphics and many methods for this exists,
+among others lattice point methods. For more on this see for example \autocite{UNSWsphere} or \autocite{delbono2024}. However the complexity for such a solution increases in dimensionality, and especially when correlation is added,
+since this would shift the circle to an ellipse. For the hexagon case, i could add more midpoints between the vertices of the existing sampling scheme, however this assumes straight lines connecting the vertices still.
+I tackle these cases later, and proceed with the general case of the \ac{NTR} as a convex polytope, under proportional costs.
+
 
 With these two assumptions in place, a strategy for approximating the \ac{NTR} can be formed with few initial points.
 Given assumption \ref{assumption: NTR-vertices} we can approximate the \ac{NTR} by using $2^{D}$ points, which are the vertices of the \ac{NTR},
