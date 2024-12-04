@@ -295,7 +295,10 @@ I find that the \ac{NTR} is circular as expected, and the solution algorithm wor
 \end{figure}
 
 \subsubsection{Constructing a new sampling scheme for the fixed cost NTR} \label{Subsubsection: SampleFixed}
-
+Noting that for each point outside the NTR, the investor will trade to the same optimal point, since the cost of trading is a \textit{sunk cost},
+i can select a single starting point, at the origin for example, and solve for the optimal trading decision.
+If this is to trade, then i immediatly know the center of the \ac{NTR}, and now only need the radius to construct the \ac{NTR}.
+This holds for any dimensionsionality of the model, 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end
 \else
