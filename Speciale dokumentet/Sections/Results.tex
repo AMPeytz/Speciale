@@ -290,7 +290,7 @@ I find that the \ac{NTR} is circular as expected, and the solution algorithm wor
     \centering
     \includegraphics[scale = 0.4]{Verify_NTR_FixedCai_Identical_t_5.png}
     \caption{Solution to the i.i.d case with fixed costs, 2 assets in period $T-1$.}
-    \label{fig:NTR_2d_high_correlation_with_consumption_over_time}
+    \label{fig:NTR_verify_fixed_no_correlation}
     \floatfoot{The optimization scheme ran with $5044$ evenly spaced grid points. The points are plotted in the feasible space, and the \ac{NTR} is the convex hull of these points.}
 \end{figure}
 
@@ -299,6 +299,14 @@ Noting that for each point outside the NTR, the investor will trade to the same 
 i can select a single starting point, at the origin for example, and solve for the optimal trading decision.
 If this is to trade, then i immediatly know the center of the \ac{NTR}, and now only need the radius to construct the \ac{NTR}.
 This holds for any dimensionsionality of the model, as any circle/sphere/hyper-sphere can be defined by the center point and the radius.
+
+I find the radius, by slowly moving towards one of the boundary starting points, from the center of the NTR, solving the optimization problem for each point,
+and noting when trading occurs (return to the center). By using a bisection method\footnote{Which is simple to implement since we only consider allocations along the straight line from some angle, outwards from the center of the NTR},
+i find the border of the \ac{NTR} with a tolerance of $10^{-6}$,
+which is a tolerance of $0.0001\%$ of the total wealth of the investor. I solve for multiple directions from the center, and choose the largest radius. This is because the circle might be truncated along the borders of the feasible space.
+Furthermore, by selecting directions in evenly spaced angles around the center, i ensure that one of the directions of trading, must hit the border, as along as the \ac{NTR} does no cover the entire feasible space.
+This optimization process can be seen in figure \ref{fig:NTR_verify_fixed_no_correlation}. I start from a blue point and rebalance to the Merton point.
+Following this, i move along a straight line outwards, and solve. If no trading occurs the point is red, and is in the \ac{NTR}. 
 
 I also need to consider the sampling strategy for my \ac{GPR}-related training points. As i mentioned previously, i need to sample three types of points.
 Points within the \ac{NTR}, points outside the \ac{NTR}, and points near the border border the \ac{NTR}.
@@ -312,6 +320,16 @@ Draw evenly spaced points (defined by their relative angle to the center point) 
     \floatfoot{this sample strategy uses the same number of points as the schematic for the proportional cost sampling strategy}
 \end{figure}
 
+\subsection{Dynamic Portfolio Choice with fixed costs and correlation}
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale = 0.4]{Fixed_Cost_NTR_Schober_Parameters_d3_fc_0.0004__no_consumption_t_4.png}
+    \caption{NTR for 3 assets with fixed costs and Shober parameters.}
+    \label{fig: NTR_Fixed_3d_Shober}
+    \floatfoot{NTR is at period $T-1$ (right before reallocation). Fixed cost is at $0.004\%$ of wealth at any time point, before the trading decision is made.}
+\end{figure}
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end
