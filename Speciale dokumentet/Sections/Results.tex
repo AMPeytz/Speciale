@@ -272,13 +272,16 @@ and if trading is sub-optimal then no trading will occur. The problem is therefo
 
 This is in stark contrast to the proportional case, where the trading trajectory from outside the \ac{NTR} was to the border of the \ac{NTR}, and the \ac{NTR} approximation could be done by sampling points on the border of the feasible space.
 
-Now, any point sampled outside the \ac{NTR} trades to the merton point, and i need to construct a new strategy, in order to efficiently construct the \ac{NTR}, as no new information is gained by sampling points outside the \ac{NTR}.
+Now, any point sampled outside the \ac{NTR} trades to the merton point, and i need to construct a new strategy, 
+in order to efficiently construct the \ac{NTR}, as no new information is
+gained by sampling points multiple points outside the \ac{NTR}.
 
 Furthermore, the transaction cost function is now an indicator function, depending on a threshhold, i.e $\sum^{k}_{i=1} \delta^{+}_{i,t} + \delta^{-}_{i,t}  > 0$.
-This is non-differentiable at the kink, $\sum^{k}_{i=1} \delta^{+}_{i,t} + \delta^{-}_{i,t} =0$ , which is a critical point, which i have to deal with, in order to solve the optimization problem.
+This is non-differentiable at the kink, $\sum^{k}_{i=1} \delta^{+}_{i,t} + \delta^{-}_{i,t} =0$ 
+which is a critical point (the trading decision boundary), which i have to deal with, in order to solve the optimization problem.
 
-I therefore split the optimization process into two parts. I evaluate the objective function (value function), conditional on no trading ($\boldsymbol{\delta}_{t} = \mathbf{0}$), and conditional on trading ($\boldsymbol{\delta}_{t} \neq \mathbf{0}$).
-Since there is no consumption decision the no-trading decision is trivial, whereas i still optimize the trading decision in order to maximize expected utility. 
+I therefore split the optimization process into two parts. I evaluate the objective function (value function), \textit{conditional} on no trading ($\boldsymbol{\delta}_{t} = \mathbf{0}$), and \textit{conditional} on trading ($\boldsymbol{\delta}_{t} \neq \mathbf{0}$).
+Since there is no consumption decision the no-trading decision is trivial, whereas i still optimize the trading decision in the trading problem, in order to maximize expected utility. 
 By splitting the optimization process, i can avoid the the non-differentiable edge case, and the derivative with regard to fixed costs i trivial for the optimizer.
 I then evaluate the value function for the no-trading decision, and the trading decision, and choose the decision which maximizes the value function.
 
@@ -302,16 +305,28 @@ This holds for any dimensionsionality of the model, as any circle/sphere/hyper-s
 
 I find the radius, by slowly moving towards one of the boundary starting points, from the center of the NTR, solving the optimization problem for each point,
 and noting when trading occurs (return to the center). By using a bisection method\footnote{Which is simple to implement since we only consider allocations along the straight line from some angle, outwards from the center of the NTR},
-i find the border of the \ac{NTR} with a tolerance of $10^{-6}$,
-which is a tolerance of $0.0001\%$ of the total wealth of the investor. I solve for multiple directions from the center, and choose the largest radius. This is because the circle might be truncated along the borders of the feasible space.
+i find the border of the \ac{NTR} with a tolerance of $10^{-8}$,
+which is a tolerance of $0.000001\%$ of the total wealth of the investor. I solve for multiple directions from the center, and choose the largest radius. This is because the circle might be truncated along the borders of the feasible space,
+if the NTR is close to either of the axis or the budget constraint (no borrowing/shorting).
 Furthermore, by selecting directions in evenly spaced angles around the center, i ensure that one of the directions of trading, must hit the border, as along as the \ac{NTR} does no cover the entire feasible space.
 This optimization process can be seen in figure \ref{fig:NTR_verify_fixed_no_correlation}. I start from a blue point and rebalance to the Merton point.
 Following this, i move along a straight line outwards, and solve. If no trading occurs the point is red, and is in the \ac{NTR}. 
+This is repeated for each trading direction. The figure below displays this specific part of the algorithm:
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale = 0.4]{Circular_NTR_Approximation_Algorithm.png}
+    \caption{2-Dimensional approximation algorithm for the fixed cost NTR with no correlation.}
+    \label{fig:FixedCost_NTR_Approximation}
+    % \floatfoot{}
+\end{figure}
+
 
 I also need to consider the sampling strategy for my \ac{GPR}-related training points. As i mentioned previously, i need to sample three types of points.
-Points within the \ac{NTR}, points outside the \ac{NTR}, and points near the border border the \ac{NTR}.
+Points within the \ac{NTR}, points outside the \ac{NTR}, and points near the border border the \ac{NTR}. The last points where previously kink points,
+when the NTR had followed assumptions 1 and 2, however for the circular case there are no kinks.
 The previous sampling strategy is easily applicable to the circlur case, however for the border points, i change the strategy slightly.
-Draw evenly spaced points (defined by their relative angle to the center point) on the border of the approximated \ac{NTR}, and add a slight pertubation to ensure these are outside the NTR.
+I sample evenly spaced points (defined by their relative angle to the center point) on the border of the approximated \ac{NTR}, and add a slight pertubation to ensure these are outside the NTR.
+This effectively covers the entire circle, and i can now leverage a low amount of training points for the GPR, as for the proportional cost case.
 \begin{figure}[!ht]
     \centering
     \includegraphics[scale = 0.4]{Fixed_Costs_sampling_strategy.png}
@@ -319,7 +334,8 @@ Draw evenly spaced points (defined by their relative angle to the center point) 
     \label{fig:Sample_Strategy_Fixed}
     \floatfoot{this sample strategy uses the same number of points as the schematic for the proportional cost sampling strategy}
 \end{figure}
-
+The fixed costs problem can likewise be solved in higher dimensions, however since this poses no changes to the proposed solution methods,
+i do not consider this further, and continue to the correlated case.
 \subsection{Dynamic Portfolio Choice with fixed costs and correlation}
 
 
