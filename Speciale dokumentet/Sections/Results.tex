@@ -337,16 +337,39 @@ This effectively covers the entire circle, and i can now leverage a low amount o
 The fixed costs problem can likewise be solved in higher dimensions, however since this poses no changes to the proposed solution methods,
 i do not consider this further, and continue to the correlated case.
 I solve the problem with the i.i.d parameters and a fixed cost of $0.075\%$ of the investors total wealth at any time point. I consider an investment horizon of $T = 5$.
+% \begin{figure}[!ht]
+%     \centering
+%     \includegraphics[scale = 0.38]{Fixed_Cost_NTR_Over_Time_2d.png}
+%     \caption{NTR at each time step for i.i.d parameters, with $2$ risky assets, fixed costs and no consumption.}
+%     \label{fig:NTR_2d_iid_over_time}
+%     \floatfoot{Sample points for the GPR used 140 points. Fixed costs at $0.075\%$ of total wealth.}
+
+% \end{figure}
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale = 0.38]{Fixed_Cost_NTR_Over_Time_2d.png}
-    \caption{NTR at each time step for i.i.d parameters, with $2$ risky assets, fixed costs and no consumption.}
-    \label{fig:NTR_2d_iid_over_time}
-    \floatfoot{Sample points for the GPR used 140 points. Fixed costs at $0.075\%$ of total wealth.}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.38]{Fixed_Cost_NTR_Over_Time_2d.png}
+        \caption{NTR at each time step for i.i.d parameters, with $2$ risky assets, fixed costs and no consumption.}
+        \label{fig:NTR_2d_iid_over_time}
+        \floatfoot{Sample points for the GPR used 140 points. Fixed costs at $0.075\%$ of total wealth.}
+    
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale = 0.38]{Fixed_Cost_NTR_Cai_Identical_d3_fc_0.0005__no_consumption_t_5.png}
+        \caption{NTR at time step $T-1$ for i.i.d parameters, with $3$ risky assets, fixed costs and no consumption.}
+        \label{fig:NTR_3d_iid_T-1}
+        \floatfoot{Sample points for the GPR used 140 points. Fixed costs at $0.075\%$ of total wealth.}    
+    \end{subfigure}
+    % Overall caption
+    \caption{No trade regions with i.i.d assets.}
+    \floatfoot{The No-Trade regions are plotted at time $t=2$.}
 \end{figure}
-I note that the NTR displays slight jitter, shrinking slightly over time. This is due to slight numerical instability over time. As function approximators
+For the $2$D plot i note that the NTR displays slight jitter, shrinking slightly over time. This is due to slight numerical instability over time. As function approximators
 are used iteratively to approximate the value function, the approximation error is compounded over time. At time step $T-1$ the radius is $0.11935$ whereas for time step $T-5$ ($0$) the radius is $0.11631$.
-
+I note for the $3$D case that the NTR is now a sphere, which is to be expected, as the NTR has extended to higher dimensions before, keepings its original shape.
 
 \subsection{Dynamic Portfolio Choice with fixed costs and correlation}
 
