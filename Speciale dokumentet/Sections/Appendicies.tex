@@ -13,8 +13,6 @@
 \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 
 
-\section{}\label{section: Appendix A}
-\newpage
 \section{Other sampling strategies}\label{section: Appendix-sample}
 \begin{figure}[h!]
   \begin{center}
@@ -33,6 +31,48 @@
     \end{center}
     \floatfoot{\textbf{Note:} Sample consists of $N=200$ points.}
     \end{figure}
+
+\section{Extended asset space parameters}\label{section: Extended asset universe}
+
+\[
+\mu = 
+\begin{bmatrix}
+0.0572 \\
+0.0638 \\
+0.07 \\
+0.0764 \\
+0.0828 \\
+0.06 \\
+0.07 \\
+\end{bmatrix}
+\]
+
+\[
+\Sigma = 
+\begin{bmatrix}
+0.0256 & 0.00576 & 0.00288 & 0.00176 & 0.00096 & 0.002 & -0.001 \\
+0.00576 & 0.0324 & 0.00904 & 0.01069 & 0.01296 & 0 & -0.002 \\
+0.00288 & 0.00904 & 0.04 & 0.0132 & 0.0168 & 0 & -0.0015 \\
+0.00176 & 0.01069 & 0.0132 & 0.0484 & 0.02112 & 0 & -0.001 \\
+0.00096 & 0.01296 & 0.0168 & 0.02112 & 0.0576 & 0 & -0.0005 \\
+0.002 & 0 & 0 & 0 & 0 & 0.02 & 0 \\
+-0.001 & -0.002 & -0.0015 & -0.001 & -0.0005 & 0 & 0.025 \\
+\end{bmatrix}
+\]
+
+\[
+% \text{}
+\operatorname{Corr} =
+\begin{bmatrix}
+1 & 0.2 & 0.09 & 0.05 & 0.025 & 0.0884 & -0.0395 \\
+0.2 & 1 & 0.2512 & 0.27 & 0.3 & 0 & -0.0703 \\
+0.09 & 0.2512 & 1 & 0.3 & 0.35 & 0 & -0.0474 \\
+0.05 & 0.27 & 0.3 & 1 & 0.4 & 0 & -0.0287 \\
+0.025 & 0.3 & 0.35 & 0.4 & 1 & 0 & -0.0132 \\
+0.0884 & 0 & 0 & 0 & 0 & 1 & 0 \\
+-0.0395 & -0.0703 & -0.0474 & -0.0287 & -0.0132 & 0 & 1 \\
+\end{bmatrix}
+\]
 
 \end{appendices}
 \ifdefined\COMPILINGMAIN
