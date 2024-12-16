@@ -311,6 +311,7 @@ I therefore split the optimization process into two parts. I evaluate the object
 Since there is no consumption decision the no-trading decision is trivial, whereas i still optimize the trading decision in the trading problem, in order to maximize expected utility. 
 By splitting the optimization process, i can avoid the the non-differentiable edge case, and the derivative with regard to fixed costs is trivial for the optimizer.
 I then evaluate the value function for the no-trading decision, and the trading decision, and choose the decision which maximizes the value function.
+Furthermore when splitting the problem by thetrading decision first, the optimization problem is convex once again, as per \autocite{Dybvig2020}. Hence the issues mentioned in Section \ref{Subsection: Approximating_NTR} are no longer present.
 
 I now consider the base model with fixed transaction costs, and no consumption. I use the simple i.i.d parameterization, with $2$ assets and solve the optimization problem for the next to last period $T-1$,
 over an evenly spaced grid of points. I do this in order to verify that the solution algorithm works as intended, and that the \ac{NTR} is circular as expected, conflicting with my prior assumptions for the proportional case.
@@ -505,7 +506,6 @@ Optimal trading occurs to the vertices of this, and the Merton Point is at the r
 I therefore postulate, that for specific fractions of fixed cost and proportional cost, the vertices of the proportional cost NTR,
 will be on the border of the fixed cost NTR, and the NTR will be a combination of the two shapes.
 The NTR would in this case have vertices, which are the intersection of the two NTRs, but these would be connected by curved lines.
-This is a novel result, not seen in the literature, and i consider this a significant contribution.
 Whether the proportional NTR or the fixed cost NTR forms the outer most NTR is unknown a priori, without further investigation.
 Interestingly, the proportinal cost part of the \ac{NTR}, is inside the fixed cost NTR, despite the proportional cost being higher than the fixed cost.
 It is therefore not trivial to determine parametizations where the two NTRs would form a cohesive shape, and this is left for future research.

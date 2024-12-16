@@ -226,16 +226,17 @@ Where $\boldsymbol{\delta}^{+,*}_t , \boldsymbol{\delta}^{-,*}_t$ are the optima
 The next section will cover the \ac{NTR} in more detail.
 
 \subsection{No Trade Region} \label{Subsection: No-trade-region}
-The \ac{NTR} is a region in the asset space where
+The \ac{NTR} is a region in the risky asset space where
 it is sub-optimal to rebalance the portfolio.
 Given the parameters of the model the \ac{NTR} without consumption is defined as in equation \eqref{eq:No_Trade_Region}.
 If consumption is included, this definiton remains the same, but the consumption decision varies within the \ac{NTR}.
 Note that the \ac{NTR} is independent of the wealth level, but only depends on the wealth allocations.
 The \ac{NTR} stems from the introduction of transaction costs, and is a connected set.
-
-\textbf{SE ANGÅENDE CONVEX HULL}: 
-Kamin (1975), Constantinides (1976, 1979, 1986),
-Davis and Norman (1990), and Muthuraman and Kumar (2006). 
+The shape of the \ac{NTR} is dependent on the parameters of the model, and can be a complex shape,
+however for the case of proportional transaction costs and independent risky assets, the \ac{NTR} for $2$ risky assets
+is a square, as shown by \textcite{Dybvig2020} for example. 
+The NTR may extend out of the feasible region, in which case the shape is truncated to the feasible space.
+For most cases seen in the litterature, when consumption is not included, the \ac{NTR} enscapsulates the Merton point.
 Figure \ref{fig: NTR_Example} illustrates an example of a \ac{NTR} with two risky assets.
 \begin{figure}[h!]
   \begin{center}
@@ -245,9 +246,9 @@ Figure \ref{fig: NTR_Example} illustrates an example of a \ac{NTR} with two risk
   \end{center}
   % \floatfoot{\textbf{Note:}}
 \end{figure}
-The square shape of the \ac{NTR} occurs with proportional transaction costs
-and independent (i.i.d) risky assets. However the NTR is not always a perfect square, for more on this see \autocite{Dybvig2020}.
-
+The \ac{NTR} is a key component of the model, and illustrates the trade-off between the utility of rebalancing the portfolio and the cost of doing so.
+I will go into further detail on the \ac{NTR} in the next section, where I will discuss the formal properties of the \ac{NTR},
+and how i can leverage key findings from the \ac{NTR} to solve the dynamic portfolio choice problem with transaction costs efficiently.
 
 \subsection{Base problem: Portfolio choice with proportional costs and consumption}\label{Subsection: Base_Problem}
 Considering the class of problems constructed in the prior section,
