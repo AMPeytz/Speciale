@@ -89,6 +89,28 @@
     \field{year}{1958}
   \endentry
 
+  \entry{bertoni2010multi}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=BB}{%
+         family={Bertoni},
+         familyi={B\bibinitperiod},
+         given={Bridget},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BB1}
+    \strng{fullhash}{BB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2010}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Multi-dimensional ellipsoidal fitting}
+    \field{journaltitle}{Department of Physics, South Methodist University, Tech. Rep. SMU-HEP-10-14}
+    \field{year}{2010}
+  \endentry
+
   \entry{Bjork}{book}{}{}
     \name{author}{1}{}{%
       {{hash=BT}{%
@@ -429,6 +451,45 @@
     \field{year}{2023}
   \endentry
 
+  \entry{gander1994least}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=GW}{%
+         family={Gander},
+         familyi={G\bibinitperiod},
+         given={Walter},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=GGH}{%
+         family={Golub},
+         familyi={G\bibinitperiod},
+         given={Gene\bibnamedelima H},
+         giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Strebel},
+         familyi={S\bibinitperiod},
+         given={Rolf},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{GWGGHSR1}
+    \strng{fullhash}{GWGGHSR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1994}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{pages}{558\bibrangedash 578}
+    \field{title}{Least-squares fitting of circles and ellipses}
+    \field{volume}{34}
+    \field{journaltitle}{BIT Numerical Mathematics}
+    \field{year}{1994}
+  \endentry
+
   \entry{Garleanu2013}{article}{}{}
     \name{author}{2}{}{%
       {{hash=GN}{%
@@ -604,6 +665,32 @@
     \field{title}{Efficient parallel solution methods for dynamic portfolio choice models in discrete time}
     \field{journaltitle}{Available at SSRN 2665031}
     \field{year}{2016}
+  \endentry
+
+  \entry{Ivanov2020Ellipse}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=IAB}{%
+         family={Ivanov},
+         familyi={I\bibinitperiod},
+         given={A.\bibnamedelima B.},
+         giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{IAB1}
+    \strng{fullhash}{IAB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{note}{Adapted from the original article in the Encyclopedia of Mathematics - ISBN 1402006098}
+    \field{title}{Ellipse}
+    \verb{url}
+    \verb http://encyclopediaofmath.org/index.php?title=Ellipse&oldid=25305
+    \endverb
+    \field{journaltitle}{Encyclopedia of Mathematics}
+    \field{year}{2020}
   \endentry
 
   \entry{JanecekShreve2004}{article}{}{}

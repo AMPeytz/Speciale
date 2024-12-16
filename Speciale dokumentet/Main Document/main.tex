@@ -10,7 +10,7 @@
 \author{Masters Thesis\\
 	Alexander Michael Peytz\footnote{Department of Economics, University of Copenhagen. E-mail: kqw203@alumni.ku.dk.}}
 
-\title{Dynamic Portfolio Choice Under Various Transaction Costs and Asset Structures\footnote{I thank my supervisor Bertel Schjerning for his guidance and support.}} 
+\title{Dynamic Portfolio Choice with Fixed and Proportional Transaction Costs and Various Asset Structures\footnote{I thank my supervisor Bertel Schjerning for his patient guidance and support.}} 
 \date{\today}
 
 \begin{document}
@@ -47,52 +47,29 @@
 \numberwithin{figure}{section}
 \renewcommand*{\thefootnote}{\arabic{footnote}}
 \setcounter{footnote}{0}
-\section{What has been the contributions in this paper for now (Not in final paper)}\label{sec:contributions}
-\begin{itemize}
-  \item Bridging \textcite{CaiJuddXu2020} and \textcite{Scheidegger2023}. By adding the following to the framework of \textcite{Scheidegger2023}:
-    \begin{itemize}
-      \item By adding time period spacing $\Delta t$. Adds dimensions from behavioural finance, and continous finance theory.
-      \item Adding $\theta_t$ \textbf{maybe} (Not coded!)
-      \item By adding option pricing (Not coded!). Adds dimensions from derivatives pricing. Complex asset dynamics.
-    \end{itemize} 
-    \item By adding other transaction cost types. Such as:
-    \begin{itemize}
-      \item Fixed transaction costs (Not coded!)
-      \item Asset specific transaction costs (Not coded!)
-    \end{itemize}
-    \item Computationally:
-    \begin{itemize}
-      \item Using Kernel interpolation for the GP (Speeding up Kernel Matrix Computations)
-    \end{itemize}
-\end{itemize}
 
 \section{To-Do}\label{sec:To-Do}
 \begin{itemize}
   \item Economic theory
       \begin{itemize}
         \item NTR Theoy (Dybvig etc)
-        \item Option Price theory (Black-Scholes). 
         \item Transaction cost theory (Fixed, asset specific (Just formulations))
-        \item Price impact theory \textbf{maybe} (See Garlenau etc).
       \end{itemize}
-  \item Portfolio choice models
-      \begin{itemize}
-        \item Model with options (After option theory)
-        \item Model with other transaction costs
-      \end{itemize}
-  \item Skrive implementation details
-      \begin{itemize}
-        \item Final Algorithms 
-      \end{itemize}
-  \item Kode:
-    \begin{itemize}
-      \item Option pricing, new: Exotic options.
-      \item Implement other transaction cost types
-  \end{itemize}
   \item Omskrive
-  \begin{itemize}
-    \item Litterature reveiw. Add Liu 2002. Order by: Merton then Finance and mathematics guys. then Computation guys. then Cai Judd then Scheidegger then Me.
+\begin{itemize}
+  \item Introduction. Write my contribution clearly
+  \item Litterature reveiw. Add Liu 2002. Order by: Merton then Finance and mathematics guys. then Computation guys. then Cai Judd then Scheidegger then Me.
+  \item Write remaining portfolio choice models.
+  \item Implementation details: Remove SKIP.
 \end{itemize}
+\item Discussion
+\begin{itemize}
+  \item Applicability of the model to real world scenarios
+  \item Scalability of the model
+  \item Option pricing, asset specific costs.
+  \item Function approximators 
+\end{itemize}
+\item Conclussion 
 \end{itemize}
 
 
@@ -102,6 +79,7 @@
 % \input{../Sections/Portfolio_Choice.tex}
 \input{../Sections/Implementation Details.tex}
 \input{../Sections/Results.tex}
+\input{../Sections/Discussion.tex}
 \newpage
 
 \begingroup 

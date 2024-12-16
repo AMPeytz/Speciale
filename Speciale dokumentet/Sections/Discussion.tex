@@ -1,0 +1,23 @@
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the preamble
+\else
+% Individual file compilation
+\documentclass[11pt]{article}
+\input{../Preamble.tex}  % Include the main preamble
+\begin{document}
+\fi
+
+\section{Discussion} \label{Section: Discussion}
+This section ...
+
+\subsection{Applicability of the model} \label{Subsection: Applicability of the model}
+\subsection{Scalability of the model} \label{Subsection: Scalability of the model}
+\subsection{Competing solution methods} \label{Subsection: Competing solution methods}
+\subsection{Future Research} \label{Subsection: Future Research}
+
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the end
+\else
+% \printbibliography
+\end{document}
+\fi

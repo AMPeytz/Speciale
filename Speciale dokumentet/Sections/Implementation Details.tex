@@ -467,7 +467,7 @@ Now that each component regarding the solution algorithm has been covered, i can
 Starting at the second to last period, which is the last period where the investment decision is not trivial, the algorithm is as follows:
 Sample $2^{D}$ points to approximate the \ac{NTR}. Then Approximate the \ac{NTR} by solving the optimization problem for these points.
 
-Sample $N$ points in a strategic manner, as described in \ref{Subsubsubsection: Sample}. For each $x_{i,t} \in X_{t}$ with $\{ X_t \}^{N}_{i=1}$, solve the optimization problem to find the optimal policy $\boldsymbol{\delta}_{i}$.
+Sample $N$ points in a strategic manner, as described in \ref{subsubsection: Sample}. For each $x_{i,t} \in X_{t}$ with $\{ X_t \}^{N}_{i=1}$, solve the optimization problem to find the optimal policy $\boldsymbol{\delta}_{i}$.
 
 Construct the datasets $\mathbf{X}_{t,\text{inside}}$ and $\mathbf{X}_{t,\text{outside}}$ and fit two \ac{GPR}s to the datasets $\mathbf{X}_{t,\text{inside}}$ and $\mathbf{X}_{t,\text{outside}}$.
 The code can be split into two parts, algorithim (A) and algorithm (B). Algorithm A covers approximatin the NTR and algorithm B covers the entire \ac{DP} scheme.
