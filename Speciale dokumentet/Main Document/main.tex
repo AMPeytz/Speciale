@@ -24,7 +24,16 @@
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
 \begin{abstract}
-\noindent This thesis 
+\noindent This thesis solves dynamic portfolio allocation problems with fixed and proportional transaction costs,
+and correlated return structures. The model is solved using a combination of dynamic programming (DP), numerical methods and machine learning techniques,
+using the most recent advances on solving dynamic portfolio choice problems with proportional transaction costs.
+The efficiency of the framework solves problems, which previously were infeasible to solve without the use of super computers.
+This thesis contributes to the existing literature in a multitude of ways. Firstly,
+I present a novel approach to the fixed costs problem, based on the state of the art framework for proportional costs,
+which leverages the geometric shape of the No-Trade Region (NTR), stemming from the trade frictions.
+Secondly, this thesis is the first to paper, in my knowledge, to solve dynamic portfolio choice problems with fixed costs for correlated assets, with more than two risky assets.
+Thirdly i present an approach to solving new transaction costs structures, not yet considered, and how to adapt my computational approach to these,
+paving the way for future research in this area.
 \end{abstract}
 %{\centering \paragraph{Characters incl. spaces:} xx (xx pages) \par}
 
@@ -53,13 +62,11 @@
   \item Economic theory
       \begin{itemize}
         \item NTR Theoy (Dybvig etc)
-        \item Transaction cost theory (Fixed, asset specific (Just formulations))
       \end{itemize}
   \item Omskrive
 \begin{itemize}
   \item Introduction. Write my contribution clearly
-  \item Litterature reveiw. Add Liu 2002. Order by: Merton then Finance and mathematics guys. then Computation guys. then Cai Judd then Scheidegger then Me.
-  \item Write remaining portfolio choice models.
+  \item Litterature reveiw. Add Liu 2002 and Morton 1995. Order by: Merton then Finance and mathematics guys. then Computation guys. then Cai Judd then Scheidegger then Me.
   \item Implementation details: Remove SKIP.
 \end{itemize}
 \item Discussion

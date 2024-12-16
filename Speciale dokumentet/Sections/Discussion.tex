@@ -8,12 +8,83 @@
 \fi
 
 \section{Discussion} \label{Section: Discussion}
-This section ...
+The dynamic portfolio choise problem with fixed or proportional costs has been introduced and solved in the previous sections.
+The framework developed in this thesis, is able to solve the problem has been introduced in detail as well.
+I will now discuss the results, and the applicability of the model, the scalability of the model, competing implementation methods, and avenues of future research,
+in order to highlight the limitations of the model, and suggest areas for further research.
 
 \subsection{Applicability of the model} \label{Subsection: Applicability of the model}
+The model developed in this thesis is applicable to the problem of dynamic portfolio choice, with consumption, when investors face proportional transaction costs.
+While the model is only able to solve a reduced investment universe, in the number of assets, the
+results give a greater understanding on how transaction costs affect the optimal portfolio choice.
+Investment towards the optimal allocation may in fact be more costly than the transaction costs themselves, and the model provides a framework for understanding this trade-off.
+This is well known, and been studied in the litterature of computational finance and behavioural finance.
+
+However, the since the results are only applicable to a reduced investment universe, the results may not be directly applicable to real world applications
+and remain theoretical in nature. First of all the the model predicts optimal behavior given the distribution of the asset returns,
+which are only available for past returns, and the distribution of future returns may differ from the distribution of past returns.
+Hence, the model suffers from the same limitations as other models in the field of finance, in that it is based on historical data,
+in my case simulated data even, and may not be applicable to future data.
+
 \subsection{Scalability of the model} \label{Subsection: Scalability of the model}
-\subsection{Competing solution methods} \label{Subsection: Competing solution methods}
-\subsection{Future Research} \label{Subsection: Future Research}
+This thesis implements the framework constructed by \autocite{Scheidegger2023}
+in order to solve the problem of dynamic portfolio choice, with consumption,
+when investors face proportional transaction costs. This framework increases the scalability of the model to higher dimensions
+than previously possible without the use of super computers, by minimizing the number of grid points needed to approximate the NTR.
+However, the model is still computationally demanding, especially when the number of assets is high, and the number of grid points
+needed to train the function approximators still increase with the dimensionality of the model.
+Furthermore, the evaluation of the increasingly complex \ac{GP} increases exponentially in complexity with the number of assets.
+Also, even for the most simple shape of the \ac{NTR}, a square, the number of vertices needed to effectively 
+formulate the \ac{NTR} increases exponentially with the number of assets.
+The framework is therefore not scalable to an arbitrary number of assets, and the number of assets that can be included in the model is limited by the computational power available.
+This limits the use of the model in real world applications, where the number of assets is typically high.
+Furthermore, distributional parameters would need to be estimated for each asset, which would further increase the computational complexity of
+a real world application.
+
+For fixed costs a novel algorithm, based on the work of \autocite{Scheidegger2023}, and the geometric properties
+of the resulting \ac{NTR}s is developed. The algorithm is able to solve the problem, but introduces a new set of challenges.
+While fewer initial points are needed, since i only need to approximate the center of the \ac{NTR} in the first case,
+the bisection algorithm, needed to find find the edge of the \ac{NTR}, is computationally demanding, and re-introduces the the need
+for evaluation at a fine grid along the trajectory from the center. Thus the fixed cost model poses further dimensional burden to the model.
+Furthermore, the edge points needed to approximate the \ac{NTR} scales with dimensionality,
+when assets are correlated, which in combination with the bisection algorithm introduces curse of dimensionality to the model.
+
+Overall, a solution which can scale to a sufficiently large dimensionality, and which can be used in real world applications, is still yet to be found.
+However, this paper does provide a step in the right direction, by providing a framework which can be used to solve the problem in a higher dimensionality than previously possible,
+for the fixed cost case, which had previously not been solved for dimensions larger than $2$, in a dynamic setting.
+\subsection{Competing implementation methods} \label{Subsection: Competing solution methods}
+As noted in the prior section. The frameworks used and developev in this paper, face scalability issues.
+Specifically the bisection algorithm used to find the edge of the \ac{NTR} in the fixed cost case, and the evaluation of the \ac{GP} in the proportional cost case.
+
+For the function approximators, competing methods such as neural networks, and other machine learning methods, could be used to approximate the \ac{NTR}.
+Neural networks are universal function approximators, and could potentially approximate the \ac{NTR} more efficiently than the \ac{GP}.
+Since the goal is to approximate the \ac{NTR}, if a neural network could be implemented to approximate the \ac{NTR} more efficiently than the \ac{GP},
+by skipping the evaluation of grid points, necessary for the \ac{GP}, the model could scale better.
+
+The bisection algorithm used to find the edge of the \ac{NTR} in the fixed cost case, could likewise potentially be replaced by a more efficient algorithm.
+The bisection algorithm is favoured in this paper, for its simplicity, and the fact that it is guaranteed to find the edge of the \ac{NTR}.
+The algorithm is easy to understand in an intuitive manner, especially when the \ac{NTR} is presented geometrically.
+The bisection algorithm could potentially be replaced by a root-finding algorithm leveraging the computed gradients in the current framework.
+Such a solver should theoretically be able to find the edge of the \ac{NTR} more efficiently than the bisection algorithm, which needs to solve the model at each bisection mid point. 
+\subsection{Avenues of Future Research} \label{Subsection: Future Research}
+This thesis provides a framework for solving the problem of dynamic portfolio choice under various transaction costs and asset structures.
+By first, solving the problem over a fine grid, i find the geometric shape of the resulting \ac{NTR}, and then leverage this information to solve the problem more efficiently.
+This framework can be extended to various types of transaction costs. Notably \autocite{Dybvig2020} considers asset specific fixed costs, and also price impact,
+among other transaction costs not considered in this thesis. Future research could therefore consider other transaction cost structures, and combinations thereof,
+and how these affect the optimal portfolio choice, by using the proposed framework.
+
+Furthermore, the framework could be extended to consider other asset structures.
+For example, \autocite{CaiJuddXu2020}, extend the model to include vanilla options on the assets considered in the model as well as butterfly options,
+and \autocite{Dybvig2020} considers hedging with futures, albeit still in a static setting.
+Futher research could consider how these asset structures affect the optimal portfolio choice, and how the framework can be extended to include these asset structures,
+which if still computationally feasible, would be a novel contribution to the literature, as the case of futures as not been tackled in a dynamic setting,
+and the case of options is computationally burdensome under the scheme of \autocite{CaiJuddXu2020}.
+
+An analysis of price impact would likewise be interesting, specifically for large institutional investors,
+whose trades can move the market, and thus affect the price of the assets they are trading. The impact on the \ac{NTR} in a dynamic setting would be interesting to see.
+
+\section{Conclusion} \label{Section: Conclusion}
+
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end

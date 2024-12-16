@@ -325,7 +325,7 @@ these are drawn directly from \autocite{Scheidegger2023}
 \end{assumption}
 A polytope is a generalization of a polyhedron (polytope in 2D), which is a geometric object with flat sides and straight edges.
   The convex polytope is a polytope which bounds a convex set, and can therefore be defined by a convex hull. Hence, any linear combination of points in the \ac{NTR} or on the boundary of the \ac{NTR} is also in the \ac{NTR}.
-  In other words, the \ac{NTR} is a closed convex set. \textbf{Wikipedia reference her?}.
+  In other words, the \ac{NTR} is a closed convex set.
 \begin{assumption}\label{assumption: NTR-vertices}
   The NTR has $2^{D}$ vertices.
 \end{assumption}
@@ -436,7 +436,7 @@ For the blue regions, trading towards a vertice is optimal, and this means that 
 
 In this case, we can set bounds on the optimal policy $\boldsymbol{\delta}$, by considering the euclidian distance to the \ac{NTR}.
 Hence if i know beforehand, that for asset $1$ we need to sell (lower-right blue region), then i can set bounds on $\delta_{1}^{+}$ to $0$ and effectively remove this from the optimization problem.
-I can likewise do this the other way around for the asset $2$, which i need to buy more of, and set bounds on $\delta_{2}^{+}$ to $0$.
+I can likewise do this the other way around for the asset $2$, which i need to buy more of, and set bounds on $\delta_{2}^{-}$ to $0$.
 
 For the green regions in the figure, the optimal policy is to trade towards a face of the \ac{NTR}, and this means that the optimal policy is to reallocate in one risky asset and hold the other.
 I can therefore set bounds on the optimal policy $\boldsymbol{\delta}_{i}$ to $0$ for the asset which is to be held, and only consider reallocation in the second asset.
@@ -521,18 +521,20 @@ These are drawn from the framework which has been covered, above, created by \au
 
 \subsection{Computational stack and implementation} \label{Subsection: Computational_stack}
 The solution algorithm is implemented in Python, and takes advantage of a simple but powerfull computational stack. following \autocite{Scheidegger2023}.
-The economic identities and dynamic where written using the \texttt{PyTorch} package, which is a machine learning library implemented in Python.
+The economic identities and dynamics where written using the \texttt{PyTorch} package, which is a machine learning library implemented in Python.
 This package has an auto-differentiation feature, which allows for easily implmentable gradients for the constrainted optimization scheme.
-Furthermore this package is also directly linked with the \texttt{GPyTorch} package, which is a Gaussian process library implemented using PyTorch.
+Furthermore this package is also directly linked with the \texttt{GPyTorch} package.
 The \ac{GPR}s were implemented using the \texttt{GPyTorch} package, which is a Gaussian process library implemented using PyTorch.
-This package has multiple speedups for \ac{GPR}s, such as the LancZos Variance Estimate (LOVE) and the SKIP method, which reduces the computational burden of the \ac{GPR}s.
+This package has multiple speedups for \ac{GPR}s, such as the LancZos Variance Estimate (LOVE), which reduces the computational burden of the \ac{GPR}s.
 Furthermore the predictive mean can be computed using black-box matrix-matrix multiplication, which is a speedup for the predictive mean computation,
 skipping cholesky decompositions for large matrices.\\
 The constrained optimizer i use is the \texttt{Cyipopt} package, which is a Python wrapper for the \texttt{Ipopt} package, which is a non-linear optimization package.
-This package is used to solve the optimization problem for each point in the state space, and is used to find the optimal policy $\boldsymbol{\delta}$ for each point.\\
+This package is used to solve the optimization problem for each point in the state space, and is used to find the optimal policy $\boldsymbol{\delta}$ for each point, and likewise consumption $c$ if this is included.\\
 The gaussian quadrature grid-points where implemented with the \texttt{Tasmanian} package, which is a sparse grid package.
 This was taken from \autocite{Schober2022}, who used this package to implement sparse adaptive grids.\\
-Finally i implemented parallelization at two points in the code. Whenever we run the optimization scheme for a point in the state space, we can run these in parallel,
+Finally i implemented parallelization at two points in the code. 
+When approximating the \ac{NTR}, i can do this in parallel for each starting point in the state space.
+Also whenever i run the optimization scheme for a point in the state space, we can run these in parallel,
 as they are independent operations, as long as i do this within the same timepoint $t$.
 
 \subsubsection{Optimization details} \label{Subsubsection: optimization_details}
@@ -549,7 +551,7 @@ and multiply with a decaying factor over the number of starts. For these points 
 This is because when i can leverage the knowledge of the \ac{NTR}, the optimization problem is easier.
 
 For points inside the \ac{NTR} i likewise guess no trading, knowing this to be optimal a-priori.
-Small jitter is added to this when using multiple solutions.
+Small jitter is added to this when i use multiple starts.
 
 
 

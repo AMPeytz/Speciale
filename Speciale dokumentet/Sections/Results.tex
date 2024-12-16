@@ -13,7 +13,7 @@ The first is a simple case where the assets are identically distributed as seen 
 the second is a case where the parameters are chosen to match the parameters in \autocite{Schober2022} also seen in \autocite{Scheidegger2023}.
 This is in order to be able to draw correct comparisons between the results. Furthermore this case,
 displays assets with slight variation in the mean and a small correlation between the assets, and no asset is dominating the others.
-The last parameterization is a modification of the first case where the correlation between the assets is larger (correlation coefficient of $0.75$).
+The last parameterization is a modification of the first case where the correlation between the assets is large (correlation coefficient of $0.75$), but no perfect correlation. 
 \begin{table}[!ht]
     \label{table: Parameters_Base_Models}
     \centering
@@ -162,6 +162,8 @@ We choose to look at the model with the Schober parameters, as this is a mixture
 
 I note that at the last time point $t = T-1$ the \ac{NTR} moves away from the merton point towards the origin, and the Merton point is is
 now the upper right corner of the \ac{NTR}. For all other time periods the \ac{NTR} is the same, and the Merton point is in the center.
+This is consistent with behaviour found by \autocite{CaiJuddXu2013}, and might suggest that we only require solutions of two periods, $T-1$ and $T-2$ in order to
+effectively cover the \ac{NTR} for all periods.
 
 \begin{figure}[!ht]
     \centering
@@ -209,6 +211,22 @@ In the $2$ dimension case, this is akin to the \ac{NTR} being close to the budge
 This is clear when compared to the Schober parameters, where the merton point is in the center of the NTR, and the NTR is a skewed cube.
 The merton point in this case suggest lower portfolio allocations to the risky assets, and hence the NTR is not restricted by the no-trading and no-borrowing constraints.
 
+Furthermore the \ac{NTR} behaves similar to the $2$d case, and is only considerably different in period $T-1$,
+compared to periods $T-2$, $T-3$ and so forth.
+
+\subsubsection{Increasing the dimensionality of the model further} \label{Subsubsection: IncreasingDimensionalityFurther}
+I now look at increasing the dimensionality of the model even further.
+This moves the solutions of the model to higher dimensional spaces, which have well defined mathematical properties, however,
+graphic illustration will be moved to $3$ dimensions, as the model is not easily visualized in higher dimensions.
+I solve the model with the Schober parameters for $d = 5$ assets. This increases the complexity of the model, and the \ac{NTR} is now a hyper-cube,
+however solutions remain feasible, despite the algorithm running on a laptop computer.
+For the $d = 5$ case, the merton point is $(0.1531, 0.0682, 0.0983, 0.1132, 0.1242)$ which suggest a total risky investment portfolio of $55.7\%$ of wealth.
+I use $60\cdot D = 300$ generated points and their respective solutions to train the \ac{GP} in each iteration.
+Approximating the \ac{NTR} alone, now takes considerably longer, and larger dimensions $D>5$ are therefore not in the scope of this paper, as the computational power required
+is too large for me to handle.
+However, solutions to the $5$ risky asset porfolio, on a personal laptop, remains a computational feat, as previous studies \autocites{CaiJuddXu2013}{Schober2022} relied on super computers to solve the model.
+\autocite{Scheidegger2023} makes no mention of the computational setup, and a direct comparison to the results is therefore dissapointingly not possible, 
+to the most similar setup in the literature.
 \subsection{Dynamic Portfolio Choice with consumption} \label{Subsection: Results_WithConsumption}
 I now consider the base model with proportional transaction costs which now includes consumption of a non-durable good.
 This adds an extra decision variable which needs to be solved for, and consumption now adds immediate utility to the investor, in each period.
@@ -235,9 +253,10 @@ This adds an extra decision variable which needs to be solved for, and consumpti
 Note that when consumption is included, the \ac{NTR} no longer encapulates the Merton point at any time point.
 Furthermore the \ac{NTR} now moves over time, towards the origin, as opposed to the case without consumption,
 where the \ac{NTR} was static for all time points except the next to last period (last period with trading decisions).
-
-This behaviour is consistent in higher dimensions. 
-
+Hence, the \ac{NTR} is now no longer sufficiently described by solutions to $T-1$ and $T-2$ as the optimal consumption decision,
+changes over time, moving the NTR towards the origin, as $t \rightarrow 0$. 
+This behaviour is consistent in higher dimensions, and is consistent with results found by \autocite{Scheidegger2023}.
+Below are plots of the NTR for two different parametizations of the model, with $3$ assets, at a singular time point.
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[t]{0.48\textwidth}
@@ -254,15 +273,23 @@ This behaviour is consistent in higher dimensions.
         % \label{fig:NTR_2d_high_correlation_with_consumption_over_time}
     \end{subfigure}
     % Overall caption
-    \caption{No trade regions with consumption in multiple dimensions.}
+    \caption{No trade regions with consumption in multiple dimensions, singular time period.}
     \floatfoot{The No-Trade regions are plotted at time $t=2$.}
 \end{figure}
+And i can, similar to the $2$d case, plot the \ac{NTR} over the entire investment horizon, as seen in figure \ref{fig: NTR_3d_iid_with_consumption_over_time}.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale = 0.38]{NTR_Cai_Identical_d3_tau_0.005__with_consumption_Over_Time_t_5.png}
+    \caption{NTR for $3$ assets with i.i.d parameters over time with consumption.}
+    \label{fig: NTR_3d_iid_with_consumption_over_time}
+\end{figure}
+Once again, i note that the NTR moves towards the Merton point as $t \rightarrow T$, but never encapulates the Merton Point. 
 
 
-\subsection{Dynamic Portfolio Choice with fixed costs} \label{Subsection: Results_WithConsumption}
+\subsection{Dynamic Portfolio Choice with fixed costs} \label{Subsection: Results_FixedCosts_No_Correlation}
 I now consider the base model with fixed transaction costs, and no consumption.
 From \autocite{Dybvig2020} i know that the \ac{NTR} is no longer rectangular when we only consider fixed costs, but instead circular with the merton point in the middle when there is no consumption in the model.
-This poses a problem for my current sampling scheme, which leverages our predetermined knowledge of the geometric shape of the \ac{NTR}.
+This poses a problem for my current sampling scheme, which leverages my predetermined knowledge of the geometric shape of the \ac{NTR}.
 As i noted in Section \ref{Subsection: Approximating_NTR}, in order to effectively sample points for the \ac{NTR} approximation, given the framework for the proportional cost case,
  i now need to sample points, such that when they hit the \ac{NTR} these points are evenly distributed on the sphere, in order to approximate the \ac{NTR} correctly.\\
 However this is still not sufficient as the fixed costs pose further problems for the solution algorithm. In order to see this a little intuition is needed.
@@ -274,7 +301,7 @@ This is in stark contrast to the proportional case, where the trading trajectory
 
 Now, any point sampled outside the \ac{NTR} trades to the merton point, and i need to construct a new strategy, 
 in order to efficiently construct the \ac{NTR}, as no new information is
-gained by sampling points multiple points outside the \ac{NTR}.
+gained by sampling multiple points outside the \ac{NTR}.
 
 Furthermore, the transaction cost function is now an indicator function, depending on a threshhold, i.e $\sum^{k}_{i=1} \delta^{+}_{i,t} + \delta^{-}_{i,t}  > 0$.
 This is non-differentiable at the kink, $\sum^{k}_{i=1} \delta^{+}_{i,t} + \delta^{-}_{i,t} =0$ 
@@ -282,11 +309,12 @@ which is a critical point (the trading decision boundary), which i have to deal 
 
 I therefore split the optimization process into two parts. I evaluate the objective function (value function), \textit{conditional} on no trading ($\boldsymbol{\delta}_{t} = \mathbf{0}$), and \textit{conditional} on trading ($\boldsymbol{\delta}_{t} \neq \mathbf{0}$).
 Since there is no consumption decision the no-trading decision is trivial, whereas i still optimize the trading decision in the trading problem, in order to maximize expected utility. 
-By splitting the optimization process, i can avoid the the non-differentiable edge case, and the derivative with regard to fixed costs i trivial for the optimizer.
+By splitting the optimization process, i can avoid the the non-differentiable edge case, and the derivative with regard to fixed costs is trivial for the optimizer.
 I then evaluate the value function for the no-trading decision, and the trading decision, and choose the decision which maximizes the value function.
 
 I now consider the base model with fixed transaction costs, and no consumption. I use the simple i.i.d parameterization, with $2$ assets and solve the optimization problem for the next to last period $T-1$,
 over an evenly spaced grid of points. I do this in order to verify that the solution algorithm works as intended, and that the \ac{NTR} is circular as expected, conflicting with my prior assumptions for the proportional case.
+
 I set the fixed costs to $0.005\%$ of the investors total wealth, at any time point, and solve at a very fine grid of points, in order to approximate the \ac{NTR} correctly.
 I find that the \ac{NTR} is circular as expected, and the solution algorithm works as intended. I therefore proceed with generating a strategy for dealing with fixed costs, which can leverage my new found knowledge of the \ac{NTR}.
 \begin{figure}[!ht]
@@ -300,21 +328,23 @@ I find that the \ac{NTR} is circular as expected, and the solution algorithm wor
 \subsubsection{Constructing a new sampling scheme for the fixed cost NTR} \label{Subsubsection: SampleFixed}
 Noting that for each point outside the NTR, the investor will trade to the same optimal point, since the cost of trading is a \textit{sunk cost},
 i can select a single starting point, at the origin for example, and solve for the optimal trading decision.
-If this is to trade, then i immediatly know the center of the \ac{NTR}, and now only need the radius to construct the \ac{NTR}.
-This holds for any dimensionsionality of the model, as any circle/sphere/hyper-sphere can be defined by the center point and the radius.
+If the optimal decision is to trade, then i immediatly know the center of the \ac{NTR}, and now only need the radius to construct the \ac{NTR}.
+This holds for any dimensionsionality of the model, as any circle/sphere/hypersphere can be defined by the center point and the radius.
 
 I find the radius, by slowly moving towards one of the boundary starting points, from the center of the NTR, solving the optimization problem for each point,
 and noting when trading occurs (return to the center). By using a bisection method\footnote{Which is simple to implement since we only consider allocations along the straight line from some angle, outwards from the center of the NTR},
-i find the border of the \ac{NTR} with a tolerance of $10^{-8}$,
-which is a tolerance of $0.000001\%$ of the total wealth of the investor. I solve for multiple directions from the center, and choose the largest radius. This is because the circle might be truncated along the borders of the feasible space,
+i find the border of the \ac{NTR} with a tolerance of $50^{-7}$,
+which is a tolerance of $0.00005\%$ of the total wealth of the investor. I solve for multiple directions from the center, and choose the largest radius. This is because the circle might be truncated along the borders of the feasible space,
 if the NTR is close to either of the axis or the budget constraint (no borrowing/shorting).
-Furthermore, by selecting directions in evenly spaced angles around the center, i ensure that one of the directions of trading, must hit the border, as along as the \ac{NTR} does no cover the entire feasible space.
+Furthermore, by selecting directions in evenly spaced angles around the center, i ensure that one of the directions of trading, must hit the border, as along as the \ac{NTR} does not cover the entire feasible space.
+For the latter case, the algorithm would never find a center point initially, and the solution is trivial any how.
+
 This optimization process can be seen in figure \ref{fig:NTR_verify_fixed_no_correlation}. I start from a blue point and rebalance to the Merton point.
 Following this, i move along a straight line outwards, and solve. If no trading occurs the point is red, and is in the \ac{NTR}. 
 This is repeated for each trading direction. The figure below displays this specific part of the algorithm:
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale = 0.4]{Circular_NTR_Approximation_Algorithm.png}
+    \includegraphics[scale = 0.38]{Circular_NTR_Approximation_Algorithm.png}
     \caption{2-Dimensional approximation algorithm for the fixed cost NTR with no correlation.}
     \label{fig:FixedCost_NTR_Approximation}
     % \floatfoot{}
@@ -322,8 +352,8 @@ This is repeated for each trading direction. The figure below displays this spec
 
 
 I also need to consider the sampling strategy for my \ac{GPR}-related training points. As i mentioned previously, i need to sample three types of points.
-Points within the \ac{NTR}, points outside the \ac{NTR}, and points near the border border the \ac{NTR}. The last points where previously kink points,
-when the NTR had followed assumptions 1 and 2, however for the circular case there are no kinks.
+Points within the \ac{NTR}, points outside the \ac{NTR}, and points near the border border the \ac{NTR}. The last points was previously kink points,
+when the NTR had followed assumptions \ref{assumption: NTR-convex} and \ref{assumption: NTR-vertices}, however for the circular case there are no kinks.
 The previous sampling strategy is easily applicable to the circlur case, however for the border points, i change the strategy slightly.
 I sample evenly spaced points (defined by their relative angle to the center point) on the border of the approximated \ac{NTR}, and add a slight pertubation to ensure these are outside the NTR.
 This effectively covers the entire circle, and i can now leverage a low amount of training points for the GPR, as for the proportional cost case.
@@ -337,14 +367,6 @@ This effectively covers the entire circle, and i can now leverage a low amount o
 The fixed costs problem can likewise be solved in higher dimensions, however since this poses no changes to the proposed solution methods,
 i do not consider this further, and continue to the correlated case.
 I solve the problem with the i.i.d parameters and a fixed cost of $0.075\%$ of the investors total wealth at any time point. I consider an investment horizon of $T = 5$.
-% \begin{figure}[!ht]
-%     \centering
-%     \includegraphics[scale = 0.38]{Fixed_Cost_NTR_Over_Time_2d.png}
-%     \caption{NTR at each time step for i.i.d parameters, with $2$ risky assets, fixed costs and no consumption.}
-%     \label{fig:NTR_2d_iid_over_time}
-%     \floatfoot{Sample points for the GPR used 140 points. Fixed costs at $0.075\%$ of total wealth.}
-
-% \end{figure}
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[t]{0.48\textwidth}
@@ -451,9 +473,61 @@ The resulting \ac{NTR}s are plotted below.
     \floatfoot{The No-Trade regions are plotted at time $T-3$ which for $5$ periods is $t=2$.}
 \end{figure}
 The resulting NTRs are now ellipsoids, and the intution from the $2$d case carries over to the $3$d case.
+The shape is now similar to a pill or american football, and the high correlation case has more pronounced skewness as expected.
 
 
 \subsection{Dynamic Portfolio Choice with fixed and proportional costs}
+I now consider the model with both fixed and proportional transaction costs, and no consumption.
+I first solve the model, with no prior knowledge of the geometric shape of the \ac{NTR}, in order to verify the shape of the \ac{NTR} and the solution algorithm.
+\autocite{Dybvig2020} solve this in the static case, with asset specific costs, and find a hexagonic shape, with an inner and outer NTR.
+I expect something similar to happen in the dynamic case, however whether the lines connecting the vertices are straight or not is unknown.
+The hexagonic shape found by \autocite{Dybvig2020}, seems to stem from asset specific costs, and not from the combination.
+I would therefore expect the following: An inner and outer NTR, each stemming from each type of cost.
+I consider the Schober parameters, and solve for the next to last period $T-1$ with $2$ assets.
+However, since the merton point is close to the origin, and the borders of the feasible space, i add $0.005$ to the mean asset return of each asset, in order to move the merton point away from the borders.
+This moves the merton point from $(0.1508, 0.1831)$ to $(0.1986, 0.2187)$.
+I set the fixed costs to $0.0003\%$ of the investors total wealth at any time point,
+and the proportional costs at $0.002$, i.e $0.2\%$ of the traded amount of wealth in each asset.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale = 0.38]{Verify_NTR_Fixed_Proportional_fc_0.0003_tau_0.002_Schober_Parameters_t_5.png}
+    \caption{NTR for $2$ assets with fixed and proportional costs and Schober parameters.}
+    \label{fig: Final_NTR_Fixed_Proportional}
+    \floatfoot{The optimization scheme ran with $7140$ evenly spaced grid points.}
+\end{figure}
+
+The figure displays the crude solution method, i.e the entirely grid based method, of the proportional and fixed cost NTR.
+The resulting trade decisions and no trade space are a mixture of the proportional and fixed costs, however the NTR is not a hexagon.
+Instead the \ac{NTR} now consists of two distinct shapes. The red points, concern the ellipsoid, resulting from the fixed costs.
+For these points, the decision to trade is swayed by the fixed cost, and the investor does not trade at all.
+When trading is optimal, the investor trades to the boundary of the proportional cost NTR, which has a parralelogram shape, and is inside the ellipsoid NTR.
+Optimal trading occurs to the vertices of this, and the Merton Point is at the right most border of the NTR, as previously seen in solutions to period $T-1$ for proportional costs.
+I therefore postulate, that for specific fractions of fixed cost and proportional cost, the vertices of the proportional cost NTR,
+will be on the border of the fixed cost NTR, and the NTR will be a combination of the two shapes.
+The NTR would in this case have vertices, which are the intersection of the two NTRs, but these would be connected by curved lines.
+This is a novel result, not seen in the literature, and i consider this a significant contribution.
+Whether the proportional NTR or the fixed cost NTR forms the outer most NTR is unknown a priori, without further investigation.
+Interestingly, the proportinal cost part of the \ac{NTR}, is inside the fixed cost NTR, despite the proportional cost being higher than the fixed cost.
+It is therefore not trivial to determine parametizations where the two NTRs would form a cohesive shape, and this is left for future research.
+As the optimal trades are no longer trivial in any manner, when the location of the \ac{NTR}, its skewness and angles are all unknown
+a new tailored solution algorithm would be needed to effectively cover this case. The case of the proportional cost NTR being the outermost NTR is identical to the case of only proportional costs,
+and is therefore easily solvable with the previously mentioned solution algorithm.
+However when the reverse case is true, as in figure \ref{fig: Final_NTR_Fixed_Proportional} the solution algorithm is not applicable, and a new solution algorithm is needed.
+Solutions return the verticies of the inner NTR, and the bisection algorithm is therefore not immediatly applicable either.
+First the center point would have to be found, as the center of the inner NTR, and the border points would have to be found, in order to approximate the NTR.
+The case of the NTRs forming a cohesive shape would theoretically use the same solution algorithm, however an even worse outcome would be if the proportional cost NTR was sometimes the outermost NTR, and sometimes the innermost NTR.
+This is displayed in the schematac figure below:
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Sections/Tikz Final Figure.pdf}
+    \caption{Schematic of the complex shaped NTR with both fixed and proportional costs.}
+    \label{fig: Tikz_Final_TR}
+    \floatfoot{Blue parallelogram stems from proportional costs, red ellipse stems from fixed costs. The purple dot is the placement of the merton point, relative to the two NTRs at $t = T-1$, known to be at the upper rightmost corner. The green dot is the placement of the merton point, relative to the two NTRs at $t < T-1$.}    
+\end{figure}
+
+I consider this beyond the scope of this thesis, and do not consider this further, leaving this to future research in the field of dynamic portfolio choice with transaction costs. 
+
+
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end

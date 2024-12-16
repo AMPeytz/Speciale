@@ -281,6 +281,53 @@
     \field{year}{2023}
   \endentry
 
+  \entry{Lesmond1999}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=LDA}{%
+         family={Lesmond},
+         familyi={L\bibinitperiod},
+         given={David\bibnamedelima A.},
+         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=OJP}{%
+         family={Ogden},
+         familyi={O\bibinitperiod},
+         given={Joseph\bibnamedelima P.},
+         giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=TCA}{%
+         family={Trzcinka},
+         familyi={T\bibinitperiod},
+         given={Charles\bibnamedelima A.},
+         giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {[Oxford University Press, Society for Financial Studies]}%
+    }
+    \strng{namehash}{LDAOJPTCA1}
+    \strng{fullhash}{LDAOJPTCA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1999}
+    \field{labeldatesource}{}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{issn}{08939454, 14657368}
+    \field{number}{5}
+    \field{pages}{1113\bibrangedash 1141}
+    \field{title}{A New Estimate of Transaction Costs}
+    \verb{url}
+    \verb http://www.jstor.org/stable/2645977
+    \endverb
+    \field{volume}{12}
+    \field{journaltitle}{The Review of Financial Studies}
+    \field{year}{1999}
+    \field{urlday}{16}
+    \field{urlmonth}{12}
+    \field{urlyear}{2024}
+  \endentry
+
   \entry{Merton1969}{article}{}{}
     \name{author}{1}{}{%
       {{hash=MRC}{%
@@ -333,6 +380,40 @@
     \field{volume}{3}
     \field{journaltitle}{Journal of Economic Theory}
     \field{year}{1971}
+  \endentry
+
+  \entry{morton1995optimal}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=MAJ}{%
+         family={Morton},
+         familyi={M\bibinitperiod},
+         given={Andrew\bibnamedelima J},
+         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=PSR}{%
+         family={Pliska},
+         familyi={P\bibinitperiod},
+         given={Stanley\bibnamedelima R},
+         giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley Online Library}%
+    }
+    \strng{namehash}{MAJPSR1}
+    \strng{fullhash}{MAJPSR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1995}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{4}
+    \field{pages}{337\bibrangedash 356}
+    \field{title}{Optimal portfolio management with fixed transaction costs}
+    \field{volume}{5}
+    \field{journaltitle}{Mathematical Finance}
+    \field{year}{1995}
   \endentry
 
   \entry{Schober2022}{article}{}{}

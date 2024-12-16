@@ -159,12 +159,9 @@ The dynamics of the state variables follow \textcite{Schober2022} and are given 
 Where $\odot$ is the elementwise product (Hadamand product). The terminal value function is
 given by\footnote{Stemming from the infinite sum of discounted utility of interest payments.}:
 \begin{equation} \label{eq: class_terminal_value_non_normalized}
-  V_T (W_T , \mathbf{x}_T , \theta_T ) = u ( ( W_T - \psi ( \mathbf{x}_T W_T )) \cdot (1-R_f (\theta_T)) )\cdot \Delta t \cdot (1-\beta)^{-1}
+  V_T (W_T , \mathbf{x}_T , \theta_T ) = u ( W_T - \psi ( \mathbf{x}_T W_T ))
 \end{equation}
-Which implies that the investor transfers all wealth to the bank account at the terminal period,
-and consumes out of the interest
-returns\footnote{This formulation stems from \textcite{CaiJuddXu2013} and assumes that the investor lives forever.
-\textcite{Scheidegger2023} assumes that the investor consumes everything at the terminal period.}.
+Which implies that the investor consumes everything at the terminal period.
 Finally we note that the optimization problem is subject to the following constraints:
 \begin{align}
   \boldsymbol{\delta}_t W_t &\geq - \mathbf{x}_t W_t \\
@@ -207,7 +204,7 @@ The dynamics are then:
 Where we now formulate the problem with regard to the proportional wealth change $\pi_{t+\Delta t} = \frac{W_{t+\Delta t}}{W_t}$.
 The terminal value function is:
 \begin{equation} \label{eq: class_terminal_value}
-  v_T (\mathbf{x}_T , \theta_T ) = u ( (1 - \psi(\mathbf{x}_T)) \cdot (1-R_f (\theta_T)) )\cdot \Delta t \cdot (1-\beta)^{-1} 
+  v_T (\mathbf{x}_T , \theta_T ) = u (1 - \psi(\mathbf{x}_T)) 
 \end{equation}
 The constrains are likewise normalized:
 \begin{align}
@@ -276,15 +273,51 @@ in \eqref{eq: class_bond_holdings}. The Bellman equation is therefore:
     v_{t+\Delta t} (\mathbf{x}_{t+\Delta t }) 
     \right] \} , \quad t < T 
 \]
-With same terminal condition as before, where wealth is transfered to the bond account at the terminal period, 
-and consumption is financed by the interest returns.
+With same terminal condition as before, where investments are sold and wealth is consumed.
 \[
-  v_T (\mathbf{x}_T) = u ( (1 - \psi( \mathbf{0},\mathbf{x}_T)) \cdot (1-R_f) )\cdot \Delta t \cdot (1-\beta)^{-1} 
+  v_T (\mathbf{x}_T) = u  (1 - \psi( \mathbf{0},\mathbf{x}_T))
 \]
 
 \subsection{Portfolio choice with fixed costs}
+I now consider the model, where the investor faces fixed costs when rebalancing the portfolio, instead of proportional costs.
+Fixed costs are common in practice, and can be seen as a fixed fee for trading, regardless of the traded amount.
+I consider a slight modification to the classical purely fixed costs, and instead consider fixed costs as a percentage of the wealth.
+I do this to be able to use the same model structure as in section \ref{Subsection: Base_Problem}, where variables are in fractions of wealth,
+in order to drop wealth as a state variable.\\
+This is seen previously in \autocite{morton1995optimal}, who note that such a fixed cost can be seen as a portfolio management fee.
+In practice, when setting the level of the fixed cost, i make an implicit assumption on the wealth of the investor,
+if i want to draw comparisons to common trading fees on the market, as the fixed cost in this scenario is purely fixed.
+The cost function is then given by:
+\begin{equation}
+  \label{eq:Fixed_Cost_Function}
+  \psi (\boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} ) = \mathbf{1} \left(  \sum^{k}_{i=1} \delta^{+}_{i,t} + \delta^{-}_{i,t}  > 0 \right) \cdot \operatorname{fc}
+\end{equation}
+Where $\operatorname{fc}$ is the fixed cost, and $\mathbf{1}(\cdot)$ is the indicator function.
+The fixed cost is only incurred if the investor rebalances the portfolio, and is independent of the traded amount.
+The normaized bond holdings are therefore given by:
+\begin{equation}\label{eq: fx_bond_holdings}
+  b_{t} = 1 - \mathbf{1}^{\top} \cdot (\mathbf{x_t} - \boldsymbol{\delta}_t -) - \psi( \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} ) - c_t \Delta t
+\end{equation}
+The model otherwise remains the same as in section \ref{Subsection: Base_Problem}, with the same constraints and dynamics, while using the new cost function.
+Note that in the terminal period, when all investments are sold, the fixed cost is incurred, unless the investor holds no risky assets.
+Note that for the model to be well defined, the fixed cost must be less than the wealth of the investor, as the fixed cost is a percentage of the wealth.
+Furthermore, the fixed cost function is not differentiable. Furthermore \autocite{Dybvig2020} notes that the fixed cost only problem,
+is not a convex optimization problem, and is therefore not as easily solved as the proportional cost problem. I will deal with these issues individually
+when implementing the model.
 \subsection{Portfolio choice with fixed and proportional costs}
-
+The last model i consider is a combination of the two previous models, where the investor faces both fixed and proportional costs.
+This is a more realistic model, as it combines the two most common types of transaction costs an individual common investor 
+face in the real world, with a fixed brokerage fee and a percentage of the traded amount stemming from bid ask spreads, taxes or commisions \autocite{Lesmond1999}.
+The cost function is then given by:
+\begin{equation}
+  \label{eq:Fixed_Proportional_Cost_Function}
+  \psi (\boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} ) = \mathbf{1} \left(  \sum^{k}_{i=1} \delta^{+}_{i,t} + \delta^{-}_{i,t}  > 0 \right) \cdot \operatorname{fc} + \tau (\boldsymbol{\delta}^{+}_{t} + \boldsymbol{\delta}^{-}_{t})
+\end{equation}
+The normalized bond holdings are therefore given by:
+\begin{equation}\label{eq: fx_bond_holdings}
+  b_{t} = 1 - \mathbf{1}^{\top} \cdot (\mathbf{x_t} - \boldsymbol{\delta}_t -) - \psi( \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} ) - c_t \Delta t
+\end{equation}
+The model otherwise remains the same as in section \ref{Subsection: Base_Problem}, with the same constraints and dynamics, while using the new cost function.
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end
