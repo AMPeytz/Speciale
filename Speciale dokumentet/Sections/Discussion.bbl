@@ -50,9 +50,6 @@
     \verb 2003.01809
     \endverb
     \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
-    \verb{url}
-    \verb https://arxiv.org/abs/2003.01809
-    \endverb
     \field{type}{techreport}
     \field{eprinttype}{arXiv}
     \field{eprintclass}{q-fin.PM}
@@ -123,9 +120,6 @@
     \field{number}{23-114}
     \field{pages}{70}
     \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
-    \verb{url}
-    \verb https://ssrn.com/abstract=4543794
-    \endverb
     \list{institution}{1}{%
       {Swiss Finance Institute}%
     }

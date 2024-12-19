@@ -6,9 +6,8 @@
 \input{../Preamble.tex}  % Include the main preamble
 \begin{document}
 \fi
-
 \section{Discussion} \label{Section: Discussion}
-The dynamic portfolio choise problem with fixed or proportional costs has been introduced and solved in the previous sections.
+The dynamic portfolio choice problem with fixed or proportional costs has been introduced and solved in the previous sections.
 The framework developed in this thesis, is able to solve the problem has been introduced in detail as well.
 I will now discuss the results, and the applicability of the model, the scalability of the model, competing implementation methods, and avenues of future research,
 in order to highlight the limitations of the model, and suggest areas for further research.
@@ -26,6 +25,19 @@ which are only available for past returns, and the distribution of future return
 Hence, the model suffers from the same limitations as other models in the field of finance, in that it is based on historical data,
 in my case simulated data even, and may not be applicable to future data.
 
+Furthermore, even for parameters with high costs, as seen in prior sections, the simulation results showcase that only a miniscule amount of the wealth is lost due to fixed transaction costs.
+
+For investors with a high wealth level, a pure fixed cost would be miniscule compared to the wealth level,
+and the resulting \ac{NTR} would probably only be constructed from the proportional costs of which the implications were covered in section \ref{Subsection: Fixed_Proportional}.
+
+Fixed cost \ac{NTR}s are therefore mostly relevant for investors with a low wealth level, or investors who rebalance frequently, maybe multiple times a day.
+For these investors, the fixed cost is either relatively large, or incurred often.
+
+For large institutional investors, the proportional cost \ac{NTR} can still be relevant, as the proportional costs scale with traded amount.
+
+Until models with a large amount of assets, based on realistic distributional parameters\footnote{Which could stem from regressions on prior returns.} are available, the model will mostly be relevant in a theoretical setting,
+or to give a general understanding of how transaction costs affect the optimal portfolio choice.
+
 \subsection{Scalability of the model} \label{Subsection: Scalability of the model}
 This thesis implements the framework constructed by \autocite{Scheidegger2023}
 in order to solve the problem of dynamic portfolio choice, with consumption,
@@ -33,17 +45,18 @@ when investors face proportional transaction costs. This framework increases the
 than previously possible without the use of super computers, by minimizing the number of grid points needed to approximate the NTR.
 However, the model is still computationally demanding, especially when the number of assets is high, and the number of grid points
 needed to train the function approximators still increase with the dimensionality of the model.
+
 Furthermore, the evaluation of the increasingly complex \ac{GP} increases exponentially in complexity with the number of assets.
-Also, even for the most simple shape of the \ac{NTR}, a square, the number of vertices needed to effectively 
+Also, even for the most simple shape of the \ac{NTR} such as square, the number of vertices needed to effectively 
 formulate the \ac{NTR} increases exponentially with the number of assets.
 The framework is therefore not scalable to an arbitrary number of assets, and the number of assets that can be included in the model is limited by the computational power available.
-This limits the use of the model in real world applications, where the number of assets is typically high.
+This limits the use of the model in real world applications, where the number of assets considered is high.
 Furthermore, distributional parameters would need to be estimated for each asset, which would further increase the computational complexity of
 a real world application.
 
 For fixed costs a novel algorithm, based on the work of \autocite{Scheidegger2023}, and the geometric properties
 of the resulting \ac{NTR}s is developed. The algorithm is able to solve the problem, but introduces a new set of challenges.
-While fewer initial points are needed, since i only need to approximate the center of the \ac{NTR} in the first case,
+While fewer initial points are needed, since I only need to approximate the center of the \ac{NTR} in the first case,
 the bisection algorithm, needed to find find the edge of the \ac{NTR}, is computationally demanding, and re-introduces the the need
 for evaluation at a fine grid along the trajectory from the center. Thus the fixed cost model poses further dimensional burden to the model.
 Furthermore, the edge points needed to approximate the \ac{NTR} scales with dimensionality,
@@ -67,8 +80,8 @@ The algorithm is easy to understand in an intuitive manner, especially when the 
 The bisection algorithm could potentially be replaced by a root-finding algorithm leveraging the computed gradients in the current framework.
 Such a solver should theoretically be able to find the edge of the \ac{NTR} more efficiently than the bisection algorithm, which needs to solve the model at each bisection mid point. 
 \subsection{Avenues of Future Research} \label{Subsection: Future Research}
-This thesis provides a framework for solving the problem of dynamic portfolio choice under various transaction costs and asset structures.
-By first, solving the problem over a fine grid, i find the geometric shape of the resulting \ac{NTR}, and then leverage this information to solve the problem more efficiently.
+This thesis provides a framework for solving the problem of dynamic portfolio choice under various transaction costs and return structures.
+By first, solving the problem over a fine grid, I find the geometric shape of the resulting \ac{NTR}, and then leverage this information to solve the problem more efficiently.
 This framework can be extended to various types of transaction costs. Notably \autocite{Dybvig2020} considers asset specific fixed costs, and also price impact,
 among other transaction costs not considered in this thesis. Future research could therefore consider other transaction cost structures, and combinations thereof,
 and how these affect the optimal portfolio choice, by using the proposed framework.
@@ -79,15 +92,32 @@ and \autocite{Dybvig2020} considers hedging with futures, albeit still in a stat
 Futher research could consider how these asset structures affect the optimal portfolio choice, and how the framework can be extended to include these asset structures,
 which if still computationally feasible, would be a novel contribution to the literature, as the case of futures as not been tackled in a dynamic setting,
 and the case of options is computationally burdensome under the scheme of \autocite{CaiJuddXu2020}.
-
 An analysis of price impact would likewise be interesting, specifically for large institutional investors,
 whose trades can move the market, and thus affect the price of the assets they are trading. The impact on the \ac{NTR} in a dynamic setting would be interesting to see.
 
 The consumption model could also be extended to include other types of goods, such as durable consumption goods, and how these affect the optimal portfolio choice.
-One such type could be housing, which would borrow from the literature on household behaviour over the lifecycle, however i note that this would effectively move the focus of the thesis from finance household behaviour.
+One such type could be housing, which would borrow from the literature on household behaviour over the lifecycle, however I note that this would effectively move the focus of the thesis from finance household behaviour.
 
 
 \section{Conclusion} \label{Section: Conclusion}
+The purpose of this thesis was to solve dynamic portfolio choice problems with proportional and fixed transaction costs, and correlated return structures.
+In this regard, I constructed a new solution method, based on the work of \autocite{Scheidegger2023}.
+
+My framework solved the problem, with fixed costs relative to wealth, for more than two assets, which had not been done before to my knowledge, and provided a novel approach to the fixed cost problem.
+The framework builds on the geometric properties of the \ac{NTR}, and combines the efficent solution method of \autocite{Scheidegger2023} to solve the problem.
+I verified speculations on the geometric form of the fixed cost \ac{NTR}, and the implications of correlated return structures on this type \ac{NTR}.
+The \ac{NTR} for fixed costs, with no correlations is indeed a sphere, and the \ac{NTR} for fixed costs with correlations is a ellipsoid, with angle and size dependent on the correlation structure.
+I conducted a simulation study, which showed that a strategy which takes costs into account, can outperform a strategy which does not.
+
+However, several limitations of the model remain, as discussed in Section \ref{Section: Discussion}.
+The model’s applicability to real-world scenarios is constrained by its reliance on simulated data and reduced investment universes.
+While it provides theoretical insights, the assumptions about return distributions and the computational demands limit its use for large-scale, real-world portfolios.
+Additionally, the fixed-cost \ac{NTR} is most relevant for small investors or frequent traders, whereas proportional costs remain more applicable to other investors. 
+
+I made three contributions along the way, which could prove useful for future research.
+Firstly, I provided a novel approach to the fixed cost problem, based on the state of the art framework for proportional costs, which leverages the geometric shape of the \ac{NTR}.
+Secondly, I solved dynamic portfolio choice problems with fixed costs for correlated assets, with more than two risky assets.
+Thirdly, I presented an approach to solving new transaction cost structures, not yet considered, and how to adapt my computational approach to these.
 
 
 \ifdefined\COMPILINGMAIN

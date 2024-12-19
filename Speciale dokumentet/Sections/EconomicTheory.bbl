@@ -17,6 +17,44 @@
 \endgroup
 
 \datalist[entry]{nyt/global//global/global/global}
+  \entry{Abrams1980}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=ARA}{%
+         family={Abrams},
+         familyi={A\bibinitperiod},
+         given={Robert\bibnamedelima A.},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=KUS}{%
+         family={Karmarkar},
+         familyi={K\bibinitperiod},
+         given={Uday\bibnamedelima S.},
+         giveni={U\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {[Wiley, Econometric Society]}%
+    }
+    \strng{namehash}{ARAKUS1}
+    \strng{fullhash}{ARAKUS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1980}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{abstract}{%
+    We investigate the structure of optimal policies in general multiperiod multiasset consumption-investment problems in the presence of transfer costs. A number of objectives such as utility of a consumption stream, utility of terminal wealth, and multi-attribute utility are encompassed by the formulation. The general problem is first formulated as a stochastic dynamic program. The one-period subproblems are then analyzed using convex duality theory. The principal result is the characterization of a not necessarily convex "region of no transactions" for each period. If in any period the entering asset position is in this set, no transactions are made. Each point of the set side is the vertex of a cone such that if the entering asset position is outside the set, the optimal policy is to move to the vertex of the cone in which the entering asset position lies. It is shown that the region of no transactions is a connected set and that it is a cone when the utility function is assumed to be positively homogeneous. In the latter case, the optimal decision policy and induced utility functions are also positively homogeneous.%
+    }
+    \field{issn}{00129682, 14680262}
+    \field{number}{2}
+    \field{pages}{333\bibrangedash 353}
+    \field{title}{Optimal Multiperiod Investment-Consumption Policies}
+    \field{volume}{48}
+    \field{journaltitle}{Econometrica}
+    \field{year}{1980}
+  \endentry
+
   \entry{Aikan1996}{article}{}{}
     \name{author}{3}{}{%
       {{hash=AM}{%
@@ -74,9 +112,6 @@
     \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
-    \field{abstract}{%
-    Consider a system S specified at any time t by a finite dimensional vector x(t) satisfying a vector differential equation dx/dt = g[x, r(t), f(t)], x(0) = c, where c is the initial state, r(t) is a random forcing term possessing a known distribution, and f(t) is a forcing term chosen, via a feedback process, so as to minimize the expected value of a functional J(x) = ƒ0T h(x − y, t) dG(t), where y(t) is a known function, or chosen so as to minimize the functional defined by the probability that max0 ≦ t ≦ T h(x − y, t) exceed a specified bound. It is shown how the functional equation technique of dynamic programming may be used to obtain a new computational and analytic approach to problems of this genre. The limited memory capacity of present-day digital computers limits the routine application of these techniques to first and second order systems at the moment, with limited application to higher order systems.%
-    }
     \verb{doi}
     \verb https://doi.org/10.1016/S0019-9958(58)80003-0
     \endverb
@@ -112,10 +147,6 @@
     \field{edition}{4. ed.}
     \field{isbn}{9780198851615}
     \field{title}{Arbitrage theory in continuous time}
-    \verb{url}
-    \verb http://gso.gbv.de/DB=2.1/CMD?ACT=SRCHA&SRT=YOP&IKT=1016&TRM=ppn+50589
-    \verb 3878&sourceid=fbw_bibsonomy
-    \endverb
     \field{year}{2019}
   \endentry
 
@@ -197,13 +228,47 @@
     \verb 2003.01809
     \endverb
     \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
-    \verb{url}
-    \verb https://arxiv.org/abs/2003.01809
-    \endverb
     \field{type}{techreport}
     \field{eprinttype}{arXiv}
     \field{eprintclass}{q-fin.PM}
     \field{year}{2020}
+  \endentry
+
+  \entry{DavisNorman1990}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=DMHA}{%
+         family={Davis},
+         familyi={D\bibinitperiod},
+         given={M.\bibnamedelima H.\bibnamedelima A.},
+         giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=NAR}{%
+         family={Norman},
+         familyi={N\bibinitperiod},
+         given={A.\bibnamedelima R.},
+         giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {INFORMS}%
+    }
+    \strng{namehash}{DMHANAR1}
+    \strng{fullhash}{DMHANAR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1990}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.1287/moor.15.4.676
+    \endverb
+    \field{number}{4}
+    \field{pages}{676\bibrangedash 713}
+    \field{title}{Portfolio Selection with Transaction Costs}
+    \field{volume}{15}
+    \field{journaltitle}{Mathematics of Operations Research}
+    \field{year}{1990}
   \endentry
 
   \entry{Dybvig2020}{article}{}{}
@@ -270,9 +335,6 @@
     \field{number}{23-114}
     \field{pages}{70}
     \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
-    \verb{url}
-    \verb https://ssrn.com/abstract=4543794
-    \endverb
     \list{institution}{1}{%
       {Swiss Finance Institute}%
     }
@@ -317,15 +379,9 @@
     \field{number}{5}
     \field{pages}{1113\bibrangedash 1141}
     \field{title}{A New Estimate of Transaction Costs}
-    \verb{url}
-    \verb http://www.jstor.org/stable/2645977
-    \endverb
     \field{volume}{12}
     \field{journaltitle}{The Review of Financial Studies}
     \field{year}{1999}
-    \field{urlday}{16}
-    \field{urlmonth}{12}
-    \field{urlyear}{2024}
   \endentry
 
   \entry{Merton1969}{article}{}{}

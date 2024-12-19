@@ -8,33 +8,35 @@
 \fi
 
 \section{Numerical implementation details} \label{Section: Implmentation-details}
-This section covers detail regarding the solution algorithm and numerical implementation.
-Each method is presented in a separate subsection, and the final solution algorithm is presented in the last subsection,
-which combines each of the methods. These span points sampling, numerical integration techniques, function approximation methods
-and solution techniques specific to this class of problemns.
+This section covers detail regarding the solution algorithm and numerical implementation by \autocite{Scheidegger2023}.
+Each method is presented, and the final solution algorithm is presented lastly,
+which combines each of the methods. Methods span points sampling, numerical integration techniques, function approximation methods
+and solution techniques specific to this class of problems. Computational implementation is also presented, including the use of parallel computing and specific libraries,
+in order to speed up the solution process.
 \subsection{Numerical integration} \label{Subsection: NumericalIntegration}
-Consider the basic problem with proportional transaction costs, basic risky assets and a risk-free asset and no stochastic parameters.
-We need to evaluate the expectation of the value function:
+Consider the basic problem with proportional transaction costs, risky assets and a risk-free asset and no stochastic parameters.
+I need to evaluate the expectation of the value function:
 $\mathbb{E} \left[ v_{t+\Delta t} (\mathbf{x}_{t+\Delta t }  ) \right]$.
-In order to compue this expectation, we need to evaluate the integral:
+In order to compue this expectation, I need to evaluate the integral:
 \begin{equation}
   \mathbb{E}_{t} \left[ \pi_{t+1}^{1-\gamma} v_{t+1} (x_{t+1}) \right] = \int \pi_{t+1}^{1-\gamma} v_{t+1} (x_{t+1}) f(R_{t+1}), d R_{t+1}
 \end{equation}
-where $f(R_{t+1})$ is the probability density function of the risky asset returns. If we look at the case of stochastic parameters, 
+where $f(R_{t+1})$ is the probability density function of the risky asset returns. If I look at the case of stochastic parameters, I
 would need to evaluate the conditional expectation with regard to these aswell, given some distributional assumption on the parameters.
 The integral can be computed using Monte-carlo methods
 or by using quadrature rules.
 \subsubsection{Gauss-Hermite quadrature} \label{Subsection: Gauss-Hermite}
-Gaussian quadrature is a numerical integration method based on approximation and interpolation theory.
-Gaussian quadrature can be used to approximate integrals using the following form, \textcite{Judd1998Book}:
+Gaussian quadrature is a numerical integration method based on approximation and interpolation theory, and is a deterministic method.
+Gaussian quadrature can be used to approximate integrals using the following form, \autocite{Judd1998Book}:
 \begin{equation}
   \int_{a}^{b} f(x) w(x) dx \approx \sum_{i=1}^{n} \omega_{i} f(x_{i}),
 \end{equation}
 Where $\omega_i$ are quadrature weights, $x_i$ are quadrature nodes and $w(x)$ is a weighting function.
 This approximation is exact when $f(x)$ is a polynomial of degree $2n-1$ or less.
-Then we can approximate the integral using $n$ points $x_i$ and $n$ weights $\omega_i$.
+Then I can approximate the integral using $n$ points $x_i$ and $n$ weights $\omega_i$.
 There are many different Gaussian quadrature schemes, with differering intervals $[a,b]$ and weighting functions $w(x)$.
-We consider the use of a Gauss-Hermite quadrature rule, for a comprehensive review on Gaussian quadrature rules, see \textcite{Judd1998Book}.
+I consider the use of a Gauss-Hermite quadrature rule\footnote{This is due to the distributional assumption of the returns, which is that these are log-normal},
+for a comprehensive review on quadrature rules, see \autocite{Judd1998Book}.
 Gauss-Hermite quadrature is used to approximate integrals of the form:
 \begin{equation}
   \int_{-\infty}^{\infty} f(x) e^{-x^{2}} dx \approx \sum_{i=1}^{n} \omega_{i} f(x_{i}) + \frac{n! \sqrt{\pi}}{2^{n}} 
@@ -42,28 +44,28 @@ Gauss-Hermite quadrature is used to approximate integrals of the form:
 \end{equation}
 Where $\zeta \in (-\infty , \infty)$.
 If a random variable $X$ is normally distributed, i.e  $X \sim \mathcal{N}(\mu , \sigma^{2})$,
-then we can compute the expectation, $\mathbb{E}[f(X)]$, which is given by:
+then I can compute the expectation, $\mathbb{E}[f(X)]$, which is given by:
 \begin{equation}
   \mathbb{E} [f(X)] =  \frac{1}{\sqrt{2\pi \sigma^{2}} } \int_{-\infty}^{\infty} f(x)  e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}} dx 
 \end{equation}
-Using a change of variables $y = \frac{x-\mu}{\sqrt{2}\sigma}$, then we can rewrite the expectation on the form of the Gauss-Hermite quadrature rule:
+Using a change of variables $y = \frac{x-\mu}{\sqrt{2}\sigma}$. I then rewrite the expectation on the form of the Gauss-Hermite quadrature rule:
 \begin{align}
   \mathbb{E} [f(X)] &=  \frac{1}{\sqrt{2\pi \sigma^{2}} } \int_{-\infty}^{\infty} f( \sqrt{2} \sigma y + \mu)  e^{-y^{2}} \sqrt{2} \sigma dy \\
   &= \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-y^{2}} f( \sqrt{2} \sigma y + \mu) dy \\
   &\approx \frac{1}{\sqrt{\pi}} \sum_{i=1}^{n} \omega_{i} f( \sqrt{2} \sigma x_{i} + \mu)
 \end{align}
 Where $\omega_i$ are the quadrature weights, $x_i$ are the quadrature nodes over the interval $(-\infty , \infty)$.\\
-When $X$ is log-normal, i.e $\log X \sim \mathcal{N}(\mu , \sigma^{2})$, then we can use a variable change once again:
-$X = e^{Y}$ and $Y \sim \mathcal{N}(\mu , \sigma^{2})$. Then we can rewrite the expectation as:
+When $X$ is log-normal, i.e $\log X \sim \mathcal{N}(\mu , \sigma^{2})$, then I can use a variable change once again:
+$X = e^{Y}$ and $Y \sim \mathcal{N}(\mu , \sigma^{2})$. I can then rewrite the expectation as:
 \begin{equation}
   \mathbb{E} [ f(X) ] = \mathbb{E} [ f(e^{Y}) ] \approx \pi^{-\frac{1}{2}} \sum{n}_{i=1} \omega_i f \left( e^{ \sqrt{2} \sigma x_{i} + \mu } \right)
 \end{equation}
 
-If we want to extend this framework to multiple dimensions we can use product rules as noted by \textcite{CaiJuddXu2013}.
+To extend this framework to multiple dimensions I can use product rules as noted by \autocite{Judd1998Book}{CaiJuddXu2013}.
 Consider $Y$ which is multivariate normal, i.e $Y \sim \mathcal{N}(\boldsymbol{\mu} , \Sigma)$,
 where $\mu$ is the drift vector and $\Sigma$ is the covariance matrix.
 Let $L$ be a lower-triangular matrix such that $LL^{\top} = \Sigma$ (Cholesky factorisation).
-Then we have that:
+Then I have that:
 \begin{align}
   \mathbb{E}\{f(Y)\} & = \left( (2\pi)^d \det(\Sigma) \right)^{-\frac{1}{2}} \int_{\mathbb{R}^d} f(y) \, e^{-\frac{1}{2}(y - \mu)^{\top} \Sigma^{-1} (y - \mu)} \, dy \\
   & = \left( (2\pi)^d \det(L)^2 \right)^{-\frac{1}{2}} \int_{\mathbb{R}^d} f\left(\sqrt{2} L y + \mu\right) \, e^{-\frac{1}{2} y^{\top} y} \, dy \\
@@ -76,12 +78,12 @@ Then we have that:
   \bigg) 
   \end{align}
 Where $d$ refers to the number of dimensions, $n$ is the number of quadrature points, $\omega_i$ are the quadrature weights and $y_i$ are the quadrature nodes.
-$L_{i,j}$ is the $i$th row and $j$th column of the Cholesky factorisation matrix $L$. $\det$ is the matrix determinant.
-We note that the use of product rules suffers from the curse of dimensionality, 
+$L_{i,j}$ is the $i$th row and $j$th column of the Cholesky factorisation matrix $L$. $\det (\cdot)$ is the matrix determinant.
+Note that the use of product rules suffers from the curse of dimensionality, 
 as the complexity scales exponentionally with the number of dimensions. This is because the quadrature points with the product rule,
-normally use a tensor product grid, which is constructed using the Cartesian product of the quadrature points in each dimension.
-We can use sparse grid methods to partially tackle this. One common method  is the Smolyak method, \textcite{smolyak1963}.
-Smolyaks sparse grid method approximates multidimensional integrals, over dimesion $d$
+use a tensor product grid, which is constructed using the Cartesian product of the quadrature points in each dimension.
+I can use sparse grid methods to partially tackle this. One common method  is the Smolyak method, \autocite{smolyak1963}.
+The Smolyak sparse grid method approximates multidimensional integrals, over dimesion $d$
 while limiting the amount of points used. The method is composed of the following:
 \begin{enumerate}
   \item \textbf{Univariate Quadrature Rules}: Each dimension of the integration domain is assigned a univariate quadrature rule, which provides both nodes (quadrature points) and weights for numerical integration in that dimension. The accuracy of each rule is determined by its \textit{level}, denoted by \( i_d \) for each dimension \( d \). The level determines the number of quadrature points in that dimension, which improves the accuracy of the quadrature rule. 
@@ -107,9 +109,9 @@ while limiting the amount of points used. The method is composed of the followin
 \end{enumerate}
 By resticting the multi indicies \( i \) with the approximation level \( \mu \), the Smolyak method reduces 
 the number of points needed for numerical integration in higher dimensions.
-Tensor grid methods grows exponentially with the number of dimensions \( d \), the Smolyak grid grows polynomially, \textcite{judd2014smolyak},
-hence it directly combats the curse of dimensionality. For more on this see \textcite{smolyak1963}, \textcite{judd2014smolyak} and
-\textcite{horneff2016efficient}. 
+Tensor grid methods grows exponentially with the number of dimensions \( d \), the Smolyak grid grows polynomially, \autocite{judd2014smolyak},
+hence it directly combats the curse of dimensionality. For more on this see \autocite{smolyak1963}, \autocite{judd2014smolyak} and
+\autocite{horneff2016efficient}. 
 
 \subsubsection{Monte Carlo integration (MC)} \label{Subsection: MC}
 Monte Carlo integration is a numerical integration method based on \textit{sampling}, as opposed to
@@ -118,13 +120,13 @@ The convergence of Monte Carlo integration is generally slower
 than some quadrature methods; however, its convergence rate is independent of
 the dimensionality of the integral, making it well-suited for high-dimensional problems.
 Monte Carlo integration breaks the curse of dimensionality.
-\ac{MC} integration is based on random sampling\footnote{Strictly speaking the samples are not random, but pseudo-random, meaning that deterministic samples are used, which appear random. For more in this see \textcite{Judd1998Book} or  \textcite{Glasserman2004MC}}
+\ac{MC} integration is based on random sampling\footnote{Strictly speaking the samples are not random, but pseudo-random, meaning that deterministic samples are used, which appear random. For more in this see \autocite{Judd1998Book} or  \autocite{Glasserman2004MC}}
 over the domain of the integral, and then computing the sample average of the function to be integrated.
-Assume we wish to approximate the $d$-dimensional integral:
+Lets say I want to approximate the $d$-dimensional integral:
 \begin{equation} \label{eq: MC-integral}
   I = \int_{\Omega} f(\mathbf{x}) g(\mathbf{x}) d\mathbf{x} = \mathbb{E}[f(\mathbf{x})],
 \end{equation}
-where \( g(\mathbf{x}) \) is the probability density function of the random variable \( \mathbf{x} \) over its support \( \Omega \), we approximate \( I \) as:
+where \( g(\mathbf{x}) \) is the probability density function of the random variable \( \mathbf{x} \) over its support \( \Omega \), I approximate \( I \) as:
 \begin{equation} \label{eq: MC-integralapproximation}
   Q_N = \frac{1}{N} \sum_{i=1}^{N} f(\mathbf{X}_i),
 \end{equation}
@@ -141,7 +143,7 @@ The Law of Large Numbers ensures that the sample average converges to the mean a
 \[
 \lim_{{N \to \infty}} Q_{N} = \mathbb{E}[f(\mathbf{x})] = I.
 \]
-And by the Central Limit Theorem, we have:
+And by the Central Limit Theorem, I have:
 \[
 \sqrt{N} \left( Q_N - I \right) \xrightarrow{d} N\left(0, \sigma^2 \right),
 \]
@@ -154,10 +156,10 @@ The convergence rate of \( 1/\sqrt{N} \) is independent of the dimension.
 \subsubsection{Quasi-Monte Carlo integration (QMC)} \label{Subsubsection: QMC}
 Quasi-Monte Carlo integration substitutes the 'random' samples in Monte Carlo integration 
 with specific deterministic sequences such as equidistributred sequences, \ac{LDS} or Lattice point rules etc.
-We will focus on the use of low discrepancy sequences. For a comprehesive review of sequences and rules see \textcite{Judd1998Book}.\\
+I will focus on the use of low discrepancy sequences. For a comprehesive review of sequences and rules see \autocite{Judd1998Book}.\\
 \ac{LDS} are deterministic sequences which cover the domain of the integral more evenly than random samples. 
 Discrepancy is in this case a measure of deviation from perfect uniformity over the domain of the integral.
-Thus to go from MC in \eqref{eq: MC-integralapproximation} to QMC, we replace the random samples $\mathbf{X}_i$ with \ac{LDS} samples.
+Thus to go from MC in \eqref{eq: MC-integralapproximation} to QMC, I replace the random samples $\mathbf{X}_i$ with \ac{LDS} samples.
 We note that the sampling of the QMC is now dependent on the dimensionality of the integral, as opposed to MC,
 as the LDS samples have to be drawn with respect to the dimensionality of the integral.
 
@@ -170,10 +172,10 @@ The convergence rate of \ac{QMC} is:
   \frac{\left( \log N \right)^{d}}{N}
 \end{equation}
 Hence QMC is generally faster than MC, e.g $\frac{\left( \log N \right)^{d}}{N} < \frac{1}{\sqrt{N}}$ for large $N$ and small $d$.
-We note that as dimensionality $d$ increases, the quality of the Halton sequence decreases, as the dimensions become more correlated, \textcite{Glasserman2004MC}.
+I note that as dimensionality $d$ increases, the quality of the Halton sequence decreases, as the dimensions become more correlated, \autocite{Glasserman2004MC}.
 Specifically the Halton seuqnce will produce diagonal points when projected onto a 2D plane.
 This is displayed in figure \ref{fig: Sampling_comparison_MC_D1D2}. 
-We therefore prefer the Sobol sequence when the dimensionality is sufficiently high,
+I therefore prefer the Sobol sequence when the dimensionality is sufficiently high,
 and as not to complicate matters, also use the Sobol sequence in lower dimensions, when \ac{QMC} schemes are used.
 Figures below shows Random samples, Halton samples and Sobol samples in 2d.
 Second figure shows the same in 18 dimensions. Halton shows that dimension 17 and 18 are correlated.
@@ -196,13 +198,13 @@ Second figure shows the same in 18 dimensions. Halton shows that dimension 17 an
   \floatfoot{\textbf{Note:} 
   Each sequence was generated using $N = 500$ samples and $d = 18$ dimensions.}
 \end{figure}
-QMC is generally found to be more efficient than MC, as noted by \textcite{Glasserman2004MC}, \textcite{Judd1998Book},
+QMC is generally found to be more efficient than MC, as noted by \autocite{Glasserman2004MC}, \autocite{Judd1998Book},
 and notably Glasserman find that dimensionality has to be quite large before the Monte Carlo method is favorable to the quasi Monte Carlo method.
-Furthermore Glasserman find that while we generally might assume that $N$ must by increase a lot when $d$ is increased, this is not
+Furthermore Glasserman find that while I can generally might assume that $N$ must by increase a lot when $d$ is increased, this is not
 always the case in classic financial applications, as the integrals employed in these examples can often
 be approximated by integrals of much lower dimension. QMC therefore performs better than to be expected.
 
-However we note that \ac{QMC} lacks a straightforward variance estimator,
+However I note that \ac{QMC} lacks a straightforward variance estimator,
 a feature recovered through \textit{randomized QMC}, which will be discussed in the next section.
 
 \subsubsection{Randomized Quasi-Monte carlo integration (RQMC)} \label{Subsection: RQMC}
@@ -212,7 +214,7 @@ The point of \ac{RQMC} is then to introduce randomness to the sequence: $P_{n} =
 We will cover the most simple case, \textit{Random shift} and \textit{Scrambling} methods, however for a comprehensive review of randomization methods see \textcite{Glasserman2004MC}.
 The most simple method of randomizing $P_n$ is to add a \textit{random shift} to each point in the sequence, using
 random numbers drawn from a uniform distribution of the same dimensionality as the sequence, wrapped to the interval of $P_n$.
-Hence if $x_{i} \in [0,1)^{d}$ then we add a random shift $u_{i} \operatorname{mod} 1$, where
+Hence if $x_{i} \in [0,1)^{d}$ then I add a random shift $u_{i} \operatorname{mod} 1$, where
 $\operatorname{mod} 1$ keeps the shift within the interval $[0,1)$. 
 A major disadvantage of the random shift is that is changes the discrepancy properties of the sequence,
 and hence the quality of the sequence is lost.\\
@@ -225,33 +227,41 @@ while introducing a controlled level of randomness,
 which enables the calculation of variance for RQMC estimates.
 In multi-dimensional settings, this scrambling is applied independently to each coordinate of the sequence, allowing us to estimate variance across the entire space.
 Scrambling the Sobol sequence has been found to be particularily effective in financial applications,
-as noted by \textcite{Scramble2023}. QMC is generally more efficient than MC, and RQMC increases the rate of converence of QMC
-and allows for the estimation of variance.  
-\subsection{Value function approximation}
-This section covers the necessary function approximation methods used in the solution algorithm.
-We will cover the use of \ac{GPR} and Baysian optimization, in order to maximize the value function of the dynamic portfolio allocation problem. 
+as noted by \autocite{Scramble2023}. QMC is generally more efficient than MC, and RQMC increases the rate of converence of QMC
+and allows for the estimation of variance.
 
+\subsubsection{Choice of numerical integration technique} \label{Subsubsection: Choise_of_numerical_integration}
+Considering the number of points needed for Monte-carlo methods. I will usualy use the Gauss-Hermite quadrature rule for the case of log-normal returns.
+This holds the distinct advantage of being deterministic, and hence the same result is obtained each time the integral is computed.
+The Monte-Carlo method can likewise be deterministic when implemented, for more on this see the litterature on random number generators.
+Monte-Carlo methods will be considered, when the number of dimensions is sufficicently high large, and the number of points needed for the Gauss-Hermite quadrature rule is too large,
+however, such cases are not feasible with the computational resources available to me. However the Monte-carlo methods are recommended, should higher dimensions be considered.
+
+\subsection{Value function approximation}
+This section covers the necessary function approximation method used in the solution algorithm, which uses machine learning techniques.
+I cover the use of \ac{GPR}, in order to approximate the value function of the dynamic portfolio allocation problem, following \autocite{Scheidegger2023}.
+Competing methods will be discussed later.
 
 \subsubsection{Gaussian process regressions (GPR)} \label{Subsubsection: GPR}
-A \ac{GP} is a probabilistic model that defines a distribution over functions used to make predictions based on available data. 
-It is specified by two functions: the mean function and the covariance function, also called the kernel. 
-The mean function, \( m(\mathbf{x}) \), represents the expected value of the function at a given input \( \mathbf{x} \), 
+A \ac{GP} is a \ac{PML} model that defines a distribution over functions used to make predictions based on data. 
+The \ac{GP} is specified by two functions: the mean function and the covariance function, also called the kernel. 
+The mean function, \( \mu (\mathbf{x}) \), represents the expected value of the function at a given input \( \mathbf{x} \), 
 and the covariance function, \( k(\mathbf{x}, \mathbf{x}') \), 
 captures the covariance between function values at different input points \( \mathbf{x} \) and \( \mathbf{x}' \).
 In a \ac{GP}, any finite set of input points \( \mathbf{X} = (\mathbf{x}_1, \dots, \mathbf{x}_N) \) within the domain \( \mathbb{R}^d \) 
 results in the function values \( \mathbf{f} = (f(\mathbf{x}_1), \dots, f(\mathbf{x}_N)) \) having a joint multivariate Gaussian distribution.
 This property enables a GP to provide a prior distribution over functions based on the defined mean and covariance.
 
-We use \ac{GPR} to estimate the value function in the dynamic portfolio allocation problem,
-when we are not at the terminal period, i.e., \( t < T \), following \textcite{Scheidegger2023}.
+I use \ac{GPR} to estimate the value function in the dynamic portfolio allocation problem,
+when I am not at the terminal decision period\footnote{At $T=T-1$ i know that $v_{t+1}$ is the terminal value function.}, i.e., \( t < T-1 \), following \autocite{Scheidegger2023}.
 The \ac{GP} is formulated by the previously mentioned mean and covariance functions:
 \begin{equation} \label{eq: GP-definition}
-  f(\mathbf{x}) \sim \mathcal{GP}(m(\mathbf{x}), k(\mathbf{x}, \mathbf{x}')),
+  f(\mathbf{x}) \sim \mathcal{GP}(\mu(\mathbf{x}), k(\mathbf{x}, \mathbf{x}')),
 \end{equation}
 The covariance kernel function \( k(\mathbf{x}, \mathbf{x}') \) can be any Mercer kernel, i.e., positive definite \autocite{MurphyBook2023}.
 Common kernel choices include the Radial Basis Function (RBF) kernel, the Matern kernel, and the Exponential kernel.
-We employ a Matern kernel, which, depending on the parameter \( \nu \), 
-can be a generalization of the RBF kernel or the Exponential kernel. This choice follows \textcite{Scheidegger2023}.
+I employ a Matern kernel, which, depending on the parameter \( \nu \), 
+can be a generalization of the RBF kernel or the Exponential kernel. This choice follows \autocite{Scheidegger2023}.
 The Matern kernel is given by:
 \begin{equation} \label{eq: Matern-kernel}
   k_{\text{Matern}}(\mathbf{x} , \mathbf{x}') = \frac{2^{1-\nu}}{\Gamma(\nu)}  \left( \frac{\sqrt{2 \nu} \| \mathbf{x} - \mathbf{x}' \|_{2}}{\ell} \right) K_{\nu} \left( \frac{\sqrt{2 \nu} \| \mathbf{x} - \mathbf{x}' \|_{2}}{\ell} \right),
@@ -260,16 +270,20 @@ where \( \| \cdot \|_{2} \) is the Euclidean norm, \( \Gamma \) is the gamma fun
 The length scale \( \ell \) and smoothness parameter \( \nu \) are both positive. As \( \nu \to \infty \), the Matern kernel converges to the RBF kernel \autocite{Gonzalvez2019}.
 Functions from this class are \( k \)-times differentiable when \( \nu > k \).
 When \( \nu = 1/2 \), the Matern kernel corresponds to the Ornstein-Uhlenbeck process \autocite{MurphyBook2023},
-which is commonly used in financial applications, such as models of interest rates \autocite{Glasserman2004MC}. 
+which is commonly used in financial applications, such as models of interest rates \autocite{Glasserman2004MC}.
+The choice of kernel is done to replicate the framework of \autocite{Scheidegger2023}, and is found to perform well.
 
+I now introduce the \ac{GP} model in the context of the dynamic portfolio allocation problem.
 Consider a training dataset \( \{ \mathbf{X}, \mathbf{y} \} \)
-with \( N \) states \( \mathbf{x}_{i} \) and observed values \( \mathbf{y} \). 
-We assume that the observations \( \mathbf{y} \) are generated by an unknown function \( f \), such that
+with \( N \) points \( \mathbf{x}_{i} \) and observed values \( \mathbf{y} \). These are the allocations and trading decisions and consumption, and the corresponding value function. 
+I assume that the observations \( \mathbf{y} \) are generated by an unknown function \( f \), such that
 \[
 y_i = f(\mathbf{x}_i) + \varepsilon_{i}, \quad \varepsilon_{i} \sim \mathcal{N}(0, \sigma^{2}_{\varepsilon}),
 \]
 where \( \sigma^{2}_{\varepsilon} \) represents the observational noise\footnote{The noise assumption implies that the GP model does not interpolate the data but rather fits a smooth function. 
-This results in computational costs of \( O(N) \) for the mean prediction and \( O(N^2) \) for the variance prediction. For more details, see \autocite{MurphyBook2023}.}.
+This results in computational costs of \( O(N) \) for the mean prediction and \( O(N^2) \) for the variance prediction. For more details, see \autocite{MurphyBook2023}.
+Complexity is actally larger for the implementation avaiable to me.}.
+Observational noise is due to numerical instability, measurement errors, or other factors that introduce uncertainty into the observations, such as the tolerance level of the optimization algorithm.
 The goal is to train a \ac{GP} on this dataset and then use it to predict the value function at a new state \( \mathbf{x}_{*} \),
 yielding a new predicted output \( f_{*} \).
 
@@ -288,8 +302,8 @@ have a joint Gaussian distribution:
                 \end{bmatrix}
               \right)
 \end{equation}
-Here i have assumed a zero mean function\footnote{Zero mean ... XXXX}, and the kernel function is the Matern kernel.
-The posterior distribution of the predicted value function \( f_{*} \) given the training data is then a multivariate normal \autocite{MurphyBook2023},
+Here i have assumed a zero mean function\footnote{This does not imply that the actual data has mean zero, but provides nice properties of the \ac{GP} \autocite{MurphyBook2023}.}, and the kernel function is the Matern kernel.
+The posterior distribution of the predicted value function \( f_{*} \) given the training data is then a multivariate normal, \autocite{MurphyBook2023},
 with mean:
 \begin{equation} \label{eq: GP-pred-mean}
   \tilde{\mu}(\mathbf{x}) = k(\mathbf{x}_{*}, \mathbf{X}) [k(\mathbf{X}, \mathbf{X}) + \sigma^{2}_{\varepsilon} \mathbf{I}]^{-1} \mathbf{y},
@@ -302,10 +316,10 @@ And covariance:
   [k (\mathbf{X} , \mathbf{X}) + \sigma^{2}_{\varepsilon} \mathbf{I}]^{-1}
   k (\mathbf{X} , \mathbf{x}_{*}^{'})
 \end{equation}
-Therefore in order to predict the value function at a new state $\mathbf{x}_{*}$, we need to compute the mean and covariance.
-This step is computationally burdensome as we have to compute the four covariance matrices in the joint distribution \eqref{eq: GP-distribution}.
-Afterwards we can compute predictions using the mean function \eqref{eq: GP-pred-mean} and the covariance function \eqref{eq: GP-pred-covariance}
-can be used to compute error bands on our predictions. 
+Therefore in order to predict the value function at a new state $\mathbf{x}_{*}$, I need to compute the mean and covariance.
+This step is computationally burdensome as I have to compute the four large covariance matrices in the joint distribution \eqref{eq: GP-distribution}.
+Afterwards I can compute predictions using the mean function \eqref{eq: GP-pred-mean} and the covariance function \eqref{eq: GP-pred-covariance}
+can be used to compute error bands on the predictions. 
 
 As noted, training and predicting with a \ac{GP} is computationally expensive. I will therefore introduce
 the methods employed to reduce the computational burden of the \ac{GP}.
@@ -313,12 +327,15 @@ the methods employed to reduce the computational burden of the \ac{GP}.
 I use automatic relevance detection (ARD) which is a modification to the Matern kernel to use
 a length scale for each dimension, $\ell_{i}$. Dimensions with low impact has a high length scale, and are effectively ignored.
 Note that this is not the same as Lasso, as these coefficients are not set to $0$.
-I use \ac{SKIP} to reduce the computational burden of computen the matrices in the joint distribution \eqref{eq: GP-distribution}.
+
+For high dimensional problems the use of Structured Kernel Interpolation for Products (SKIP), could be employed see \autocite{Garnder2018}
+which would to reduce the computational burden of computen the matrices in the joint distribution \eqref{eq: GP-distribution},
+however this is not implemnted, due to issues related earlier in setion \ref{Subsubsection: Choise_of_numerical_integration}.
 
 
 \subsection{Approximating the No trade region} \label{Subsection: Approximating_NTR}
 Since i now have introduced methods to approximate the next-period value function $v_{t+1}$, and methods for evaluating the expectation $\mathbb{E}[\cdot]$
-over known distributions, we can now approximate the \ac{NTR} using a \ac{DP} scheme. In order to do this some assummptions regarding the unknown NTR are formed,
+over known distributions, I can now approximate the \ac{NTR} using a \ac{DP} scheme. In order to do this some assummptions regarding the unknown NTR are formed,
 these are drawn directly from \autocite{Scheidegger2023}
 \begin{assumption}\label{assumption: NTR-convex}
   The NTR is a $D$-dimensional convex polytope.
@@ -330,26 +347,35 @@ A polytope is a generalization of a polyhedron (polytope in 2D), which is a geom
   The NTR has $2^{D}$ vertices.
 \end{assumption}
 This assumption is regarding the shape of the \ac{NTR}. Note that if the actual \ac{NTR} has less than $2^{D}$ vertices, the approximation will be close to the actual shape, as the approximated vertices will be on top of each other.
-However if the \ac{NTR} as more then $2^{D}$ vertices, then the approximation will be a simplification of the actual shape. 
-The existing litterature finds that the \ac{NTR} is a $D$-dimensional parallelogram, this is formally shown with uncorrelated assets by \autocite{liu2002}, and with correlated assets the same is found by \autocite{CaiJuddXu2013,Dybvig2020}.
+However if the \ac{NTR} as more than $2^{D}$ vertices, then the approximation will be a simplification of the actual shape. 
+
+The existing litterature has found that the \ac{NTR} is a $D$-dimensional square / parallelogram, this is formally shown with uncorrelated assets by \autocite{liu2002}, and with correlated assets the same is found by \autocite{CaiJuddXu2013,Dybvig2020}.
 Hence i believe this sampling scheme to be sufficient, for the case of proportional transaction costs.
 
 \autocite{Dybvig2020} find that the \ac{NTR} is a circle or ellipse when there are only fixed costs, and when there are asset specifc costs the \ac{NTR} is a hexagon in the 2D case, as one vertice is added per asset.
+
 This would suggest other sampling schemes for these cases, leveraging the new geometric shapes.
-For the circular case i would need to sample evenly around the circle (sphere / hypersphere), this problem is well known in mathematics and computer graphics and many methods for this exists,
-among others lattice point methods. For more on this see for example \autocite{UNSWsphere} or \autocite{delbono2024}. However the complexity for such a solution increases in dimensionality, and especially when correlation is added,
-since this would shift the circle to an ellipse. For the hexagon case, i could add more midpoints between the vertices of the existing sampling scheme, however this assumes straight lines connecting the vertices still.
+For the circular case i would need to find the center-point and the radius of the circle in order to define the \ac{NTR}, irrespective of dimensions $D>1$.
+
+If this is not possible i would need to sample evenly around the circle (sphere / hypersphere), this problem is well known in mathematics and computer graphics and many methods for this exists,
+among others lattice point methods. For more on this see for example \autocite{UNSWsphere} or \autocite{delbono2024}. 
+
+However the complexity for such a solution increases in dimensionality, and especially when correlation is added,
+since this would shift the circle to an ellipse \autocite{Dybvig2020}.
+
+For the hexagon case, i could add more midpoints between the vertices of the existing sampling scheme, however this assumes straight lines connecting the vertices still.
 I tackle these cases later, and proceed with the general case of the \ac{NTR} as a convex polytope, under proportional costs.
 
-
 With these two assumptions in place, a strategy for approximating the \ac{NTR} can be formed with few initial points.
-Given assumption \ref{assumption: NTR-vertices} we can approximate the \ac{NTR} by using $2^{D}$ points, which are the vertices of the \ac{NTR},
-and by assumption \ref{assumption: NTR-convex} we can approximate the \ac{NTR} by using the convex hull of these points, i.e connecting the vertices by straight lines to form the outer hull.
+Given assumption \ref{assumption: NTR-vertices} I can approximate the \ac{NTR} by using $2^{D}$ points, which are the vertices of the \ac{NTR},
+and by assumption \ref{assumption: NTR-convex} I can approximate the \ac{NTR} by using the outer convex hull of these points, i.e connecting the vertices by straight lines.
 
-I can leverage the following intution from \autocite{Scheidegger2023}, and from \ref{fig: NTR_Example}: For any point outside the \ac{NTR},
+I can leverage the following intution from \autocite{Scheidegger2023}, and from \ref{fig: NTR_Example}.
+
+For any point outside the \ac{NTR},
 the optimal policy is to trade towards the boundary of the \ac{NTR}. Since each point on the boundary of the NTR is optimal, the optimal trading route minimizes the
-distance, and hence the optimal trading route is a straight line to the boundary of the \ac{NTR}. If the points ahre chosen correctly, the optimal trading route will be to a vertex of the \ac{NTR}.
-This is seen in the figure below:\\
+distance, and hence the optimal trading route is a straight line to the boundary of the \ac{NTR}. If the points are chosen correctly, the optimal trading route will be to a vertex of the \ac{NTR}.
+This is seen in the follwing figure below.
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.5\textwidth]{../Sections/tikzfigure.pdf} % Path to your PDF file
@@ -363,6 +389,7 @@ If one considers the example in figure \ref{fig:no_trade_region_schematic}, i ca
 by sampling a point in each of the blue regions, and then solving the optimization problem to find the vertices.
 When the \ac{NTR} is unknown, sampling from the blue regions seem difficult at a first glance.
 However, i can sample the vertices of each simplex that covers the feasible space, and the midpoints between these.
+By this i mean the corners of the feasible space, as well as the portfolio of evenly distributed allocation of the assets.
 This sampling scheme leads to the following points in the $2$-dimensional case:
 \[
   \begin{bmatrix}
@@ -374,16 +401,16 @@ This sampling scheme leads to the following points in the $2$-dimensional case:
 \]
 Extensions of this sampling scheme to higher dimensions is trivial.
 This should effectively cover the feasible space, and allow for approximating the \ac{NTR}. Note that this sampling scheme only covers \ac{NTR}
-with no borrowing, and no short-selling as noted in \autocite{Scheidegger2023}. If borrowing and short-selling were introduced, we would have to set some bounds on the borrowing and short-selling,
-and then sample from these bounds. Effectively creating a square (cube / hypercube), around the feasible space, and then sample the vertices of this space.
+with no borrowing, and no short-selling as noted in \autocite{Scheidegger2023}. If borrowing and short-selling were introduced, I would have to set some bounds on the borrowing and short-selling,
+and then sample from these bounds. Effectively creating a triangle / prism, around the feasible space, and then sample the outer borders of this space.
 
-Having approximated the \ac{NTR}, we can now use this in the solution algorithm. There are two main ways which the \ac{NTR} approximation can be leveraged in order to
-lessen the computational burden of the solution algorithm. these will be covered below.
+Having approximated the \ac{NTR}, I can now use this in the solution algorithm. There are two main ways which the \ac{NTR} approximation can be leveraged in order to
+lessen the computational burden of the solution algorithm. These will be covered next.
 \subsubsection{Strategic point sampling} \label{subsubsection: Sample}
 After having approximated the \ac{NTR} i need to efficiently approximate the value function in the time step related to the \ac{NTR}. 
 This is done by sampling points over the entire feasible space, and then solving for the optimal trade route for each point.
 In order to ensure that the approximation of the value function is of high quality, and that this value function can effectively be used for any point in the state space,
-we need to ensure that the points are sampled in a strategic manner. This means i need points of a few different types:
+I need to ensure that the points are sampled in a strategic manner. This means i need points of a few different types.
 I need points inside the NTR, and around the \ac{NTR} in any direction, and various distances to the \ac{NTR}.
 This leads to three types of points i need to sample: \textit{Points inside the \ac{NTR}}, \textit{points near the kinks of the \ac{NTR}} and \textit{points in the general state space, outside the \ac{NTR}}.
 An easily implemntable solution is to use a naive grid sampling method, such as uniform draws over the feasible state space, or to use a grid-method which evenly covers the feasible state space. 
@@ -397,14 +424,15 @@ I therefore instead follow the method of \autocite{Scheidegger2023}, and sample 
 This scheme consists of the three point types mentioned earlier, with a sampling method for each of these points.
 Having approximated the \ac{NTR}, i can effectivly sample point in this manner:
 \begin{enumerate}
-  \item Sample points outside the \ac{NTR} in the general state space using a uniform grid. I then remove all points inside the \ac{NTR}, and sample random grid points until i have enough points.
-  \item Sample points inside the \ac{NTR}. For this i consider random draws, as the placement inside the NTR is not of high importance. I just need enough to approximate the value function.
-  \item Sample points around the \ac{NTR} kinks. For this i consider each \ac{NTR} vertice. I then interpolate between adjacent vertices slightly, and extend these outward with random noise draws. 
+  \item Sample points outside the \ac{NTR} in the general state space using a uniform grid. I then remove all points inside the \ac{NTR}, and sample random points from the grid until I have enough points.
+  \item Sample points inside the \ac{NTR}. For this I consider random draws, as the placement inside the NTR is not of high importance. I just need enough to approximate the value function.
+  \item Sample points around the \ac{NTR} kinks. For this i consider each \ac{NTR} vertice. I then interpolate between vertices slightly, and extend these outward with random positive noise draws. 
 \end{enumerate}
-The resulting points are plotted in figure \ref{fig: Designed_sampling_strategy}, and a zoom in on the \ac{NTR} kinks are shown in figure \ref{fig: Designed_sampling_strategy-zoom}.
+The resulting points are plotted in figure \ref{fig: Designed_sampling_strategy}, and a zoom in on the \ac{NTR} and its kinks are shown in figure \ref{fig: Designed_sampling_strategy-zoom}.
 \autocite{Scheidegger2023} find that especially increased sampling around the kinks, leads to a better approximation of the value function,
-and $N>100$ points leads to sufficient approximations, as most of the approximation error is due to the kinks of the \ac{NTR}.
-This choice of sampling scheme furthermore reduces the strain by curse of dimensionality, as grid sampling schemes would increase the number of points exponentially with the number of dimensions.
+and $N>100$ points leads to sufficient approximations for dimensions $D\leq 5$, as most of the approximation error is due to the kinks of the \ac{NTR}.
+
+This choice of sampling scheme reduces the strain by curse of dimensionality, as grid sampling schemes would increase the number of points exponentially with the number of dimensions.
 Note that while this scheme still increases the number of points needed with the dimensionality, the oversampling of kink points especially reduce the number of points needed in higher dimensions.
 
 \begin{figure}[!ht]
@@ -425,7 +453,7 @@ Note that while this scheme still increases the number of points needed with the
 
 % Overall caption
 \caption{The designed sampling strategy for state space coverage.}
-\floatfoot{\textbf{Note:} Sample consists of $N=200$ points, with $122$ points in the general state space ($55$\%), $40$ points inside the NTR ($20$\%) and $48$ points around the NTR kinks ($25$\%).}
+\floatfoot{\textbf{Note:} Sample consists of $N=200$ points, with $122$ blue points in the general state space ($55$\%), $40$ red points inside the NTR ($20$\%) and $48$ green points around the NTR kinks ($25$\%).}
 \end{figure}
 
 \subsubsection{Utilising the NTR approximation for $\boldsymbol{\delta}$ bounds} \label{Subsubsection: NTR-deltabounds}
@@ -434,22 +462,23 @@ for the optimization step for each of these points. For this consider the schema
 At each point outside the NTR, the optimal policy is to trade towards the boundary of the NTR. This can either mean trading towards a vertice of the \ac{NTR} or one of the faces.
 For the blue regions, trading towards a vertice is optimal, and this means that the optimal policy is to reallocate in both risky assets.
 
-In this case, we can set bounds on the optimal policy $\boldsymbol{\delta}$, by considering the euclidian distance to the \ac{NTR}.
-Hence if i know beforehand, that for asset $1$ we need to sell (lower-right blue region), then i can set bounds on $\delta_{1}^{+}$ to $0$ and effectively remove this from the optimization problem.
-I can likewise do this the other way around for the asset $2$, which i need to buy more of, and set bounds on $\delta_{2}^{-}$ to $0$.
+In this case, we can set bounds on the optimal policy $\boldsymbol{\delta}$, by considering the direction which minimizes the euclidian distance to the \ac{NTR}.
+if I know beforehand, that for asset $1$ the investor needs to sell (lower-right blue region), then I can set bounds on $\delta_{1}^{+}$ to $0$ and effectively remove this from the optimization problem.
+I can likewise do this the other way around for the asset $2$, which the investor needs to buy more of, and set bounds on $\delta_{2}^{-}$ to $0$.
 
 For the green regions in the figure, the optimal policy is to trade towards a face of the \ac{NTR}, and this means that the optimal policy is to reallocate in one risky asset and hold the other.
-I can therefore set bounds on the optimal policy $\boldsymbol{\delta}_{i}$ to $0$ for the asset which is to be held, and only consider reallocation in the second asset.
+I can therefore set bounds on the optimal policy $\boldsymbol{\delta}_{i}$ to $0$ for the asset which is to be held, and only consider reallocation in the second asset\footnote{Bounds on both $\delta^{+}$ and on $\delta^{-}$.}.
 
 This method of setting bounds on the optimal policy $\boldsymbol{\delta}$ is a way to reduce the computational burden of the optimization problem, and to ensure that the optimization problem is well defined.
-Furthermore, by knowing that the optimal policy reduces the euclidian distance to the \ac{NTR}, i can effectively remove policies which would suggest buying and selling the $i$th asset. 
+Furthermore, by knowing that the optimal policy reduces the euclidian distance to the \ac{NTR}, i can effectively remove policies which would suggest buying and selling the $i$th asset (only trade in straight lines). 
+
 \subsubsection{Multiple Gaussian Process Regressions} \label{Subsubsection: NTR-GPR}
 The final ingredient in the algorithm is the use of multiple \ac{GPR}s.
-Since i now can effectively sample points, and have information on their placement relative to the \ac{NTR},
-i can leverage this, and estimate two seperate value functions, one inside the \ac{NTR} and one outside the \ac{NTR}.
+Since I now can effectively sample points, and have information on their placement relative to the \ac{NTR},
+I can leverage this, and estimate two seperate value functions, one inside the \ac{NTR} and one outside the \ac{NTR}.
 This strategy effectively deals with the kinks of the \ac{NTR}, as this otherwise would pose a problem for any smooth function approximations.
-I construct one \ac{GP} for the points inside the \ac{NTR}, and one for the points outside the \ac{NTR}, and when i then evaluate the value function at a point $v_{t+1}(\mathbf{x}_{t+1})$,
-i select the appropriate \ac{GP} to evaluate the value function.
+I construct one \ac{GP} for the points inside the \ac{NTR}, and one for the points outside the \ac{NTR}, and when I then evaluate the value function at a point $v_{t+1}(\mathbf{x}_{t+1})$,
+I select the appropriate \ac{GP} to evaluate the value function.
 
 This is done after having optimized over the $N$ points from the sampling strategy, i construct two datasets:
 \begin{align}
@@ -457,17 +486,18 @@ This is done after having optimized over the $N$ points from the sampling strate
   \mathbf{X}_{t,\text{outside}} &= \{ \mathbf{x}_{t,i} , \hat{v}_{t,i} \mid \mathbf{x}_{t,i} \notin \hat{\boldsymbol{\Omega}}_{t} \}
 \end{align}
 Then each \ac{GP} is fit over the dataset, which consists of asset allocations and the corresponding value function output.
-In the next period, $t-1$ (since we iterate backwards), i can then evalute the next period value functtion $v_{t+1}(\mathbf{x_{t+1}})$,
+In the next period, $t-1$ (since we iterate backwards), I can then evalute the next period value function $v_{t+1}(\mathbf{x_{t+1}})$,
 by selecting the appropriate \ac{GP}, and using the predictive mean from \eqref{eq: GP-pred-mean}:
 \begin{equation} \label{eq: valuefunctin_gp_mean}
   \tilde{\mu}(\mathbf{x}_{t+1}) = k(\mathbf{x}_{t+1}, \mathbf{X}_{t+1}) [k(\mathbf{X}_{t+1}, \mathbf{X}_{t+1}) + \sigma^{2}_{\varepsilon} \mathbf{I}]^{-1} \hat{\mathbf{v}}_{t+1},
 \end{equation}
 \subsection{Final solution algorithms} \label{Subsection: Algorithm}
-Now that each component regarding the solution algorithm has been covered, i can now presents the solution algorithms for the dynamic portfolio allocation problem, in pseudo code.
+Now that each component regarding the solution algorithm has been covered, I can now presents the solution algorithms for the dynamic portfolio allocation problem in pseudo code.
 Starting at the second to last period, which is the last period where the investment decision is not trivial, the algorithm is as follows:
 Sample $2^{D}$ points to approximate the \ac{NTR}. Then Approximate the \ac{NTR} by solving the optimization problem for these points.
 
-Sample $N$ points in a strategic manner, as described in \ref{subsubsection: Sample}. For each $x_{i,t} \in X_{t}$ with $\{ X_t \}^{N}_{i=1}$, solve the optimization problem to find the optimal policy $\boldsymbol{\delta}_{i}$.
+Sample $N$ points in a strategic manner, as described in \ref{subsubsection: Sample}. For each $x_{i,t} \in X_{t}$ with $\{ X_t \}^{N}_{i=1}$,
+solve the optimization problem to find the optimal policy $\boldsymbol{\delta}_{i}$.
 
 Construct the datasets $\mathbf{X}_{t,\text{inside}}$ and $\mathbf{X}_{t,\text{outside}}$ and fit two \ac{GPR}s to the datasets $\mathbf{X}_{t,\text{inside}}$ and $\mathbf{X}_{t,\text{outside}}$.
 The code can be split into two parts, algorithim (A) and algorithm (B). Algorithm A covers approximatin the NTR and algorithm B covers the entire \ac{DP} scheme.
@@ -520,15 +550,16 @@ These are drawn from the framework which has been covered, above, created by \au
 \end{tcolorbox}
 
 \subsection{Computational stack and implementation} \label{Subsection: Computational_stack}
-The solution algorithm is implemented in Python, and takes advantage of a simple but powerfull computational stack. following \autocite{Scheidegger2023}.
+The solution algorithm is implemented in Python and takes advantage of a somewhat simple computational stack. following \autocite{Scheidegger2023}.
 The economic identities and dynamics where written using the \texttt{PyTorch} package, which is a machine learning library implemented in Python.
 This package has an auto-differentiation feature, which allows for easily implmentable gradients for the constrainted optimization scheme.
 Furthermore this package is also directly linked with the \texttt{GPyTorch} package.
 The \ac{GPR}s were implemented using the \texttt{GPyTorch} package, which is a Gaussian process library implemented using PyTorch.
 This package has multiple speedups for \ac{GPR}s, such as the LancZos Variance Estimate (LOVE), which reduces the computational burden of the \ac{GPR}s.
 Furthermore the predictive mean can be computed using black-box matrix-matrix multiplication, which is a speedup for the predictive mean computation,
-skipping cholesky decompositions for large matrices.\\
+skipping cholesky decompositions in favour of the conjugate gradient method for large matrices.\\
 The constrained optimizer i use is the \texttt{Cyipopt} package, which is a Python wrapper for the \texttt{Ipopt} package, which is a non-linear optimization package.
+This takes the automatically computed gradients, and solves the optimization problem for each point in the state space.
 This package is used to solve the optimization problem for each point in the state space, and is used to find the optimal policy $\boldsymbol{\delta}$ for each point, and likewise consumption $c$ if this is included.\\
 The gaussian quadrature grid-points where implemented with the \texttt{Tasmanian} package, which is a sparse grid package.
 This was taken from \autocite{Schober2022}, who used this package to implement sparse adaptive grids.\\
@@ -539,10 +570,11 @@ as they are independent operations, as long as i do this within the same timepoi
 
 \subsubsection{Optimization details} \label{Subsubsection: optimization_details}
 When solving the optimization problem, i use a tolerance of $10^{-7}$, and $1000$ iterations.
-When approximating the \ac{NTR}, i solve for each point $8$ times, and select the optimal solution among these.
+When approximating the \ac{NTR}, i solve for each point $5$ times, and select the optimal solution among these.
 Furthermore i multiply the starting point with a decaying factor, in the number of starts,
 in order to add small variance at each iteration. This is because non-linear optimization problems can be
-sensitive to the initial starting points.
+sensitive to the initial starting points, so by using multiple starts, i ensure that the best solution is found.
+This adds some computational overhead, but i prefer to find the best solution.
 
 The initial starting point is chosen within the feasible space at random, when there is no approximated \ac{NTR}.
 The random draws are chosen to be feasible given the constraints of the problem.
@@ -551,9 +583,7 @@ and multiply with a decaying factor over the number of starts. For these points 
 This is because when i can leverage the knowledge of the \ac{NTR}, the optimization problem is easier.
 
 For points inside the \ac{NTR} i likewise guess no trading, knowing this to be optimal a-priori.
-Small jitter is added to this when i use multiple starts.
-
-
+Small jitter is added to this when i use multiple starts. In line with the logic for all other points.
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end

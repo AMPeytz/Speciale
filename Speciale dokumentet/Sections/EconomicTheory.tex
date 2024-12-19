@@ -8,27 +8,33 @@
 \fi
 
 \section{The Dynamic Portfolio Choice Setting} \label{Section: Economic-theory}
-This section covers the basics of modern portfolio theory and components of the dynamic portfolio choice problem with transaction costs.
-This section leans heavily on \textcite{CaiJuddXu2020} and \textcite{Scheidegger2023},
-bridging the model from the former, with the framework of the latter.
-
+This section covers the theoretical setting and components of the dynamic portfolio choice problem with transaction costs.
+This section leans heavily on \autocite{CaiJuddXu2020} and \autocite{Scheidegger2023},
+bridging both models to create a comprehensive framework for the dynamic portfolio choice problem with transaction costs.
+I first cover the individual components of the model, and then present the general class of dynamic portfolio choice problems with transaction costs.
+The baseline model with proportional costs is covered, and extended to include fixed costs.
 \subsection{Asset and goods market} \label{Subsection: Market}
-We consider a financial market with \(k\) risky assets and one risk-free asset, making the asset space \(D = 1 + k\) dimensions. 
+I consider a financial market with \(D\) risky assets and one risk-free asset, making the asset space \(K = 1 + D\) dimensions. 
 The risk-free asset, such as a bond or a bank deposit, yields a constant gross return \(R_f = \operatorname{e}^{r\Delta t}\), 
 where \(r\) is the annual interest rate and \(\Delta t = \frac{T}{N}\) is the length of one investment period. 
+The risk-free asset is assumed to be liquid and can be traded without transaction costs. This can be viewed as a deposit account,
+with no fees and a fixed interest rate. The investor has wealth \(W_t\) at time \(t\), which is allocated between the risk-free asset, the risky assets and consumption.
+For each time period all wealth must be allocated to either of these.
 
-The \(k\) risky assets can be considered as listed stocks, subject to proportional transaction costs. 
+The \(D\) risky assets can be considered as listed stocks, subject to proportional transaction costs. 
 For each reallocation of wealth in a risky asset, a transaction cost of \(\tau \in [0,1]\)
 is incurred as a percentage of the traded amount. 
 The stochastic one-period gross-return vector of the risky assets is denoted as
-\(\mathbf{R} = (R_1, R_2, \ldots, R_k)^\top\), and the corresponding net-return vector is
-\(\mathbf{r} = (r_1, r_2, \ldots, r_k)^\top\).
+\(\mathbf{R} = (R_1, R_2, \ldots, R_D)^\top\), and the corresponding net-return vector is
+\(\mathbf{r} = (r_1, r_2, \ldots, r_D)^\top\).
 
 In the goods market, there is a single non-durable consumption good, \(C\), which is consumed at each time point \(t\). 
 The fraction of wealth allocated to consumption at time \(t\) is denoted \(c_t\),
-the fraction allocated to risky assets is \(\mathbf{x}_t = (x_{1,t}, x_{2,t}, \dots, x_{k,t})^\top\),
+the fraction allocated to risky assets is \(\mathbf{x}_t = (x_{1,t}, x_{2,t}, \dots, x_{k,D})^\top\),
 and the fraction allocated to the risk-free asset is denoted \(b_t\). 
-Thus, \(\mathbf{x}_t \in \mathbb{R}^k\) and \(b_t \in \mathbb{R}\).
+I assume that no shorting of assets, or bowwing is allowed,
+thus the variables are constrained by \(\sum_{i=1}^D x_{i,t} + b_t \leq 1\) and
+\(\mathbf{x}_t \in [0,1]^D\) and \(b_t \in [0,1]\), whereas actual amounts denoted in currency exists in $\mathbb{R}^{+}$.
 
 \subsection{Asset dynamics} \label{Subsection: Asset-dynamics}
 I follow \textcite{CaiJuddXu2013} for the asset dynamics. The total composition of risky assets is assumed
@@ -38,7 +44,7 @@ to follow a multivariate log-normal distribution:
 \end{equation}
 where \(\mu\) is the drift vector, \(\sigma^{2}\) is a column vector of the variance $\sigma^{2}_{i}$, \(\boldsymbol{\Sigma}\) is
 the correlation matrix, and \(\boldsymbol{\Lambda} = \operatorname{diag}(\sigma_1 , \sigma_2 , \ldots , \sigma_k)\)
-is the diagonal matrix of volatilities. Following \textcite{CaiJuddXu2013} we utilize the Cholesky decomposition of the correlation matrix,
+is the diagonal matrix of volatilities. Following \textcite{CaiJuddXu2013} i utilize the Cholesky decomposition of the correlation matrix,
 \(\boldsymbol{\Sigma} = \mathbf{L} \mathbf{L}^\top\), where \(\mathbf{L} = (L_{i,j})_{k \times k}\) is a
 lower triangular matrix. Hence, for each risky asset \(i\), the log-return is:
 \begin{equation}\label{eq:Distribution_Single_Return}
@@ -51,7 +57,7 @@ where \(z_i\) are independent standard normal random variables.
 Rebalancing incurs proportional transaction costs \(\tau \in [0,1]\), which are paid based on
 the amount bought or sold of each risky asset. 
 Reallocation decisions are made just before \(t_j + \Delta t\), such that \( \mathbf{x}_{t} \)
-is the portfolio of risky assets right before realllocation.
+is the portfolio of risky assets right before realllocation, and before portfolio returns are incurred, this is akin to trading decisions being made before the market opens.
 \(\delta_{i,t}\) denotes the change in portfolio allocation of asset \( i \),
 and \(\delta_{i,t} W_{t}\) is thus the currency amount traded in asset \(i\).
 Hence \(\delta_{i,t} >0 \) implies buying asset \(i\), and \(\delta_{i,t} <0 \) implies selling asset \(i\).
@@ -76,22 +82,21 @@ And the transaction cost function is therefore a function of each trading direct
 \end{equation}
 Following the reallocation, the remaining wealth is allocated between the risk-free asset and consumption.
 Notation of rebalancing is henceforth simplified using vectors to \(\boldsymbol{\delta}_t = \boldsymbol{\delta}^+_{t} - \boldsymbol{\delta}^-_{t} \)
-with \( \boldsymbol{\delta}^+_{t} = (\delta^{+}_{1,t} ,  \delta^{+}_{2,t} , \ldots ,  \delta^{+}_{k,t} ) \).
+with \( \boldsymbol{\delta}^+_{t} = (\delta^{+}_{1,t} ,  \delta^{+}_{2,t} , \ldots ,  \delta^{+}_{D,t} ) \).
 We have that \(\boldsymbol{\delta}_t \) is the \textit{net change} in the risky positions, and \(\boldsymbol{\delta}^+_{t} + \boldsymbol{\delta}^-_{t} \) is 
-the \textit{cumulative change} in the risky positions. 
-% This is is important when discussing costs and rebalancing later.
+the \textit{total trading volume} in the risky positions. Total trading volume is linked to the transaction costs, and the net change is linked to the portfolio allocation.
 
 \subsection{Investor preferences and problem} \label{Subsection: Investor-Preferences}
 The investor operates over a finite horizon of \(T\) years, during which the aim is to maximize expected utility. 
 Following \textcite{CaiJuddXu2013}, the investment horizon is discretized into \(N\) equally spaced periods, 
-each with a duration of \(\Delta t = \frac{T}{N}\). 
+each with a duration of \(\Delta t = \frac{T}{N}\). Hence this is a discrete time model, which converges to the continuous time model as \(\Delta t \to^{+} 0\).
 At each time point \(t_j\), for \(j = 0, 1, \dots, N\), where \(t_0 = 0\) and \(t_N = T\), 
 the investor has the opportunity to adjust the portfolio allocations right before \(t_j + \Delta t\). 
 Reallocation is costly, and the investor is subject to proportional transaction costs. 
 If consumption is included the investor may also choose to consume a non-durable good at each time point.
 
 For notational simplicity, i now use \(t\) to denote these time points unless specifically referring to \(t_j\). 
-The investor's preferences are modeled using a constant relative risk aversion (CRRA) utility function:
+The investor's preferences are modeled using a constant relative risk aversion (CRRA) utility function\footnote{This is common in the litterature. Other utility functions such as Epstein-zin preferences have been used but are less common.}: 
 \begin{equation}\label{eq:CRRA_Utility}
     u(C_t) = \begin{cases}
                 \frac{C_t^{1-\gamma}}{1-\gamma} & \text{if } \gamma \neq 1, \\
@@ -111,11 +116,11 @@ where \(\beta\) is the discount factor, \(\mathbf{x}_t\) is the allocation to ri
 
 \subsection{Intertemporal portfolio choice without transaction costs} \label{Subsection: Intertemporal-Portfolio-Choice}
 When there are no transaction costs (no market frictions) the investor can freely rebalance the portfolio.
-This reduces the problem to a classic portfolio optimization problem formulated by \textcite{Merton1969, Merton1971}.
-For a more detailed treatment, see \textcite{Bjork}. 
-In this setting, the investor dynamically allocates wealth between \(k\) risky assets and a risk-free asset to maximize utility over a finite horizon \([0,T]\).
+This reduces the problem to the classic portfolio optimization problem formulated by \autocites{Merton1969}{Merton1971}.
+For a more detailed treatment, see \autocite{Bjork}. 
 
-The investor's wealth \(W_t\) can be allocated between a risk-free asset and \(k\) risky assets.
+In this setting, the investor dynamically allocates wealth between \(D\) risky assets and a risk-free asset to maximize utility over a finite horizon \([0,T]\).
+The investor's wealth \(W_t\) can be allocated between a risk-free asset and \(D\) risky assets.
 Consumption is a non-durable good that can be purchased at each time point \(t\).
 \(r\) is the risk-free rate, \(\boldsymbol{\mu}\) is the vector of expected returns on the risky assets, and \(C_t\) represents consumption at time \(t\). The investor’s preferences follow a constant relative risk aversion (CRRA) utility function.\\
 Without transaction costs, the optimal portfolio allocation, known as the Merton point is:
@@ -124,15 +129,15 @@ Without transaction costs, the optimal portfolio allocation, known as the Merton
 \end{equation}
 where \(\gamma\) is the coefficient of relative risk aversion, and \(\boldsymbol{\Sigma}\) is the covariance matrix of the risky assets' returns.
 This provides a time-independent optimal allocation that serves as a benchmark for models incorporating frictions such as transaction costs.
-
+This fraction is the optimal investment allocation, after consumption, to each risky asset, and is independent of the wealth level.
 
 \subsection{The general class of dynamic portfolio choice with transaction costs and intertemporal consumption} \label{Subsection: Dynamic-portfolio-choice}
 Now consider when transaction costs are present, and the investor can consume a non-durable good at each time point.
-The solution to the dynamic portfolio choice problem is no longer given by the closes form solution of the Merton point.
+The solution to the dynamic portfolio choice problem is no longer given by the closed form solution of the Merton point.
 Considering the components presented in this section,
-the class of dynamic portfolio optimization problems, given one risk free asset and $k$ risky assets, can be formulated 
-by the following Bellman equation, \textcite{Bellman1958}\footnote{This is consolidated model of the base model, and with consumption model, of \textcite{CaiJuddXu2020},
-however the cost function is generalized and correlation of returns is included.}:
+the class of dynamic portfolio optimization problems, given one risk free asset and $D$ risky assets, can be formulated 
+by the following Bellman equation\footnote{This is consolidated model of the base model, and with consumption model, of \autocite{CaiJuddXu2020},
+however the cost function is generalized and correlation of returns is included. For more on Bellman equations see \autocite{Bellman1958}}:
 \begin{equation} \label{eq: class_bellman_non_normalized}
   V_{t} (W_t , \mathbf{x}_{t}, \theta_t) = \max_{c_t , \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t}  } \{ u(c_t W_t ) 
   \Delta t + \beta \mathbb{E}_{t} \left[ 
@@ -141,9 +146,9 @@ however the cost function is generalized and correlation of returns is included.
 \end{equation}
 Given some initial level of wealth $W_0$ and portfolio allocation $\mathbf{x}_0$. \( \theta_t \) is a vector of stochastic variables, which
 the gross one period risk free return, and risky return depends on, i.e \( \mathbf{R}(\theta_t) \) and \( R_f (\theta_t) \).
-These could cover the drift $\mu $, volatiliy $\sigma^{2}$, correlation of the risky assets $\Sigma$, and the risk free return $r$ or only some of these, dependent on the model.
+These could cover the drift $\mu$, volatiliy $\sigma^{2}$, correlation of the risky assets $\Sigma$, and the risk free return $r$ or only some of these, dependent on the model.
 Notice that future wealth and allocations are stochastic, as they depend on the future realization of $\theta_t$.\\
-Notice that consumption and reallocation are decision variables, whereas bond holding are not (Explicitly).
+Consumption and reallocation are decision variables, whereas bond holding are not (Explicitly).
 This is because bond holdings can be determined as the residual wealth, after consumption and reallocation decisions are made:
 \begin{equation}\label{eq: class_bond_holdings_non_normalized}
   b_{t} W_t = \left( 1 - \mathbf{1}^{\top} \cdot \mathbf{x_t}  \right) W_t - \mathbf{1}^{\top} \cdot \boldsymbol{\delta}_t W_t 
@@ -157,29 +162,30 @@ The dynamics of the state variables follow \textcite{Schober2022} and are given 
   \mathbf{x}_{t+\Delta t} &=  \frac{( (\mathbf{x}_t + \boldsymbol{\delta}_t ) W_t ) \odot \mathbf{R}_t (\theta_t )}{ W_{t+\Delta t} }
 \end{align}
 Where $\odot$ is the elementwise product (Hadamand product). The terminal value function is
-given by\footnote{Stemming from the infinite sum of discounted utility of interest payments.}:
+given by\footnote{Stemming from the sum of discounted utility.}:
 \begin{equation} \label{eq: class_terminal_value_non_normalized}
   V_T (W_T , \mathbf{x}_T , \theta_T ) = u ( W_T - \psi ( \mathbf{x}_T W_T ))
 \end{equation}
-Which implies that the investor consumes everything at the terminal period.
-Finally we note that the optimization problem is subject to the following constraints:
+Which implies that the investor consumes everything at the terminal period, after moving investments to the deposit account.
+Finally I note that the optimization problem is subject to the following constraints:
 \begin{align}
   \boldsymbol{\delta}_t W_t &\geq - \mathbf{x}_t W_t \\
   b_t W_t &\geq 0 \\
   \mathbf{1}^{\top} \mathbf{x}_t &\leq 1
 \end{align}
 The first constraint ensures that the investor does not short sell risky assets, 
-The second constraint is also a no shorting constraint
-and the third is a no-borrowing constraint. Hence This formulation does not consider leveraged investments.\\
-Furhtermore we can note that the rebalancing decision (in each direction), is only feasible in the space:
+The second is a no borrowing constraint constraint, or no shorting if $b_t$ is viewed as a bond.
+The third is a no-leverage constraint (and no shorting / borrowing).
+Hence This formulation does not consider leveraged investments.\\
+Furhtermore I note that the rebalancing decision (in each direction), is only feasible in the space, given the current allocation.:
 \begin{align}
   \delta^{+}_{i,t} &\in [0 , 1-x_{i,t}]  \label{eq: delta+_space} \\
   \delta^{-}_{i,t} &\in [0 , x_{i,t}] \label{eq: delta-_space}
 \end{align}
-This is a direct formulation of the constraints, already captured in the equations above.\\
-The problem can be simplified by normalizing wrt. wealth, and removing wealth as a state variable, since
+This is a direct formulation of the constraints, already captured in the prior constraints.\\
+The problem can be simplified by normalizing with regard to wealth $W_t$, which removes $W_t$ as a state variable, since
 wealth is seperable from the rest of the state space $\mathbf{x}_t , \theta_t$ as noted by \textcite{CaiJuddXu2013}.\\
-This is because portfolio optimality is independent of wealth for CRRA utility function. 
+This is because portfolio optimality is independent of wealth for CRRA utility function under proportional costs\footnote{This will also be the case for my formulation of fixed costs, presented later}. 
 The Bellman equation is then:
 \begin{equation} \label{eq: class_bellman}
   v_{t} (\mathbf{x}_{t}, \theta_t) = \max_{c_t , \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} } \{ u(c_t) 
@@ -192,16 +198,16 @@ The normalized bond holdings are then:
 \begin{equation}\label{eq: class_bond_holdings}
   b_{t} = 1 - \mathbf{1}^{\top} \cdot (\mathbf{x_t} - \boldsymbol{\delta}_t - \psi( \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t}  )) - c_t \Delta t
 \end{equation}
-We see that these are still the residual of the wealth after the rebalancing and consumption decision.
-Where we formulate the transaction cost function $\psi(\cdot)$ in terms of the buying and selling components,
-and using changes to allocations proportional to wealth, instead of the prior formulations, where wealth was a direct input.
-The dynamics are then:
+This is still the residual of the wealth after the rebalancing and consumption decision.
+I still formulate the transaction cost function $\psi(\cdot)$ in terms of the buying and selling components,
+and use changes to allocations proportional to wealth, instead of the prior formulations, where wealth was a direct input.
+The state dynamics are then:
 \begin{align}
   \pi_{t+\Delta t} &= b_t R_f (\theta_t)  + (\mathbf{x}_t + \boldsymbol{\delta}_t)^{\top} \cdot \mathbf{R}(\theta_t) \\
   \mathbf{x}_{t+\Delta t} &=  \frac{(\mathbf{x}_t + \boldsymbol{\delta}_t) \odot \mathbf{R}_t (\theta_t )}{ \pi_{t+\Delta t} } \\
   W_{t+\Delta t} &= \pi_{t+\Delta t} W_t
 \end{align}
-Where we now formulate the problem with regard to the proportional wealth change $\pi_{t+\Delta t} = \frac{W_{t+\Delta t}}{W_t}$.
+Where I now formulate the problem with regard to the proportional wealth change $\pi_{t+\Delta t} = \frac{W_{t+\Delta t}}{W_t}$.
 The terminal value function is:
 \begin{equation} \label{eq: class_terminal_value}
   v_T (\mathbf{x}_T , \theta_T ) = u (1 - \psi(\mathbf{x}_T)) 
@@ -212,30 +218,40 @@ The constrains are likewise normalized:
   b_t &\geq 0 \label{eq: No_Short_bonds}\\
   \mathbf{1}^{\top} \mathbf{x}_t &\leq 1 \label{eq: No_Geared_Risky}
 \end{align}
-This class of dynamic portfolio choice problems covers any formulation of the problem,
+This class of dynamic portfolio choice problems covers most formulations of the problem,
 where the transaction cost specification is differentiable, and the utility function allows for seperability of wealth and remaining state variables.
+If seperability is not feasible, then the formulation with wealth as a state variable must be used, and the problem is more complex to solve,
+as wealth denoted variables depend on prior wealth levels, and the problem is not seperable over time.\\
 Later formulations will be based on this class structure, covering the necessary Bellman equaiton, state dynamics, preferences and transaction costs functions as well as the constraints
 and any extensions not yet presented.\\
-The non-normalized optimal choices can be obtained by multiplying the normalized choices with the wealth level $W_t$ at a given time point $t$.
+The non-normalized optimal choices can be obtained by multiplying the normalized choices with the wealth level $W_t$ at a given time point $t$.\\
+No general closed form solution has been found for this class of problems, and numerical methods are required to solve the problem.
+Solutions to this problem, which are the optimal trading decisions and consumption, $\boldsymbol{\delta}^{+,*}_t , \boldsymbol{\delta}^{-,*}_t, c^{*}_{t}$.
+Optimal trading decisions for the problem of proportional costs, have been found to be the trading trajectory towards a region known as the \ac{NTR},
+which minimizes the euclidian distance between the allocation $\mathbf{x}_{t}$ and the \ac{NTR} \autocite{CaiJuddXu2013}.
 The \ac{NTR} is in this framework the set of asset allocations where it is sub-optimal to rebalance the portfolio, and is defined as:
 \begin{equation}
   \label{eq:No_Trade_Region}
   \Omega_t = \{ \mathbf{x}_{t} : \boldsymbol{\delta}^{+,*}_t , \boldsymbol{\delta}^{-,*}_t = \mathbf{0} \}
 \end{equation}
-Where $\boldsymbol{\delta}^{+,*}_t , \boldsymbol{\delta}^{-,*}_t$ are the optimal buying and selling policies at time $t$. 
+Where $\boldsymbol{\delta}^{+,*}_t , \boldsymbol{\delta}^{-,*}_t$ are the optimal buying and selling policies at time $t$.
+The NTR is central to this problem, as this region covers optimal trading decisions, and therefore every solution, when consumption is not included.
+When consumption is included, optimal consumption levels still need to be solved for and the problem is more complex.
 The next section will cover the \ac{NTR} in more detail.
 
-\subsection{No Trade Region} \label{Subsection: No-trade-region}
+\subsection{No Trade Region (NTR)} \label{Subsection: No-trade-region}
 The \ac{NTR} is a region in the risky asset space where
 it is sub-optimal to rebalance the portfolio.
 Given the parameters of the model the \ac{NTR} without consumption is defined as in equation \eqref{eq:No_Trade_Region}.
-If consumption is included, this definiton remains the same, but the consumption decision varies within the \ac{NTR}.
+If consumption is included, this definiton remains the same, but the consumption decision may vary within the \ac{NTR}.
 Note that the \ac{NTR} is independent of the wealth level, but only depends on the wealth allocations.
-The \ac{NTR} stems from the introduction of transaction costs, and is a connected set.
+The \ac{NTR} stems from the introduction of transaction costs, and is a connected set when the utility function is positively homogenous \autocite{Abrams1980}.
+Under proportional transaction costs, among others, the \ac{NTR} has been found to be a convex set for static models \autocite{Dybvig2020},
+and the same has been verified for dynamic models with proportional costs \autocite{CaiJuddXu2013}.
 The shape of the \ac{NTR} is dependent on the parameters of the model, and can be a complex shape,
 however for the case of proportional transaction costs and independent risky assets, the \ac{NTR} for $2$ risky assets
-is a square, as shown by \textcite{Dybvig2020} for example. 
-The NTR may extend out of the feasible region, in which case the shape is truncated to the feasible space.
+is a square, as shown by \textcite{Aikan1996} for example. For one asset the \ac{NTR} represent bounds on the allocation to the risky asset, as lines \autocite{DavisNorman1990}.
+The NTR may extend out of the feasible region, in which case the shape is truncated to the feasible space given the restrictions i set.
 For most cases seen in the litterature, when consumption is not included, the \ac{NTR} enscapsulates the Merton point.
 Figure \ref{fig: NTR_Example} illustrates an example of a \ac{NTR} with two risky assets.
 \begin{figure}[h!]
@@ -247,26 +263,26 @@ Figure \ref{fig: NTR_Example} illustrates an example of a \ac{NTR} with two risk
   % \floatfoot{\textbf{Note:}}
 \end{figure}
 The \ac{NTR} is a key component of the model, and illustrates the trade-off between the utility of rebalancing the portfolio and the cost of doing so.
-I will go into further detail on the \ac{NTR} in the next section, where I will discuss the formal properties of the \ac{NTR},
+I will go into further detail on the \ac{NTR} when covering the solution algorithm, where I will discuss the formal properties of the \ac{NTR},
 and how i can leverage key findings from the \ac{NTR} to solve the dynamic portfolio choice problem with transaction costs efficiently.
 
 \subsection{Base problem: Portfolio choice with proportional costs and consumption}\label{Subsection: Base_Problem}
 Considering the class of problems constructed in the prior section,
-we can now quickly introduce the basic problem formulation.
-We consider an investor with CRRA utility function. She can invest in one risk free asset and $k$ risky assets.
-Trading is subject to proportional transaction costs hence we have the following cost function (in cumulative terms):
+I can now quickly introduce the basic problem formulation.
+I consider an investor with CRRA utility function. The investor can invest in one risk free asset and $D$ risky assets.
+Trading is subject to proportional transaction costs hence I have the following cost function (in total trading volume):
 \begin{equation} \label{eq: base_model_transaction-cost}
   \psi (\boldsymbol{\delta}^{+}_{i,t}, \boldsymbol{\delta}^{-}_{i,t} ) = \tau (\boldsymbol{\delta}^{+}_{i,t} + \boldsymbol{\delta}^{-}_{i,t}) 
 \end{equation}
-We do not assume that returns are dependent on stochastic parameters, but instead are drawn from a distribution with known parameters.
-Hence we assume \( \theta_{t} = \theta \) for all $t$. That is that we assume a constant return on the risk free asset, hence $R_{f}(\theta_t) = R_{f}$,
+I do not assume that returns are dependent on stochastic parameters, but instead are drawn from a distribution with known parameters.
+Hence I assume \( \theta_{t} = \theta \) for all $t$. That is that I assume a constant return on the risk free asset, hence $R_{f}(\theta_t) = R_{f}$,
 and the risky assets follow a multivariate log-normal distribution, with some mean and covariance matrix.
-We can now formulate the entire problem giventhe class structure from section \ref{Subsection: Dynamic-portfolio-choice}.
+I can now formulate the entire problem given the class structure from section \ref{Subsection: Dynamic-portfolio-choice}.
 The terminal value function is given by equation \eqref{eq: class_terminal_value}. 
 The system is subject to the constraints of equations \eqref{eq: No_Short_risky}, \eqref{eq: No_Short_bonds} and \eqref{eq: No_Geared_Risky},
 as well as a simple constrain on consumption, $c_t \geq 0$.
-We assume that the position in bond holdings is the residual wealth, and they therefore follow the process
-in \eqref{eq: class_bond_holdings}. The Bellman equation is therefore:
+I assume that the position in bond holdings is the residual wealth, and they therefore follow
+\eqref{eq: class_bond_holdings}. The Bellman equation is therefore:
 \[  
   v_{t} (\mathbf{x}_{t}, \theta_t) = \max_{c_t , \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t}  },  \{ u(c_t) 
   \Delta t + \beta \mathbb{E}_{t} \left[ 
@@ -282,7 +298,7 @@ With same terminal condition as before, where investments are sold and wealth is
 \subsection{Portfolio choice with fixed costs}
 I now consider the model, where the investor faces fixed costs when rebalancing the portfolio, instead of proportional costs.
 Fixed costs are common in practice, and can be seen as a fixed fee for trading, regardless of the traded amount.
-I consider a slight modification to the classical purely fixed costs, and instead consider fixed costs as a percentage of the wealth.
+I consider a slight modification to the purely fixed costs, and instead consider fixed costs as a percentage of the wealth.
 I do this to be able to use the same model structure as in section \ref{Subsection: Base_Problem}, where variables are in fractions of wealth,
 in order to drop wealth as a state variable.\\
 This is seen previously in \autocite{morton1995optimal}, who note that such a fixed cost can be seen as a portfolio management fee.
@@ -297,12 +313,11 @@ Where $\operatorname{fc}$ is the fixed cost, and $\mathbf{1}(\cdot)$ is the indi
 The fixed cost is only incurred if the investor rebalances the portfolio, and is independent of the traded amount.
 The normaized bond holdings are therefore given by:
 \begin{equation}\label{eq: fx_bond_holdings}
-  b_{t} = 1 - \mathbf{1}^{\top} \cdot (\mathbf{x_t} - \boldsymbol{\delta}_t -) - \psi( \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} ) - c_t \Delta t
+  b_{t} = 1 - \mathbf{1}^{\top} \cdot (\mathbf{x_t} - \boldsymbol{\delta}_t) - \psi( \boldsymbol{\delta}^{+}_{t}, \boldsymbol{\delta}^{-}_{t} ) - c_t \Delta t
 \end{equation}
 The model otherwise remains the same as in section \ref{Subsection: Base_Problem}, with the same constraints and dynamics, while using the new cost function.
 Note that in the terminal period, when all investments are sold, the fixed cost is incurred, unless the investor holds no risky assets.
-Note that for the model to be well defined, the fixed cost must be less than the wealth of the investor, as the fixed cost is a percentage of the wealth.
-Furthermore, the fixed cost function is not differentiable. Furthermore \autocite{Dybvig2020} notes that the fixed cost only problem,
+Note that the fixed cost function is not differentiable. Furthermore \autocite{Dybvig2020} notes that the fixed cost only problem,
 is not a convex optimization problem, and is therefore not as easily solved as the proportional cost problem. I will deal with these issues individually
 when implementing the model.
 \subsection{Portfolio choice with fixed and proportional costs}

@@ -148,9 +148,6 @@
     \field{number}{23-114}
     \field{pages}{70}
     \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
-    \verb{url}
-    \verb https://ssrn.com/abstract=4543794
-    \endverb
     \list{institution}{1}{%
       {Swiss Finance Institute}%
     }
@@ -248,15 +245,9 @@
     \field{number}{1}
     \field{pages}{289\bibrangedash 338}
     \field{title}{Optimal Consumption and Investment with Transaction Costs and Multiple Risky Assets}
-    \verb{url}
-    \verb http://www.jstor.org/stable/3694897
-    \endverb
     \field{volume}{59}
     \field{journaltitle}{The Journal of Finance}
     \field{year}{2004}
-    \field{urlday}{25}
-    \field{urlmonth}{11}
-    \field{urlyear}{2024}
   \endentry
 
   \entry{Schober2022}{article}{}{}

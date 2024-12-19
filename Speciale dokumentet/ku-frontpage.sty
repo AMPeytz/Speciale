@@ -111,6 +111,7 @@
 \def\KU@TITLE{Use \texttt{$\backslash$title$\lbrace \ldots \rbrace$}}
 \def\KU@SUBTITLE{Use \texttt{$\backslash$subtitle$\lbrace \ldots \rbrace$}}
 \def\KU@ADVISOR{Use \texttt{$\backslash$advisor$\lbrace \ldots \rbrace$}}
+\def\KU@keystrokes{Use \texttt{$\backslash$keystrokes$\lbrace \ldots \rbrace$}}
 \def\KU@DATE{Use \texttt{$\backslash$date$\lbrace \ldots \rbrace$}}
 \def\KU@FRONTPAGEIMAGE{}
 
@@ -149,6 +150,7 @@
 \providecommand{\assignment}[1]{}
 \providecommand{\subtitle}[1]{}
 \providecommand{\advisor}[1]{}
+\providecommand{\keystrokes}[1]{}
 \providecommand{\frontpageimage}[1]{}
 \providecommand{\submissionstatement}[1]{}
 
@@ -160,6 +162,7 @@
 
 \xpretocmd{\assignment}{\def\KU@ASSIGNMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch assignment command, but failed.}{}}
 \xpretocmd{\advisor}{\def\KU@ADVISOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch advisor command, but failed.}{}}
+\xpretocmd{\keystrokes}{\def\KU@keystrokes{#1}}{}{\PackageError{ku-frontpage}{Tried to patch advisor command, but failed.}{}}
 \xpretocmd{\frontpageimage}{\def\KU@FRONTPAGEIMAGE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch frontpageimage command, but failed.}{}}
 \xpretocmd{\submissionstatement}{\def\KU@SUBMISSIONSTATEMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch submissionstatement command, but failed.}{}}
 
@@ -272,6 +275,8 @@
       \noindent\KU@ADVISOR
       \par\vspace{4mm}
       \noindent\KU@DATE
+      \par\vspace{4mm}
+      \noindent\KU@keystrokes
     \endgroup
     \par\vspace{4mm}
     \fontsize{11pt}{12pt}

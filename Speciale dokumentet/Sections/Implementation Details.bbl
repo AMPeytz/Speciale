@@ -50,9 +50,6 @@
     \verb 2407.01503
     \endverb
     \field{title}{The most uniform distribution of points on the sphere}
-    \verb{url}
-    \verb https://arxiv.org/abs/2407.01503
-    \endverb
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cond-mat.stat-mech}
     \field{year}{2024}
@@ -177,9 +174,6 @@
     \field{number}{23-114}
     \field{pages}{70}
     \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
-    \verb{url}
-    \verb https://ssrn.com/abstract=4543794
-    \endverb
     \list{institution}{1}{%
       {Swiss Finance Institute}%
     }
@@ -289,9 +283,6 @@
     \verb 2210.16548
     \endverb
     \field{title}{The importance of being scrambled: supercharged Quasi Monte Carlo}
-    \verb{url}
-    \verb https://arxiv.org/abs/2210.16548
-    \endverb
     \field{eprinttype}{arXiv}
     \field{eprintclass}{q-fin.CP}
     \field{year}{2023}
@@ -352,9 +343,6 @@
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
-    \field{abstract}{%
-    To harness the full power of computer technology, economists need to use a broad range of mathematical techniques. In this book, Kenneth Judd presents techniques from the numerical analysis and applied mathematics literatures and shows how to use them in economic analyses. The book is divided into five parts. Part I provides a general introduction. Part II presents basics from numerical analysis on R^n, including linear equations, iterative methods, optimization, nonlinear equations, approximation methods, numerical integration and differentiation, and Monte Carlo methods. Part III covers methods for dynamic problems, including finite difference methods, projection methods, and numerical dynamic programming. Part IV covers perturbation and asymptotic solution methods. Finally, Part V covers applications to dynamic equilibrium analysis, including solution methods for perfect foresight models and rational expectation models. A web site contains supplementary material including programs and answers to exercises.%
-    }
     \field{isbn}{ARRAY(0x5a5be060)}
     \field{number}{0262100711}
     \field{series}{MIT Press Books}
@@ -436,15 +424,9 @@
     \field{number}{1}
     \field{pages}{289\bibrangedash 338}
     \field{title}{Optimal Consumption and Investment with Transaction Costs and Multiple Risky Assets}
-    \verb{url}
-    \verb http://www.jstor.org/stable/3694897
-    \endverb
     \field{volume}{59}
     \field{journaltitle}{The Journal of Finance}
     \field{year}{2004}
-    \field{urlday}{25}
-    \field{urlmonth}{11}
-    \field{urlyear}{2024}
   \endentry
 
   \entry{MurphyBook2023}{book}{}{}
@@ -472,6 +454,53 @@
     \verb http://probml.github.io/book2
     \endverb
     \field{year}{2023}
+  \endentry
+
+  \entry{Garnder2018}{misc}{}{}
+    \name{author}{4}{}{%
+      {{hash=PG}{%
+         family={Pleiss},
+         familyi={P\bibinitperiod},
+         given={Geoff},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=GJR}{%
+         family={Gardner},
+         familyi={G\bibinitperiod},
+         given={Jacob\bibnamedelima R.},
+         giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=WKQ}{%
+         family={Weinberger},
+         familyi={W\bibinitperiod},
+         given={Kilian\bibnamedelima Q.},
+         giveni={K\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+      {{hash=WAG}{%
+         family={Wilson},
+         familyi={W\bibinitperiod},
+         given={Andrew\bibnamedelima Gordon},
+         giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PG+1}
+    \strng{fullhash}{PGGJRWKQWAG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \verb{eprint}
+    \verb 1803.06058
+    \endverb
+    \field{title}{Constant-Time Predictive Distributions for Gaussian Processes}
+    \verb{url}
+    \verb https://arxiv.org/abs/1803.06058
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.LG}
+    \field{year}{2018}
   \endentry
 
   \entry{Schober2022}{article}{}{}

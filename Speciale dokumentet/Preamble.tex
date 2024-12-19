@@ -4,6 +4,17 @@
 
 % Input encoding and font settings
 \usepackage[utf8]{inputenc}
+
+% other fonts
+%Slightly more bold
+% \usepackage{mlmodern}
+% \usepackage[T1]{fontenc}
+
+%Moder modern look
+% \usepackage{libertine}
+% \usepackage{libertinust1math}
+% \usepackage[T1]{fontenc}
+
 \usepackage{amsfonts, amsmath, amsthm, bbm, setspace}
 \onehalfspacing
 \usepackage{algorithm2e}
@@ -22,7 +33,6 @@
     }
 }
 
-
 % Adjust algorithm2e settings for a similar look
 \SetKwInOut{Input}{Input}
 \SetKwInOut{Result}{Result}
@@ -39,9 +49,6 @@
 \RestyleAlgo{ruled}
 \SetAlCapSkip{0.5em}       % Space after caption
 \SetAlgoVlined              % Ensures no horizontal lines at the end
-
-
-
 
 % Theorem and math environments
 \newtheorem{assumption}{Assumption}
@@ -119,10 +126,13 @@
 \usepackage{titlepic}
 \usepackage{titlesec}
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.1pt]}]
+% no text above figures!!!!
+\usepackage{placeins}
 
 % Abbreviations (acronym package)
 \usepackage{acro}
 \acsetup{list/name = Abbreviations}
+\DeclareAcronym{PML}{short=PML, long= probabilistic machine learning}
 \DeclareAcronym{MPT}{short=MPT, long=modern portfolio theory}
 \DeclareAcronym{NTR}{short=NTR, long=no-trade-region}
 \DeclareAcronym{MC}{short=MC, long=Monte Carlo}

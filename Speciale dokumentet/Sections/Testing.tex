@@ -1,0 +1,52 @@
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the preamble
+\else
+% Individual file compilation
+\documentclass[11pt]{article}
+\input{../Preamble.tex}  % Include the main preamble
+\begin{document}
+\fi
+\section{Discussion} \label{Section: Discussion}
+\section{Discussion} \label{Section: Discussion}
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[t]{0.8\textwidth} % Adjust width for single-row display
+        \centering
+        \includegraphics[scale=0.55]{Simulated_Wealth_Over_Time_FixedCost.png}
+        \caption{Wealth over time for the two strategies.}
+    \end{subfigure}
+
+    \vspace{1em} % Space between rows
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics[scale=0.55]{Simulated_Reallocations_1_Over_Time_FixedCost.png}
+        \caption{Simulated $\delta_{1}$ over time}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics[scale=0.55]{Simulated_Reallocations_2_Over_Time_FixedCost.png}
+        \caption{Simulated $\delta_{2}$ over time}
+    \end{subfigure}
+
+    \vspace{1em} % Space between rows
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics[scale=0.55]{Simulated_xt1_traded_Over_Time_FixedCost.png}
+        \caption{Simulated $x_{1} + \delta_{1}$ over time}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics[scale=0.55]{Simulated_xt2_traded_Over_Time_FixedCost.png}
+        \caption{Simulated $x_{2} + \delta_{2}$ over time}
+    \end{subfigure}
+\end{figure}
+
+
+\ifdefined\COMPILINGMAIN
+% Main file is compiling this section, skip the end
+\else
+% \printbibliography
+\end{document}
+\fi
