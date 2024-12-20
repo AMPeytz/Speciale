@@ -57,6 +57,46 @@
     \field{year}{1996}
   \endentry
 
+  \entry{altarovici2015asymptotics}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=AA}{%
+         family={Altarovici},
+         familyi={A\bibinitperiod},
+         given={Albert},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MKJ}{%
+         family={Muhle-Karbe},
+         familyi={M\bibinithyphendelim K\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SHM}{%
+         family={Soner},
+         familyi={S\bibinitperiod},
+         given={Halil\bibnamedelima Mete},
+         giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{AAMKJSHM1}
+    \strng{fullhash}{AAMKJSHM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{number}{2}
+    \field{pages}{363\bibrangedash 414}
+    \field{title}{Asymptotics for fixed transaction costs}
+    \field{volume}{19}
+    \field{journaltitle}{Finance and Stochastics}
+    \field{year}{2015}
+  \endentry
+
   \entry{CaiJuddXu2013}{report}{}{}
     \name{author}{3}{}{%
       {{hash=CY}{%
@@ -135,9 +175,6 @@
     \verb 2003.01809
     \endverb
     \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
-    \verb{url}
-    \verb https://arxiv.org/abs/2003.01809
-    \endverb
     \field{type}{techreport}
     \field{eprinttype}{arXiv}
     \field{eprintclass}{q-fin.PM}
@@ -196,9 +233,6 @@
     \field{number}{4}
     \field{pages}{842\bibrangedash 862}
     \field{title}{Capital Market Equilibrium with Transaction Costs}
-    \verb{url}
-    \verb http://www.jstor.org/stable/1833205
-    \endverb
     \field{volume}{94}
     \field{journaltitle}{Journal of Political Economy}
     \field{year}{1986}
@@ -305,49 +339,12 @@
     \field{number}{23-114}
     \field{pages}{70}
     \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
-    \verb{url}
-    \verb https://ssrn.com/abstract=4543794
-    \endverb
     \list{institution}{1}{%
       {Swiss Finance Institute}%
     }
     \field{type}{techreport}
     \field{journaltitle}{Swiss Finance Institute Research Paper}
     \field{year}{2023}
-  \endentry
-
-  \entry{Garleanu2013}{article}{}{}
-    \name{author}{2}{}{%
-      {{hash=GN}{%
-         family={Garleanu},
-         familyi={G\bibinitperiod},
-         given={Nicolae},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=PLH}{%
-         family={Pedersen},
-         familyi={P\bibinitperiod},
-         given={Lasse\bibnamedelima Heje},
-         giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Wiley Online Library}%
-    }
-    \strng{namehash}{GNPLH1}
-    \strng{fullhash}{GNPLH1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2013}
-    \field{labeldatesource}{}
-    \field{sortinit}{G}
-    \field{sortinithash}{G}
-    \field{number}{6}
-    \field{pages}{2309\bibrangedash 2340}
-    \field{title}{Dynamic Trading with Predictable Returns and Transaction Costs}
-    \field{volume}{68}
-    \field{journaltitle}{The Journal of Finance}
-    \field{year}{2013}
   \endentry
 
   \entry{JanecekShreve2004}{article}{}{}
@@ -388,6 +385,35 @@
     \field{year}{2004}
   \endentry
 
+  \entry{liu2002}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=LH}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Hong},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {[American Finance Association, Wiley]}%
+    }
+    \strng{namehash}{LH1}
+    \strng{fullhash}{LH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{labeldatesource}{}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{issn}{00221082, 15406261}
+    \field{number}{1}
+    \field{pages}{289\bibrangedash 338}
+    \field{title}{Optimal Consumption and Investment with Transaction Costs and Multiple Risky Assets}
+    \field{volume}{59}
+    \field{journaltitle}{The Journal of Finance}
+    \field{year}{2004}
+  \endentry
+
   \entry{Markowitz1952}{article}{}{}
     \name{author}{1}{}{%
       {{hash=MH}{%
@@ -412,9 +438,6 @@
     \field{number}{1}
     \field{pages}{77\bibrangedash 91}
     \field{title}{Portfolio Selection}
-    \verb{url}
-    \verb http://www.jstor.org/stable/2975974
-    \endverb
     \field{volume}{7}
     \field{journaltitle}{The Journal of Finance}
     \field{year}{1952}
@@ -472,6 +495,40 @@
     \field{volume}{3}
     \field{journaltitle}{Journal of Economic Theory}
     \field{year}{1971}
+  \endentry
+
+  \entry{morton1995optimal}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=MAJ}{%
+         family={Morton},
+         familyi={M\bibinitperiod},
+         given={Andrew\bibnamedelima J},
+         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=PSR}{%
+         family={Pliska},
+         familyi={P\bibinitperiod},
+         given={Stanley\bibnamedelima R},
+         giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley Online Library}%
+    }
+    \strng{namehash}{MAJPSR1}
+    \strng{fullhash}{MAJPSR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1995}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{4}
+    \field{pages}{337\bibrangedash 356}
+    \field{title}{Optimal portfolio management with fixed transaction costs}
+    \field{volume}{5}
+    \field{journaltitle}{Mathematical Finance}
+    \field{year}{1995}
   \endentry
 
   \entry{Muthuraman2006}{article}{}{}
@@ -673,9 +730,6 @@
     \field{number}{2}
     \field{pages}{321\bibrangedash 335}
     \field{title}{Consumer Choice, Portfolio Decisions, and Transaction Costs}
-    \verb{url}
-    \verb http://www.jstor.org/stable/1913492
-    \endverb
     \field{volume}{41}
     \field{journaltitle}{Econometrica}
     \field{year}{1973}

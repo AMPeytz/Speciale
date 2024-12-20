@@ -9,51 +9,66 @@
 
 
 \section{Literature review}\label{sec: literature}
-The purpose of this section is to review relevant literature to help understand the contributions made in this thesis. 
-This review covers \ac{MPT}, from its foundations and into the 21st century. \\
+The purpose of this section is to review relevant literature to help understand the contributions made in this thesis, and their relation to the existing literature. 
+This review covers dynamic portfolio choice problems, the introduction of transaction costs, and most notable contributions to the field.\\~\\
 Modern theory on portfolio choice can be traced back to the mean-variance framework of Harry Markowitz, who
-constructed and solved the now well established, static and single period, portfolio optimization problem, \textcite{Markowitz1952}. 
-This covers the mean-variance framework which is the foundation of \ac{MPT}, suggesting investors should allocate wealth in order to maximize expected return, while minimizing exposure to risk.
-Following this, the mean-variance framework has since been extended to a continious time setting,
-most notably by Robert Merton, who introduced a solution to the intertemporal portfolio choice problem in frictionless markets, \textcite{Merton1969}, 
-and later adding consumption rules aswell \textcite{Merton1971}. This solution is known as the Merton point in the asset allocation space, or the Merton portfolio.
-Mertons closed form solution suggests optimal asset allocations based on the asset return dynamics (mean-variance), and the risk aversion of the investor (preferences). 
-Hence in a continious time setting, the optimal allocation changes if the asset dynamics change.\\
-Multiple extensions have been made to the classical dynamic portfolio choice problem, such as the introduction of transaction costs,
-adding realistic constraints to the problem, since trading assets incurs costs in the real world, and markets are not frictionless.
-\textcite{Zabel1973} adresses transaction costs with CRRA preferences, but is limited to a discrete time setting, a single risky asset and a small horizon.\\
-\textcite{Constantinides1976,Constantinides1986} returns to the continious time setting, and find that for multiple preference types,
-under proportional transaction costs. The investors decision then depends on the the remaining life span, wealth and current allocation.
-Trading costs create a \ac{NTR}, where the optimal reallocation decision for portfolios inside this, is do to nothing, and for portfolios outside this region,
-the optimal decision is to trade towards the boundary of the \ac{NTR}. This is a shift from Mertons framework, where constant trading toward the Merton allocation,
-which is the optimal allocation in the absence of transaction costs, is optimal. Hence transaction costs restrain
-investors from acting optimally in the classical sense.\\
-Numerical examples only cover the case of one risky asset, with restrictions on the decision space, and results remain qualitative or approximate.
-Notably \textcite{DavisNorman1990} derive explicit solutions for the case of a single risky asset.
-They similarly find that proportional transaction costs lead to a \ac{NTR} around the Merton point, and provide a solution algorithm for the stochastic control problem.
-This has later been made more rigorous such as 
-\textcite{Aikan1996} who use a Hamilton-Jacobi-Bellman equation in the N-dimensional asset space, and provide further insight to the properties of the \ac{NTR}, however the problem is only solved for the case of $k=2$ risky assets with one risk free asset.
-Further analysis of this has been conducted extensively, e.g see \textcite{ShreveSoner1994}, \textcite{Oksendal2002}, \textcite{JanecekShreve2004}, however 
-the asset space is still constrained or solutions remain asymptotic. 
-\textcite{Muthuraman2006,Muthuraman2008} tackle a $D=3$ risky asset space, and provide a numerical solution to the problem, using a finites differences.\\
-The paper by \textcite{CaiJuddXu2013}, which is central to this thesis, consider a more general setting, with multiple risky assets and a risk-free asset,
-and provides a solution algorithm, based on dynamic programming, numerical integration and polynomial approximation,
-to solve the dynamic problem for up to $k=6$ risky assets and thus $D=7$ assets in total,
-and later introduce and solve the problem with novelties, such as stochastic asset parameters
-or an option on an underlying asset in the portfolio \textcite{CaiJuddXu2020}.
-The curse of dimensionality, which haunts the prior methods applied, is somewhat tackled by the use
-of adaptive sparse grid methods, and sparse quadratuture rules by \textcite{Schober2022}.\\
-\textcite{Scheidegger2023} further reduces the computational burden by using a Gaussian process regression
-to approximate value functions, and a problem specific point sampling strategy to reduce the number of points in the state space
-needed to characterize the \ac{NTR}.
-Increasing the dimensions of the asset space does still increase the dimensionality of the problem, and the computational burden,
-however this is at a much lower extent than previous methods.\\
-Beyond the analysis conducted by the authors above, several related avenues of reseatch have been conducted on the dynamic portfolio choice problemn.
-\textcite{Garleanu2013} remains an influential paper, which aims to derive optimal closed form portfolio policy, when returns are driven by signals with mean reversion.
-This provides an insightful analysis of how to trade towards the optimal portfolio, given quadratic transaction costs, within a set scope of serially correlated assets.
-\textcite{Dybvig2020} provides a comprehensive overview on the usage of different transaction cost functions, hedging with futures and security specific costs.
-Dybvig find that by changing the transaction cost function, the properties of the NTR is altered.\footnote{\textcite{Scheidegger2023}, also note that their framework is applicable to different transaction cost functions.}
+constructed and solved the static and single period, portfolio optimization problem, \autocite{Markowitz1952}. 
 
+This covers the mean-variance framework which is the foundation of \ac{MPT}, suggesting investors should allocate wealth in order to maximize expected return, while minimizing exposure to risk.
+Following this, the mean-variance framework has since been extended,
+most notably by Robert Merton, who introduced a solution to the intertemporal portfolio choice problem in frictionless markets, \autocite{Merton1969}.
+This solution is known as the Merton point in the asset allocation space or the Merton portfolio.
+Merton's closed form solution suggests optimal asset allocations based on the asset return dynamics (mean-variance), and the risk aversion of the investor (preferences).
+Later, an optimal consumption rule was found aswell \autocite{Merton1971}.
+
+Multiple extensions have been made to the dynamic portfolio choice problem, such as the introduction of transaction costs,
+adding realistic frictions to the problem, since trading assets incurs costs in the real world, and markets are not frictionless.
+Most of the literature find that transaction costs create a region in the asset space, where it is sub-optimal to trade, known as the \ac{NTR}.
+
+The literature on proportional costs in the dynamic portfolio choice problem is vast, whereas the fixed costs problem is less explored.
+\autocite{morton1995optimal} analyse the problem with a fixed cost, relative to the investors wealth, and solve the problem numerically for two correlated risky assets.
+They find a \ac{NTR} which is similar to an ellipse but with vertices. They conclude that the NTR is an ellipse.
+\autocite{liu2002} solves the problem for uncorrelated assets with proportional and fixed costs and consumption. With fixed costs, No-Trade bounds are found for one risky asset in the shape of a conic.
+Results differ from \autocite{morton1995optimal}, as the fixed cost NTR is not an ellipse but has corners. They conjecture this to be the case for correlated assets as well but skewed.
+For proportional and fixed costs, multiple target portfolios are found inside the NTR, one for each corner, and the shape of the NTR is square.
+\autocite{altarovici2015asymptotics} solve the dynamic problem for two uncorrelated risky assets with fixed costs.
+They find that the \ac{NTR} is a slightly angled ellipsoid, using a differential equation approach.
+\autocite{Dybvig2020} provide a comprehensive review of different transaction costs, and the implications of these on the optimal portfolio choice problem, however the setting is static.
+They find that the \ac{NTR} from fixed costs with no correlation is circular, similar to the results of \autocite{morton1995optimal}.
+From this, the excact shape of the fixed cost \ac{NTR} is not entirely clear. Most find an ellipsoid, but the skewness, connection to the correlation of the asset returns,
+and whether the NTR has corners or not, is not entirely clear.
+Furthermore, solutions in the literature are limited to two risky assets,
+and the solution methods for the dynamic setting has not followed the same advances as the proportional costs problem.
+
+\autocites{Zabel1973}{Constantinides1976}{Constantinides1986} find that for multiple preference types,
+under proportional transaction costs, the investors decision depends on the the remaining life span, wealth and current allocation.
+Transaction costs entail an \ac{NTR}, where the optimal reallocation decision for portfolios inside, is to do nothing, and for portfolios outside this region,
+the optimal decision is to trade towards the boundary of the \ac{NTR}. This is a shift from Mertons framework, where constant trading toward the Merton allocation,
+which is the optimal allocation in the absence of transaction costs, is optimal. Thus, transaction costs restrain
+investors from acting optimally in the classical sense.
+Numerical examples only cover the case of one risky asset with restrictions on the decision space and results remain qualitative or approximate.
+
+Notably, \autocite{DavisNorman1990} derive explicit solutions for the case of a single risky asset.
+They similarly find that proportional transaction costs lead to a \ac{NTR} around the Merton point and provide a solution algorithm for the stochastic control problem.
+
+\autocite{Aikan1996} use a Bellman equation in the N-dimensional asset space, and provide further insight to the properties of the \ac{NTR}, however the problem is only solved for the case of two risky assets with one risk free asset.
+Further analysis of this has been conducted extensively, e.g see \autocites{ShreveSoner1994}{Oksendal2002}{JanecekShreve2004}, however 
+the asset space is still constrained or solutions remain asymptotic. 
+\autocites{Muthuraman2006}{Muthuraman2008} tackle a three risky asset space and provide a numerical solution to the problem, using a finites differences method.
+
+The paper by \autocite{CaiJuddXu2013}, which is central to this thesis, considers a more general setting with multiple risky assets and a risk-free asset
+and provide a solution algorithm based on \ac{DP}, numerical integration and polynomial approximation.
+They solve the dynamic problem for up to six risky assets,
+and later introduce and solve the problem with novelties, such as stochastic asset parameters
+or an option on a underlying asset in the portfolio \autocite{CaiJuddXu2020}. This work only considers proportional transaction costs and relies on a super computer to solve the problem.
+
+The curse of dimensionality, which haunts the prior methods applied, is somewhat tackled by the use
+of adaptive sparse grid methods and sparse quadratuture rules by \autocite{Schober2022}. However, results require the use of super computers. 
+\autocite{Scheidegger2023} further reduce the computational burden by using a \ac{GPR},
+to approximate value functions and provide a problem specific point-sampling strategy to reduce the number of points in the state space
+needed to approximate the \ac{NTR}.
+Increasing the dimensions of the asset space does still increase the dimensionality of the problem and the computational burden,
+however this is at a much lower extent than previous methods. This is the most recent computational advance currently in the field, and is basis for the computational framework in this thesis.
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end

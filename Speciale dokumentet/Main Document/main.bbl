@@ -95,6 +95,46 @@
     \field{year}{1996}
   \endentry
 
+  \entry{altarovici2015asymptotics}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=AA}{%
+         family={Altarovici},
+         familyi={A\bibinitperiod},
+         given={Albert},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MKJ}{%
+         family={Muhle-Karbe},
+         familyi={M\bibinithyphendelim K\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SHM}{%
+         family={Soner},
+         familyi={S\bibinitperiod},
+         given={Halil\bibnamedelima Mete},
+         giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{AAMKJSHM1}
+    \strng{fullhash}{AAMKJSHM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{number}{2}
+    \field{pages}{363\bibrangedash 414}
+    \field{title}{Asymptotics for fixed transaction costs}
+    \field{volume}{19}
+    \field{journaltitle}{Finance and Stochastics}
+    \field{year}{2015}
+  \endentry
+
   \entry{Bellman1958}{article}{}{}
     \name{author}{1}{}{%
       {{hash=BR}{%
@@ -351,6 +391,34 @@
     \field{year}{1986}
   \endentry
 
+  \entry{cybenko1989approximation}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=CG}{%
+         family={Cybenko},
+         familyi={C\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{CG1}
+    \strng{fullhash}{CG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1989}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{4}
+    \field{pages}{303\bibrangedash 314}
+    \field{title}{Approximation by superpositions of a sigmoidal function}
+    \field{volume}{2}
+    \field{journaltitle}{Mathematics of control, signals and systems}
+    \field{year}{1989}
+  \endentry
+
   \entry{DavisNorman1990}{article}{}{}
     \name{author}{2}{}{%
       {{hash=DMHA}{%
@@ -386,16 +454,6 @@
     \field{volume}{15}
     \field{journaltitle}{Mathematics of Operations Research}
     \field{year}{1990}
-  \endentry
-
-  \entry{UNSWsphere}{misc}{}{}
-    \field{labeltitlesource}{title}
-    \field{labeldatesource}{nodate}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{howpublished}{\url{https://www.unsw.edu.au/science/our-schools/maths/our-school/spotlight-on-our-people/history-school/glimpses-mathematics-and-statistics/distributing-points-sphere}}
-    \field{note}{Accessed: 2024-11-22}
-    \field{title}{Distributing points on the sphere}
   \endentry
 
   \entry{Dybvig2020}{article}{}{}
@@ -507,40 +565,6 @@
     \field{volume}{34}
     \field{journaltitle}{BIT Numerical Mathematics}
     \field{year}{1994}
-  \endentry
-
-  \entry{Garleanu2013}{article}{}{}
-    \name{author}{2}{}{%
-      {{hash=GN}{%
-         family={Garleanu},
-         familyi={G\bibinitperiod},
-         given={Nicolae},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=PLH}{%
-         family={Pedersen},
-         familyi={P\bibinitperiod},
-         given={Lasse\bibnamedelima Heje},
-         giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Wiley Online Library}%
-    }
-    \strng{namehash}{GNPLH1}
-    \strng{fullhash}{GNPLH1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2013}
-    \field{labeldatesource}{}
-    \field{sortinit}{G}
-    \field{sortinithash}{G}
-    \field{number}{6}
-    \field{pages}{2309\bibrangedash 2340}
-    \field{title}{Dynamic Trading with Predictable Returns and Transaction Costs}
-    \field{volume}{68}
-    \field{journaltitle}{The Journal of Finance}
-    \field{year}{2013}
   \endentry
 
   \entry{Glasserman2004MC}{book}{}{}

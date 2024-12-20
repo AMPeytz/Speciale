@@ -100,16 +100,6 @@
     \field{year}{2013}
   \endentry
 
-  \entry{UNSWsphere}{misc}{}{}
-    \field{labeltitlesource}{title}
-    \field{labeldatesource}{nodate}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{howpublished}{\url{https://www.unsw.edu.au/science/our-schools/maths/our-school/spotlight-on-our-people/history-school/glimpses-mathematics-and-statistics/distributing-points-sphere}}
-    \field{note}{Accessed: 2024-11-22}
-    \field{title}{Distributing points on the sphere}
-  \endentry
-
   \entry{Dybvig2020}{article}{}{}
     \name{author}{2}{}{%
       {{hash=DPH}{%

@@ -11,40 +11,53 @@
 
 Dynamic portfolio choice problems consider the optimal portfolio construction over time.
 These have a general solution in the absence of market frictions.
-When frictions are introduced, the problem becomes significantly more realistic, as 
+When frictions are introduced, the problem is more realistic, as 
 investors face costs when trading assets.
-However, this increased realism comes at a tradeoff of increased complexity in the problem,
+However, this increased realism comes at a tradeoff of increased complexity,
 as the optimal portfolio construction is no longer trivial to find.
-In Dynamic Portfolio choice \ac{DP} schemes have been implemented to solve these problems numerically,
+Investors typically face two types of costs when trading assets: fixed costs and proportional costs.
+
+Proportional costs have been studied extensively in the literature, and optimal portfolio construction is well understood.
+Fixed costs, on the other hand, have been less studied and the optimal portfolio construction is not as well defined,
+especially so, when the asset returns are correlated or the number of risky assets is greater than two.
+
+% This thesis aims to solve dynamic portfolio choice problems with fixed, proportional or both types of transaction costs, and correlated return structures.
+
+For dynamic portfolio choice models with proportional costs, \ac{DP} schemes have been implemented to solve these problems numerically,
 but the computational complexity of these schemes suffer from the curse of dimensionality
-in a multitude of ways using multiple grid-based methods. In this regard the work of \textcite{Scheidegger2023} is of particular interest,
+in a multitude of ways using multiple grid-based methods. In this regard, the work of \autocite{Scheidegger2023} is of particular interest to me,
 as they develop a computational framework which reduces the need for grid-based methods.
-While much work has been put to developing a computational framework which reduces the need for grid-based methods,
+While much work has been put into developing a computational framework which reduces the need for grid-based methods,
 this has not been applied to a broader set of portfolio choice models, 
-and we therefore only have a limited idea of the scope of applicability of these methods.
+and the scope of applicability of these methods has not been fully explored.
 
-I therefore extend the framework of \textcite{Scheidegger2023}, to new asset types and new cost functions,
-to broaden the scope of models which can be solved using this framework, and to provide a broader understanding of the class of dynamic portfolio choice problems.
-I analyse the impact of introducing various transaction costs types, such as fixed costs, and asset specific costs,
-including the propotional transaction costs often seen in the litterature.
-Furthermore i broaden the investment universe to include multiple asset types, such as stocks, bonds and vanilla options.
-This paper therefore aims to provide a broader understanding of the class of dynamic portfolio choice problems,
-utilizing the newest insights in computational methods seen in the litterature.
+I therefore extend the framework of \autocite{Scheidegger2023} to include fixed costs with correlated asset returns.
+I do so to broaden the scope of models which can be solved and to provide clarity on this class of dynamic portfolio choice problems.
 
-Furthermore a novel extension to the computational framework is provided, which aims to
-reduce the computational burden in higher dimensions.
-The framework suffers in higher dimensions, as the number of grid points increase, but also because the function approximation which leverages \ac{GP} becomes more complex.
-I introduce \ac{SKIP}, which has been shown to increase the efficiency of the \ac{GP} when dimensionality is increased.
+I display the impact of fixed costs on the optimal portfolio construction, and how this differs from proportional costs.
+In doing so, I provide a novel approach to solving the fixed costs problem, based on the state of the art framework for proportional costs.
+My approach leverages the geometric properties of the No-Trade Region (NTR), stemming from the trade frictions.
+This alleviates the computational burden of the problem. However, I find that the fixed costs problem is more complex to solve than the proportional costs problem.
 
-% I implement the computational framework of \textcite{Scheidegger2023}, which leverages
-% \ac{GP} regression to approximate the value function of the dynamic portfolio choice problem,
-% which has otherwise been prone to the curse of dimensionality in past implementations. 
-% I likewise leverage their sampling scheme and quadrature methods to reduce the computational complexity of the problem.
+I find that the NTR under fixed costs schemes, is circular when asset returns are uncorrelated and elliptical when they are correlated.
+This is in contrast to the NTR under proportional costs, which is a convex polytope.
 
-I implement this framework on parametization analyzed earlier in the litterature, and compare the results to the existing literature.
-Following this i extend the framework to include options, as seeen in \textcite{CaiJuddXu2020},
-and new cost functions, as seen in \textcite{Dybvig2020}.
+I furthermore solve the fixed cost problem for three risky assets, which has not been done in the literature to my knowledge, and show that the resulting geometric shape of the NTR,
+is the direct higher order generalization of the two risky assets case.
 
+In addition to this I provide an intuitive approach, to solving new cost structures, not considered in this thesis, and how to adapt the computational approach to these.
+This paves the way for future research in this area.
+
+This thesis is structured as follows. In Section \ref{sec: literature}, I review the literature on dynamic portfolio choice problems with transaction costs,
+so my contributions can be placed in context of the existing literature.
+In Section \ref{Section: Economic-theory}, I cover the theoretical framework of the model, relevant assumptions and the economic intuition behind the model.
+I also present the general class of problems which this thesis aims to solve.
+In Section \ref{Section: Implmentation-details}, I present the computational framework, and how it is implemented for the proportional cost case.
+In Section \ref{Section: Results}, I present the results of the model. I first cover the results of the proportional cost case and then the fixed cost case.
+For the latter I present how the computational framework is extended to include fixed costs, and how the results differ from the proportional cost case.
+I also combine the two costs and present the results of this.
+In Section \ref{Section: Discussion}, I discuss the applicability of the model, the scalability of the proposed solution framework and future research avenues.
+I lastly conclude on the findings of this thesis.
 
 \ifdefined\COMPILINGMAIN
 % Main file is compiling this section, skip the end

@@ -56,6 +56,34 @@
     \field{year}{2020}
   \endentry
 
+  \entry{cybenko1989approximation}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=CG}{%
+         family={Cybenko},
+         familyi={C\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{CG1}
+    \strng{fullhash}{CG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1989}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{4}
+    \field{pages}{303\bibrangedash 314}
+    \field{title}{Approximation by superpositions of a sigmoidal function}
+    \field{volume}{2}
+    \field{journaltitle}{Mathematics of control, signals and systems}
+    \field{year}{1989}
+  \endentry
+
   \entry{Dybvig2020}{article}{}{}
     \name{author}{2}{}{%
       {{hash=DPH}{%

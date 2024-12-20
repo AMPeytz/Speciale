@@ -17,76 +17,6 @@
 \endgroup
 
 \datalist[entry]{nyt/global//global/global/global}
-  \entry{CaiJuddXu2020}{report}{}{}
-    \name{author}{3}{}{%
-      {{hash=CY}{%
-         family={Cai},
-         familyi={C\bibinitperiod},
-         given={Yongyang},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=JKL}{%
-         family={Judd},
-         familyi={J\bibinitperiod},
-         given={Kenneth\bibnamedelima L.},
-         giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-      {{hash=XR}{%
-         family={Xu},
-         familyi={X\bibinitperiod},
-         given={Rong},
-         giveni={R\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{CYJKLXR1}
-    \strng{fullhash}{CYJKLXR1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2020}
-    \field{labeldatesource}{}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \verb{eprint}
-    \verb 2003.01809
-    \endverb
-    \field{title}{Numerical Solution of Dynamic Portfolio Optimization with Transaction Costs}
-    \verb{url}
-    \verb https://arxiv.org/abs/2003.01809
-    \endverb
-    \field{type}{techreport}
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{q-fin.PM}
-    \field{year}{2020}
-  \endentry
-
-  \entry{Dybvig2020}{article}{}{}
-    \name{author}{2}{}{%
-      {{hash=DPH}{%
-         family={Dybvig},
-         familyi={D\bibinitperiod},
-         given={Philip\bibnamedelima H},
-         giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-      {{hash=PL}{%
-         family={Pezzo},
-         familyi={P\bibinitperiod},
-         given={Luca},
-         giveni={L\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{DPHPL1}
-    \strng{fullhash}{DPHPL1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2020}
-    \field{labeldatesource}{}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{title}{Mean-variance portfolio rebalancing with transaction costs}
-    \field{journaltitle}{Available at SSRN 3373329}
-    \field{year}{2020}
-  \endentry
-
   \entry{Scheidegger2023}{report}{}{}
     \name{author}{3}{}{%
       {{hash=GL}{%
@@ -123,9 +53,6 @@
     \field{number}{23-114}
     \field{pages}{70}
     \field{title}{A Comprehensive Machine Learning Framework for Dynamic Portfolio Choice With Transaction Costs}
-    \verb{url}
-    \verb https://ssrn.com/abstract=4543794
-    \endverb
     \list{institution}{1}{%
       {Swiss Finance Institute}%
     }

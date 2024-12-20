@@ -1,0 +1,772 @@
+===== Dynamic Portfolio Optimization Parameters =====
+Number of Assets (D): 3
+Total Years (T): 5
+Time Step Size (Delta_t): 1.0
+Number of Time Steps (step size * T): 5
+Discount Factor (beta): 0.97
+Relative Risk Aversion (gamma): 3.0
+Proportional Transaction Cost Rate (tau): 0.0
+Fixed Transaction Cost: 0.0005
+Yearly Net Risk-Free Rate (r): 0.030044121348376644
+Expected Yearly Net Returns (mu): [0.07 0.07 0.07]
+Covariance Matrix (Sigma):
+[[0.04 0.   0.  ]
+ [0.   0.04 0.  ]
+ [0.   0.   0.04]]
+Include Consumption: False
+Minimum Consumption (c_min): 0.0
+Number of State Points (N): 300
+merton_p: [0.333 0.333 0.333]
+Integration Method: quadrature
+==============================================
+
+Time step 4
+include consumption: False
+Step 2a: Approximate NTR
+starting point [0. 0. 0.]
+Solution found
+direction [-0.333 -0.333 -0.333]
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
+Iteration 20
+Bisection converged after 20 iterations.
+Center Point: [0.333 0.333 0.333], Edge Point: [0.2764 0.2764 0.2764]
+starting point [0. 0. 1.]
+Solution found
+direction [-0.333 -0.333  0.667]
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
+Iteration 20
+Bisection converged after 20 iterations.
+Center Point: [0.333 0.333 0.333], Edge Point: [0.2949 0.2949 0.4092]
+starting point [0.  0.5 0.5]
+Solution found
+direction [-0.333  0.167  0.167]
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
+Iteration 20
+Bisection converged after 20 iterations.
+Center Point: [0.333 0.333 0.333], Edge Point: [0.2573 0.3709 0.3709]
+starting point [0. 1. 0.]
+Solution found
+direction [-0.333  0.667 -0.333]
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
+Iteration 20
+Bisection converged after 20 iterations.
+Center Point: [0.333 0.333 0.333], Edge Point: [0.2949 0.4092 0.2949]
+Center of NTR: [0.333 0.333 0.333], Radius of NTR: 0.0980
+Step 2b: Sample state points
+Best solution found. Point: tensor([0.4001, 0.3402, 0.3386], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4001 0.3402 0.3386]], bt: 0.0789
+Best solution found. Point: tensor([0.3764, 0.2815, 0.3503], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3764 0.2815 0.3503]], bt: 0.0081
+/opt/anaconda3/envs/Peytz2/lib/python3.11/site-packages/torch/storage.py:414: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(io.BytesIO(b))
+Best solution found. Point: tensor([0.3256, 0.2643, 0.2687], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3256 0.2643 0.2687]], bt: 0.1413
+Best solution found. Point: tensor([0.3686, 0.3823, 0.2655], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3686 0.3823 0.2655]], bt: 0.0164
+Best solution found. Point: tensor([0.2898, 0.3309, 0.4199], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2898 0.3309 0.4199]], bt: 0.0406
+Best solution found. Point: tensor([0.3853, 0.2597, 0.3153], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3853 0.2597 0.3153]], bt: 0.0397
+Best solution found. Point: tensor([0.3901, 0.3195, 0.2610], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3901 0.3195 0.261 ]], bt: 0.0294
+Best solution found. Point: tensor([0.3523, 0.3179, 0.3510], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3523 0.3179 0.351 ]], bt: 0.0212
+Best solution found. Point: tensor([0.3514, 0.2885, 0.3069], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3514 0.2885 0.3069]], bt: 0.0532
+Best solution found. Point: tensor([0.3629, 0.3935, 0.3995], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3629 0.3935 0.3995]], bt: 0.1559
+Best solution found. Point: tensor([0.2952, 0.4085, 0.3822], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2952 0.4085 0.3822]], bt: 0.0859
+Best solution found. Point: tensor([0.3818, 0.3319, 0.3233], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3818 0.3319 0.3233]], bt: 0.037
+Best solution found. Point: tensor([0.3675, 0.2799, 0.3929], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3675 0.2799 0.3929]], bt: 0.0404
+Best solution found. Point: tensor([0.3292, 0.3099, 0.4258], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3292 0.3099 0.4258]], bt: 0.0648
+Best solution found. Point: tensor([0.4051, 0.2999, 0.3636], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4051 0.2999 0.3636]], bt: 0.0686
+Best solution found. Point: tensor([0.4077, 0.3702, 0.3292], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4077 0.3702 0.3292]], bt: 0.107
+Best solution found. Point: tensor([0.3165, 0.3533, 0.3972], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3165 0.3533 0.3972]], bt: 0.067
+Best solution found. Point: tensor([0.2743, 0.3074, 0.3760], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2743 0.3074 0.376 ]], bt: 0.0423
+Best solution found. Point: tensor([0.4028, 0.3114, 0.3531], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4028 0.3114 0.3531]], bt: 0.0673
+Best solution found. Point: tensor([0.3894, 0.3654, 0.3334], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3894 0.3654 0.3334]], bt: 0.0882
+Best solution found. Point: tensor([0.3842, 0.3676, 0.3503], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3842 0.3676 0.3503]], bt: 0.1021
+Best solution found. Point: tensor([0.2799, 0.3584, 0.4050], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2799 0.3584 0.405 ]], bt: 0.0434
+Best solution found. Point: tensor([0.2864, 0.2992, 0.3334], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2864 0.2992 0.3334]], bt: 0.081
+Best solution found. Point: tensor([0.3054, 0.3261, 0.3675], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3054 0.3261 0.3675]], bt: 0.001
+Best solution found. Point: tensor([0.3465, 0.2759, 0.3195], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3465 0.2759 0.3195]], bt: 0.0581
+Best solution found. Point: tensor([0.3875, 0.3491, 0.4083], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3875 0.3491 0.4083]], bt: 0.1449
+Best solution found. Point: tensor([0.3308, 0.3364, 0.3938], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3308 0.3364 0.3938]], bt: 0.061
+Best solution found. Point: tensor([0.2977, 0.3743, 0.3065], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2977 0.3743 0.3065]], bt: 0.0216
+Best solution found. Point: tensor([0.3738, 0.3257, 0.4019], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3738 0.3257 0.4019]], bt: 0.1014
+Best solution found. Point: tensor([0.2901, 0.2975, 0.2735], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2901 0.2975 0.2735]], bt: 0.1389
+Best solution found. Point: tensor([0.2589, 0.2941, 0.2853], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2589 0.2941 0.2853]], bt: 0.1617
+Best solution found. Point: tensor([0.2778, 0.2928, 0.3984], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2778 0.2928 0.3984]], bt: 0.0309
+Best solution found. Point: tensor([0.3277, 0.3624, 0.4093], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3277 0.3624 0.4093]], bt: 0.0994
+Best solution found. Point: tensor([0.3323, 0.3197, 0.4269], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3323 0.3197 0.4269]], bt: 0.0788
+Best solution found. Point: tensor([0.3946, 0.3368, 0.2911], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3946 0.3368 0.2911]], bt: 0.0225
+Best solution found. Point: tensor([0.3240, 0.2780, 0.3387], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.324  0.278  0.3387]], bt: 0.0593
+Best solution found. Point: tensor([0.3338, 0.3941, 0.3500], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3338 0.3941 0.35  ]], bt: 0.0779
+Best solution found. Point: tensor([0.3421, 0.3490, 0.2375], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3421 0.349  0.2375]], bt: 0.0714
+Best solution found. Point: tensor([0.3466, 0.3543, 0.2675], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3466 0.3543 0.2675]], bt: 0.0316
+Best solution found. Point: tensor([0.4049, 0.3280, 0.3992], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4049 0.328  0.3992]], bt: 0.1322
+Best solution found. Point: tensor([0.3894, 0.3025, 0.3430], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3894 0.3025 0.343 ]], bt: 0.0349
+Best solution found. Point: tensor([0.2602, 0.3613, 0.3224], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2602 0.3613 0.3224]], bt: 0.056
+Best solution found. Point: tensor([0.2889, 0.3030, 0.3371], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2889 0.303  0.3371]], bt: 0.071
+Best solution found. Point: tensor([0.3171, 0.2907, 0.3204], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3171 0.2907 0.3204]], bt: 0.0719
+Best solution found. Point: tensor([0.4005, 0.3435, 0.3271], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4005 0.3435 0.3271]], bt: 0.0711
+Best solution found. Point: tensor([0.3007, 0.3948, 0.3824], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3007 0.3948 0.3824]], bt: 0.078
+Best solution found. Point: tensor([0.3042, 0.3566, 0.3250], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3042 0.3566 0.325 ]], bt: 0.0142
+Best solution found. Point: tensor([0.3751, 0.4016, 0.2813], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3751 0.4016 0.2813]], bt: 0.0579
+Best solution found. Point: tensor([0.2994, 0.3563, 0.3225], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2994 0.3563 0.3225]], bt: 0.0218
+Best solution found. Point: tensor([0.3135, 0.4077, 0.3418], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3135 0.4077 0.3418]], bt: 0.0629
+Best solution found. Point: tensor([0.3603, 0.4206, 0.3467], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3603 0.4206 0.3467]], bt: 0.1276
+Best solution found. Point: tensor([0.3704, 0.3292, 0.3565], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3704 0.3292 0.3565]], bt: 0.056
+Best solution found. Point: tensor([0.2812, 0.3529, 0.3315], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2812 0.3529 0.3315]], bt: 0.0344
+Best solution found. Point: tensor([0.2856, 0.3606, 0.3554], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2856 0.3606 0.3554]], bt: 0.0016
+Best solution found. Point: tensor([0.2911, 0.3104, 0.3641], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2911 0.3104 0.3641]], bt: 0.0344
+Best solution found. Point: tensor([0.2809, 0.3422, 0.3028], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2809 0.3422 0.3028]], bt: 0.0741
+Best solution found. Point: tensor([0.3847, 0.3382, 0.2602], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3847 0.3382 0.2602]], bt: 0.0169
+Best solution found. Point: tensor([0.3949, 0.3411, 0.4069], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3949 0.3411 0.4069]], bt: 0.1429
+Best solution found. Point: tensor([0.2740, 0.3324, 0.2582], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.274  0.3324 0.2582]], bt: 0.1354
+Best solution found. Point: tensor([0.3747, 0.3834, 0.2753], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3747 0.3834 0.2753]], bt: 0.0334
+Best solution found. Point: tensor([0.3065, 0.3039, 0.3720], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3065 0.3039 0.372 ]], bt: 0.0177
+Best solution found. Point: tensor([0.3289, 0.3034, 0.3884], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3289 0.3034 0.3884]], bt: 0.0206
+Best solution found. Point: tensor([0.3455, 0.3914, 0.3308], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3455 0.3914 0.3308]], bt: 0.0677
+Best solution found. Point: tensor([0.3483, 0.2480, 0.3291], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3483 0.248  0.3291]], bt: 0.0746
+Best solution found. Point: tensor([0.3342, 0.3461, 0.3468], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3342 0.3461 0.3468]], bt: 0.0272
+Best solution found. Point: tensor([0.3025, 0.2745, 0.3594], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3025 0.2745 0.3594]], bt: 0.0636
+Best solution found. Point: tensor([0.3500, 0.3428, 0.2940], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.35   0.3428 0.294 ]], bt: 0.0133
+Best solution found. Point: tensor([0.2292, 0.3686, 0.3359], dtype=torch.float64), Delta+: [0.0995 0.     0.    ], Delta-: [0.     0.04   0.0072], Delta: [ 0.0995 -0.04   -0.0072], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2658, 0.3459, 0.2486], dtype=torch.float64), Delta+: [0.0629 0.     0.0801], Delta-: [0.     0.0173 0.    ], Delta: [ 0.0629 -0.0173  0.0801], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3493, 0.2364, 0.2850], dtype=torch.float64), Delta+: [0.     0.0922 0.0436], Delta-: [0.0206 0.     0.    ], Delta: [-0.0206  0.0922  0.0436], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3568, 0.2263, 0.3502], dtype=torch.float64), Delta+: [0.     0.1023 0.    ], Delta-: [0.0282 0.     0.0215], Delta: [-0.0282  0.1023 -0.0215], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4072, 0.2734, 0.2668], dtype=torch.float64), Delta+: [0.     0.0553 0.0619], Delta-: [0.0786 0.     0.    ], Delta: [-0.0786  0.0553  0.0619], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3400, 0.2493, 0.2603], dtype=torch.float64), Delta+: [0.     0.0794 0.0683], Delta-: [0.0114 0.     0.    ], Delta: [-0.0114  0.0794  0.0683], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3087, 0.2895, 0.2312], dtype=torch.float64), Delta+: [0.02   0.0391 0.0975], Delta-: [0. 0. 0.], Delta: [0.02   0.0391 0.0975], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3191, 0.3919, 0.2409], dtype=torch.float64), Delta+: [0.0095 0.     0.0878], Delta-: [0.     0.0632 0.    ], Delta: [ 0.0095 -0.0632  0.0878], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3463, 0.3639, 0.2398], dtype=torch.float64), Delta+: [0.     0.     0.0888], Delta-: [0.0176 0.0352 0.    ], Delta: [-0.0176 -0.0352  0.0888], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2309, 0.3605, 0.2907], dtype=torch.float64), Delta+: [0.0977 0.     0.038 ], Delta-: [0.     0.0318 0.    ], Delta: [ 0.0977 -0.0318  0.038 ], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3995, 0.3008, 0.2497], dtype=torch.float64), Delta+: [0.     0.0279 0.0789], Delta-: [0.0709 0.     0.    ], Delta: [-0.0709  0.0279  0.0789], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3857, 0.3112, 0.2530], dtype=torch.float64), Delta+: [0.     0.0174 0.0756], Delta-: [0.0571 0.     0.    ], Delta: [-0.0571  0.0174  0.0756], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2290, 0.3237, 0.3485], dtype=torch.float64), Delta+: [0.0996 0.0049 0.    ], Delta-: [0.     0.     0.0199], Delta: [ 0.0996  0.0049 -0.0199], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2178, 0.3320, 0.3380], dtype=torch.float64), Delta+: [0.1108 0.     0.    ], Delta-: [0.     0.     0.0095], Delta: [ 0.1108  0.     -0.0095], Omega: [[0.3286 0.332  0.3286]], bt: 0.0103
+Best solution found. Point: tensor([0.2244, 0.3133, 0.3521], dtype=torch.float64), Delta+: [0.1043 0.0153 0.    ], Delta-: [0.     0.     0.0234], Delta: [ 0.1043  0.0153 -0.0234], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2758, 0.3097, 0.2435], dtype=torch.float64), Delta+: [0.0529 0.0189 0.0851], Delta-: [0. 0. 0.], Delta: [0.0529 0.0189 0.0851], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2463, 0.3873, 0.3164], dtype=torch.float64), Delta+: [0.0824 0.     0.0123], Delta-: [0.     0.0587 0.    ], Delta: [ 0.0824 -0.0587  0.0123], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3761, 0.3673, 0.2343], dtype=torch.float64), Delta+: [0.     0.     0.0943], Delta-: [0.0474 0.0387 0.    ], Delta: [-0.0474 -0.0387  0.0943], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4003, 0.2459, 0.3038], dtype=torch.float64), Delta+: [0.     0.0827 0.0248], Delta-: [0.0716 0.     0.    ], Delta: [-0.0716  0.0827  0.0248], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2890, 0.3632, 0.2388], dtype=torch.float64), Delta+: [0.0397 0.     0.0898], Delta-: [0.     0.0346 0.    ], Delta: [ 0.0397 -0.0346  0.0898], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4026, 0.2595, 0.2879], dtype=torch.float64), Delta+: [0.     0.0692 0.0407], Delta-: [0.074 0.    0.   ], Delta: [-0.074   0.0692  0.0407], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3270, 0.2213, 0.3530], dtype=torch.float64), Delta+: [0.0018 0.1073 0.    ], Delta-: [0.     0.     0.0243], Delta: [ 0.0018  0.1073 -0.0243], Omega: [[0.3287 0.3286 0.3286]], bt: 0.0135
+Best solution found. Point: tensor([0.2574, 0.3561, 0.2443], dtype=torch.float64), Delta+: [0.0712 0.     0.0843], Delta-: [0.     0.0274 0.    ], Delta: [ 0.0712 -0.0274  0.0843], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3127, 0.2910, 0.2231], dtype=torch.float64), Delta+: [0.016  0.0376 0.1056], Delta-: [0. 0. 0.], Delta: [0.016  0.0376 0.1056], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3130, 0.2770, 0.2299], dtype=torch.float64), Delta+: [0.0156 0.0516 0.0987], Delta-: [0. 0. 0.], Delta: [0.0156 0.0516 0.0987], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2271, 0.3620, 0.2945], dtype=torch.float64), Delta+: [0.1015 0.     0.0342], Delta-: [0.     0.0334 0.    ], Delta: [ 0.1015 -0.0334  0.0342], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2273, 0.3646, 0.3571], dtype=torch.float64), Delta+: [0.1013 0.     0.    ], Delta-: [0.     0.036  0.0284], Delta: [ 0.1013 -0.036  -0.0284], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3369, 0.2193, 0.3710], dtype=torch.float64), Delta+: [0.     0.1094 0.    ], Delta-: [0.0082 0.     0.0423], Delta: [-0.0082  0.1094 -0.0423], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2815, 0.2729, 0.3956], dtype=torch.float64), Delta+: [0.0471 0.0557 0.    ], Delta-: [0.    0.    0.067], Delta: [ 0.0471  0.0557 -0.067 ], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2207, 0.3717, 0.3174], dtype=torch.float64), Delta+: [0.108  0.     0.0113], Delta-: [0.     0.0431 0.    ], Delta: [ 0.108  -0.0431  0.0113], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2296, 0.2930, 0.3529], dtype=torch.float64), Delta+: [0.099  0.0357 0.    ], Delta-: [0.     0.     0.0242], Delta: [ 0.099   0.0357 -0.0242], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3797, 0.2356, 0.3347], dtype=torch.float64), Delta+: [0.    0.093 0.   ], Delta-: [0.051 0.    0.006], Delta: [-0.051  0.093 -0.006], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3700, 0.2227, 0.3518], dtype=torch.float64), Delta+: [0.    0.106 0.   ], Delta-: [0.0414 0.     0.0232], Delta: [-0.0414  0.106  -0.0232], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3170, 0.2861, 0.2374], dtype=torch.float64), Delta+: [0.0117 0.0425 0.0913], Delta-: [0. 0. 0.], Delta: [0.0117 0.0425 0.0913], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2623, 0.3966, 0.2911], dtype=torch.float64), Delta+: [0.0663 0.     0.0376], Delta-: [0.    0.068 0.   ], Delta: [ 0.0663 -0.068   0.0376], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3749, 0.2339, 0.3412], dtype=torch.float64), Delta+: [0.     0.0948 0.    ], Delta-: [0.0462 0.     0.0126], Delta: [-0.0462  0.0948 -0.0126], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2411, 0.3207, 0.3882], dtype=torch.float64), Delta+: [0.0876 0.008  0.    ], Delta-: [0.     0.     0.0596], Delta: [ 0.0876  0.008  -0.0596], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2941, 0.2694, 0.4140], dtype=torch.float64), Delta+: [0.0345 0.0592 0.    ], Delta-: [0.     0.     0.0853], Delta: [ 0.0345  0.0592 -0.0853], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3685, 0.2211, 0.3308], dtype=torch.float64), Delta+: [0.     0.1075 0.    ], Delta-: [0.0399 0.     0.    ], Delta: [-0.0399  0.1075  0.    ], Omega: [[0.3286 0.3286 0.3308]], bt: 0.0115
+Best solution found. Point: tensor([0.3337, 0.2727, 0.2402], dtype=torch.float64), Delta+: [0.     0.056  0.0884], Delta-: [0.0051 0.     0.    ], Delta: [-0.0051  0.056   0.0884], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2461, 0.2682, 0.3468], dtype=torch.float64), Delta+: [0.0825 0.0604 0.    ], Delta-: [0.     0.     0.0182], Delta: [ 0.0825  0.0604 -0.0182], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3265, 0.2646, 0.2403], dtype=torch.float64), Delta+: [0.0021 0.064  0.0884], Delta-: [0. 0. 0.], Delta: [0.0021 0.064  0.0884], Omega: [[0.3287 0.3286 0.3286]], bt: 0.0135
+Best solution found. Point: tensor([0.2289, 0.3706, 0.3353], dtype=torch.float64), Delta+: [0.0997 0.     0.    ], Delta-: [0.     0.0419 0.0067], Delta: [ 0.0997 -0.0419 -0.0067], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3601, 0.3542, 0.2357], dtype=torch.float64), Delta+: [0.     0.     0.0929], Delta-: [0.0315 0.0255 0.    ], Delta: [-0.0315 -0.0255  0.0929], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4049, 0.2780, 0.2778], dtype=torch.float64), Delta+: [0.     0.0507 0.0508], Delta-: [0.0763 0.     0.    ], Delta: [-0.0763  0.0507  0.0508], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2346, 0.3689, 0.3465], dtype=torch.float64), Delta+: [0.094 0.    0.   ], Delta-: [0.     0.0402 0.0178], Delta: [ 0.094  -0.0402 -0.0178], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2400, 0.2606, 0.3210], dtype=torch.float64), Delta+: [0.0886 0.068  0.0076], Delta-: [0. 0. 0.], Delta: [0.0886 0.068  0.0076], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2857, 0.2455, 0.2890], dtype=torch.float64), Delta+: [0.043  0.0831 0.0397], Delta-: [0. 0. 0.], Delta: [0.043  0.0831 0.0397], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2668, 0.3981, 0.2851], dtype=torch.float64), Delta+: [0.0619 0.     0.0435], Delta-: [0.     0.0695 0.    ], Delta: [ 0.0619 -0.0695  0.0435], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2670, 0.2404, 0.3545], dtype=torch.float64), Delta+: [0.0616 0.0883 0.    ], Delta-: [0.     0.     0.0258], Delta: [ 0.0616  0.0883 -0.0258], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4206, 0.2865, 0.2839], dtype=torch.float64), Delta+: [0.     0.0421 0.0448], Delta-: [0.0919 0.     0.    ], Delta: [-0.0919  0.0421  0.0448], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3355, 0.2377, 0.3768], dtype=torch.float64), Delta+: [0.    0.091 0.   ], Delta-: [0.0069 0.     0.0482], Delta: [-0.0069  0.091  -0.0482], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3962, 0.2799, 0.2739], dtype=torch.float64), Delta+: [0.     0.0488 0.0547], Delta-: [0.0676 0.     0.    ], Delta: [-0.0676  0.0488  0.0547], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3418, 0.3970, 0.2422], dtype=torch.float64), Delta+: [0.     0.     0.0865], Delta-: [0.0131 0.0683 0.    ], Delta: [-0.0131 -0.0683  0.0865], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2572, 0.3950, 0.2979], dtype=torch.float64), Delta+: [0.0715 0.     0.0307], Delta-: [0.     0.0663 0.    ], Delta: [ 0.0715 -0.0663  0.0307], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3578, 0.2534, 0.2536], dtype=torch.float64), Delta+: [0.     0.0752 0.075 ], Delta-: [0.0292 0.     0.    ], Delta: [-0.0292  0.0752  0.075 ], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4032, 0.2922, 0.2634], dtype=torch.float64), Delta+: [0.     0.0364 0.0652], Delta-: [0.0745 0.     0.    ], Delta: [-0.0745  0.0364  0.0652], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2381, 0.3553, 0.3567], dtype=torch.float64), Delta+: [0.0906 0.     0.    ], Delta-: [0.     0.0266 0.028 ], Delta: [ 0.0906 -0.0266 -0.028 ], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3893, 0.2489, 0.3118], dtype=torch.float64), Delta+: [0.     0.0797 0.0169], Delta-: [0.0607 0.     0.    ], Delta: [-0.0607  0.0797  0.0169], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2956, 0.2606, 0.3938], dtype=torch.float64), Delta+: [0.033  0.0681 0.    ], Delta-: [0.     0.     0.0652], Delta: [ 0.033   0.0681 -0.0652], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3748, 0.2432, 0.3320], dtype=torch.float64), Delta+: [0.     0.0854 0.    ], Delta-: [0.0462 0.     0.    ], Delta: [-0.0462  0.0854  0.    ], Omega: [[0.3286 0.3286 0.332 ]], bt: 0.0103
+Best solution found. Point: tensor([0.3294, 0.2201, 0.3442], dtype=torch.float64), Delta+: [0.     0.1086 0.    ], Delta-: [0.     0.     0.0155], Delta: [ 0.      0.1086 -0.0155], Omega: [[0.3294 0.3286 0.3286]], bt: 0.0129
+Best solution found. Point: tensor([0.2748, 0.2352, 0.3166], dtype=torch.float64), Delta+: [0.0539 0.0935 0.0121], Delta-: [0. 0. 0.], Delta: [0.0539 0.0935 0.0121], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3031, 0.3906, 0.2562], dtype=torch.float64), Delta+: [0.0255 0.     0.0724], Delta-: [0.    0.062 0.   ], Delta: [ 0.0255 -0.062   0.0724], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3222, 0.2503, 0.3974], dtype=torch.float64), Delta+: [0.0065 0.0784 0.    ], Delta-: [0.     0.     0.0688], Delta: [ 0.0065  0.0784 -0.0688], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3426, 0.2438, 0.2681], dtype=torch.float64), Delta+: [0.     0.0849 0.0606], Delta-: [0.0139 0.     0.    ], Delta: [-0.0139  0.0849  0.0606], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3497, 0.3714, 0.2289], dtype=torch.float64), Delta+: [0.     0.     0.0998], Delta-: [0.0211 0.0428 0.    ], Delta: [-0.0211 -0.0428  0.0998], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2422, 0.3092, 0.3936], dtype=torch.float64), Delta+: [0.0865 0.0195 0.    ], Delta-: [0.     0.     0.0649], Delta: [ 0.0865  0.0195 -0.0649], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2557, 0.3975, 0.2793], dtype=torch.float64), Delta+: [0.073  0.     0.0493], Delta-: [0.     0.0689 0.    ], Delta: [ 0.073  -0.0689  0.0493], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2488, 0.2686, 0.3273], dtype=torch.float64), Delta+: [0.0799 0.06   0.0015], Delta-: [0. 0. 0.], Delta: [0.0799 0.06   0.0015], Omega: [[0.3286 0.3286 0.3288]], bt: 0.0134
+Best solution found. Point: tensor([0.2283, 0.3218, 0.2928], dtype=torch.float64), Delta+: [0.1004 0.0068 0.0359], Delta-: [0. 0. 0.], Delta: [0.1004 0.0068 0.0359], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3084, 0.2559, 0.2645], dtype=torch.float64), Delta+: [0.0202 0.0728 0.0642], Delta-: [0. 0. 0.], Delta: [0.0202 0.0728 0.0642], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2501, 0.2565, 0.3556], dtype=torch.float64), Delta+: [0.0786 0.0722 0.    ], Delta-: [0.     0.     0.0269], Delta: [ 0.0786  0.0722 -0.0269], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2769, 0.2318, 0.3103], dtype=torch.float64), Delta+: [0.0517 0.0969 0.0183], Delta-: [0. 0. 0.], Delta: [0.0517 0.0969 0.0183], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3602, 0.2419, 0.2822], dtype=torch.float64), Delta+: [0.     0.0868 0.0465], Delta-: [0.0316 0.     0.    ], Delta: [-0.0316  0.0868  0.0465], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2639, 0.2743, 0.3896], dtype=torch.float64), Delta+: [0.0647 0.0543 0.    ], Delta-: [0.    0.    0.061], Delta: [ 0.0647  0.0543 -0.061 ], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3265, 0.2923, 0.2357], dtype=torch.float64), Delta+: [0.0023 0.0364 0.0929], Delta-: [0. 0. 0.], Delta: [0.0023 0.0364 0.0929], Omega: [[0.3288 0.3286 0.3286]], bt: 0.0134
+Best solution found. Point: tensor([0.2424, 0.3904, 0.3172], dtype=torch.float64), Delta+: [0.0863 0.     0.0114], Delta-: [0.     0.0617 0.    ], Delta: [ 0.0863 -0.0617  0.0114], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2331, 0.3347, 0.3822], dtype=torch.float64), Delta+: [0.0956 0.     0.    ], Delta-: [0.     0.006  0.0536], Delta: [ 0.0956 -0.006  -0.0536], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2788, 0.3989, 0.2723], dtype=torch.float64), Delta+: [0.0498 0.     0.0564], Delta-: [0.     0.0702 0.    ], Delta: [ 0.0498 -0.0702  0.0564], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2842, 0.2709, 0.2450], dtype=torch.float64), Delta+: [0.0445 0.0578 0.0837], Delta-: [0. 0. 0.], Delta: [0.0445 0.0578 0.0837], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3496, 0.3961, 0.2489], dtype=torch.float64), Delta+: [0.     0.     0.0797], Delta-: [0.021  0.0675 0.    ], Delta: [-0.021  -0.0675  0.0797], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3900, 0.2672, 0.2621], dtype=torch.float64), Delta+: [0.     0.0614 0.0666], Delta-: [0.0613 0.     0.    ], Delta: [-0.0613  0.0614  0.0666], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3086, 0.2722, 0.2423], dtype=torch.float64), Delta+: [0.0201 0.0564 0.0863], Delta-: [0. 0. 0.], Delta: [0.0201 0.0564 0.0863], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2636, 0.2994, 0.2589], dtype=torch.float64), Delta+: [0.065  0.0293 0.0698], Delta-: [0. 0. 0.], Delta: [0.065  0.0293 0.0698], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2463, 0.3022, 0.3881], dtype=torch.float64), Delta+: [0.0823 0.0264 0.    ], Delta-: [0.     0.     0.0594], Delta: [ 0.0823  0.0264 -0.0594], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2689, 0.4014, 0.2798], dtype=torch.float64), Delta+: [0.0598 0.     0.0489], Delta-: [0.     0.0727 0.    ], Delta: [ 0.0598 -0.0727  0.0489], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2220, 0.3221, 0.3294], dtype=torch.float64), Delta+: [0.1066 0.0065 0.0001], Delta-: [0. 0. 0.], Delta: [0.1066 0.0065 0.0001], Omega: [[0.3286 0.3286 0.3295]], bt: 0.0127
+Best solution found. Point: tensor([0.3398, 0.3052, 0.2249], dtype=torch.float64), Delta+: [0.     0.0234 0.1038], Delta-: [0.0112 0.     0.    ], Delta: [-0.0112  0.0234  0.1038], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2410, 0.3001, 0.3753], dtype=torch.float64), Delta+: [0.0877 0.0285 0.    ], Delta-: [0.     0.     0.0467], Delta: [ 0.0877  0.0285 -0.0467], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4800, 0.0400, 0.2400], dtype=torch.float64), Delta+: [0.     0.2886 0.0886], Delta-: [0.1514 0.     0.    ], Delta: [-0.1514  0.2886  0.0886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.6400, 0.0000, 0.2400], dtype=torch.float64), Delta+: [0.     0.3286 0.0886], Delta-: [0.3114 0.     0.    ], Delta: [-0.3114  0.3286  0.0886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4800, 0.0000, 0.1200], dtype=torch.float64), Delta+: [0.     0.3286 0.2086], Delta-: [0.1514 0.     0.    ], Delta: [-0.1514  0.3286  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.3200, 0.4800], dtype=torch.float64), Delta+: [0.1286 0.0087 0.    ], Delta-: [0.     0.     0.1514], Delta: [ 0.1286  0.0087 -0.1514], Omega: [[0.3286 0.3287 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2400, 0.2800, 0.0400], dtype=torch.float64), Delta+: [0.0886 0.0486 0.2886], Delta-: [0. 0. 0.], Delta: [0.0886 0.0486 0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.1200, 0.5200], dtype=torch.float64), Delta+: [0.2486 0.2086 0.    ], Delta-: [0.     0.     0.1914], Delta: [ 0.2486  0.2086 -0.1914], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.2000, 0.3200], dtype=torch.float64), Delta+: [0.1286 0.1286 0.0086], Delta-: [0. 0. 0.], Delta: [0.1286 0.1286 0.0086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.0800, 0.1200], dtype=torch.float64), Delta+: [0.2886 0.2486 0.2086], Delta-: [0. 0. 0.], Delta: [0.2886 0.2486 0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.4400, 0.0800], dtype=torch.float64), Delta+: [0.2886 0.     0.2486], Delta-: [0.     0.1114 0.    ], Delta: [ 0.2886 -0.1114  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4800, 0.4800, 0.0000], dtype=torch.float64), Delta+: [0.     0.     0.3286], Delta-: [0.1514 0.1514 0.    ], Delta: [-0.1514 -0.1514  0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1200, 0.2000, 0.3600], dtype=torch.float64), Delta+: [0.2086 0.1286 0.    ], Delta-: [0.     0.     0.0314], Delta: [ 0.2086  0.1286 -0.0314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1600, 0.0400, 0.4000], dtype=torch.float64), Delta+: [0.1686 0.2886 0.    ], Delta-: [0.     0.     0.0714], Delta: [ 0.1686  0.2886 -0.0714], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1200, 0.1600, 0.4000], dtype=torch.float64), Delta+: [0.2086 0.1686 0.    ], Delta-: [0.     0.     0.0714], Delta: [ 0.2086  0.1686 -0.0714], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.5200, 0.0000], dtype=torch.float64), Delta+: [0.2886 0.     0.3286], Delta-: [0.     0.1914 0.    ], Delta: [ 0.2886 -0.1914  0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3200, 0.0000, 0.5200], dtype=torch.float64), Delta+: [0.0086 0.3286 0.    ], Delta-: [0.     0.     0.1914], Delta: [ 0.0086  0.3286 -0.1914], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1600, 0.2000, 0.5200], dtype=torch.float64), Delta+: [0.1686 0.1286 0.    ], Delta-: [0.     0.     0.1914], Delta: [ 0.1686  0.1286 -0.1914], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.0400, 0.1600], dtype=torch.float64), Delta+: [0.0486 0.2886 0.1686], Delta-: [0. 0. 0.], Delta: [0.0486 0.2886 0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1200, 0.3200, 0.3200], dtype=torch.float64), Delta+: [0.2086 0.0086 0.0086], Delta-: [0. 0. 0.], Delta: [0.2086 0.0086 0.0086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.0400, 0.2000], dtype=torch.float64), Delta+: [0.2486 0.2886 0.1286], Delta-: [0. 0. 0.], Delta: [0.2486 0.2886 0.1286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2400, 0.5200, 0.1200], dtype=torch.float64), Delta+: [0.0886 0.     0.2086], Delta-: [0.     0.1914 0.    ], Delta: [ 0.0886 -0.1914  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1200, 0.0000, 0.1200], dtype=torch.float64), Delta+: [0.2086 0.3286 0.2086], Delta-: [0. 0. 0.], Delta: [0.2086 0.3286 0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1600, 0.2400, 0.1200], dtype=torch.float64), Delta+: [0.1686 0.0886 0.2086], Delta-: [0. 0. 0.], Delta: [0.1686 0.0886 0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5200, 0.3600, 0.0400], dtype=torch.float64), Delta+: [0.     0.     0.2886], Delta-: [0.1914 0.0314 0.    ], Delta: [-0.1914 -0.0314  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5600, 0.0000, 0.1200], dtype=torch.float64), Delta+: [0.     0.3286 0.2086], Delta-: [0.2314 0.     0.    ], Delta: [-0.2314  0.3286  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.2000, 0.7600], dtype=torch.float64), Delta+: [0.3286 0.1286 0.    ], Delta-: [0.     0.     0.4314], Delta: [ 0.3286  0.1286 -0.4314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.2800, 0.5600], dtype=torch.float64), Delta+: [0.3286 0.0486 0.    ], Delta-: [0.     0.     0.2314], Delta: [ 0.3286  0.0486 -0.2314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.0000, 0.9600], dtype=torch.float64), Delta+: [0.2886 0.3286 0.    ], Delta-: [0.     0.     0.6314], Delta: [ 0.2886  0.3286 -0.6314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3200, 0.0000, 0.2400], dtype=torch.float64), Delta+: [0.0087 0.3286 0.0886], Delta-: [0. 0. 0.], Delta: [0.0087 0.3286 0.0886], Omega: [[0.3287 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.0800, 0.2400], dtype=torch.float64), Delta+: [0.2486 0.2486 0.0886], Delta-: [0. 0. 0.], Delta: [0.2486 0.2486 0.0886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3600, 0.2000, 0.2400], dtype=torch.float64), Delta+: [0.     0.1286 0.0886], Delta-: [0.0314 0.     0.    ], Delta: [-0.0314  0.1286  0.0886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.6000, 0.0400], dtype=torch.float64), Delta+: [0.2886 0.     0.2886], Delta-: [0.     0.2714 0.    ], Delta: [ 0.2886 -0.2714  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.1600, 0.0000], dtype=torch.float64), Delta+: [0.2486 0.1686 0.3286], Delta-: [0. 0. 0.], Delta: [0.2486 0.1686 0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4000, 0.4800, 0.0800], dtype=torch.float64), Delta+: [0.     0.     0.2486], Delta-: [0.0714 0.1514 0.    ], Delta: [-0.0714 -0.1514  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.1200, 0.6000], dtype=torch.float64), Delta+: [0.3286 0.2086 0.    ], Delta-: [0.     0.     0.2714], Delta: [ 0.3286  0.2086 -0.2714], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.0400, 0.6400], dtype=torch.float64), Delta+: [0.0486 0.2886 0.    ], Delta-: [0.     0.     0.3114], Delta: [ 0.0486  0.2886 -0.3114], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4400, 0.1600, 0.2800], dtype=torch.float64), Delta+: [0.     0.1686 0.0486], Delta-: [0.1114 0.     0.    ], Delta: [-0.1114  0.1686  0.0486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.0800, 0.3200], dtype=torch.float64), Delta+: [0.1286 0.2486 0.0087], Delta-: [0. 0. 0.], Delta: [0.1286 0.2486 0.0087], Omega: [[0.3286 0.3286 0.3287]], bt: 0.0136
+Best solution found. Point: tensor([0.1600, 0.4800, 0.2400], dtype=torch.float64), Delta+: [0.1686 0.     0.0886], Delta-: [0.     0.1514 0.    ], Delta: [ 0.1686 -0.1514  0.0886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.2400, 0.6400], dtype=torch.float64), Delta+: [0.3286 0.0886 0.    ], Delta-: [0.     0.     0.3114], Delta: [ 0.3286  0.0886 -0.3114], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.0400, 0.3600], dtype=torch.float64), Delta+: [0.2486 0.2886 0.    ], Delta-: [0.     0.     0.0314], Delta: [ 0.2486  0.2886 -0.0314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2400, 0.4400, 0.0800], dtype=torch.float64), Delta+: [0.0886 0.     0.2486], Delta-: [0.     0.1114 0.    ], Delta: [ 0.0886 -0.1114  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5600, 0.2800, 0.1600], dtype=torch.float64), Delta+: [0.     0.0486 0.1686], Delta-: [0.2314 0.     0.    ], Delta: [-0.2314  0.0486  0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2400, 0.6800, 0.0800], dtype=torch.float64), Delta+: [0.0886 0.     0.2486], Delta-: [0.     0.3514 0.    ], Delta: [ 0.0886 -0.3514  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.6800, 0.1600, 0.0400], dtype=torch.float64), Delta+: [0.     0.1686 0.2886], Delta-: [0.3514 0.     0.    ], Delta: [-0.3514  0.1686  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.3200, 0.1200], dtype=torch.float64), Delta+: [0.0486 0.0087 0.2086], Delta-: [0. 0. 0.], Delta: [0.0486 0.0087 0.2086], Omega: [[0.3286 0.3287 0.3286]], bt: 0.0135
+Best solution found. Point: tensor([0.2400, 0.0000, 0.0000], dtype=torch.float64), Delta+: [0.0886 0.3286 0.3286], Delta-: [0. 0. 0.], Delta: [0.0886 0.3286 0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3200, 0.2800, 0.2000], dtype=torch.float64), Delta+: [0.0086 0.0486 0.1286], Delta-: [0. 0. 0.], Delta: [0.0086 0.0486 0.1286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.4400, 0.2400], dtype=torch.float64), Delta+: [0.0486 0.     0.0886], Delta-: [0.     0.1114 0.    ], Delta: [ 0.0486 -0.1114  0.0886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3600, 0.2400, 0.0000], dtype=torch.float64), Delta+: [0.     0.0886 0.3286], Delta-: [0.0314 0.     0.    ], Delta: [-0.0314  0.0886  0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.3600, 0.3200], dtype=torch.float64), Delta+: [0.3286 0.     0.0086], Delta-: [0.     0.0314 0.    ], Delta: [ 0.3286 -0.0314  0.0086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.6800, 0.1200], dtype=torch.float64), Delta+: [0.2486 0.     0.2086], Delta-: [0.     0.3514 0.    ], Delta: [ 0.2486 -0.3514  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.7600, 0.0800, 0.1200], dtype=torch.float64), Delta+: [0.     0.2486 0.2086], Delta-: [0.4314 0.     0.    ], Delta: [-0.4314  0.2486  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.0800, 0.5200], dtype=torch.float64), Delta+: [0.3286 0.2486 0.    ], Delta-: [0.     0.     0.1914], Delta: [ 0.3286  0.2486 -0.1914], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0137
+Best solution found. Point: tensor([0.4800, 0.2400, 0.1200], dtype=torch.float64), Delta+: [0.     0.0886 0.2086], Delta-: [0.1514 0.     0.    ], Delta: [-0.1514  0.0886  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.4000, 0.0800], dtype=torch.float64), Delta+: [0.0486 0.     0.2486], Delta-: [0.     0.0714 0.    ], Delta: [ 0.0486 -0.0714  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2400, 0.0400, 0.0000], dtype=torch.float64), Delta+: [0.0886 0.2886 0.3286], Delta-: [0. 0. 0.], Delta: [0.0886 0.2886 0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1600, 0.8000, 0.0400], dtype=torch.float64), Delta+: [0.1686 0.     0.2886], Delta-: [0.     0.4714 0.    ], Delta: [ 0.1686 -0.4714  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.1600, 0.6000], dtype=torch.float64), Delta+: [0.2886 0.1686 0.    ], Delta-: [0.     0.     0.2714], Delta: [ 0.2886  0.1686 -0.2714], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5200, 0.4000, 0.0400], dtype=torch.float64), Delta+: [0.     0.     0.2886], Delta-: [0.1914 0.0714 0.    ], Delta: [-0.1914 -0.0714  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.0800, 0.0400], dtype=torch.float64), Delta+: [0.3286 0.2486 0.2886], Delta-: [0. 0. 0.], Delta: [0.3286 0.2486 0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.0400, 0.4800], dtype=torch.float64), Delta+: [0.0486 0.2886 0.    ], Delta-: [0.     0.     0.1514], Delta: [ 0.0486  0.2886 -0.1514], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.6000, 0.2400, 0.1600], dtype=torch.float64), Delta+: [0.     0.0886 0.1686], Delta-: [0.2714 0.     0.    ], Delta: [-0.2714  0.0886  0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.0400, 0.0000], dtype=torch.float64), Delta+: [0.0486 0.2886 0.3286], Delta-: [0. 0. 0.], Delta: [0.0486 0.2886 0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3600, 0.0400, 0.3600], dtype=torch.float64), Delta+: [0.     0.2886 0.    ], Delta-: [0.0314 0.     0.0314], Delta: [-0.0314  0.2886 -0.0314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4400, 0.2800, 0.1600], dtype=torch.float64), Delta+: [0.     0.0486 0.1686], Delta-: [0.1114 0.     0.    ], Delta: [-0.1114  0.0486  0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.6800, 0.1600], dtype=torch.float64), Delta+: [0.3286 0.     0.1686], Delta-: [0.     0.3514 0.    ], Delta: [ 0.3286 -0.3514  0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0137
+Best solution found. Point: tensor([0.0400, 0.2800, 0.6800], dtype=torch.float64), Delta+: [0.2886 0.0486 0.    ], Delta-: [0.     0.     0.3514], Delta: [ 0.2886  0.0486 -0.3514], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5200, 0.0400, 0.2800], dtype=torch.float64), Delta+: [0.     0.2886 0.0486], Delta-: [0.1914 0.     0.    ], Delta: [-0.1914  0.2886  0.0486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.0800, 0.8400], dtype=torch.float64), Delta+: [0.2886 0.2486 0.    ], Delta-: [0.     0.     0.5114], Delta: [ 0.2886  0.2486 -0.5114], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.0400, 0.5200], dtype=torch.float64), Delta+: [0.2886 0.2886 0.    ], Delta-: [0.     0.     0.1914], Delta: [ 0.2886  0.2886 -0.1914], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4000, 0.1200, 0.0800], dtype=torch.float64), Delta+: [0.     0.2086 0.2486], Delta-: [0.0714 0.     0.    ], Delta: [-0.0714  0.2086  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.2400, 0.5200], dtype=torch.float64), Delta+: [0.2486 0.0886 0.    ], Delta-: [0.     0.     0.1914], Delta: [ 0.2486  0.0886 -0.1914], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.4000, 0.1600], dtype=torch.float64), Delta+: [0.0486 0.     0.1686], Delta-: [0.     0.0714 0.    ], Delta: [ 0.0486 -0.0714  0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0137
+Best solution found. Point: tensor([0.0800, 0.1600, 0.4800], dtype=torch.float64), Delta+: [0.2486 0.1686 0.    ], Delta-: [0.     0.     0.1514], Delta: [ 0.2486  0.1686 -0.1514], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4000, 0.4000, 0.0400], dtype=torch.float64), Delta+: [0.     0.     0.2886], Delta-: [0.0714 0.0714 0.    ], Delta: [-0.0714 -0.0714  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.6000, 0.0000, 0.0800], dtype=torch.float64), Delta+: [0.     0.3286 0.2486], Delta-: [0.2714 0.     0.    ], Delta: [-0.2714  0.3286  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.0000, 0.7600], dtype=torch.float64), Delta+: [0.2486 0.3286 0.    ], Delta-: [0.     0.     0.4314], Delta: [ 0.2486  0.3286 -0.4314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5200, 0.0400, 0.3200], dtype=torch.float64), Delta+: [0.     0.2886 0.0086], Delta-: [0.1914 0.     0.    ], Delta: [-0.1914  0.2886  0.0086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.2800, 0.4800], dtype=torch.float64), Delta+: [0.2886 0.0486 0.    ], Delta-: [0.     0.     0.1514], Delta: [ 0.2886  0.0486 -0.1514], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.7600, 0.1200], dtype=torch.float64), Delta+: [0.2486 0.     0.2086], Delta-: [0.     0.4314 0.    ], Delta: [ 0.2486 -0.4314  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4800, 0.0400, 0.4000], dtype=torch.float64), Delta+: [0.     0.2886 0.    ], Delta-: [0.1514 0.     0.0714], Delta: [-0.1514  0.2886 -0.0714], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4000, 0.3200, 0.0000], dtype=torch.float64), Delta+: [0.     0.0086 0.3286], Delta-: [0.0714 0.     0.    ], Delta: [-0.0714  0.0086  0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5600, 0.2000, 0.0000], dtype=torch.float64), Delta+: [0.     0.1286 0.3286], Delta-: [0.2314 0.     0.    ], Delta: [-0.2314  0.1286  0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.0400, 0.0400], dtype=torch.float64), Delta+: [0.3286 0.2886 0.2886], Delta-: [0. 0. 0.], Delta: [0.3286 0.2886 0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1200, 0.7200, 0.0800], dtype=torch.float64), Delta+: [0.2086 0.     0.2486], Delta-: [0.     0.3914 0.    ], Delta: [ 0.2086 -0.3914  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5600, 0.3600, 0.0000], dtype=torch.float64), Delta+: [0.     0.     0.3286], Delta-: [0.2314 0.0314 0.    ], Delta: [-0.2314 -0.0314  0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3200, 0.1200, 0.3600], dtype=torch.float64), Delta+: [0.0086 0.2086 0.    ], Delta-: [0.     0.     0.0314], Delta: [ 0.0086  0.2086 -0.0314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1200, 0.4400, 0.3600], dtype=torch.float64), Delta+: [0.2086 0.     0.    ], Delta-: [0.     0.1114 0.0314], Delta: [ 0.2086 -0.1114 -0.0314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.6400, 0.0800, 0.2000], dtype=torch.float64), Delta+: [0.     0.2486 0.1286], Delta-: [0.3114 0.     0.    ], Delta: [-0.3114  0.2486  0.1286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4000, 0.0400, 0.0400], dtype=torch.float64), Delta+: [0.     0.2886 0.2886], Delta-: [0.0714 0.     0.    ], Delta: [-0.0714  0.2886  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.6000, 0.0000, 0.2800], dtype=torch.float64), Delta+: [0.     0.3286 0.0486], Delta-: [0.2714 0.     0.    ], Delta: [-0.2714  0.3286  0.0486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.3200, 0.0400], dtype=torch.float64), Delta+: [0.3286 0.0086 0.2886], Delta-: [0. 0. 0.], Delta: [0.3286 0.0086 0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.0400, 0.4800], dtype=torch.float64), Delta+: [0.1286 0.2886 0.    ], Delta-: [0.     0.     0.1514], Delta: [ 0.1286  0.2886 -0.1514], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.4000, 0.0400], dtype=torch.float64), Delta+: [0.0486 0.     0.2886], Delta-: [0.     0.0714 0.    ], Delta: [ 0.0486 -0.0714  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.7200, 0.1600, 0.1200], dtype=torch.float64), Delta+: [0.     0.1686 0.2086], Delta-: [0.3914 0.     0.    ], Delta: [-0.3914  0.1686  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3600, 0.3600, 0.0800], dtype=torch.float64), Delta+: [0.     0.     0.2486], Delta-: [0.0314 0.0314 0.    ], Delta: [-0.0314 -0.0314  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.0800, 0.2000], dtype=torch.float64), Delta+: [0.2886 0.2486 0.1286], Delta-: [0. 0. 0.], Delta: [0.2886 0.2486 0.1286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.7200, 0.1200, 0.0400], dtype=torch.float64), Delta+: [0.     0.2086 0.2886], Delta-: [0.3914 0.     0.    ], Delta: [-0.3914  0.2086  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.6000, 0.0800], dtype=torch.float64), Delta+: [0.2886 0.     0.2486], Delta-: [0.     0.2714 0.    ], Delta: [ 0.2886 -0.2714  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0137
+Best solution found. Point: tensor([0.4400, 0.1600, 0.0000], dtype=torch.float64), Delta+: [0.     0.1686 0.3286], Delta-: [0.1114 0.     0.    ], Delta: [-0.1114  0.1686  0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1200, 0.6400, 0.0400], dtype=torch.float64), Delta+: [0.2086 0.     0.2886], Delta-: [0.     0.3114 0.    ], Delta: [ 0.2086 -0.3114  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.1600, 0.4400], dtype=torch.float64), Delta+: [0.3286 0.1686 0.    ], Delta-: [0.     0.     0.1114], Delta: [ 0.3286  0.1686 -0.1114], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1600, 0.3200, 0.5200], dtype=torch.float64), Delta+: [0.1686 0.0087 0.    ], Delta-: [0.     0.     0.1914], Delta: [ 0.1686  0.0087 -0.1914], Omega: [[0.3286 0.3287 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5600, 0.0400, 0.0800], dtype=torch.float64), Delta+: [0.     0.2886 0.2486], Delta-: [0.2314 0.     0.    ], Delta: [-0.2314  0.2886  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.5600, 0.0800, 0.1200], dtype=torch.float64), Delta+: [0.     0.2486 0.2086], Delta-: [0.2314 0.     0.    ], Delta: [-0.2314  0.2486  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.0000, 0.1600], dtype=torch.float64), Delta+: [0.3286 0.3286 0.1686], Delta-: [0. 0. 0.], Delta: [0.3286 0.3286 0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.1600, 0.3600], dtype=torch.float64), Delta+: [0.0486 0.1686 0.    ], Delta-: [0.     0.     0.0314], Delta: [ 0.0486  0.1686 -0.0314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1200, 0.5600, 0.1600], dtype=torch.float64), Delta+: [0.2086 0.     0.1686], Delta-: [0.     0.2314 0.    ], Delta: [ 0.2086 -0.2314  0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2400, 0.2000, 0.5600], dtype=torch.float64), Delta+: [0.0886 0.1286 0.    ], Delta-: [0.     0.     0.2314], Delta: [ 0.0886  0.1286 -0.2314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.2800, 0.5200], dtype=torch.float64), Delta+: [0.1286 0.0486 0.    ], Delta-: [0.     0.     0.1914], Delta: [ 0.1286  0.0486 -0.1914], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.7600, 0.0000, 0.1600], dtype=torch.float64), Delta+: [0.     0.3286 0.1686], Delta-: [0.4314 0.     0.    ], Delta: [-0.4314  0.3286  0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0137
+Best solution found. Point: tensor([0.1200, 0.0000, 0.0000], dtype=torch.float64), Delta+: [0.2086 0.3286 0.3286], Delta-: [0. 0. 0.], Delta: [0.2086 0.3286 0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2400, 0.2800, 0.2800], dtype=torch.float64), Delta+: [0.0886 0.0486 0.0486], Delta-: [0. 0. 0.], Delta: [0.0886 0.0486 0.0486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.2000, 0.4400], dtype=torch.float64), Delta+: [0.0486 0.1286 0.    ], Delta-: [0.     0.     0.1114], Delta: [ 0.0486  0.1286 -0.1114], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.1200, 0.3600], dtype=torch.float64), Delta+: [0.2886 0.2086 0.    ], Delta-: [0.     0.     0.0314], Delta: [ 0.2886  0.2086 -0.0314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.1200, 0.6400], dtype=torch.float64), Delta+: [0.1286 0.2086 0.    ], Delta-: [0.     0.     0.3114], Delta: [ 0.1286  0.2086 -0.3114], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.0400, 0.0000], dtype=torch.float64), Delta+: [0.2486 0.2886 0.3286], Delta-: [0. 0. 0.], Delta: [0.2486 0.2886 0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.2800, 0.5600], dtype=torch.float64), Delta+: [0.2886 0.0486 0.    ], Delta-: [0.     0.     0.2314], Delta: [ 0.2886  0.0486 -0.2314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1600, 0.2800, 0.1600], dtype=torch.float64), Delta+: [0.1686 0.0486 0.1686], Delta-: [0. 0. 0.], Delta: [0.1686 0.0486 0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.0400, 0.3200], dtype=torch.float64), Delta+: [0.1286 0.2886 0.0087], Delta-: [0. 0. 0.], Delta: [0.1286 0.2886 0.0087], Omega: [[0.3286 0.3286 0.3287]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.1200, 0.8800], dtype=torch.float64), Delta+: [0.3286 0.2086 0.    ], Delta-: [0.     0.     0.5514], Delta: [ 0.3286  0.2086 -0.5514], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.1200, 0.0400, 0.1600], dtype=torch.float64), Delta+: [0.2086 0.2886 0.1686], Delta-: [0. 0. 0.], Delta: [0.2086 0.2886 0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2800, 0.4400, 0.1600], dtype=torch.float64), Delta+: [0.0486 0.     0.1686], Delta-: [0.     0.1114 0.    ], Delta: [ 0.0486 -0.1114  0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.0800, 0.3600], dtype=torch.float64), Delta+: [0.3286 0.2486 0.    ], Delta-: [0.     0.     0.0314], Delta: [ 0.3286  0.2486 -0.0314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.0800, 0.0000], dtype=torch.float64), Delta+: [0.2886 0.2486 0.3286], Delta-: [0. 0. 0.], Delta: [0.2886 0.2486 0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.6800, 0.0000, 0.0400], dtype=torch.float64), Delta+: [0.     0.3286 0.2886], Delta-: [0.3514 0.     0.    ], Delta: [-0.3514  0.3286  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3600, 0.6400, 0.0000], dtype=torch.float64), Delta+: [0.     0.     0.3286], Delta-: [0.0314 0.3114 0.    ], Delta: [-0.0314 -0.3114  0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.2000, 0.6400], dtype=torch.float64), Delta+: [0.2886 0.1286 0.    ], Delta-: [0.     0.     0.3114], Delta: [ 0.2886  0.1286 -0.3114], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4400, 0.1200, 0.0400], dtype=torch.float64), Delta+: [0.     0.2086 0.2886], Delta-: [0.1114 0.     0.    ], Delta: [-0.1114  0.2086  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3600, 0.3600, 0.0000], dtype=torch.float64), Delta+: [0.     0.     0.3286], Delta-: [0.0314 0.0314 0.    ], Delta: [-0.0314 -0.0314  0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.4400, 0.4400], dtype=torch.float64), Delta+: [0.3286 0.     0.    ], Delta-: [0.     0.1114 0.1114], Delta: [ 0.3286 -0.1114 -0.1114], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.5600, 0.2000], dtype=torch.float64), Delta+: [0.1286 0.     0.1286], Delta-: [0.     0.2314 0.    ], Delta: [ 0.1286 -0.2314  0.1286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.7600, 0.0800], dtype=torch.float64), Delta+: [0.3286 0.     0.2486], Delta-: [0.     0.4314 0.    ], Delta: [ 0.3286 -0.4314  0.2486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0400, 0.6000, 0.1600], dtype=torch.float64), Delta+: [0.2886 0.     0.1686], Delta-: [0.     0.2714 0.    ], Delta: [ 0.2886 -0.2714  0.1686], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.4400, 0.0400], dtype=torch.float64), Delta+: [0.1286 0.     0.2886], Delta-: [0.     0.1114 0.    ], Delta: [ 0.1286 -0.1114  0.2886], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.4000, 0.0000, 0.1200], dtype=torch.float64), Delta+: [0.     0.3286 0.2086], Delta-: [0.0714 0.     0.    ], Delta: [-0.0714  0.3286  0.2086], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.0400, 0.6000], dtype=torch.float64), Delta+: [0.1286 0.2886 0.    ], Delta-: [0.     0.     0.2714], Delta: [ 0.1286  0.2886 -0.2714], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.0000, 0.3600], dtype=torch.float64), Delta+: [0.1286 0.3286 0.    ], Delta-: [0.     0.     0.0314], Delta: [ 0.1286  0.3286 -0.0314], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.3200, 0.2000, 0.0000], dtype=torch.float64), Delta+: [0.0087 0.1286 0.3286], Delta-: [0. 0. 0.], Delta: [0.0087 0.1286 0.3286], Omega: [[0.3287 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0800, 0.0400, 0.3200], dtype=torch.float64), Delta+: [0.2486 0.2886 0.0087], Delta-: [0. 0. 0.], Delta: [0.2486 0.2886 0.0087], Omega: [[0.3286 0.3286 0.3287]], bt: 0.0136
+Best solution found. Point: tensor([0.4000, 0.0000, 0.4800], dtype=torch.float64), Delta+: [0.     0.3286 0.    ], Delta-: [0.0714 0.     0.1514], Delta: [-0.0714  0.3286 -0.1514], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.0000, 0.6000, 0.2800], dtype=torch.float64), Delta+: [0.3286 0.     0.0486], Delta-: [0.     0.2714 0.    ], Delta: [ 0.3286 -0.2714  0.0486], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Best solution found. Point: tensor([0.2000, 0.0400, 0.0000], dtype=torch.float64), Delta+: [0.1286 0.2886 0.3286], Delta-: [0. 0. 0.], Delta: [0.1286 0.2886 0.3286], Omega: [[0.3286 0.3286 0.3286]], bt: 0.0136
+Failure Rate: 0.00%
+Step 2e: Train GPR models for inside and outside NTR
+train gp model_in done 
+Early stopping at iteration 661
+train gp model_out done
+Time step 3
+include consumption: False
+Step 2a: Approximate NTR
+starting point [0. 0. 0.]
+Solution found
+direction [-0.333 -0.333 -0.333]
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
+Iteration 20
+Bisection converged after 20 iterations.
+Center Point: [0.333 0.333 0.333], Edge Point: [0.2764 0.2764 0.2764]
+starting point [0. 0. 1.]
+Solution found
+direction [-0.333 -0.333  0.667]
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
+Iteration 20
+Bisection converged after 20 iterations.
+Center Point: [0.333 0.333 0.333], Edge Point: [0.2949 0.2949 0.4092]
+starting point [0.  0.5 0.5]
+Solution found
+direction [-0.333  0.167  0.167]
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
+Iteration 20
+Bisection converged after 20 iterations.
+Center Point: [0.333 0.333 0.333], Edge Point: [0.2573 0.3709 0.3709]
+starting point [0. 1. 0.]
+Solution found
+direction [-0.333  0.667 -0.333]
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
+Iteration 20
+Bisection converged after 20 iterations.
+Center Point: [0.333 0.333 0.333], Edge Point: [0.2949 0.4092 0.2949]
+Center of NTR: [0.333 0.333 0.333], Radius of NTR: 0.0980
+Step 2b: Sample state points
+Best solution found. Point: tensor([0.3435, 0.2981, 0.4233], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3435 0.2981 0.4233]], bt: 0.0649
+/opt/anaconda3/envs/Peytz2/lib/python3.11/site-packages/torch/storage.py:414: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(io.BytesIO(b))
+/opt/anaconda3/envs/Peytz2/lib/python3.11/site-packages/torch/storage.py:414: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(io.BytesIO(b))
+Best solution found. Point: tensor([0.3517, 0.3243, 0.4235], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3517 0.3243 0.4235]], bt: 0.0994
+/opt/anaconda3/envs/Peytz2/lib/python3.11/site-packages/torch/storage.py:414: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(io.BytesIO(b))
+Best solution found. Point: tensor([0.3617, 0.3702, 0.3052], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3617 0.3702 0.3052]], bt: 0.037
+Best solution found. Point: tensor([0.2689, 0.3026, 0.2932], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2689 0.3026 0.2932]], bt: 0.1354
+Best solution found. Point: tensor([0.3636, 0.4143, 0.3671], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3636 0.4143 0.3671]], bt: 0.145
+Best solution found. Point: tensor([0.2978, 0.3993, 0.3866], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2978 0.3993 0.3866]], bt: 0.0837
+Best solution found. Point: tensor([0.3171, 0.4196, 0.3479], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3171 0.4196 0.3479]], bt: 0.0846
+Best solution found. Point: tensor([0.3334, 0.3238, 0.3192], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3334 0.3238 0.3192]], bt: 0.0236
+Best solution found. Point: tensor([0.3622, 0.2454, 0.3336], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3622 0.2454 0.3336]], bt: 0.0588
+Best solution found. Point: tensor([0.2921, 0.2838, 0.3503], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2921 0.2838 0.3503]], bt: 0.0737
+Best solution found. Point: tensor([0.3246, 0.3584, 0.3335], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3246 0.3584 0.3335]], bt: 0.0164
+Best solution found. Point: tensor([0.3038, 0.3673, 0.2663], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3038 0.3673 0.2663]], bt: 0.0625
+Best solution found. Point: tensor([0.3733, 0.3342, 0.3355], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3733 0.3342 0.3355]], bt: 0.0429
+Best solution found. Point: tensor([0.3214, 0.3613, 0.3856], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3214 0.3613 0.3856]], bt: 0.0683
+Best solution found. Point: tensor([0.3364, 0.3743, 0.3238], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3364 0.3743 0.3238]], bt: 0.0345
+Best solution found. Point: tensor([0.2969, 0.2590, 0.3171], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2969 0.259  0.3171]], bt: 0.127
+Best solution found. Point: tensor([0.2620, 0.3333, 0.3332], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.262  0.3333 0.3332]], bt: 0.0715
+Best solution found. Point: tensor([0.2568, 0.3258, 0.3027], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2568 0.3258 0.3027]], bt: 0.1148
+Best solution found. Point: tensor([0.3113, 0.2487, 0.3550], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3113 0.2487 0.355 ]], bt: 0.085
+Best solution found. Point: tensor([0.2541, 0.3256, 0.2774], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2541 0.3256 0.2774]], bt: 0.1429
+Best solution found. Point: tensor([0.3299, 0.3842, 0.4117], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3299 0.3842 0.4117]], bt: 0.1258
+Best solution found. Point: tensor([0.2376, 0.3300, 0.3140], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2376 0.33   0.314 ]], bt: 0.1184
+Best solution found. Point: tensor([0.3016, 0.2929, 0.2679], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3016 0.2929 0.2679]], bt: 0.1376
+Best solution found. Point: tensor([0.3184, 0.2642, 0.3678], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3184 0.2642 0.3678]], bt: 0.0496
+Best solution found. Point: tensor([0.3435, 0.3049, 0.2404], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3435 0.3049 0.2404]], bt: 0.1112
+Best solution found. Point: tensor([0.4019, 0.3870, 0.3163], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4019 0.387  0.3163]], bt: 0.1053
+Best solution found. Point: tensor([0.3482, 0.2981, 0.3387], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3482 0.2981 0.3387]], bt: 0.015
+Best solution found. Point: tensor([0.3722, 0.3188, 0.2742], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3722 0.3188 0.2742]], bt: 0.0349
+Best solution found. Point: tensor([0.3671, 0.2849, 0.3179], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3671 0.2849 0.3179]], bt: 0.0301
+Best solution found. Point: tensor([0.3042, 0.2638, 0.3687], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3042 0.2638 0.3687]], bt: 0.0633
+Best solution found. Point: tensor([0.3828, 0.3785, 0.3663], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3828 0.3785 0.3663]], bt: 0.1276
+Best solution found. Point: tensor([0.4005, 0.3138, 0.2734], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4005 0.3138 0.2734]], bt: 0.0123
+Best solution found. Point: tensor([0.3700, 0.3300, 0.3433], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.37   0.33   0.3433]], bt: 0.0433
+Best solution found. Point: tensor([0.3707, 0.4023, 0.3697], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3707 0.4023 0.3697]], bt: 0.1427
+Best solution found. Point: tensor([0.3265, 0.2899, 0.4188], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3265 0.2899 0.4188]], bt: 0.0352
+Best solution found. Point: tensor([0.4194, 0.3488, 0.3711], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4194 0.3488 0.3711]], bt: 0.1393
+Best solution found. Point: tensor([0.4245, 0.3384, 0.3623], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4245 0.3384 0.3623]], bt: 0.1251
+Best solution found. Point: tensor([0.3793, 0.3786, 0.2790], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3793 0.3786 0.279 ]], bt: 0.0369
+Best solution found. Point: tensor([0.2676, 0.3377, 0.3021], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2676 0.3377 0.3021]], bt: 0.0926
+Best solution found. Point: tensor([0.3234, 0.3383, 0.3369], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3234 0.3383 0.3369]], bt: 0.0014
+Best solution found. Point: tensor([0.3762, 0.3648, 0.3543], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3762 0.3648 0.3543]], bt: 0.0954
+Best solution found. Point: tensor([0.2679, 0.3411, 0.2851], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2679 0.3411 0.2851]], bt: 0.106
+Best solution found. Point: tensor([0.3522, 0.3453, 0.3227], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3522 0.3453 0.3227]], bt: 0.0202
+Best solution found. Point: tensor([0.2440, 0.3481, 0.3580], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.244  0.3481 0.358 ]], bt: 0.05
+Best solution found. Point: tensor([0.3453, 0.3413, 0.2835], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3453 0.3413 0.2835]], bt: 0.0298
+Best solution found. Point: tensor([0.3037, 0.2790, 0.2980], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3037 0.279  0.298 ]], bt: 0.1193
+Best solution found. Point: tensor([0.3190, 0.3573, 0.4140], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.319  0.3573 0.414 ]], bt: 0.0903
+Best solution found. Point: tensor([0.3544, 0.4180, 0.3662], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3544 0.418  0.3662]], bt: 0.1386
+Best solution found. Point: tensor([0.2692, 0.2890, 0.3607], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2692 0.289  0.3607]], bt: 0.0811
+Best solution found. Point: tensor([0.3383, 0.3027, 0.2478], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3383 0.3027 0.2478]], bt: 0.1111
+Best solution found. Point: tensor([0.4096, 0.3387, 0.2903], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4096 0.3387 0.2903]], bt: 0.0387
+Best solution found. Point: tensor([0.3668, 0.3217, 0.2798], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3668 0.3217 0.2798]], bt: 0.0317
+Best solution found. Point: tensor([0.3808, 0.3370, 0.2653], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3808 0.337  0.2653]], bt: 0.0168
+Best solution found. Point: tensor([0.3031, 0.2838, 0.2565], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3031 0.2838 0.2565]], bt: 0.1565
+Best solution found. Point: tensor([0.2707, 0.3020, 0.3837], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2707 0.302  0.3837]], bt: 0.0436
+Best solution found. Point: tensor([0.2556, 0.3694, 0.3094], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2556 0.3694 0.3094]], bt: 0.0656
+Best solution found. Point: tensor([0.3761, 0.3740, 0.3988], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3761 0.374  0.3988]], bt: 0.149
+Best solution found. Point: tensor([0.3017, 0.3085, 0.4023], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3017 0.3085 0.4023]], bt: 0.0125
+Best solution found. Point: tensor([0.3270, 0.3413, 0.2541], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.327  0.3413 0.2541]], bt: 0.0776
+Best solution found. Point: tensor([0.2948, 0.2784, 0.2640], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2948 0.2784 0.264 ]], bt: 0.1627
+Best solution found. Point: tensor([0.3136, 0.3094, 0.4166], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3136 0.3094 0.4166]], bt: 0.0395
+Best solution found. Point: tensor([0.3235, 0.3395, 0.2786], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3235 0.3395 0.2786]], bt: 0.0584
+Best solution found. Point: tensor([0.3147, 0.3314, 0.3550], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3147 0.3314 0.355 ]], bt: 0.0011
+Best solution found. Point: tensor([0.3678, 0.2776, 0.4048], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3678 0.2776 0.4048]], bt: 0.0503
+Best solution found. Point: tensor([0.3653, 0.2669, 0.2794], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3653 0.2669 0.2794]], bt: 0.0884
+Best solution found. Point: tensor([0.2867, 0.3529, 0.3494], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2867 0.3529 0.3494]], bt: 0.0111
+Best solution found. Point: tensor([0.3244, 0.3426, 0.2513], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3244 0.3426 0.2513]], bt: 0.0817
+Best solution found. Point: tensor([0.3175, 0.3101, 0.2242], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3175 0.3101 0.2242]], bt: 0.1481
+Best solution found. Point: tensor([0.3930, 0.2421, 0.3578], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.393  0.2421 0.3578]], bt: 0.0071
+Best solution found. Point: tensor([0.2865, 0.2867, 0.2496], dtype=torch.float64), Delta+: [-0.      0.0367  0.1399], Delta-: [0. 0. 0.], Delta: [-0.      0.0367  0.1399], Omega: [[0.2865 0.3235 0.3896]], bt: 0.0
+Best solution found. Point: tensor([0.2568, 0.2737, 0.2672], dtype=torch.float64), Delta+: [0.0313 0.0802 0.0544], Delta-: [0. 0. 0.], Delta: [0.0313 0.0802 0.0544], Omega: [[0.288  0.3539 0.3217]], bt: 0.0359
+Best solution found. Point: tensor([0.2693, 0.2500, 0.2863], dtype=torch.float64), Delta+: [-0.      0.1517  0.0421], Delta-: [0. 0. 0.], Delta: [-0.      0.1517  0.0421], Omega: [[0.2693 0.4018 0.3284]], bt: 0.0
+Best solution found. Point: tensor([0.2640, 0.4040, 0.2825], dtype=torch.float64), Delta+: [ 0.0491  0.     -0.    ], Delta-: [ 0. -0.  0.], Delta: [ 0.0491  0.     -0.    ], Omega: [[0.313  0.404  0.2825]], bt: 0.0
+Best solution found. Point: tensor([0.2430, 0.4050, 0.3135], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.243  0.405  0.3135]], bt: 0.0384
+Best solution found. Point: tensor([0.3384, 0.2409, 0.3707], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3384 0.2409 0.3707]], bt: 0.05
+Best solution found. Point: tensor([0.4134, 0.3101, 0.2505], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4134 0.3101 0.2505]], bt: 0.026
+Best solution found. Point: tensor([0.2907, 0.2803, 0.2450], dtype=torch.float64), Delta+: [ 0.1836 -0.     -0.    ], Delta-: [0. 0. 0.], Delta: [ 0.1836 -0.     -0.    ], Omega: [[0.4743 0.2803 0.245 ]], bt: 0.0
+Best solution found. Point: tensor([0.3465, 0.3751, 0.2311], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3465 0.3751 0.2311]], bt: 0.0473
+Best solution found. Point: tensor([0.2455, 0.3366, 0.4070], dtype=torch.float64), Delta+: [0.0804 0.     0.    ], Delta-: [0.   0.   0.07], Delta: [ 0.0804 -0.     -0.07  ], Omega: [[0.326  0.3366 0.337 ]], bt: 0.0
+Best solution found. Point: tensor([0.2926, 0.2337, 0.2883], dtype=torch.float64), Delta+: [ 0.101  -0.      0.0839], Delta-: [0. 0. 0.], Delta: [ 0.101  -0.      0.0839], Omega: [[0.3936 0.2337 0.3722]], bt: 0.0
+Best solution found. Point: tensor([0.2659, 0.2929, 0.2434], dtype=torch.float64), Delta+: [-0.      0.0482  0.1492], Delta-: [0. 0. 0.], Delta: [-0.      0.0482  0.1492], Omega: [[0.2659 0.341  0.3926]], bt: 0.0
+Best solution found. Point: tensor([0.3986, 0.2354, 0.3101], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3986 0.2354 0.3101]], bt: 0.0558
+Best solution found. Point: tensor([0.2392, 0.3995, 0.3593], dtype=torch.float64), Delta+: [0.0814 0.     0.    ], Delta-: [ 0.     -0.      0.0799], Delta: [ 0.0814  0.     -0.0799], Omega: [[0.3206 0.3995 0.2794]], bt: 0.0
+Best solution found. Point: tensor([0.2531, 0.3977, 0.2992], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2531 0.3977 0.2992]], bt: 0.05
+Best solution found. Point: tensor([0.2873, 0.2317, 0.3477], dtype=torch.float64), Delta+: [ 0.1327 -0.      0.    ], Delta-: [ 0.  0. -0.], Delta: [ 0.1327 -0.      0.    ], Omega: [[0.42   0.2317 0.3477]], bt: 0.0
+Best solution found. Point: tensor([0.3087, 0.3334, 0.2280], dtype=torch.float64), Delta+: [0.0196 0.     0.1098], Delta-: [ 0. -0.  0.], Delta: [0.0196 0.     0.1098], Omega: [[0.3283 0.3334 0.3377]], bt: 0.0
+Best solution found. Point: tensor([0.2237, 0.3714, 0.3207], dtype=torch.float64), Delta+: [0.0693 0.     0.0145], Delta-: [0. 0. 0.], Delta: [ 0.0693 -0.      0.0145], Omega: [[0.2929 0.3714 0.3352]], bt: 0.0
+Best solution found. Point: tensor([0.2285, 0.3467, 0.3314], dtype=torch.float64), Delta+: [0.     0.     0.1155], Delta-: [0.     0.0226 0.    ], Delta: [ 0.     -0.0226  0.1155], Omega: [[0.2285 0.3241 0.4469]], bt: 0.0
+Best solution found. Point: tensor([0.2363, 0.3223, 0.3840], dtype=torch.float64), Delta+: [0.0445 0.0124 0.    ], Delta-: [ 0.  0. -0.], Delta: [0.0445 0.0124 0.    ], Omega: [[0.2808 0.3347 0.384 ]], bt: 0.0
+Best solution found. Point: tensor([0.3113, 0.3953, 0.2460], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3113 0.3953 0.246 ]], bt: 0.0474
+Best solution found. Point: tensor([0.3658, 0.3444, 0.2398], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3658 0.3444 0.2398]], bt: 0.05
+Best solution found. Point: tensor([0.3390, 0.3223, 0.2234], dtype=torch.float64), Delta+: [ 0.     -0.      0.1148], Delta-: [-0.  0.  0.], Delta: [ 0.     -0.      0.1148], Omega: [[0.339  0.3223 0.3382]], bt: 0.0
+Best solution found. Point: tensor([0.3579, 0.2402, 0.3946], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3579 0.2402 0.3946]], bt: 0.0072
+Best solution found. Point: tensor([0.2619, 0.2802, 0.2679], dtype=torch.float64), Delta+: [-0.      0.0615  0.1281], Delta-: [0. 0. 0.], Delta: [-0.      0.0615  0.1281], Omega: [[0.2619 0.3417 0.3959]], bt: 0.0
+Best solution found. Point: tensor([0.3002, 0.4029, 0.2469], dtype=torch.float64), Delta+: [-0.      0.      0.0873], Delta-: [0.     0.0378 0.    ], Delta: [-0.     -0.0378  0.0873], Omega: [[0.3002 0.3651 0.3342]], bt: 0.0
+Best solution found. Point: tensor([0.3074, 0.2188, 0.3545], dtype=torch.float64), Delta+: [ 0.1189 -0.      0.    ], Delta-: [ 0.  0. -0.], Delta: [ 0.1189 -0.      0.    ], Omega: [[0.4263 0.2188 0.3545]], bt: 0.0
+Best solution found. Point: tensor([0.2219, 0.3373, 0.3085], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2219 0.3373 0.3085]], bt: 0.1323
+Best solution found. Point: tensor([0.3996, 0.2966, 0.2563], dtype=torch.float64), Delta+: [ 0.     -0.      0.0469], Delta-: [-0.  0.  0.], Delta: [ 0.     -0.      0.0469], Omega: [[0.3996 0.2966 0.3033]], bt: 0.0
+Best solution found. Point: tensor([0.2701, 0.2360, 0.3350], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2701 0.236  0.335 ]], bt: 0.159
+Best solution found. Point: tensor([0.2226, 0.3608, 0.2958], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2226 0.3608 0.2958]], bt: 0.1208
+Best solution found. Point: tensor([0.3456, 0.2375, 0.3800], dtype=torch.float64), Delta+: [0.     0.0364 0.    ], Delta-: [-0.  0. -0.], Delta: [0.     0.0364 0.    ], Omega: [[0.3456 0.2739 0.38  ]], bt: 0.0
+Best solution found. Point: tensor([0.3481, 0.2290, 0.3564], dtype=torch.float64), Delta+: [0.     0.0831 0.    ], Delta-: [-0.     0.     0.017], Delta: [ 0.      0.0831 -0.017 ], Omega: [[0.3481 0.3121 0.3394]], bt: 0.0
+Best solution found. Point: tensor([0.2626, 0.2805, 0.4069], dtype=torch.float64), Delta+: [-0.      0.0615  0.    ], Delta-: [0.    0.    0.012], Delta: [-0.      0.0615 -0.012 ], Omega: [[0.2626 0.342  0.3949]], bt: 0.0
+Best solution found. Point: tensor([0.2613, 0.3024, 0.2450], dtype=torch.float64), Delta+: [-0.     -0.      0.1908], Delta-: [0. 0. 0.], Delta: [-0.     -0.      0.1908], Omega: [[0.2613 0.3024 0.4358]], bt: 0.0
+Best solution found. Point: tensor([0.3313, 0.3288, 0.2267], dtype=torch.float64), Delta+: [-0.      0.0036  0.1092], Delta-: [0. 0. 0.], Delta: [-0.      0.0036  0.1092], Omega: [[0.3313 0.3323 0.3358]], bt: 0.0
+Best solution found. Point: tensor([0.2485, 0.3459, 0.2596], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2485 0.3459 0.2596]], bt: 0.146
+Best solution found. Point: tensor([0.2248, 0.3683, 0.3239], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2248 0.3683 0.3239]], bt: 0.0829
+Best solution found. Point: tensor([0.3495, 0.3325, 0.2182], dtype=torch.float64), Delta+: [ 0.     -0.      0.2234], Delta-: [0.1241 0.     0.    ], Delta: [-0.1241 -0.      0.2234], Omega: [[0.2254 0.3325 0.4416]], bt: 0.0
+Best solution found. Point: tensor([0.2312, 0.3281, 0.3045], dtype=torch.float64), Delta+: [-0.      0.0571  0.0787], Delta-: [0. 0. 0.], Delta: [-0.      0.0571  0.0787], Omega: [[0.2312 0.3852 0.3831]], bt: 0.0
+Best solution found. Point: tensor([0.3344, 0.3674, 0.2249], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3344 0.3674 0.2249]], bt: 0.0732
+Best solution found. Point: tensor([0.2363, 0.3775, 0.3163], dtype=torch.float64), Delta+: [-0.      0.      0.1361], Delta-: [0.     0.0667 0.    ], Delta: [-0.     -0.0667  0.1361], Omega: [[0.2363 0.3108 0.4524]], bt: 0.0
+Best solution found. Point: tensor([0.3898, 0.3032, 0.2337], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3898 0.3032 0.2337]], bt: 0.0734
+Best solution found. Point: tensor([0.2354, 0.2790, 0.3175], dtype=torch.float64), Delta+: [ 0.1676 -0.     -0.    ], Delta-: [0. 0. 0.], Delta: [ 0.1676 -0.     -0.    ], Omega: [[0.403  0.279  0.3175]], bt: 0.0
+Best solution found. Point: tensor([0.2418, 0.3328, 0.3755], dtype=torch.float64), Delta+: [-0.      0.0495  0.    ], Delta-: [ 0.  0. -0.], Delta: [-0.      0.0495  0.    ], Omega: [[0.2418 0.3823 0.3755]], bt: 0.0
+Best solution found. Point: tensor([0.2390, 0.3702, 0.3408], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.239  0.3702 0.3408]], bt: 0.05
+Best solution found. Point: tensor([0.2409, 0.2979, 0.2697], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2409 0.2979 0.2697]], bt: 0.1916
+Best solution found. Point: tensor([0.2399, 0.3089, 0.3797], dtype=torch.float64), Delta+: [-0.     0.071  0.   ], Delta-: [ 0.  0. -0.], Delta: [-0.     0.071  0.   ], Omega: [[0.2399 0.3799 0.3797]], bt: 0.0
+Best solution found. Point: tensor([0.2316, 0.3692, 0.3089], dtype=torch.float64), Delta+: [-0.      0.      0.0897], Delta-: [ 0. -0.  0.], Delta: [-0.      0.      0.0897], Omega: [[0.2316 0.3692 0.3986]], bt: 0.0
+Best solution found. Point: tensor([0.3794, 0.2590, 0.2668], dtype=torch.float64), Delta+: [0.     0.     0.1852], Delta-: [0.0908 0.     0.    ], Delta: [-0.0908  0.      0.1852], Omega: [[0.2886 0.259  0.452 ]], bt: 0.0
+Best solution found. Point: tensor([0.2370, 0.3722, 0.3557], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.237  0.3722 0.3557]], bt: 0.0351
+Best solution found. Point: tensor([0.2895, 0.3562, 0.2320], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2895 0.3562 0.232 ]], bt: 0.1223
+Best solution found. Point: tensor([0.3396, 0.2255, 0.3186], dtype=torch.float64), Delta+: [0.     0.0906 0.1323], Delta-: [0.1071 0.     0.    ], Delta: [-0.1071  0.0906  0.1323], Omega: [[0.2325 0.3161 0.4509]], bt: 0.0
+Best solution found. Point: tensor([0.3568, 0.3241, 0.2174], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3568 0.3241 0.2174]], bt: 0.1017
+Best solution found. Point: tensor([0.2426, 0.3378, 0.4010], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2426 0.3378 0.401 ]], bt: 0.0186
+Best solution found. Point: tensor([0.3505, 0.2888, 0.2265], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3505 0.2888 0.2265]], bt: 0.1342
+Best solution found. Point: tensor([0.4072, 0.2906, 0.2630], dtype=torch.float64), Delta+: [0.     0.016  0.0226], Delta-: [-0.  0.  0.], Delta: [0.     0.016  0.0226], Omega: [[0.4072 0.3066 0.2857]], bt: 0.0
+Best solution found. Point: tensor([0.3632, 0.2308, 0.3431], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3632 0.2308 0.3431]], bt: 0.0629
+Best solution found. Point: tensor([0.4051, 0.2434, 0.3396], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4051 0.2434 0.3396]], bt: 0.0119
+Best solution found. Point: tensor([0.3249, 0.3575, 0.2254], dtype=torch.float64), Delta+: [-0.     0.     0.111], Delta-: [0.     0.0193 0.    ], Delta: [-0.     -0.0193  0.111 ], Omega: [[0.3249 0.3382 0.3364]], bt: 0.0
+Best solution found. Point: tensor([0.2811, 0.3962, 0.2647], dtype=torch.float64), Delta+: [0.0432 0.     0.0143], Delta-: [ 0. -0.  0.], Delta: [0.0432 0.     0.0143], Omega: [[0.3243 0.3962 0.279 ]], bt: 0.0
+Best solution found. Point: tensor([0.3273, 0.2442, 0.3785], dtype=torch.float64), Delta+: [-0.      0.1558  0.    ], Delta-: [0.     0.     0.1063], Delta: [-0.      0.1558 -0.1063], Omega: [[0.3273 0.4    0.2722]], bt: 0.0
+Best solution found. Point: tensor([0.3530, 0.2321, 0.2736], dtype=torch.float64), Delta+: [ 0.     -0.      0.1718], Delta-: [0.031 0.    0.   ], Delta: [-0.031  -0.      0.1718], Omega: [[0.322  0.2321 0.4454]], bt: 0.0
+Best solution found. Point: tensor([0.2208, 0.3456, 0.3017], dtype=torch.float64), Delta+: [-0.      0.      0.1469], Delta-: [0.     0.0155 0.    ], Delta: [-0.     -0.0155  0.1469], Omega: [[0.2208 0.3301 0.4487]], bt: 0.0
+Best solution found. Point: tensor([0.2524, 0.3996, 0.2754], dtype=torch.float64), Delta+: [0.068 0.    0.004], Delta-: [ 0. -0.  0.], Delta: [0.068 0.    0.004], Omega: [[0.3204 0.3996 0.2794]], bt: 0.0
+Best solution found. Point: tensor([0.2570, 0.3081, 0.4109], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.257  0.3081 0.4109]], bt: 0.024
+Best solution found. Point: tensor([0.2413, 0.3421, 0.2658], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2413 0.3421 0.2658]], bt: 0.1508
+Best solution found. Point: tensor([0.2369, 0.3686, 0.3446], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2369 0.3686 0.3446]], bt: 0.05
+Best solution found. Point: tensor([0.2969, 0.3797, 0.2308], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2969 0.3797 0.2308]], bt: 0.0926
+Best solution found. Point: tensor([0.2179, 0.3326, 0.3386], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2179 0.3326 0.3386]], bt: 0.1109
+Best solution found. Point: tensor([0.3036, 0.3953, 0.2511], dtype=torch.float64), Delta+: [-0.      0.      0.0495], Delta-: [ 0. -0.  0.], Delta: [-0.      0.      0.0495], Omega: [[0.3036 0.3953 0.3006]], bt: 0.0
+Best solution found. Point: tensor([0.2854, 0.2618, 0.2583], dtype=torch.float64), Delta+: [-0.    -0.     0.194], Delta-: [0. 0. 0.], Delta: [-0.    -0.     0.194], Omega: [[0.2854 0.2618 0.4523]], bt: 0.0
+Best solution found. Point: tensor([0.3902, 0.2402, 0.2833], dtype=torch.float64), Delta+: [0.     0.0481 0.0376], Delta-: [-0.  0.  0.], Delta: [0.     0.0481 0.0376], Omega: [[0.3902 0.2883 0.321 ]], bt: 0.0
+Best solution found. Point: tensor([0.2263, 0.2977, 0.3023], dtype=torch.float64), Delta+: [ 0.1732 -0.     -0.    ], Delta-: [0. 0. 0.], Delta: [ 0.1732 -0.     -0.    ], Omega: [[0.3996 0.2977 0.3023]], bt: 0.0
+Best solution found. Point: tensor([0.2392, 0.3046, 0.3913], dtype=torch.float64), Delta+: [-0.      0.0756  0.    ], Delta-: [0.     0.     0.0111], Delta: [-0.      0.0756 -0.0111], Omega: [[0.2392 0.3802 0.3801]], bt: 0.0
+Best solution found. Point: tensor([0.2339, 0.3262, 0.2710], dtype=torch.float64), Delta+: [ 0.1683 -0.     -0.    ], Delta-: [0. 0. 0.], Delta: [ 0.1683 -0.     -0.    ], Omega: [[0.4023 0.3262 0.271 ]], bt: 0.0
+Best solution found. Point: tensor([0.2600, 0.2516, 0.3328], dtype=torch.float64), Delta+: [-0.      0.0912  0.064 ], Delta-: [0. 0. 0.], Delta: [-0.      0.0912  0.064 ], Omega: [[0.26   0.3427 0.3967]], bt: 0.0
+Best solution found. Point: tensor([0.2452, 0.2717, 0.3111], dtype=torch.float64), Delta+: [0.0275 0.     0.144 ], Delta-: [0. 0. 0.], Delta: [0.0275 0.     0.144 ], Omega: [[0.2727 0.2717 0.4551]], bt: 0.0
+Best solution found. Point: tensor([0.2408, 0.3354, 0.2761], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2408 0.3354 0.2761]], bt: 0.1477
+Best solution found. Point: tensor([0.3609, 0.3581, 0.2310], dtype=torch.float64), Delta+: [0.     0.     0.0503], Delta-: [ 0.0008 -0.      0.    ], Delta: [-0.0008  0.      0.0503], Omega: [[0.3601 0.3581 0.2813]], bt: 0.0
+Best solution found. Point: tensor([0.4125, 0.2879, 0.2777], dtype=torch.float64), Delta+: [0.     0.0282 0.1732], Delta-: [0.18 0.   0.  ], Delta: [-0.18    0.0282  0.1732], Omega: [[0.2325 0.3161 0.4509]], bt: 0.0
+Best solution found. Point: tensor([0.3337, 0.2418, 0.3745], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3337 0.2418 0.3745]], bt: 0.05
+Best solution found. Point: tensor([0.2290, 0.2789, 0.3346], dtype=torch.float64), Delta+: [0.1051 0.052  0.    ], Delta-: [ 0.  0. -0.], Delta: [0.1051 0.052  0.    ], Omega: [[0.3341 0.3308 0.3346]], bt: 0.0
+Best solution found. Point: tensor([0.3235, 0.3005, 0.2272], dtype=torch.float64), Delta+: [0.02   0.0542 0.0435], Delta-: [0. 0. 0.], Delta: [0.02   0.0542 0.0435], Omega: [[0.3435 0.3547 0.2707]], bt: 0.0306
+Best solution found. Point: tensor([0.2322, 0.3026, 0.3116], dtype=torch.float64), Delta+: [-0.      0.1531 -0.    ], Delta-: [0. 0. 0.], Delta: [-0.      0.1531 -0.    ], Omega: [[0.2322 0.4557 0.3116]], bt: 0.0
+Best solution found. Point: tensor([0.3789, 0.2395, 0.3762], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3789 0.2395 0.3762]], bt: 0.0053
+Best solution found. Point: tensor([0.2490, 0.4083, 0.3358], dtype=torch.float64), Delta+: [0.0833 0.     0.    ], Delta-: [ 0.      0.0769 -0.    ], Delta: [ 0.0833 -0.0769  0.    ], Omega: [[0.3323 0.3314 0.3358]], bt: 0.0
+Best solution found. Point: tensor([0.3972, 0.3558, 0.2402], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.3972 0.3558 0.2402]], bt: 0.0069
+Best solution found. Point: tensor([0.0000, 0.4800, 0.1200], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.   0.48 0.12]], bt: 0.4
+Best solution found. Point: tensor([0.0800, 0.7200, 0.0800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.08 0.72 0.08]], bt: 0.12
+Best solution found. Point: tensor([0.2800, 0.4400, 0.1600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.28 0.44 0.16]], bt: 0.12
+Best solution found. Point: tensor([0.1600, 0.0800, 0.4800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.16 0.08 0.48]], bt: 0.28
+Best solution found. Point: tensor([0.2000, 0.2000, 0.3600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2  0.2  0.36]], bt: 0.24
+Best solution found. Point: tensor([0.0800, 0.0400, 0.0800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.08 0.04 0.08]], bt: 0.8
+Best solution found. Point: tensor([0.3200, 0.0400, 0.6400], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.32 0.04 0.64]], bt: 0.0
+Best solution found. Point: tensor([0.4800, 0.0800, 0.2400], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.48 0.08 0.24]], bt: 0.2
+Best solution found. Point: tensor([0.0800, 0.4800, 0.2800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.08 0.48 0.28]], bt: 0.16
+Best solution found. Point: tensor([0.2800, 0.2000, 0.5200], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.28 0.2  0.52]], bt: 0.0
+Best solution found. Point: tensor([0.0000, 0.0400, 0.8000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.   0.04 0.8 ]], bt: 0.16
+Best solution found. Point: tensor([0.4800, 0.2000, 0.1600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.48 0.2  0.16]], bt: 0.16
+Best solution found. Point: tensor([0.5600, 0.0800, 0.0800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.56 0.08 0.08]], bt: 0.28
+Best solution found. Point: tensor([0.0800, 0.0000, 0.2400], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.08 0.   0.24]], bt: 0.68
+Best solution found. Point: tensor([0.8400, 0.0000, 0.0400], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.84 0.   0.04]], bt: 0.12
+Best solution found. Point: tensor([0.2400, 0.0400, 0.3600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.24 0.04 0.36]], bt: 0.36
+Best solution found. Point: tensor([0.1600, 0.6400, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.16 0.64 0.2 ]], bt: 0.0
+Best solution found. Point: tensor([0.3200, 0.4000, 0.0400], dtype=torch.float64), Delta+: [0.     0.     0.2395], Delta-: [ 0. -0.  0.], Delta: [0.     0.     0.2395], Omega: [[0.32   0.4    0.2795]], bt: 0.0
+Best solution found. Point: tensor([0.1600, 0.4400, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.16 0.44 0.2 ]], bt: 0.2
+Best solution found. Point: tensor([0.0800, 0.4800, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.08 0.48 0.2 ]], bt: 0.24
+Best solution found. Point: tensor([0.1600, 0.5600, 0.0000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.16 0.56 0.  ]], bt: 0.28
+Best solution found. Point: tensor([0.0800, 0.1200, 0.1200], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.08 0.12 0.12]], bt: 0.68
+Best solution found. Point: tensor([0.1200, 0.7200, 0.0000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.12 0.72 0.  ]], bt: 0.16
+Best solution found. Point: tensor([0.7600, 0.0800, 0.1200], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.76 0.08 0.12]], bt: 0.04
+Best solution found. Point: tensor([0.2000, 0.0000, 0.6400], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.2  0.   0.64]], bt: 0.16
+Best solution found. Point: tensor([0.2800, 0.1600, 0.0000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.28 0.16 0.  ]], bt: 0.56
+Best solution found. Point: tensor([0.5600, 0.0000, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.56 0.   0.2 ]], bt: 0.24
+Best solution found. Point: tensor([0.1200, 0.3600, 0.4400], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.12 0.36 0.44]], bt: 0.08
+Best solution found. Point: tensor([0.0400, 0.3600, 0.5600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.04 0.36 0.56]], bt: 0.04
+Best solution found. Point: tensor([0.6400, 0.1200, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.64 0.12 0.2 ]], bt: 0.04
+Best solution found. Point: tensor([0.4800, 0.0400, 0.0800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.48 0.04 0.08]], bt: 0.4
+Best solution found. Point: tensor([0.2400, 0.2400, 0.5200], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.24 0.24 0.52]], bt: 0.0
+Best solution found. Point: tensor([0.2400, 0.1600, 0.3200], dtype=torch.float64), Delta+: [-0.      0.2795  0.    ], Delta-: [0. 0. 0.], Delta: [-0.      0.2795  0.    ], Omega: [[0.24   0.4395 0.32  ]], bt: 0.0
+Best solution found. Point: tensor([0.4000, 0.0400, 0.2800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.4  0.04 0.28]], bt: 0.28
+Best solution found. Point: tensor([0.0800, 0.6400, 0.1200], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.08 0.64 0.12]], bt: 0.16
+Best solution found. Point: tensor([0.6400, 0.1600, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.64 0.16 0.2 ]], bt: 0.0
+Best solution found. Point: tensor([0.0800, 0.1600, 0.4000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.08 0.16 0.4 ]], bt: 0.36
+Best solution found. Point: tensor([0.8000, 0.0800, 0.0000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.8  0.08 0.  ]], bt: 0.12
+Best solution found. Point: tensor([0.2400, 0.2000, 0.5200], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.24 0.2  0.52]], bt: 0.04
+Best solution found. Point: tensor([0.4800, 0.1600, 0.3600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.48 0.16 0.36]], bt: 0.0
+Best solution found. Point: tensor([0.1600, 0.0800, 0.6000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.16 0.08 0.6 ]], bt: 0.16
+Best solution found. Point: tensor([0.1600, 0.0000, 0.2800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.16 0.   0.28]], bt: 0.56
+Best solution found. Point: tensor([0.3600, 0.0400, 0.4400], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.36 0.04 0.44]], bt: 0.16
+Best solution found. Point: tensor([0.0400, 0.0400, 0.4400], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.04 0.04 0.44]], bt: 0.48
+Best solution found. Point: tensor([0.3200, 0.0000, 0.4000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.32 0.   0.4 ]], bt: 0.28
+Best solution found. Point: tensor([0.0000, 0.5200, 0.2800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.   0.52 0.28]], bt: 0.2
+Best solution found. Point: tensor([0.1600, 0.0000, 0.4800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.16 0.   0.48]], bt: 0.36
+Best solution found. Point: tensor([0.2400, 0.0800, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.24 0.08 0.2 ]], bt: 0.48
+Best solution found. Point: tensor([0.2400, 0.4000, 0.2800], dtype=torch.float64), Delta+: [0.0795 0.     0.    ], Delta-: [ 0. -0.  0.], Delta: [0.0795 0.     0.    ], Omega: [[0.3195 0.4    0.28  ]], bt: 0.0
+Best solution found. Point: tensor([0.2400, 0.4000, 0.1600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.24 0.4  0.16]], bt: 0.2
+Best solution found. Point: tensor([0.2400, 0.0000, 0.5600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.24 0.   0.56]], bt: 0.2
+Best solution found. Point: tensor([0.7600, 0.0400, 0.0000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.76 0.04 0.  ]], bt: 0.2
+Best solution found. Point: tensor([0.0400, 0.6400, 0.1600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.04 0.64 0.16]], bt: 0.16
+Best solution found. Point: tensor([0.4400, 0.1200, 0.0400], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.44 0.12 0.04]], bt: 0.4
+Best solution found. Point: tensor([0.1200, 0.6800, 0.0800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.12 0.68 0.08]], bt: 0.12
+Best solution found. Point: tensor([0.1600, 0.0000, 0.0000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.16 0.   0.  ]], bt: 0.84
+Best solution found. Point: tensor([0.0000, 0.4800, 0.5200], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.   0.48 0.52]], bt: 0.0
+Best solution found. Point: tensor([0.2400, 0.1600, 0.2800], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.24 0.16 0.28]], bt: 0.32
+Best solution found. Point: tensor([0.2400, 0.1200, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.24 0.12 0.2 ]], bt: 0.44
+Best solution found. Point: tensor([0.5200, 0.0000, 0.3600], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.52 0.   0.36]], bt: 0.12
+Best solution found. Point: tensor([0.0800, 0.1200, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.08 0.12 0.2 ]], bt: 0.6
+Best solution found. Point: tensor([0.5200, 0.0000, 0.2000], dtype=torch.float64), Delta+: [0. 0. 0.], Delta-: [0. 0. 0.], Delta: [0. 0. 0.], Omega: [[0.52 0.   0.2 ]], bt: 0.28
